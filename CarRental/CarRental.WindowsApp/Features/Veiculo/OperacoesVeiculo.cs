@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.VeiculoModule;
 using CarRental.WindowsApp.Shared;
 using CarRental.WindowsApp.Veiculos;
 using CarRental.Domain.VeiculoModule;
@@ -23,17 +23,17 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                if(tela.Veiculo.imagens.Count !=0)
-                    foreach (Domain.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
+                if(tela.Veiculo.images.Count !=0)
+                    foreach (Domain.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.images)
                         imagem.idVeiculo = tela.Veiculo.Id;
                 
                 controlador.InserirNovo(tela.Veiculo);
 
-                List<Veiculo> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelecionarTodos();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] inserido com sucesso");
             }
         }
         public void EditarRegistro()
@@ -46,7 +46,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Veiculo tarefaSelecionada = controlador.SelecionarPorId(id);
+            Vehicle tarefaSelecionada = controlador.SelecionarPorId(id);
 
             VeiculoForm tela = new VeiculoForm("Edição de Veiculos");
 
@@ -56,11 +56,11 @@ namespace CarRental.WindowsApp.Features.Veiculos
             {
                 controlador.Editar(id, tela.Veiculo);
 
-                List<Veiculo> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelecionarTodos();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] editado com sucesso");
             }
         }
         public void ExcluirRegistro()
@@ -74,18 +74,18 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Veiculo tarefaSelecionada = controlador.SelecionarPorId(id);
+            Vehicle tarefaSelecionada = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.modelo}] ?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.model}] ?",
                 "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
 
-                List<Veiculo> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelecionarTodos();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tarefaSelecionada.model}] removido com sucesso");
             }
         }
         public void FiltrarRegistros()
@@ -94,7 +94,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
         }
         public UserControl ObterTabela()
         {
-            List<Veiculo> veiculos = controlador.SelecionarTodos();
+            List<Vehicle> veiculos = controlador.SelecionarTodos();
 
             tabelaVeiculo.AtualizarRegistros(veiculos);
 

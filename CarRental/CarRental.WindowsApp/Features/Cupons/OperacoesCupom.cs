@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.CupomModule;
+﻿using CarRental.Controllers.CupomModule;
 using CarRental.Domain.Coupon;
 using CarRental.WindowsApp.Shared;
 using System;

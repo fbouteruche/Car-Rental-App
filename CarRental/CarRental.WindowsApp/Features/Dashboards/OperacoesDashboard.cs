@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.ClienteModule;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controladores.ClientesModule
+namespace CarRental.Controllers.ClientesModule
 {
     public class ControladorCliente : Controlador<Customer>
     {

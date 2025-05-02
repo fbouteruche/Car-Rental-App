@@ -1,10 +1,10 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.GrupoDeVeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace CarRental.Controladores.GrupoDeVeiculosModule
+namespace CarRental.Controllers.GrupoDeVeiculosModule
 {
     public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculo>
     {

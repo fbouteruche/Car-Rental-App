@@ -20,7 +20,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Veiculo", HeaderText = "Veiculo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Vehicle", HeaderText = "Vehicle"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Customer"},
 

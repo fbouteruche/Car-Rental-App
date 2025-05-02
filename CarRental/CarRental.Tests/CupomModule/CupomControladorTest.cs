@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.ParceiroModule;
-using CarRental.Controladores.Shared;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.ParceiroModule;
+using CarRental.Controllers.Shared;
 using CarRental.Domain.Coupon;
 using CarRental.Domain.PartnerModule;
 using CarRental.Tests.Shared;

@@ -11,17 +11,17 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
         public string TipoCadastro
         {
-            get { return "Cadastro de um novo Veiculo"; }
+            get { return "Cadastro de um novo Vehicle"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Veiculo existente"; }
+            get { return "Editar um Vehicle existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Veiculo existente"; }
+            get { return "Excluir um Vehicle existente"; }
         }
     }
 }

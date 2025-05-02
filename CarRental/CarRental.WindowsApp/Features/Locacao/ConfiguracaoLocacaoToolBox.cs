@@ -6,22 +6,22 @@ namespace CarRental.WindowsApp.Features.Locacoes
     {
         public string TipoCadastro
         {
-            get { return "Registro Locação de Veiculo"; }
+            get { return "Registro Locação de Vehicle"; }
         }
 
         public string ToolTipAdicionar
         {
-            get { return "Realizar Locação de Veiculo"; }
+            get { return "Realizar Locação de Vehicle"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar Locação de Veiculo"; }
+            get { return "Editar Locação de Vehicle"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir uma Locação de Veiculo"; }
+            get { return "Excluir uma Locação de Vehicle"; }
         }
     }
 }

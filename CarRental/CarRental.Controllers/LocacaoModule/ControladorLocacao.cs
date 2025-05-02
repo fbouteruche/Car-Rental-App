@@ -1,9 +1,9 @@
-﻿using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.FuncionarioModule;
-using CarRental.Controladores.ServicoModule;
-using CarRental.Controladores.Shared;
-using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.Shared;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.Coupon;
 using CarRental.Domain.EmployeeModule;
@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controladores.LocacaoModule
+namespace CarRental.Controllers.LocacaoModule
 {
     public class ControladorLocacao : Controlador<Rental>
     {
@@ -225,7 +225,7 @@ namespace CarRental.Controladores.LocacaoModule
             //        servicosDaLocacao.Add(servico);
             //}
 
-            Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
+            Vehicle veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
             Employee funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Customer clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Customer clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);

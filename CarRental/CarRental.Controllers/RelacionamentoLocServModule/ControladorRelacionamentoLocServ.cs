@@ -1,10 +1,10 @@
-﻿using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.FuncionarioModule;
-using CarRental.Controladores.LocacaoModule;
-using CarRental.Controladores.ServicoModule;
-using CarRental.Controladores.Shared;
-using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.LocacaoModule;
+using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.Shared;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.RentalServiceRelationshipModule;
 using CarRental.Domain.ServiceModule;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controladores.RelacionamentoLocServModule
+namespace CarRental.Controllers.RelacionamentoLocServModule
 {
     public class ControladorRelacionamentoLocServ : Controlador<RentalServiceRelationship>
     {

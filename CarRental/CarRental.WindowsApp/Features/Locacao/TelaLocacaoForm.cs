@@ -1,7 +1,7 @@
-﻿using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.FuncionarioModule;
-using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.Coupon;
 using CarRental.Domain.EmployeeModule;
@@ -70,7 +70,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private void CarregarDados()
         {
             cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
-            List<Veiculo> veiculosDisponiveis = new List<Veiculo>();
+            List<Vehicle> veiculosDisponiveis = new List<Vehicle>();
             if (lblTitulo.Text.Contains("Edição"))
                 veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
             else
@@ -79,10 +79,10 @@ namespace CarRental.WindowsApp.Features.Locacoes
             cBoxCliente.DataSource = controladorCliente.SelecionarTodos();
         }
 
-        private void AdicionaApenasVeiculoDisponivel(List<Veiculo> veiculosDisponiveis)
+        private void AdicionaApenasVeiculoDisponivel(List<Vehicle> veiculosDisponiveis)
         {
-            foreach (Veiculo item in controladorVeiculo.SelecionarTodos())
-                if (!item.estaAlugado)
+            foreach (Vehicle item in controladorVeiculo.SelecionarTodos())
+                if (!item.isRented)
                     veiculosDisponiveis.Add(item);
         }
 
@@ -99,7 +99,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         {
             int id = Convert.ToInt32(txtId.Text);
             string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
-            Veiculo veiculo = cBoxVeiculo.SelectedItem as Veiculo;
+            Vehicle veiculo = cBoxVeiculo.SelectedItem as Vehicle;
             Employee funcionarioLocador = cBoxFuncionario.SelectedItem as Employee;
             Customer clienteContratante = cBoxCliente.SelectedItem as Customer;
             Customer condutor = cBoxCondutor.SelectedItem as Customer;
@@ -118,7 +118,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             }
 
             locacao = new Rental(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-            Veiculo veiculoAtualizado = locacao.Veiculo;
+            Vehicle veiculoAtualizado = locacao.Veiculo;
             controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validate();
 

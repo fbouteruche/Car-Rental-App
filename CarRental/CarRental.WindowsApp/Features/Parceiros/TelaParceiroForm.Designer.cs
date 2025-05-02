@@ -131,7 +131,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veiculo";
+            this.Text = "Locadora de Vehicle";
             this.ResumeLayout(false);
             this.PerformLayout();
 

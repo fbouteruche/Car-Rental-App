@@ -1,7 +1,7 @@
 ﻿using CarRental.Domain.Shared;
 using System.Collections.Generic;
 
-namespace CarRental.Controladores.Shared
+namespace CarRental.Controllers.Shared
 {
     public abstract class Controlador<T> where T : BaseEntity
     {

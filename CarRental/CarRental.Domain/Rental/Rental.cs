@@ -14,7 +14,7 @@ namespace CarRental.Domain.RentalModule
 {
     public class Rental : BaseEntity
     {
-        private Veiculo veiculo;
+        private Vehicle veiculo;
         private Employee funcionarioLocador;
         private Customer clienteContratante;
         private Customer clienteCondutor;
@@ -30,7 +30,7 @@ namespace CarRental.Domain.RentalModule
         private List<Service> servicos;
 
         //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Rental(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Service> servicos)
+        public Rental(int id, Vehicle veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Service> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -51,7 +51,7 @@ namespace CarRental.Domain.RentalModule
         }
 
         //Construtor SOMENTE para carregar do banco
-        public Rental(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Service> servicos)
+        public Rental(int id, Vehicle veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Service> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -70,7 +70,7 @@ namespace CarRental.Domain.RentalModule
             this.servicos = servicos;
         }
 
-        public Veiculo Veiculo { get => veiculo; }
+        public Vehicle Veiculo { get => veiculo; }
         public Employee FuncionarioLocador { get => funcionarioLocador; }
         public Customer ClienteContratante { get => clienteContratante; }
         public Customer ClienteCondutor { get => clienteCondutor; }
@@ -89,7 +89,7 @@ namespace CarRental.Domain.RentalModule
         {
             estaAberta = true;
             dataDeSaida = dataAbertura;
-            veiculo.estaAlugado = true;
+            veiculo.isRented = true;
             precoLocacao = CalculateRental.CalculateInsurance(tipoDeSeguro);
             precoLocacao += CalculateRental.CalculateGuarantee();
             precoLocacao = Math.Round(precoLocacao, 2);
@@ -99,11 +99,11 @@ namespace CarRental.Domain.RentalModule
         {
             estaAberta = false;
             dataDeChegada = dataFechamento;
-            veiculo.kilometragem += kilometragemRodada;
-            veiculo.estaAlugado = false;
+            veiculo.mileage += kilometragemRodada;
+            veiculo.isRented = false;
             precoDevolucao = precoLocacao;
             precoDevolucao += adicionalDoCombustivel;
-            precoDevolucao += CalculateRental.CalculatePlan(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, dataDeSaida, dataDeChegada);
+            precoDevolucao += CalculateRental.CalculatePlan(tipoDoPlano, veiculo.vehicleGroup, kilometragemRodada, dataDeSaida, dataDeChegada);
             precoDevolucao += CalculateRental.CalculateServices(servicos, dataDeSaida, dataDeChegada);
             precoDevolucao += CalculateRental.CalculateLateReturnFee(precoDevolucao, dataPrevistaDeChegada, dataDeChegada);
             precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, cupom);
@@ -155,7 +155,7 @@ namespace CarRental.Domain.RentalModule
         {
             return obj is Rental locacao &&
                    id == locacao.id &&
-                   EqualityComparer<Veiculo>.Default.Equals(veiculo, locacao.veiculo) &&
+                   EqualityComparer<Vehicle>.Default.Equals(veiculo, locacao.veiculo) &&
                    EqualityComparer<Employee>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
                    EqualityComparer<Customer>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
                    EqualityComparer<Customer>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
@@ -173,7 +173,7 @@ namespace CarRental.Domain.RentalModule
         {
             int hashCode = 1457090499;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Vehicle>.Default.GetHashCode(veiculo);
             hashCode = hashCode * -1521134295 + EqualityComparer<Employee>.Default.GetHashCode(funcionarioLocador);
             hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteContratante);
             hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteCondutor);

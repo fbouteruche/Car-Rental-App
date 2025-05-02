@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.ParceiroModule;
+﻿using CarRental.Controllers.ParceiroModule;
 using CarRental.Domain.Coupon;
 using CarRental.Domain.PartnerModule;
 using System;

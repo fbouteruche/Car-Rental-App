@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.ClientesModule;
+﻿using CarRental.Controllers.ClientesModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.WindowsApp.Clientes;
 using CarRental.WindowsApp.ClientesModule;

@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
@@ -39,8 +39,8 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 devolucao = value;
 
                 txtId.Text = devolucao.Id.ToString();
-                txtKmInicial.Text = devolucao.Veiculo.kilometragem.ToString();
-                txtVeiculo.Text = devolucao.Veiculo.modelo;
+                txtKmInicial.Text = devolucao.Veiculo.mileage.ToString();
+                txtVeiculo.Text = devolucao.Veiculo.model;
                 txtFuncionario.Text = devolucao.FuncionarioLocador.Name;
                 txtCliente.Text = devolucao.ClienteContratante.Name;
                 txtCondutor.Text = devolucao.ClienteCondutor.Name;
@@ -78,7 +78,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
 
                 string resultadoValidacao = Devolucao.Validate();
-                Veiculo veiculoAtualizado = devolucao.Veiculo;
+                Vehicle veiculoAtualizado = devolucao.Veiculo;
                 controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
 
 
@@ -234,7 +234,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 precoDevolucao = 0;
 
             precoDevolucao += ReceberPrecoCombustivel();
-            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
+            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.TipoDoPlano, Devolucao.Veiculo.vehicleGroup, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
             precoDevolucao += CalculateRental.CalculateServices(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
             precoDevolucao +=  CalculateRental.CalculateLateReturnFee(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
             precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, Devolucao.Cupom);

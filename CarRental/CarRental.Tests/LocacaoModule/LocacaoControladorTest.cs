@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
-using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.FuncionarioModule;
-using CarRental.Controladores.GrupoDeVeiculosModule;
-using CarRental.Controladores.LocacaoModule;
-using CarRental.Controladores.ServicoModule;
-using CarRental.Controladores.Shared;
-using CarRental.Controladores.VeiculoModule;
+using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.LocacaoModule;
+using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.Shared;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.GrupoDeVeiculosModule;
@@ -30,7 +30,7 @@ namespace CarRental.Tests.LocacaoModule
         ControladorServico controladorServico = null;
         ControladorCupom controladorCupom = null;
         GrupoDeVeiculo grupoVeiculos;
-        Veiculo veiculo;
+        Vehicle veiculo;
         Employee funcionario;
         Customer clienteContratante;
         Customer clienteCondutor;
@@ -53,7 +53,7 @@ namespace CarRental.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -74,7 +74,7 @@ namespace CarRental.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -97,7 +97,7 @@ namespace CarRental.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -120,7 +120,7 @@ namespace CarRental.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);

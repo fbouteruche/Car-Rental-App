@@ -59,9 +59,9 @@
     <Compile Include="RentalServiceRelationship\RentalServiceRelationship.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="Rental\CalculateRental.cs" />
-    <Compile Include="Shared\ConversorParaPdf.cs" />
+    <Compile Include="Shared\PdfConverter.cs" />
     <Compile Include="Shared\BaseEntity.cs" />
-    <Compile Include="Vehicle\Veiculo.cs" />
+    <Compile Include="Vehicle\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

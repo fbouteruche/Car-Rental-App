@@ -24,7 +24,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
             GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"",0f,0f,0f,0,0f,0f);
 
             string resultado = grupoDeVeiculos.Validate();
-            //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o modelo.
+            //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o model.
             Assert.AreEqual("O nome não pode ser nulo\nA taxa diaria do Plano Diário não pode ser nula\nA taxa por KM do Plano Diário não pode ser nula\nA taxa diária do Plano Controlado não pode ser nula\nO limite de KM do plano Controlado não pode ser nulo\nA taxa de KM Excedido do plano Controlado não pode ser nulo\nA taxa diária do do Plano Livre não pode ser nula\n", 
                             resultado);
         }
@@ -35,7 +35,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
             GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"nome", 0f, 0f, 0f, 0, 0f, 0f);
 
             string resultado = grupoDeVeiculos.Validate();
-            //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o modelo.
+            //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o model.
             Assert.AreEqual("A taxa diaria do Plano Diário não pode ser nula\nA taxa por KM do Plano Diário não pode ser nula\nA taxa diária do Plano Controlado não pode ser nula\nO limite de KM do plano Controlado não pode ser nulo\nA taxa de KM Excedido do plano Controlado não pode ser nulo\nA taxa diária do do Plano Livre não pode ser nula\n",
                             resultado);
         }

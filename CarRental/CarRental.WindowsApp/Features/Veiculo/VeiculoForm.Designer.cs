@@ -362,7 +362,7 @@ namespace CarRental.WindowsApp.Veiculos
             this.btnImagem.Name = "btnImagem";
             this.btnImagem.Size = new System.Drawing.Size(216, 23);
             this.btnImagem.TabIndex = 8;
-            this.btnImagem.Text = "Inserir imagens";
+            this.btnImagem.Text = "Inserir images";
             this.btnImagem.UseVisualStyleBackColor = true;
             this.btnImagem.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -485,7 +485,7 @@ namespace CarRental.WindowsApp.Veiculos
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veiculo";
+            this.Text = "Locadora de Vehicle";
             this.gBoxDados.ResumeLayout(false);
             this.gBoxDados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).EndInit();

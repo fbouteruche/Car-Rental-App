@@ -1,10 +1,10 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace CarRental.Controladores.ServicoModule
+namespace CarRental.Controllers.ServicoModule
 {
     public class ControladorServico : Controlador<Service>
     {

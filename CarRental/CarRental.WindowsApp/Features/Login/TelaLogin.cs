@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.FuncionarioModule;
+﻿using CarRental.Controllers.FuncionarioModule;
 using CarRental.Domain.EmployeeModule;
 using System;
 using System.Collections.Generic;

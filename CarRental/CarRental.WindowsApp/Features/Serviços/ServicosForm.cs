@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.ServicoModule;
+﻿using CarRental.Controllers.ServicoModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.WindowsApp.Features.Servicos;

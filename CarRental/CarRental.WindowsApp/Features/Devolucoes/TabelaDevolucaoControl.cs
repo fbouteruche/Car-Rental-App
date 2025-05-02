@@ -55,7 +55,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             gridDevolucoes.Rows.Clear();
 
             foreach (Rental devolucao in devolucoes)
-                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Name, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
+                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.model, devolucao.Veiculo.licensePlate, devolucao.ClienteContratante.Name, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
         }
     }
 }

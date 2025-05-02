@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using CarRental.Controladores.Shared;
+using CarRental.Controllers.Shared;
 using CarRental.Domain.EmployeeModule;
 
-namespace CarRental.Controladores.FuncionarioModule
+namespace CarRental.Controllers.FuncionarioModule
 {
     public class ControladorFuncionario : Controlador<Employee>
     {

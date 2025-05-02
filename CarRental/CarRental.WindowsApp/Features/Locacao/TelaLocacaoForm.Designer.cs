@@ -352,7 +352,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veiculo";
+            this.Text = "Locadora de Vehicle";
             this.gBoxRegistro.ResumeLayout(false);
             this.gBoxRegistro.PerformLayout();
             this.ResumeLayout(false);

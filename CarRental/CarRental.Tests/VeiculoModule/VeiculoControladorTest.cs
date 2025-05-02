@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using CarRental.Controladores.GrupoDeVeiculosModule;
-using CarRental.Controladores.Shared;
-using CarRental.Controladores.VeiculoModule;
+using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.Shared;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.GrupoDeVeiculosModule;
 using CarRental.Domain.VeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,7 +16,7 @@ namespace CarRental.Tests.VeiculoModule
     {
         ControladorVeiculo controlador = null;
         ControladorGrupoDeVeiculos controladorGrupoDeVeiculos = null;        
-        Veiculo novoVeiculo;
+        Vehicle novoVeiculo;
         GrupoDeVeiculo grupoVeiculos;
         List<ImagemVeiculo> imagem;
 
@@ -33,13 +33,13 @@ namespace CarRental.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
+            novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);
 
             //assert
-            Veiculo veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
+            Vehicle veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
             veiculoEncontrado.Should().Be(novoVeiculo);
         }
 
@@ -49,14 +49,14 @@ namespace CarRental.Tests.VeiculoModule
             //arrange  
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
+            novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);
             controlador.InserirNovo(novoVeiculo);
 
             //assert
-            List<Veiculo> veiculoEncontrado = controlador.SelecionarTodos();
+            List<Vehicle> veiculoEncontrado = controlador.SelecionarTodos();
             veiculoEncontrado.Count.Should().Be(2);
         }
 
@@ -67,17 +67,17 @@ namespace CarRental.Tests.VeiculoModule
             imagem = new List<ImagemVeiculo>();
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             GrupoDeVeiculo grupoEditado = new GrupoDeVeiculo(0, "Pique Velozes e Furiosos", 100, 60.5, 40, 300, 45.2, 500);
             controladorGrupoDeVeiculos.InserirNovo(grupoEditado);
-            Veiculo veiculoEditado = new Veiculo(0, "Monza Tubarão Turbão Rebaixado", grupoEditado, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'G', false, false, false, false,imagem);
+            Vehicle veiculoEditado = new Vehicle(0, "Monza Tubarão Turbão Rebaixado", grupoEditado, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'G', false, false, false, false,imagem);
             //action
             controlador.InserirNovo(novoVeiculo);
             controlador.Editar(novoVeiculo.Id, veiculoEditado);
 
             //assert
-            Veiculo veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
+            Vehicle veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
             veiculoEncontrado.Should().Be(veiculoEditado);
         }
 
@@ -87,14 +87,14 @@ namespace CarRental.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);
             controlador.Excluir(novoVeiculo.Id);
 
             //assert
-            List<Veiculo> veiculoEncontrado = controlador.SelecionarTodos();
+            List<Vehicle> veiculoEncontrado = controlador.SelecionarTodos();
             veiculoEncontrado.Count.Should().Be(0);
         }        
     }

@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Controllers.GrupoDeVeiculosModule;
 using CarRental.Domain.GrupoDeVeiculosModule;
 using CarRental.Domain.ImagemVeiculoModule;
 using CarRental.WindowsApp.Features.ImagemVeiculo;
@@ -13,7 +13,7 @@ namespace CarRental.WindowsApp.Veiculos
 {
     public partial class VeiculoForm : Form
     {
-        private Veiculo veiculo;
+        private Vehicle veiculo;
         private ControladorGrupoDeVeiculos controladorGrupoVeiculos = new ControladorGrupoDeVeiculos();
         public VeiculoForm(string titulo)
         {            
@@ -29,7 +29,7 @@ namespace CarRental.WindowsApp.Veiculos
             cBoxGrupo.DataSource = controladorGrupoVeiculos.SelecionarTodos();
         }
 
-        public Veiculo Veiculo
+        public Vehicle Veiculo
         {
             get { return veiculo; }
 
@@ -37,26 +37,26 @@ namespace CarRental.WindowsApp.Veiculos
             {
                 veiculo = value;
 
-                imagensVeiculo = veiculo.imagens;
+                imagensVeiculo = veiculo.images;
                 textId.Text = veiculo.Id.ToString();
-                textModelo.Text = veiculo.modelo;
-                cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
-                textPlaca.Text = veiculo.placa;
-                textChassi.Text = veiculo.chassi;
+                textModelo.Text = veiculo.model;
+                cBoxGrupo.Text = veiculo.vehicleGroup.Nome;
+                textPlaca.Text = veiculo.licensePlate;
+                textChassi.Text = veiculo.chassis;
                 textMarca.Text = veiculo.marca;
-                textCor.Text = veiculo.cor;
-                cBoxCombustivel.Text = veiculo.tipoCombustivel;
+                textCor.Text = veiculo.color;
+                cBoxCombustivel.Text = veiculo.fuelType;
                 numUpDownCapTanque.Text = veiculo.capacidadeTanque.ToString();
-                textAno.Text = veiculo.ano.ToString();
-                textKM.Text = veiculo.kilometragem.ToString();
-                numUpDownQtdPortas.Text = veiculo.numeroPortas.ToString();
-                numUpDownQtdPessoas.Text = veiculo.capacidadePessoas.ToString();
-                cBoxPortaMalas.Text = veiculo.tamanhoPortaMala.ToString();
-                if (veiculo.temArCondicionado)
+                textAno.Text = veiculo.year.ToString();
+                textKM.Text = veiculo.mileage.ToString();
+                numUpDownQtdPortas.Text = veiculo.numberOfDoors.ToString();
+                numUpDownQtdPessoas.Text = veiculo.passengerCapacity.ToString();
+                cBoxPortaMalas.Text = veiculo.trunkSize.ToString();
+                if (veiculo.hasAirConditioning)
                     checkLBoxOpcionais.SetItemChecked(0, true);
-                if (veiculo.temDirecaoHidraulica)
+                if (veiculo.hasPowerSteering)
                     checkLBoxOpcionais.SetItemChecked(1, true);
-                if (veiculo.temFreiosAbs)
+                if (veiculo.hasAbsBrakes)
                     checkLBoxOpcionais.SetItemChecked(2, true);
             }
         }
@@ -96,7 +96,7 @@ namespace CarRental.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
+            veiculo = new Vehicle(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
 
             string resultadoValidacao = veiculo.Validate();
 

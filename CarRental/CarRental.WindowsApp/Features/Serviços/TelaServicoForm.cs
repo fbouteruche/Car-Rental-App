@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.ServicoModule;
+﻿using CarRental.Controllers.ServicoModule;
 using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;

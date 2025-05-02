@@ -1,9 +1,9 @@
-﻿using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.CupomModule;
-using CarRental.Controladores.FuncionarioModule;
-using CarRental.Controladores.LocacaoModule;
-using CarRental.Controladores.ServicoModule;
-using CarRental.Controladores.VeiculoModule;
+﻿using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.LocacaoModule;
+using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
@@ -110,15 +110,15 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardVeiculo()
         {
-            List<Veiculo> TodosVeiculos = controladorVeiculo.SelecionarTodos();
+            List<Vehicle> TodosVeiculos = controladorVeiculo.SelecionarTodos();
             int carrosNoTotal = TodosVeiculos.Count;
             int carrosAlugados = 0;
             int carrosDisponiveis = 0;
 
 
-            foreach (Veiculo veiculo in TodosVeiculos)
+            foreach (Vehicle veiculo in TodosVeiculos)
             {
-                if (veiculo.estaAlugado)
+                if (veiculo.isRented)
                 {
                     carrosAlugados++;
                 }

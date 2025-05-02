@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.FuncionarioModule;
+﻿using CarRental.Controllers.FuncionarioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarRental.Domain.EmployeeModule;
 using System.Collections.Generic;

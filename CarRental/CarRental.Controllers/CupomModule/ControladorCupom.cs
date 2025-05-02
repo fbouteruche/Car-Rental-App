@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.Coupon;
 using CarRental.Domain.PartnerModule;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controladores.CupomModule
+namespace CarRental.Controllers.CupomModule
 {
     public class ControladorCupom : Controlador<Coupon>
     {

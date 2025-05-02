@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.LocacaoModule;
+﻿using CarRental.Controllers.LocacaoModule;
 using CarRental.Domain.RentalModule;
 using CarRental.WindowsApp.Shared;
 using System;

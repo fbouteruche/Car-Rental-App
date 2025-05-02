@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.GrupoDeVeiculosModule;
+﻿using CarRental.Controllers.GrupoDeVeiculosModule;
 using CarRental.Domain.GrupoDeVeiculosModule;
 using CarRental.WindowsApp.GrupoDeVeiculos;
 using CarRental.WindowsApp.Shared;

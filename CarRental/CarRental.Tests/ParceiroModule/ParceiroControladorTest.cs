@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using CarRental.Controladores.ParceiroModule;
-using CarRental.Controladores.Shared;
+using CarRental.Controllers.ParceiroModule;
+using CarRental.Controllers.Shared;
 using CarRental.Domain.PartnerModule;
 using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

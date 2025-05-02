@@ -1,16 +1,16 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.GrupoDeVeiculosModule;
 using CarRental.Domain.ImagemVeiculoModule;
-using CarRental.Controladores.ImagemVeiculoModule;
+using CarRental.Controllers.ImagemVeiculoModule;
 using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 
-namespace CarRental.Controladores.VeiculoModule
+namespace CarRental.Controllers.VeiculoModule
 {
-    public class ControladorVeiculo : Controlador<Veiculo>
+    public class ControladorVeiculo : Controlador<Vehicle>
     {
         private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
         #region queries
@@ -160,16 +160,16 @@ namespace CarRental.Controladores.VeiculoModule
         private const string sqlVeiculoTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
-        public override string InserirNovo(Veiculo registro)
+        public override string InserirNovo(Vehicle registro)
         {
             string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
-                if (registro.imagens != null)
+                if (registro.images != null)
                 {
-                    foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
+                    foreach (ImagemVeiculo imagemVeiculo in registro.images)
                     {
                         imagemVeiculo.idVeiculo = registro.Id;
                         controladorImagem.InserirNovo(imagemVeiculo);
@@ -178,24 +178,24 @@ namespace CarRental.Controladores.VeiculoModule
             }
             return resultadoValidacao;
         }
-        public override List<Veiculo> SelecionarTodos()
+        public override List<Vehicle> SelecionarTodos()
         {
-            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+            List<Vehicle>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
 
-            foreach (Veiculo veiculo in veiculos)
+            foreach (Vehicle veiculo in veiculos)
             {
-                veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+                veiculo.images = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
             }
 
             return veiculos;
         }
-        public override Veiculo SelecionarPorId(int id)
+        public override Vehicle SelecionarPorId(int id)
         {
-            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
-            veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
+            Vehicle veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            veiculo.images = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
-        public override string Editar(int id, Veiculo registro)
+        public override string Editar(int id, Vehicle registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -203,9 +203,9 @@ namespace CarRental.Controladores.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
-                foreach (ImagemVeiculo imagem in registro.imagens)
+                foreach (ImagemVeiculo imagem in registro.images)
                     imagem.idVeiculo = registro.Id;
-                controladorImagem.EditarLista(registro.imagens);
+                controladorImagem.EditarLista(registro.images);
             }
 
             return resultadoValidacao;
@@ -229,33 +229,33 @@ namespace CarRental.Controladores.VeiculoModule
             return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
+        private Dictionary<string, object> ObtemParametrosVeiculo(Vehicle veiculo)
         {
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", veiculo.Id);
-            parametros.Add("MODELO", veiculo.modelo);
-            parametros.Add("ID_GRUPOVEICULO", veiculo.grupoVeiculos.Id);
-            parametros.Add("PLACA", veiculo.placa);
-            parametros.Add("CHASSI", veiculo.chassi);
+            parametros.Add("MODELO", veiculo.model);
+            parametros.Add("ID_GRUPOVEICULO", veiculo.vehicleGroup.Id);
+            parametros.Add("PLACA", veiculo.licensePlate);
+            parametros.Add("CHASSI", veiculo.chassis);
             parametros.Add("MARCA", veiculo.marca);
-            parametros.Add("COR", veiculo.cor);
-            parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
+            parametros.Add("COR", veiculo.color);
+            parametros.Add("TIPOCOMBUSTIVEL", veiculo.fuelType);
             parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
-            parametros.Add("ANO", veiculo.ano);
-            parametros.Add("KILOMETRAGEM", veiculo.kilometragem);
-            parametros.Add("NUMEROPORTAS", veiculo.numeroPortas);
-            parametros.Add("CAPACIDADEPESSOAS", veiculo.capacidadePessoas);
-            parametros.Add("TAMANHOPORTAMALA", veiculo.tamanhoPortaMala);
-            parametros.Add("TEMARCONDICIONADO", veiculo.temArCondicionado);
-            parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.temDirecaoHidraulica);
-            parametros.Add("TEMFREIOSABS", veiculo.temFreiosAbs);
-            parametros.Add("ESTAALUGADO", veiculo.estaAlugado);
+            parametros.Add("ANO", veiculo.year);
+            parametros.Add("KILOMETRAGEM", veiculo.mileage);
+            parametros.Add("NUMEROPORTAS", veiculo.numberOfDoors);
+            parametros.Add("CAPACIDADEPESSOAS", veiculo.passengerCapacity);
+            parametros.Add("TAMANHOPORTAMALA", veiculo.trunkSize);
+            parametros.Add("TEMARCONDICIONADO", veiculo.hasAirConditioning);
+            parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.hasPowerSteering);
+            parametros.Add("TEMFREIOSABS", veiculo.hasAbsBrakes);
+            parametros.Add("ESTAALUGADO", veiculo.isRented);
 
             return parametros;
         }
 
-        private Veiculo ConverterEmVeiculo(IDataReader reader)
+        private Vehicle ConverterEmVeiculo(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
@@ -286,7 +286,7 @@ namespace CarRental.Controladores.VeiculoModule
 
             GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
+            Vehicle veiculo = new Vehicle(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
 
             veiculo.Id = id;
 

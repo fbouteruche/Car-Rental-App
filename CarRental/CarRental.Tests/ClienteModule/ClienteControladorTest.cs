@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using CarRental.Controladores.ClientesModule;
-using CarRental.Controladores.Shared;
+using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.Shared;
 using CarRental.Domain.ClienteModule;
 using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +9,7 @@ using System;
 namespace CarRental.Tests.ClienteModule
 {
     [TestClass]
-    [TestCategory("Controladores")]
+    [TestCategory("Controllers")]
     public class ClienteControladorTest
     {
         ControladorCliente controlador = null;

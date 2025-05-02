@@ -19,16 +19,16 @@ namespace CarRental.WindowsApp.Features.Veiculos
             var colunas = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "modelo", HeaderText = "Modelo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "grupoVeiculos", HeaderText = "Grupo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "placa", HeaderText = "Placa"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "model", HeaderText = "Modelo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "vehicleGroup", HeaderText = "Grupo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "licensePlate", HeaderText = "Placa"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "marca", HeaderText = "Marca"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "cor", HeaderText = "Cor"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "tipoCombustivel", HeaderText = "Combustivel"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "ano", HeaderText = "Ano"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "numeroPortas", HeaderText = "Qtd. Portas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "capacidadePessoas", HeaderText = "Cap. Pessoas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "tamanhoPortaMala", HeaderText = "Tam. Porta Malas"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "color", HeaderText = "Cor"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "fuelType", HeaderText = "Combustivel"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "year", HeaderText = "Ano"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "numberOfDoors", HeaderText = "Qtd. Portas"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "passengerCapacity", HeaderText = "Cap. Pessoas"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "trunkSize", HeaderText = "Tam. Porta Malas"}
            };
 
             return colunas;
@@ -38,12 +38,12 @@ namespace CarRental.WindowsApp.Features.Veiculos
             return gridVeiculos.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Veiculo> veiculos)
+        public void AtualizarRegistros(List<Vehicle> veiculos)
         {
             gridVeiculos.Rows.Clear();
 
-            foreach (Veiculo veiculo in veiculos)
-                gridVeiculos.Rows.Add(veiculo.Id, veiculo.modelo, veiculo.grupoVeiculos, veiculo.placa, veiculo.marca, veiculo.cor, veiculo.tipoCombustivel, veiculo.ano, veiculo.numeroPortas, veiculo.capacidadePessoas, veiculo.tamanhoPortaMala);
+            foreach (Vehicle veiculo in veiculos)
+                gridVeiculos.Rows.Add(veiculo.Id, veiculo.model, veiculo.vehicleGroup, veiculo.licensePlate, veiculo.marca, veiculo.color, veiculo.fuelType, veiculo.year, veiculo.numberOfDoors, veiculo.passengerCapacity, veiculo.trunkSize);
         }
     }
 }

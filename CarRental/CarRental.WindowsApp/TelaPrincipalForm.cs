@@ -11,25 +11,25 @@ using CarRental.WindowsApp.Clientes;
 using CarRental.WindowsApp.Funcionarios;
 using CarRental.WindowsApp.ClientesModule;
 using CarRental.Domain.EmployeeModule;
-using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controllers.FuncionarioModule;
 using CarRental.WindowsApp.Shared;
 using CarRental.WindowsApp.Features.Funcionarios;
 using CarRental.WindowsApp.Features.Servicos;
-using CarRental.Controladores.ServicoModule;
+using CarRental.Controllers.ServicoModule;
 using CarRental.WindowsApp.Features.Clientes;
-using CarRental.Controladores.ClientesModule;
+using CarRental.Controllers.ClientesModule;
 using CarRental.WindowsApp.Features.Veiculos;
-using CarRental.Controladores.VeiculoModule;
+using CarRental.Controllers.VeiculoModule;
 using CarRental.WindowsApp.Features.GrupoDeVeiculos;
-using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Controllers.GrupoDeVeiculosModule;
 using CarRental.WindowsApp.Features.Locacoes;
-using CarRental.Controladores.LocacaoModule;
+using CarRental.Controllers.LocacaoModule;
 using CarRental.WindowsApp.Features.Devolucoes;
 using CarRental.WindowsApp.Features.Dashboards;
 using CarRental.WindowsApp.Features.Parceiros;
-using CarRental.Controladores.ParceiroModule;
+using CarRental.Controllers.ParceiroModule;
 using CarRental.WindowsApp.Features.Cupons;
-using CarRental.Controladores.CupomModule;
+using CarRental.Controllers.CupomModule;
 
 namespace CarRental.WindowsApp
 {

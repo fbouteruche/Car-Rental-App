@@ -1,6 +1,6 @@
-﻿using CarRental.Controladores.LocacaoModule;
-using CarRental.Controladores.RelacionamentoLocServModule;
-using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.LocacaoModule;
+using CarRental.Controllers.RelacionamentoLocServModule;
+using CarRental.Controllers.Shared;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.RentalServiceRelationshipModule;
 using CarRental.WindowsApp.Servicos;
@@ -21,10 +21,10 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
         private RentalServiceRelationship relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
-        ConversorParaPdf conversorPdf;
+        PdfConverter conversorPdf;
         public OperacoesLocacao(ControladorLocacao ctrlLocacao)
         {
-            conversorPdf = new ConversorParaPdf(10, 18);
+            conversorPdf = new PdfConverter(10, 18);
             controlador = ctrlLocacao;
             controladorRelacionamento = new ControladorRelacionamentoLocServ();
             tabelaLocacao = new TabelaLocacaoControl();
@@ -42,7 +42,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 {
                     relacionamento = new RentalServiceRelationship(0, tela.Locacao, tela.Servicos);
                     controladorRelacionamento.InserirNovo(relacionamento);
-                    conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
+                    conversorPdf.ConvertRentalToPdf(tela.Locacao);
 
                     try
                     {

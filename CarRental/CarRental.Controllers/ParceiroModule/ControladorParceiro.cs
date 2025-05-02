@@ -1,4 +1,4 @@
-﻿using CarRental.Controladores.Shared;
+﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.PartnerModule;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controladores.ParceiroModule
+namespace CarRental.Controllers.ParceiroModule
 {
     public class ControladorParceiro : Controlador<Partner>
     {
