@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 
 namespace CarRental.Tests.VeiculoModule
 {

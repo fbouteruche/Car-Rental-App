@@ -4,12 +4,12 @@ using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.ServicoModule;
 using CarRental.Controllers.Shared;
 using CarRental.Controllers.VeiculoModule;
-using CarRental.Domain.ClienteModule;
-using CarRental.Domain.Coupon;
+using CarRental.Domain.CustomerModule;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -171,22 +171,22 @@ namespace CarRental.Controllers.LocacaoModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_VEICULO",locacao.Veiculo.Id);
-            parametros.Add("ID_FUNCIONARIO", locacao.FuncionarioLocador.Id);
-            parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
-            parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
-            if(locacao.Cupom != null)
-                parametros.Add("ID_CUPOM", locacao.Cupom.Id);
+            parametros.Add("ID_VEICULO",locacao.Vehicle.Id);
+            parametros.Add("ID_FUNCIONARIO", locacao.RentingEmployee.Id);
+            parametros.Add("ID_CLIENTECONTRATANTE", locacao.ContractingCustomer.Id);
+            parametros.Add("ID_CLIENTECONDUTOR", locacao.DriverCustomer.Id);
+            if(locacao.Coupon != null)
+                parametros.Add("ID_CUPOM", locacao.Coupon.Id);
             else
                 parametros.Add("ID_CUPOM", null);
-            parametros.Add("DATADESAIDA", locacao.DataDeSaida);
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
-            parametros.Add("DATADECHEGADA", locacao.DataDeChegada);
-            parametros.Add("TIPODOPLANO", locacao.TipoDoPlano);
-            parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
-            parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
-            parametros.Add("PRECODEVOLUCAO", locacao.PrecoDevolucao);
-            parametros.Add("ESTAABERTA", locacao.EstaAberta);
+            parametros.Add("DATADESAIDA", locacao.DepartureDate);
+            parametros.Add("DATAPREVISTADECHEGADA", locacao.ExpectedReturnDate);
+            parametros.Add("DATADECHEGADA", locacao.ReturnDate);
+            parametros.Add("TIPODOPLANO", locacao.PlanType);
+            parametros.Add("TIPODESEGURO", locacao.InsuranceType);
+            parametros.Add("PRECOLOCACAO", locacao.RentalPrice);
+            parametros.Add("PRECODEVOLUCAO", locacao.ReturnPrice);
+            parametros.Add("ESTAABERTA", locacao.IsOpen);
             return parametros;
         }
 

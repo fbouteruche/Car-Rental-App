@@ -2,14 +2,14 @@
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.VeiculoModule;
-using CarRental.Domain.ClienteModule;
-using CarRental.Domain.Coupon;
+using CarRental.Domain.CustomerModule;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.RentalServiceRelationshipModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using CarRental.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
@@ -53,16 +53,16 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 locacao = value;
 
                 txtId.Text = locacao.Id.ToString();
-                cBoxVeiculo.SelectedItem = locacao.Veiculo;
-                cBoxFuncionario.SelectedItem = locacao.FuncionarioLocador;
-                cBoxCliente.SelectedItem = locacao.ClienteContratante;
-                cBoxCondutor.SelectedItem = locacao.ClienteCondutor;
-                cBoxPlano.SelectedItem = locacao.TipoDoPlano;
-                dateTPDataSaida.Text = locacao.DataDeSaida.ToLongDateString();
-                dateTPDataDevolucao.Text = locacao.DataPrevistaDeChegada.ToLongDateString();
-                txtTotal.Text = locacao.PrecoLocacao.ToString();
-                Servicos = locacao.Servicos;
-                TipoSeguro = locacao.TipoDeSeguro;
+                cBoxVeiculo.SelectedItem = locacao.Vehicle;
+                cBoxFuncionario.SelectedItem = locacao.RentingEmployee;
+                cBoxCliente.SelectedItem = locacao.ContractingCustomer;
+                cBoxCondutor.SelectedItem = locacao.DriverCustomer;
+                cBoxPlano.SelectedItem = locacao.PlanType;
+                dateTPDataSaida.Text = locacao.DepartureDate.ToLongDateString();
+                dateTPDataDevolucao.Text = locacao.ExpectedReturnDate.ToLongDateString();
+                txtTotal.Text = locacao.RentalPrice.ToString();
+                Servicos = locacao.Services;
+                TipoSeguro = locacao.InsuranceType;
 
             }
         }
@@ -118,8 +118,8 @@ namespace CarRental.WindowsApp.Features.Locacoes
             }
 
             locacao = new Rental(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-            Vehicle veiculoAtualizado = locacao.Veiculo;
-            controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
+            Vehicle veiculoAtualizado = locacao.Vehicle;
+            controladorVeiculo.Editar(locacao.Vehicle.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validate();
 
             if (resultadoValidacao != "VALIDO")

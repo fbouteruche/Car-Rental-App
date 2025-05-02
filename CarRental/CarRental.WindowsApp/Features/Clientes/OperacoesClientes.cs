@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.ClientesModule;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.WindowsApp.Clientes;
 using CarRental.WindowsApp.ClientesModule;
 using CarRental.WindowsApp.Shared;

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using CarRental.Controllers.Shared;
-using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.VehicleImageModule;
 
 namespace CarRental.Controllers.ImagemVeiculoModule
 {
-    public class ControladorImagemVeiculo : Controlador<ImagemVeiculo>
+    public class ControladorImagemVeiculo : Controlador<VehicleImage>
     {
 
         private Bitmap bmp;
@@ -31,19 +31,19 @@ namespace CarRental.Controllers.ImagemVeiculoModule
         private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecioarTodos = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
         #endregion
-        public override string Editar(int id, ImagemVeiculo registro)
+        public override string Editar(int id, VehicleImage registro)
         {
             registro.Id = Db.Insert(comandoInserir,ObtemParametrosImagem(registro));
             return "";
         }
 
-        public void EditarLista(List<ImagemVeiculo> registros)
+        public void EditarLista(List<VehicleImage> registros)
         {
             if (registros != null)
             {
                 if (registros.Count != 0)
-                    ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
-                foreach (ImagemVeiculo imagem in registros)
+                    ExcluirPorIdDoVeiculo(registros[0].VehicleId);
+                foreach (VehicleImage imagem in registros)
                 {
                     InserirNovo(imagem);
                 }
@@ -82,7 +82,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             throw new NotImplementedException();
         }
 
-        public override string InserirNovo(ImagemVeiculo registro)
+        public override string InserirNovo(VehicleImage registro)
         {
             string resultadoValidacao = "VALIDO";
 
@@ -91,28 +91,28 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             return resultadoValidacao;
         }
 
-        public override ImagemVeiculo SelecionarPorId(int id)
+        public override VehicleImage SelecionarPorId(int id)
         {
             return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AdicionarParametro("ID",id));
         }
-        public List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id)
+        public List<VehicleImage> SelecionarPorIdDoVeiculo(int id)
         {
             return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AdicionarParametro("ID_VEICULO", id));
         }
 
-        public override List<ImagemVeiculo> SelecionarTodos()
+        public override List<VehicleImage> SelecionarTodos()
         {
             return Db.GetAll(comandoSelecioarTodos,ConverteEmImagemVeiculo);
         }
 
-        public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
+        public List<VehicleImage> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
             return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverteEmImagemVeiculo,AdicionarParametro("ID_VEICULO",id));
         }
 
-        private Dictionary<string, object> ObtemParametrosImagem(ImagemVeiculo imagemVeiculo)
+        private Dictionary<string, object> ObtemParametrosImagem(VehicleImage imagemVeiculo)
         {
-            bmp = imagemVeiculo.imagem;
+            bmp = imagemVeiculo.Image;
             MemoryStream memoria = new MemoryStream();
             bmp.Save(memoria,ImageFormat.Bmp);
             byte[] imagemByte = memoria.ToArray();
@@ -120,7 +120,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", imagemVeiculo.Id);
-            parametros.Add("ID_VEICULO", imagemVeiculo.idVeiculo);
+            parametros.Add("ID_VEICULO", imagemVeiculo.VehicleId);
             parametros.Add("IMAGEM", imagemByte);
 
             return parametros;
@@ -137,7 +137,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             return bmp;
         }
 
-        private ImagemVeiculo ConverteEmImagemVeiculo(IDataReader reader)
+        private VehicleImage ConverteEmImagemVeiculo(IDataReader reader)
         {
             byte[] byteArray= (byte[])(reader["IMAGEM"]);
             var id = Convert.ToInt32(reader["ID"]);
@@ -147,7 +147,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             bmp = (Bitmap)tc.ConvertFrom(byteArray);
             Bitmap imagem = new Bitmap(bmp);
 
-            return new ImagemVeiculo(id,idVeiculo, imagem);
+            return new VehicleImage(id,idVeiculo, imagem);
 
         }
     }

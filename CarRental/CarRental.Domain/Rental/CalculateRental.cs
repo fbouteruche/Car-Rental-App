@@ -1,5 +1,5 @@
-﻿using CarRental.Domain.Coupon;
-using CarRental.Domain.GrupoDeVeiculosModule;
+﻿using CarRental.Domain.CouponModule;
+using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace CarRental.Domain.Shared
             return valorFinal;
         }
 
-        public static double CalculatePlan(string tipoPlano, GrupoDeVeiculo grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal) 
+        public static double CalculatePlan(string tipoPlano, VehicleGroup grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal) 
         {
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
             double precoPorDia = 0;
@@ -38,18 +38,18 @@ namespace CarRental.Domain.Shared
             switch (tipoPlano)
             {
                 case "PlanoDiario":     //calculado por dia e por km rodado.
-                    precoPorDia = grupoDeVeiculos.TaxaPlanoDiario * intervaloDeDias;
-                    precoPorKm = kilometragemRodada * grupoDeVeiculos.TaxaPorKmDiario;
+                    precoPorDia = grupoDeVeiculos.DailyPlanRate * intervaloDeDias;
+                    precoPorKm = kilometragemRodada * grupoDeVeiculos.DailyPerKmRate;
                     break;
 
                 case "KmControlado":    // pago por dia e com uma quantidade que pode rodar por dia. Caso extrapole paga a mais por km.
-                    precoPorDia = grupoDeVeiculos.TaxaPlanoControlado * intervaloDeDias;
-                    if (intervaloDeDias > grupoDeVeiculos.LimiteKmControlado)
-                        precoPorKm = (kilometragemRodada - grupoDeVeiculos.LimiteKmControlado) * grupoDeVeiculos.TaxaKmExcedidoControlado;
+                    precoPorDia = grupoDeVeiculos.ControlledPlanRate * intervaloDeDias;
+                    if (intervaloDeDias > grupoDeVeiculos.ControlledKmLimit)
+                        precoPorKm = (kilometragemRodada - grupoDeVeiculos.ControlledKmLimit) * grupoDeVeiculos.ControlledExceededKmRate;
                     break;
 
                 case "KmLivre":         //paga apenas a diária e sem controle de km.
-                    precoPorDia = grupoDeVeiculos.TaxaPlanoLivre * intervaloDeDias;
+                    precoPorDia = grupoDeVeiculos.UnlimitedPlanRate * intervaloDeDias;
                     break;
             }
             return precoPorDia + precoPorKm;
@@ -90,7 +90,7 @@ namespace CarRental.Domain.Shared
             return resultado;
         }
 
-        public static double CalculateDiscountCoupon(double precoTotal, Coupon.Coupon cupom)
+        public static double CalculateDiscountCoupon(double precoTotal, CouponModule.Coupon cupom)
         {
             double resultado = 0;
             if (cupom != null)

@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.VehicleGroupModule;
 using FluentAssertions;
 using System;
 
@@ -11,7 +11,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveCriarGrupoDeVeiculo_Correto()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
 
             string resultado = grupoDeVeiculos.Validate();
 
@@ -21,7 +21,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_GrupoTotalmenteIncorreto()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"",0f,0f,0f,0,0f,0f);
+            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"",0f,0f,0f,0,0f,0f);
 
             string resultado = grupoDeVeiculos.Validate();
             //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o model.
@@ -32,7 +32,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_SomenteNomeCorreto()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"nome", 0f, 0f, 0f, 0, 0f, 0f);
+            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"nome", 0f, 0f, 0f, 0, 0f, 0f);
 
             string resultado = grupoDeVeiculos.Validate();
             //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o model.
@@ -43,7 +43,7 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_SomenteNomeIncorreto()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0,"", 10f, 10f, 10f, 10, 10f, 10f);
+            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"", 10f, 10f, 10f, 10, 10f, 10f);
 
             string resultado = grupoDeVeiculos.Validate();
 

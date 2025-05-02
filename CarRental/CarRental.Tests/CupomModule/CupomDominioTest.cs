@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Domain.Coupon;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.PartnerModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -16,7 +16,7 @@ namespace CarRental.Tests.CupomModule
         public void DeveCriarCupom_Completo_Porcentagem()
         {
             //arrange
-            Coupon cupom = new Coupon(0, "Name Cupom", "NDD10TECH", 10, 2000, false, DateTime.Now.AddDays(10), parceiro);
+            Coupon cupom = new Coupon(0, "Name CouponModule", "NDD10TECH", 10, 2000, false, DateTime.Now.AddDays(10), parceiro);
 
             //action
             string resultadoValidacao = cupom.Validate();
@@ -29,7 +29,7 @@ namespace CarRental.Tests.CupomModule
         public void DeveCriarCupom_Completo_Fixo()
         {
             //arrange
-            Coupon cupom = new Coupon(0, "Name Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro);
+            Coupon cupom = new Coupon(0, "Name CouponModule", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro);
 
             //action
             string resultadoValidacao = cupom.Validate();
@@ -67,7 +67,7 @@ namespace CarRental.Tests.CupomModule
         public void DeveApresentarErro_ValorZero_Fixo()
         {
             //arrange
-            Coupon cupom = new Coupon(0, "Name Cupom", "NDD10TECH", 0, 2000, true, DateTime.Now.AddDays(10), parceiro);
+            Coupon cupom = new Coupon(0, "Name CouponModule", "NDD10TECH", 0, 2000, true, DateTime.Now.AddDays(10), parceiro);
 
             //action
             string resultadoValidacao = cupom.Validate();
@@ -80,7 +80,7 @@ namespace CarRental.Tests.CupomModule
         public void DeveApresentarErro_PorcentagemMaiorDeCem_Porcentagem()
         {
             //arrange
-            Coupon cupom = new Coupon(0, "Name Cupom", "NDD10TECH", 101, 2000, false, DateTime.Now.AddDays(10), parceiro);
+            Coupon cupom = new Coupon(0, "Name CouponModule", "NDD10TECH", 101, 2000, false, DateTime.Now.AddDays(10), parceiro);
 
             //action
             string resultadoValidacao = cupom.Validate();
@@ -106,7 +106,7 @@ namespace CarRental.Tests.CupomModule
         public void DeveApresentarErro_ParceiroNulo()
         {
             //arrange
-            Coupon cupom = new Coupon(0, "Name Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), null);
+            Coupon cupom = new Coupon(0, "Name CouponModule", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), null);
 
             //action
             string resultadoValidacao = cupom.Validate();

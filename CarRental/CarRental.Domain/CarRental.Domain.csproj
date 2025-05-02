@@ -51,8 +51,8 @@
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Coupon\Coupon.cs" />
     <Compile Include="Employee\Employee.cs" />
-    <Compile Include="VehicleGroup\GrupoDeVeiculo.cs" />
-    <Compile Include="VehicleImage\ImagemVeiculo.cs" />
+    <Compile Include="VehicleGroup\VehicleGroup.cs" />
+    <Compile Include="VehicleImage\VehicleImage.cs" />
     <Compile Include="Rental\Rental.cs" />
     <Compile Include="Partner\Partner.cs" />
     <Compile Include="Person\Person.cs" />

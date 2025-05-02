@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRental.Controllers.ClientesModule;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.WindowsApp.Shared;
 
 namespace CarRental.WindowsApp.Clientes

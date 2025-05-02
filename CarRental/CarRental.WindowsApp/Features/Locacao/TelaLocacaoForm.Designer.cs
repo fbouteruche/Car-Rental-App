@@ -316,7 +316,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             this.lblCupom.Name = "lblCupom";
             this.lblCupom.Size = new System.Drawing.Size(40, 13);
             this.lblCupom.TabIndex = 18;
-            this.lblCupom.Text = "Cupom";
+            this.lblCupom.Text = "CouponModule";
             // 
             // txtCupom
             // 

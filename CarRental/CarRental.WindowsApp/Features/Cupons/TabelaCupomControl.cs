@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.Coupon;
+﻿using CarRental.Domain.CouponModule;
 using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;

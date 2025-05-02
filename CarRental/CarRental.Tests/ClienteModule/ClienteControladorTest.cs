@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using CarRental.Controllers.ClientesModule;
 using CarRental.Controllers.Shared;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

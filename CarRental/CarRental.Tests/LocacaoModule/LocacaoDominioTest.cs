@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using CarRental.Controllers.Shared;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.RentalModule;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

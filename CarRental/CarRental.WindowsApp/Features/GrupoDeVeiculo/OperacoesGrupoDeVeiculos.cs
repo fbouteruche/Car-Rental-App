@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.GrupoDeVeiculosModule;
-using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.VehicleGroupModule;
 using CarRental.WindowsApp.GrupoDeVeiculos;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -37,7 +37,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
                 return;
             }
 
-            GrupoDeVeiculo grupoSelecionado = controlador.SelecionarPorId(id);
+            VehicleGroup grupoSelecionado = controlador.SelecionarPorId(id);
 
             TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Veiculos");
 
@@ -47,11 +47,11 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             {
                 controlador.Editar(id, tela.GrupoDeVeiculos);
 
-                List<GrupoDeVeiculo> grupoDeVeiculos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Name}] editado com sucesso");
             }
         }
 
@@ -63,18 +63,18 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
                 MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            GrupoDeVeiculo grupoSelecionado = controlador.SelecionarPorId(id);
+            VehicleGroup grupoSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Nome}]?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Name}]?",
                 "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
 
-                List<GrupoDeVeiculo> grupos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupos = controlador.SelecionarTodos();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Nome}]removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Name}]removido com sucesso");
             }
         }
 
@@ -91,17 +91,17 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             {
                 controlador.InserirNovo(tela.GrupoDeVeiculos);
 
-                List<GrupoDeVeiculo> grupoDeVeiculos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Name}] inserido com sucesso");
             }
         }
 
         public UserControl ObterTabela()
         {
-            List<GrupoDeVeiculo> grupoDeVeiculos = controlador.SelecionarTodos();
+            List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
             tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
             return tabelaGrupoDeVeiculos;

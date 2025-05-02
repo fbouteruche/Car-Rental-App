@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRental.WindowsApp.Features.Veiculos;
-using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.VehicleImageModule;
 using CarRental.WindowsApp.Veiculos;
 
 namespace CarRental.WindowsApp.Features.ImagemVeiculo
@@ -20,18 +20,18 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
         private const int voltar = -1;
         private const int avancar = 1;
         private int imagemAtual = 0;
-        public List<Domain.ImagemVeiculoModule.ImagemVeiculo> imagens;
+        public List<Domain.VehicleImageModule.VehicleImage> imagens;
         private readonly VeiculoForm telaBase;
         public ImagemVeiculoForm(VeiculoForm telaBase)
         {
             this.telaBase = telaBase;
             if (telaBase.imagensVeiculo == null)
-                imagens = new List<Domain.ImagemVeiculoModule.ImagemVeiculo>();
+                imagens = new List<Domain.VehicleImageModule.VehicleImage>();
             else
                 imagens = telaBase.imagensVeiculo;
             InitializeComponent();
             if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[0].imagem;
+                pctBoxImagem.Image = imagens[0].Image;
 
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
                 if (tamanho <= doisMB)
                 {
 
-                    imagens.Add(new Domain.ImagemVeiculoModule.ImagemVeiculo(0, 0, (Bitmap)Image.FromFile(imagem)));
+                    imagens.Add(new Domain.VehicleImageModule.VehicleImage(0, 0, (Bitmap)Image.FromFile(imagem)));
                     if (imagens.Count == 1)
                         AtualizarImagem();
                     else
@@ -53,7 +53,7 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
                     }
                 }
                 else
-                    MessageBox.Show("A imagem deve ser no máximo de 2MB!","Locadora de Veículos",
+                    MessageBox.Show("A Image deve ser no máximo de 2MB!","Locadora de Veículos",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -75,7 +75,7 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
         private void AtualizarImagem()
         {
             if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[imagemAtual].imagem;
+                pctBoxImagem.Image = imagens[imagemAtual].Image;
             else
                 pctBoxImagem.Image = default;
         }
@@ -94,7 +94,7 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
+            if (MessageBox.Show("Tem certeza que deseja excluir a Image?", "Locadora de veículos",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 if (imagens.Count() != 0)

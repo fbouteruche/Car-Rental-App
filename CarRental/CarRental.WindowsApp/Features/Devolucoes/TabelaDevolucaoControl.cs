@@ -31,15 +31,15 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Placa", HeaderText = "Placa"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Customer"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ContractingCustomer", HeaderText = "Customer"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoLocacao", HeaderText = "Preço Inicial"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "RentalPrice", HeaderText = "Preço Inicial"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "EstaAberta", HeaderText = "Locação Ativa"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "IsOpen", HeaderText = "Locação Ativa"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoDevolucao", HeaderText = "Preço Final"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ReturnPrice", HeaderText = "Preço Final"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Devolução"}
            };
 
             return colunas;
@@ -55,7 +55,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             gridDevolucoes.Rows.Clear();
 
             foreach (Rental devolucao in devolucoes)
-                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.model, devolucao.Veiculo.licensePlate, devolucao.ClienteContratante.Name, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
+                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Vehicle.model, devolucao.Vehicle.licensePlate, devolucao.ContractingCustomer.Name, devolucao.RentalPrice, devolucao.IsOpen, devolucao.ReturnPrice, devolucao.ExpectedReturnDate);
         }
     }
 }

@@ -1,190 +1,185 @@
-﻿using CarRental.Domain.ClienteModule;
-using CarRental.Domain.Coupon;
+﻿using CarRental.Domain.CustomerModule;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRental.Domain.RentalModule
 {
     public class Rental : BaseEntity
     {
-        private Vehicle veiculo;
-        private Employee funcionarioLocador;
-        private Customer clienteContratante;
-        private Customer clienteCondutor;
-        private Coupon.Coupon cupom;
-        private DateTime dataDeSaida;
-        private DateTime dataPrevistaDeChegada;
-        private DateTime dataDeChegada;
-        private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
-        private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
-        private double precoLocacao;
-        private double precoDevolucao;
-        private bool estaAberta;
-        private List<Service> servicos;
+        private Vehicle vehicle;
+        private Employee rentingEmployee;
+        private Customer contractingCustomer;
+        private Customer driverCustomer;
+        private Coupon coupon;
+        private DateTime departureDate;
+        private DateTime expectedReturnDate;
+        private DateTime returnDate;
+        private string planType;         // DailyPlan, ControlledKm, or UnlimitedKm
+        private string insuranceType;    // CustomerInsurance, ThirdPartyInsurance, or None
+        private double rentalPrice;
+        private double returnPrice;
+        private bool isOpen;
+        private List<Service> services;
 
-        //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Rental(int id, Vehicle veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Service> servicos)
+        // Constructor for common use (ISSUES IN TESTS. EQUALS RETURNS DIFFERENT)
+        public Rental(int id, Vehicle vehicle, Employee rentingEmployee, Customer contractingCustomer, Customer driverCustomer, CouponModule.Coupon coupon, DateTime departureDate, DateTime expectedReturnDate, string planType, string insuranceType, List<Service> services)
         {
             this.id = id;
-            this.veiculo = veiculo;
-            this.funcionarioLocador = funcionarioLocador;
-            this.clienteContratante = clienteContratante;
-            this.clienteCondutor = clienteCondutor;
-            this.cupom = cupom;
-            this.dataDeSaida = dataDeSaida;
-            this.dataPrevistaDeChegada = dataPrevistaDeChegada;
-            this.tipoDoPlano = tipoDoPlano;
-            this.tipoDeSeguro = tipoDeSeguro;
-            this.servicos = servicos;
+            this.vehicle = vehicle;
+            this.rentingEmployee = rentingEmployee;
+            this.contractingCustomer = contractingCustomer;
+            this.driverCustomer = driverCustomer;
+            this.coupon = coupon;
+            this.departureDate = departureDate;
+            this.expectedReturnDate = expectedReturnDate;
+            this.planType = planType;
+            this.insuranceType = insuranceType;
+            this.services = services;
 
-            estaAberta = false;
-            AbrirLocacao(dataDeSaida);
-            dataDeChegada = DateTime.MaxValue;
-            precoDevolucao = 0;
+            isOpen = false;
+            OpenRental(departureDate);
+            returnDate = DateTime.MaxValue;
+            returnPrice = 0;
         }
 
-        //Construtor SOMENTE para carregar do banco
-        public Rental(int id, Vehicle veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Service> servicos)
+        // Constructor ONLY for loading from the database
+        public Rental(int id, Vehicle vehicle, Employee rentingEmployee, Customer contractingCustomer, Customer driverCustomer, CouponModule.Coupon coupon, DateTime departureDate, DateTime expectedReturnDate, DateTime returnDate, string planType, string insuranceType, double rentalPrice, double returnPrice, bool isOpen, List<Service> services)
         {
             this.id = id;
-            this.veiculo = veiculo;
-            this.funcionarioLocador = funcionarioLocador;
-            this.clienteContratante = clienteContratante;
-            this.clienteCondutor = clienteCondutor;
-            this.cupom = cupom;
-            this.dataDeSaida = dataDeSaida;
-            this.dataPrevistaDeChegada = dataPrevistaDeChegada;
-            this.dataDeChegada = dataDeChegada;
-            this.tipoDoPlano = tipoDoPlano;
-            this.tipoDeSeguro = tipoDeSeguro;
-            this.precoLocacao = precoLocacao;
-            this.precoDevolucao = precoDevolucao;
-            this.estaAberta = estaAberta;
-            this.servicos = servicos;
+            this.vehicle = vehicle;
+            this.rentingEmployee = rentingEmployee;
+            this.contractingCustomer = contractingCustomer;
+            this.driverCustomer = driverCustomer;
+            this.coupon = coupon;
+            this.departureDate = departureDate;
+            this.expectedReturnDate = expectedReturnDate;
+            this.returnDate = returnDate;
+            this.planType = planType;
+            this.insuranceType = insuranceType;
+            this.rentalPrice = rentalPrice;
+            this.returnPrice = returnPrice;
+            this.isOpen = isOpen;
+            this.services = services;
         }
 
-        public Vehicle Veiculo { get => veiculo; }
-        public Employee FuncionarioLocador { get => funcionarioLocador; }
-        public Customer ClienteContratante { get => clienteContratante; }
-        public Customer ClienteCondutor { get => clienteCondutor; }
-        public Coupon.Coupon Cupom { get => cupom; }
-        public DateTime DataDeSaida { get => dataDeSaida; }
-        public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
-        public DateTime DataDeChegada { get => dataDeChegada; }
-        public string TipoDoPlano { get => tipoDoPlano; }
-        public string TipoDeSeguro { get => tipoDeSeguro; }
-        public double PrecoLocacao { get => precoLocacao; }
-        public double PrecoDevolucao { get => precoDevolucao; }
-        public bool EstaAberta { get => estaAberta; }
-        public List<Service> Servicos { get => servicos; set => servicos = value; }
+        public Vehicle Vehicle { get => vehicle; }
+        public Employee RentingEmployee { get => rentingEmployee; }
+        public Customer ContractingCustomer { get => contractingCustomer; }
+        public Customer DriverCustomer { get => driverCustomer; }
+        public CouponModule.Coupon Coupon { get => coupon; }
+        public DateTime DepartureDate { get => departureDate; }
+        public DateTime ExpectedReturnDate { get => expectedReturnDate; }
+        public DateTime ReturnDate { get => returnDate; }
+        public string PlanType { get => planType; }
+        public string InsuranceType { get => insuranceType; }
+        public double RentalPrice { get => rentalPrice; }
+        public double ReturnPrice { get => returnPrice; }
+        public bool IsOpen { get => isOpen; }
+        public List<Service> Services { get => services; set => services = value; }
 
-        public void AbrirLocacao(DateTime dataAbertura)
+        public void OpenRental(DateTime openingDate)
         {
-            estaAberta = true;
-            dataDeSaida = dataAbertura;
-            veiculo.isRented = true;
-            precoLocacao = CalculateRental.CalculateInsurance(tipoDeSeguro);
-            precoLocacao += CalculateRental.CalculateGuarantee();
-            precoLocacao = Math.Round(precoLocacao, 2);
+            isOpen = true;
+            departureDate = openingDate;
+            vehicle.isRented = true;
+            rentalPrice = CalculateRental.CalculateInsurance(insuranceType);
+            rentalPrice += CalculateRental.CalculateGuarantee();
+            rentalPrice = Math.Round(rentalPrice, 2);
         }
 
-        public void FecharLocacao(DateTime dataFechamento, double adicionalDoCombustivel, double kilometragemRodada)
+        public void CloseRental(DateTime closingDate, double fuelSurcharge, double kilometersDriven)
         {
-            estaAberta = false;
-            dataDeChegada = dataFechamento;
-            veiculo.mileage += kilometragemRodada;
-            veiculo.isRented = false;
-            precoDevolucao = precoLocacao;
-            precoDevolucao += adicionalDoCombustivel;
-            precoDevolucao += CalculateRental.CalculatePlan(tipoDoPlano, veiculo.vehicleGroup, kilometragemRodada, dataDeSaida, dataDeChegada);
-            precoDevolucao += CalculateRental.CalculateServices(servicos, dataDeSaida, dataDeChegada);
-            precoDevolucao += CalculateRental.CalculateLateReturnFee(precoDevolucao, dataPrevistaDeChegada, dataDeChegada);
-            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, cupom);
-            precoDevolucao = Math.Round(precoDevolucao, 2);
+            isOpen = false;
+            returnDate = closingDate;
+            vehicle.mileage += kilometersDriven;
+            vehicle.isRented = false;
+            returnPrice = rentalPrice;
+            returnPrice += fuelSurcharge;
+            returnPrice += CalculateRental.CalculatePlan(planType, vehicle.vehicleGroup, kilometersDriven, departureDate, returnDate);
+            returnPrice += CalculateRental.CalculateServices(services, departureDate, returnDate);
+            returnPrice += CalculateRental.CalculateLateReturnFee(returnPrice, expectedReturnDate, returnDate);
+            returnPrice -= CalculateRental.CalculateDiscountCoupon(returnPrice, coupon);
+            returnPrice = Math.Round(returnPrice, 2);
         }
 
         public override string Validate()
         {
-            string resultadoValidacao = "";
-            if (this.veiculo == null)
-                resultadoValidacao = "O veiculo não pode ser nulo\n";
+            string validationResult = "";
+            if (this.vehicle == null)
+                validationResult = "The vehicle cannot be null\n";
 
-            if (this.funcionarioLocador == null)
-                resultadoValidacao += "O funcionário locador não pode ser nulo\n";
+            if (this.rentingEmployee == null)
+                validationResult += "The renting employee cannot be null\n";
 
-            if (this.clienteContratante == null)
-                resultadoValidacao += "O cliente contratante não pode ser nulo\n";
+            if (this.contractingCustomer == null)
+                validationResult += "The contracting customer cannot be null\n";
 
-            else if (!this.clienteContratante.IsPhysicalPerson && this.clienteCondutor == null)
-                resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
+            else if (!this.contractingCustomer.IsPhysicalPerson && this.driverCustomer == null)
+                validationResult += "The driver cannot be null when the contracting customer is a legal entity\n";
 
-            if (this.clienteCondutor != null)
-                if (!this.clienteCondutor.IsPhysicalPerson)
-                    resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+            if (this.driverCustomer != null)
+                if (!this.driverCustomer.IsPhysicalPerson)
+                    validationResult += "The driver cannot be a legal entity.\n";
 
-            if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
-                resultadoValidacao += "O tipo do plano é inválido.\n";
+            if (!this.planType.Equals("DailyPlan") && !this.planType.Equals("ControlledKm") && !this.planType.Equals("UnlimitedKm"))
+                validationResult += "The plan type is invalid.\n";
 
-            if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
-                resultadoValidacao += "O tipo do seguro é inválido.\n";
+            if (!this.insuranceType.Equals("CustomerInsurance") && !this.insuranceType.Equals("ThirdPartyInsurance") && !this.insuranceType.Equals("None"))
+                validationResult += "The insurance type is invalid.\n";
 
-            if (this.DataDeSaida >= this.DataPrevistaDeChegada)
-                resultadoValidacao += "A data de entrega não pode ser anterior à data de locação.\n";
+            if (this.DepartureDate >= this.ExpectedReturnDate)
+                validationResult += "The return date cannot be earlier than the rental date.\n";
 
-            if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+            if (validationResult == "")
+                validationResult = "VALID";
 
-            return resultadoValidacao;
+            return validationResult;
         }
-
-       
 
         public override string ToString()
         {
-            return $"RentalModule = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}";
+            return $"RentalModule = {id}, {vehicle}, {rentingEmployee}, {contractingCustomer}, {driverCustomer}, {departureDate}, {expectedReturnDate}, {returnDate}, {planType}, {insuranceType}, {rentalPrice}, {returnPrice}, {isOpen}";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Rental locacao &&
-                   id == locacao.id &&
-                   EqualityComparer<Vehicle>.Default.Equals(veiculo, locacao.veiculo) &&
-                   EqualityComparer<Employee>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
-                   EqualityComparer<Customer>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
-                   EqualityComparer<Customer>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
-                   dataDeSaida == locacao.dataDeSaida &&
-                   dataPrevistaDeChegada == locacao.dataPrevistaDeChegada &&
-                   dataDeChegada == locacao.dataDeChegada &&
-                   tipoDoPlano == locacao.tipoDoPlano &&
-                   tipoDeSeguro == locacao.tipoDeSeguro &&
-                   precoLocacao == locacao.precoLocacao &&
-                   precoDevolucao == locacao.precoDevolucao &&
-                   estaAberta == locacao.estaAberta;
+            return obj is Rental rental &&
+                   id == rental.id &&
+                   EqualityComparer<Vehicle>.Default.Equals(vehicle, rental.vehicle) &&
+                   EqualityComparer<Employee>.Default.Equals(rentingEmployee, rental.rentingEmployee) &&
+                   EqualityComparer<Customer>.Default.Equals(contractingCustomer, rental.contractingCustomer) &&
+                   EqualityComparer<Customer>.Default.Equals(driverCustomer, rental.driverCustomer) &&
+                   departureDate == rental.departureDate &&
+                   expectedReturnDate == rental.expectedReturnDate &&
+                   returnDate == rental.returnDate &&
+                   planType == rental.planType &&
+                   insuranceType == rental.insuranceType &&
+                   rentalPrice == rental.rentalPrice &&
+                   returnPrice == rental.returnPrice &&
+                   isOpen == rental.isOpen;
         }
 
         public override int GetHashCode()
         {
             int hashCode = 1457090499;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Vehicle>.Default.GetHashCode(veiculo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Employee>.Default.GetHashCode(funcionarioLocador);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteContratante);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteCondutor);
-            hashCode = hashCode * -1521134295 + dataDeSaida.GetHashCode();
-            hashCode = hashCode * -1521134295 + dataPrevistaDeChegada.GetHashCode();
-            hashCode = hashCode * -1521134295 + dataDeChegada.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoDoPlano);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoDeSeguro);
-            hashCode = hashCode * -1521134295 + precoLocacao.GetHashCode();
-            hashCode = hashCode * -1521134295 + precoDevolucao.GetHashCode();
-            hashCode = hashCode * -1521134295 + estaAberta.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Vehicle>.Default.GetHashCode(vehicle);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Employee>.Default.GetHashCode(rentingEmployee);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(contractingCustomer);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(driverCustomer);
+            hashCode = hashCode * -1521134295 + departureDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + expectedReturnDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + returnDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(planType);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(insuranceType);
+            hashCode = hashCode * -1521134295 + rentalPrice.GetHashCode();
+            hashCode = hashCode * -1521134295 + returnPrice.GetHashCode();
+            hashCode = hashCode * -1521134295 + isOpen.GetHashCode();
             return hashCode;
         }
     }

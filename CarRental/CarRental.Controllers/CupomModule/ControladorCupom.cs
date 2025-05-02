@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.Shared;
-using CarRental.Domain.Coupon;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.PartnerModule;
 using System;
 using System.Collections.Generic;

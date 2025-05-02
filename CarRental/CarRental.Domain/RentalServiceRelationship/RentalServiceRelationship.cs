@@ -14,23 +14,23 @@ namespace CarRental.Domain.RentalServiceRelationshipModule
         public RentalModule.Rental Rental { get; }
         public List<Service> Services { get; }
 
-        public RentalServiceRelationship(int id, RentalModule.Rental locacao, List<Service> servicos)
+        public RentalServiceRelationship(int id, RentalModule.Rental rental, List<Service> services)
         {
             this.Id = id;
-            Rental = locacao;
-            Services = servicos;
+            Rental = rental;
+            Services = services;
         }
 
         public override string Validate()
         {
-            string resultadoValidacao = "";
+            string validationResult = "";
             if (Rental.Id == 0)
-                resultadoValidacao = "ID de locação inválido";
+                validationResult = "Invalid rental ID";
             if (Services == null)
-                resultadoValidacao = "Nenhum serviço selecionado";
-            if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
-            return resultadoValidacao;
+                validationResult = "No services selected";
+            if (validationResult == "")
+                validationResult = "VALID";
+            return validationResult;
         }
 
         public override int GetHashCode()
@@ -41,6 +41,7 @@ namespace CarRental.Domain.RentalServiceRelationshipModule
             hashCode = hashCode * -1521134295 + EqualityComparer<List<Service>>.Default.GetHashCode(Services);
             return hashCode;
         }
+
         public override string ToString()
         {
             return $"{id} {Rental} {Services}";
@@ -48,10 +49,10 @@ namespace CarRental.Domain.RentalServiceRelationshipModule
 
         public override bool Equals(object obj)
         {
-            return obj is RentalServiceRelationship serv &&
-                   Id == serv.Id &&
-                   EqualityComparer<Rental>.Default.Equals(Rental, serv.Rental) &&
-                   EqualityComparer<List<Service>>.Default.Equals(Services, serv.Services);
+            return obj is RentalServiceRelationship relationship &&
+                   Id == relationship.Id &&
+                   EqualityComparer<Rental>.Default.Equals(Rental, relationship.Rental) &&
+                   EqualityComparer<List<Service>>.Default.Equals(Services, relationship.Services);
         }
     }
 }

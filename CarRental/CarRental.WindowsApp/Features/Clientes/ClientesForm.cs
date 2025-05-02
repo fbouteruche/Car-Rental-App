@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 
 namespace CarRental.WindowsApp.ClientesModule
 {

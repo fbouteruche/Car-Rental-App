@@ -1,8 +1,8 @@
 ﻿using CarRental.Controllers.VeiculoModule;
 using CarRental.WindowsApp.Shared;
 using CarRental.WindowsApp.Veiculos;
-using CarRental.Domain.VeiculoModule;
-using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.VehicleModule;
+using CarRental.Domain.VehicleImageModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -24,8 +24,8 @@ namespace CarRental.WindowsApp.Features.Veiculos
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 if(tela.Veiculo.images.Count !=0)
-                    foreach (Domain.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.images)
-                        imagem.idVeiculo = tela.Veiculo.Id;
+                    foreach (Domain.VehicleImageModule.VehicleImage imagem in tela.Veiculo.images)
+                        imagem.VehicleId = tela.Veiculo.Id;
                 
                 controlador.InserirNovo(tela.Veiculo);
 

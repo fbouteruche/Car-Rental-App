@@ -22,15 +22,15 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Vehicle", HeaderText = "Vehicle"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Customer"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ContractingCustomer", HeaderText = "Customer"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Value Inicial"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "RentalPrice", HeaderText = "Value Inicial"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataDeSaida", HeaderText = "Data de Locação"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "DepartureDate", HeaderText = "Data de Locação"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Devolução"}
            };
 
             return colunas;
@@ -47,8 +47,8 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
             foreach (Rental locacao in locacoes)
             {
-                gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor, locacao.PrecoLocacao,
-                    locacao.DataDeSaida, locacao.DataPrevistaDeChegada);
+                gridLocacao.Rows.Add(locacao.Id, locacao.Vehicle, locacao.ContractingCustomer, locacao.DriverCustomer, locacao.RentalPrice,
+                    locacao.DepartureDate, locacao.ExpectedReturnDate);
             }
         }
     }

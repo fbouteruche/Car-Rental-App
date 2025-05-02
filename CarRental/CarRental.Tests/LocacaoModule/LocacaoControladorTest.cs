@@ -7,11 +7,11 @@ using CarRental.Controllers.LocacaoModule;
 using CarRental.Controllers.ServicoModule;
 using CarRental.Controllers.Shared;
 using CarRental.Controllers.VeiculoModule;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.Domain.EmployeeModule;
-using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.RentalModule;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -29,7 +29,7 @@ namespace CarRental.Tests.LocacaoModule
         ControladorCliente controladorCliente = null;
         ControladorServico controladorServico = null;
         ControladorCupom controladorCupom = null;
-        GrupoDeVeiculo grupoVeiculos;
+        VehicleGroup grupoVeiculos;
         Vehicle veiculo;
         Employee funcionario;
         Customer clienteContratante;
@@ -51,7 +51,7 @@ namespace CarRental.Tests.LocacaoModule
         [TestMethod]
         public void DeveInserirUmaLocacao()
         {
-            grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
@@ -72,7 +72,7 @@ namespace CarRental.Tests.LocacaoModule
         [TestMethod]
         public void DeveSelecionarDuasLocacoes()
         {
-            grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
@@ -95,7 +95,7 @@ namespace CarRental.Tests.LocacaoModule
         [TestMethod]
         public void DeveEditarUmaLocacao()
         {
-            grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
@@ -118,7 +118,7 @@ namespace CarRental.Tests.LocacaoModule
         [TestMethod]
         public void DeveExcluirUmVeiculo()
         {
-            grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);

@@ -1,12 +1,12 @@
 ﻿using CarRental.Controllers.Shared;
-using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.VehicleGroupModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace CarRental.Controllers.GrupoDeVeiculosModule
 {
-    public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculo>
+    public class ControladorGrupoDeVeiculos : Controlador<VehicleGroup>
     {
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
@@ -59,14 +59,14 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
                 WHERE 
                     [ID] = @ID";
 
-        public override string InserirNovo(GrupoDeVeiculo registro)
+        public override string InserirNovo(VehicleGroup registro)
         {
             string resultadoValidacao = registro.Validate();
 
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
+            List<VehicleGroup> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (VehicleGroup grupo in grupoDeVeiculosRegistrados)
             {
-                if (registro.Nome == grupo.Nome)
+                if (registro.Name == grupo.Name)
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
             }
 
@@ -78,14 +78,14 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, GrupoDeVeiculo registro)
+        public override string Editar(int id, VehicleGroup registro)
         {
             string resultadoValidacao = registro.Validate();
 
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
+            List<VehicleGroup> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (VehicleGroup grupo in grupoDeVeiculosRegistrados)
             {
-                if (id != grupo.Id && registro.Nome == grupo.Nome)
+                if (id != grupo.Id && registro.Name == grupo.Name)
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
             }
 
@@ -117,33 +117,33 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return Db.Exists(sqlExisteGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
 
-        public override GrupoDeVeiculo SelecionarPorId(int id)
+        public override VehicleGroup SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
 
-        public override List<GrupoDeVeiculo> SelecionarTodos()
+        public override List<VehicleGroup> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
         }
 
-        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(GrupoDeVeiculo grupoDeVeiculos)
+        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(VehicleGroup grupoDeVeiculos)
         {
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", grupoDeVeiculos.Id);
-            parametros.Add("NOME", grupoDeVeiculos.Nome);
-            parametros.Add("TAXAPLANODIARIO", grupoDeVeiculos.TaxaPlanoDiario);
-            parametros.Add("TAXAPORKMDIARIO", grupoDeVeiculos.TaxaPorKmDiario);
-            parametros.Add("TAXAPLANOCONTROLADO", grupoDeVeiculos.TaxaPlanoControlado);
-            parametros.Add("LIMITEKMCONTROLADO", grupoDeVeiculos.LimiteKmControlado);
-            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", grupoDeVeiculos.TaxaKmExcedidoControlado);
-            parametros.Add("TAXAPLANOLIVRE", grupoDeVeiculos.TaxaPlanoLivre);
+            parametros.Add("NOME", grupoDeVeiculos.Name);
+            parametros.Add("TAXAPLANODIARIO", grupoDeVeiculos.DailyPlanRate);
+            parametros.Add("TAXAPORKMDIARIO", grupoDeVeiculos.DailyPerKmRate);
+            parametros.Add("TAXAPLANOCONTROLADO", grupoDeVeiculos.ControlledPlanRate);
+            parametros.Add("LIMITEKMCONTROLADO", grupoDeVeiculos.ControlledKmLimit);
+            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", grupoDeVeiculos.ControlledExceededKmRate);
+            parametros.Add("TAXAPLANOLIVRE", grupoDeVeiculos.UnlimitedPlanRate);
 
             return parametros;
         }
 
-        private GrupoDeVeiculo ConverterEmGrupoDeVeiculos(IDataReader reader)
+        private VehicleGroup ConverterEmGrupoDeVeiculos(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;
@@ -154,7 +154,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado,
+            VehicleGroup grupoDeVeiculos = new VehicleGroup(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado,
                 limiteKmControlado, taxaKmExcedidoControlado,taxaPlanoLivre);
 
             return grupoDeVeiculos;

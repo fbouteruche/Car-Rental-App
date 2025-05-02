@@ -1,8 +1,8 @@
 ﻿using CarRental.Controllers.Shared;
-using CarRental.Domain.GrupoDeVeiculosModule;
-using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.VehicleGroupModule;
+using CarRental.Domain.VehicleImageModule;
 using CarRental.Controllers.ImagemVeiculoModule;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -169,9 +169,9 @@ namespace CarRental.Controllers.VeiculoModule
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
                 if (registro.images != null)
                 {
-                    foreach (ImagemVeiculo imagemVeiculo in registro.images)
+                    foreach (VehicleImage imagemVeiculo in registro.images)
                     {
-                        imagemVeiculo.idVeiculo = registro.Id;
+                        imagemVeiculo.VehicleId = registro.Id;
                         controladorImagem.InserirNovo(imagemVeiculo);
                     }
                 }
@@ -203,8 +203,8 @@ namespace CarRental.Controllers.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
-                foreach (ImagemVeiculo imagem in registro.images)
-                    imagem.idVeiculo = registro.Id;
+                foreach (VehicleImage imagem in registro.images)
+                    imagem.VehicleId = registro.Id;
                 controladorImagem.EditarLista(registro.images);
             }
 
@@ -284,7 +284,7 @@ namespace CarRental.Controllers.VeiculoModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
+            VehicleGroup grupo = new VehicleGroup(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
             Vehicle veiculo = new Vehicle(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
 

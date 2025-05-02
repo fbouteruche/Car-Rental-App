@@ -2,7 +2,7 @@
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using CarRental.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
@@ -39,17 +39,17 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 devolucao = value;
 
                 txtId.Text = devolucao.Id.ToString();
-                txtKmInicial.Text = devolucao.Veiculo.mileage.ToString();
-                txtVeiculo.Text = devolucao.Veiculo.model;
-                txtFuncionario.Text = devolucao.FuncionarioLocador.Name;
-                txtCliente.Text = devolucao.ClienteContratante.Name;
-                txtCondutor.Text = devolucao.ClienteCondutor.Name;
-                txtPlano.Text = devolucao.TipoDoPlano;
-                txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
-                txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
-                dtDevolucao.Value = devolucao.DataPrevistaDeChegada;
-                txtValorInicial.Text = devolucao.PrecoLocacao.ToString();
-                telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
+                txtKmInicial.Text = devolucao.Vehicle.mileage.ToString();
+                txtVeiculo.Text = devolucao.Vehicle.model;
+                txtFuncionario.Text = devolucao.RentingEmployee.Name;
+                txtCliente.Text = devolucao.ContractingCustomer.Name;
+                txtCondutor.Text = devolucao.DriverCustomer.Name;
+                txtPlano.Text = devolucao.PlanType;
+                txtDataLocacao.Text = devolucao.DepartureDate.ToString();
+                txtDataDevolucao.Text = devolucao.ExpectedReturnDate.ToString();
+                dtDevolucao.Value = devolucao.ExpectedReturnDate;
+                txtValorInicial.Text = devolucao.RentalPrice.ToString();
+                telaServico.InicializarCampos(Devolucao.Services, devolucao.InsuranceType, false);
                 AtualizarListBox();
             }
         }
@@ -57,17 +57,17 @@ namespace CarRental.WindowsApp.Features.Devolucoes
         #region Eventos dos botões
         private void btnSelecionarServicos_Click(object sender, EventArgs e)
         {
-            telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
-            Devolucao.Servicos.Clear();
+            telaServico.InicializarCampos(Devolucao.Services, devolucao.InsuranceType, false);
+            Devolucao.Services.Clear();
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
-                Devolucao.Servicos = telaServico.servicosSelecionados;
+                Devolucao.Services = telaServico.servicosSelecionados;
                 AtualizarListBox();
             }
         }
         private void brnConfirmar_Click(object sender, EventArgs e)
         {
-            if (dtDevolucao.Value <= devolucao.DataDeSaida)
+            if (dtDevolucao.Value <= devolucao.DepartureDate)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Data de entrega menor que a de saída");
                 DialogResult = DialogResult.None;
@@ -75,11 +75,11 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             else
             {
                 double precoCombustivel = ReceberPrecoCombustivel();
-                Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
+                Devolucao.CloseRental(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
 
                 string resultadoValidacao = Devolucao.Validate();
-                Vehicle veiculoAtualizado = devolucao.Veiculo;
-                controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
+                Vehicle veiculoAtualizado = devolucao.Vehicle;
+                controladorVeiculo.Editar(devolucao.Vehicle.Id, veiculoAtualizado);
 
 
                 if (resultadoValidacao != "VALIDO")
@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
             if (!double.TryParse(txtValorCombustivel.Text, out double valorPorLitro))
                 valorPorLitro = 0;
-            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Veiculo.capacidadeTanque, porcentagemTanque, valorPorLitro);
+            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Vehicle.capacidadeTanque, porcentagemTanque, valorPorLitro);
             return precoCombustivel;
         }
         #endregion
@@ -212,11 +212,11 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 txtKmFinal.Text = "0";
             if (string.IsNullOrEmpty(txtValorCombustivel.Text))
                 txtValorCombustivel.Text = "0";
-            if (Devolucao.Servicos != null)
+            if (Devolucao.Services != null)
             {
                 cLBoxServicosSelecionados.Items.Clear();
                 int i = 0;
-                foreach (Service servico in Devolucao.Servicos)
+                foreach (Service servico in Devolucao.Services)
                 {
                     cLBoxServicosSelecionados.Items.Add(servico);
                     cLBoxServicosSelecionados.SetItemChecked(i++, true);
@@ -234,10 +234,10 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 precoDevolucao = 0;
 
             precoDevolucao += ReceberPrecoCombustivel();
-            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.TipoDoPlano, Devolucao.Veiculo.vehicleGroup, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
-            precoDevolucao += CalculateRental.CalculateServices(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
-            precoDevolucao +=  CalculateRental.CalculateLateReturnFee(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
-            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, Devolucao.Cupom);
+            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.PlanType, Devolucao.Vehicle.vehicleGroup, kilometrosRodados, Devolucao.DepartureDate, dtDevolucao.Value);
+            precoDevolucao += CalculateRental.CalculateServices(Devolucao.Services, Devolucao.DepartureDate, dtDevolucao.Value);
+            precoDevolucao +=  CalculateRental.CalculateLateReturnFee(Devolucao.ReturnPrice, Devolucao.ExpectedReturnDate, Devolucao.ReturnDate);
+            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, Devolucao.Coupon);
             txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
         }
     }

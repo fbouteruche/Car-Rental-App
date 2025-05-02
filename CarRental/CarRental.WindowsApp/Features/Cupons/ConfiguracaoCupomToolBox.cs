@@ -6,22 +6,22 @@ namespace CarRental.WindowsApp.Features.Cupons
     {
         public string ToolTipAdicionar
         {
-            get { return "Cadastro de Cupom de Desconto"; }
+            get { return "Cadastro de CouponModule de Desconto"; }
         }
 
         public string TipoCadastro
         {
-            get { return "Cadastro de um novo Cupom"; }
+            get { return "Cadastro de um novo CouponModule"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Cupom existente"; }
+            get { return "Editar um CouponModule existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Cupom existente"; }
+            get { return "Excluir um CouponModule existente"; }
         }
     }
 }

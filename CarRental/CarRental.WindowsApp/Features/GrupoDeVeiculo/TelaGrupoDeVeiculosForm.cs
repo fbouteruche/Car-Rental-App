@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.GrupoDeVeiculosModule;
+﻿using CarRental.Domain.VehicleGroupModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
 {
     public partial class TarefaGrupoDeVeiculosForm : Form
     {
-        private GrupoDeVeiculo grupoDeVeiculos;
+        private VehicleGroup grupoDeVeiculos;
         public TarefaGrupoDeVeiculosForm(string titulo)
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
             lblCadastroGrupoDeVeiculos.Text = titulo;
         }
 
-        public GrupoDeVeiculo GrupoDeVeiculos
+        public VehicleGroup GrupoDeVeiculos
         {
             get { return grupoDeVeiculos; }
 
@@ -32,13 +32,13 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
                 grupoDeVeiculos = value;
 
                 textId.Text = grupoDeVeiculos.Id.ToString();
-                textNomeGrupo.Text = grupoDeVeiculos.Nome;
-                txtTaxaPlanoDiario.Text = grupoDeVeiculos.TaxaPlanoDiario.ToString();
-                txtTaxaPorKmDiario.Text = grupoDeVeiculos.TaxaPorKmDiario.ToString();
-                txtTaxaPlanoControlado.Text = grupoDeVeiculos.TaxaPlanoControlado.ToString();
-                txtLimiteKmControlado.Text = grupoDeVeiculos.LimiteKmControlado.ToString();
-                txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.TaxaKmExcedidoControlado.ToString();
-                txtTaxaPlanoLivre.Text = grupoDeVeiculos.TaxaPlanoLivre.ToString();
+                textNomeGrupo.Text = grupoDeVeiculos.Name;
+                txtTaxaPlanoDiario.Text = grupoDeVeiculos.DailyPlanRate.ToString();
+                txtTaxaPorKmDiario.Text = grupoDeVeiculos.DailyPerKmRate.ToString();
+                txtTaxaPlanoControlado.Text = grupoDeVeiculos.ControlledPlanRate.ToString();
+                txtLimiteKmControlado.Text = grupoDeVeiculos.ControlledKmLimit.ToString();
+                txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.ControlledExceededKmRate.ToString();
+                txtTaxaPlanoLivre.Text = grupoDeVeiculos.UnlimitedPlanRate.ToString();
                 
             }
         }
@@ -66,7 +66,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
             if (txtTaxaPlanoLivre.Text.Length > 0)
                 TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
+            grupoDeVeiculos = new VehicleGroup(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
 
             string resultadoValidacao = grupoDeVeiculos.Validate();
 

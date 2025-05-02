@@ -4,10 +4,10 @@ using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.LocacaoModule;
 using CarRental.Controllers.ServicoModule;
 using CarRental.Controllers.VeiculoModule;
-using CarRental.Domain.ClienteModule;
+using CarRental.Domain.CustomerModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
-using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.VehicleModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +52,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
             List<Rental> todasLocacao = controladorLocacao.SelecionarTodos();
             List<Rental> locacoesAbertas = new List<Rental>();
             foreach (Rental locacao in todasLocacao)
-                if (locacao.EstaAberta)
+                if (locacao.IsOpen)
                     locacoesAbertas.Add(locacao);
 
             int retornamHJ = 0;
@@ -61,11 +61,11 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
             foreach (Rental locacao in locacoesAbertas)
             {
-                if (locacao.DataDeChegada.Date == DateTime.Today )
+                if (locacao.ReturnDate.Date == DateTime.Today )
                 {
                     retornamHJ++;
                 }
-                else if (locacao.DataDeChegada.Date <= DateTime.Today.AddDays(7))
+                else if (locacao.ReturnDate.Date <= DateTime.Today.AddDays(7))
                 {
                     retornam7dias++;
                 }

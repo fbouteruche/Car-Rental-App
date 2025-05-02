@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CarRental.Domain.ClienteModule
+namespace CarRental.Domain.CustomerModule
 {
     public class Customer : Person
     {

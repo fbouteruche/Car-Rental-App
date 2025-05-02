@@ -2,7 +2,7 @@
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.ParceiroModule;
 using CarRental.Controllers.Shared;
-using CarRental.Domain.Coupon;
+using CarRental.Domain.CouponModule;
 using CarRental.Domain.PartnerModule;
 using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

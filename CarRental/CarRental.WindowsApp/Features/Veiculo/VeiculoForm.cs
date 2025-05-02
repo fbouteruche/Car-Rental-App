@@ -1,10 +1,10 @@
-﻿using CarRental.Domain.VeiculoModule;
+﻿using CarRental.Domain.VehicleModule;
 using System;
 using System.IO;
 using System.Windows.Forms;
 using CarRental.Controllers.GrupoDeVeiculosModule;
-using CarRental.Domain.GrupoDeVeiculosModule;
-using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.VehicleGroupModule;
+using CarRental.Domain.VehicleImageModule;
 using CarRental.WindowsApp.Features.ImagemVeiculo;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,7 +22,7 @@ namespace CarRental.WindowsApp.Veiculos
             labelTitulo.Text = titulo;
             cBoxPortaMalas.SelectedIndex = 0;           
         }
-        public List<ImagemVeiculo> imagensVeiculo = new List<ImagemVeiculo>();
+        public List<VehicleImage> imagensVeiculo = new List<VehicleImage>();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Veiculos
                 imagensVeiculo = veiculo.images;
                 textId.Text = veiculo.Id.ToString();
                 textModelo.Text = veiculo.model;
-                cBoxGrupo.Text = veiculo.vehicleGroup.Nome;
+                cBoxGrupo.Text = veiculo.vehicleGroup.Name;
                 textPlaca.Text = veiculo.licensePlate;
                 textChassi.Text = veiculo.chassis;
                 textMarca.Text = veiculo.marca;
@@ -65,7 +65,7 @@ namespace CarRental.WindowsApp.Veiculos
         {
             int id = 0;
             int ano = 0;
-            GrupoDeVeiculo grupoDeVeiculos = null;
+            VehicleGroup grupoDeVeiculos = null;
             if (textId.Text.Length > 0)
                 id = Convert.ToInt32(textId.Text);            
             string placa = textPlaca.Text;
@@ -75,7 +75,7 @@ namespace CarRental.WindowsApp.Veiculos
             if(textAno.Text.Length > 0)
                 ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
-            grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
+            grupoDeVeiculos = cBoxGrupo.SelectedItem as VehicleGroup;
             int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
@@ -85,7 +85,7 @@ namespace CarRental.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
-            List<ImagemVeiculo> imagens = imagensVeiculo;
+            List<VehicleImage> imagens = imagensVeiculo;
 
 
 
@@ -146,7 +146,7 @@ namespace CarRental.WindowsApp.Veiculos
             telaImagem.Show();
         }
 
-        public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
+        public void AtualizarListaDeFotos(List<VehicleImage> imagens)
         {
             this.imagensVeiculo = imagens;
         }

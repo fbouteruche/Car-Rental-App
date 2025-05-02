@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Domain.Coupon
+namespace CarRental.Domain.CouponModule
 {
     public class Coupon : BaseEntity
     {

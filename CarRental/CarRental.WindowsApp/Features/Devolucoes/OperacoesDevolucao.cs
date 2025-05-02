@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                 tabelaDevolucao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Registro de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Registro de: [{locacaoSelecionada.ContractingCustomer}] removida com sucesso");
             }
         }
 
@@ -91,7 +91,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                         {
                             List<Rental> filtro = new List<Rental>();
                             foreach (Rental devolucao in devolucoes)
-                                if (devolucao.EstaAberta)
+                                if (devolucao.IsOpen)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
                             tipoLocacao = "pendente(s)";
@@ -102,7 +102,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                         {
                             List<Rental> filtro = new List<Rental>();
                             foreach (Rental devolucao in devolucoes)
-                                if (!devolucao.EstaAberta)
+                                if (!devolucao.IsOpen)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
                             tipoLocacao = "concluída(s)";

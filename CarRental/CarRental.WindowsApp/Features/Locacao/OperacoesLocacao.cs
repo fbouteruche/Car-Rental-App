@@ -58,7 +58,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Veiculo}] realizada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Vehicle}] realizada com sucesso");
             }
         }
 
@@ -86,7 +86,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ClienteContratante}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ContractingCustomer}] editado com sucesso");
             }
         }
 
@@ -112,7 +112,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ContractingCustomer}] removida com sucesso");
             }
         }
         public void AgruparRegistros()
@@ -145,7 +145,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                     smtp.EnableSsl = true;
 
                     email.From = new MailAddress("matriquisdevelopers@gmail.com");
-                    email.To.Add(tela.Locacao.ClienteContratante.Email);
+                    email.To.Add(tela.Locacao.ContractingCustomer.Email);
 
                     email.Subject = "Matrix";
                     email.IsBodyHtml = false;

@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.VeiculoModule;
+﻿using CarRental.Domain.VehicleModule;
 using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;

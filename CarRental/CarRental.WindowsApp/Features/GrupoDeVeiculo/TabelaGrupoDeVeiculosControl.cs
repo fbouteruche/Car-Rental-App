@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.GrupoDeVeiculosModule;
+﻿using CarRental.Domain.VehicleGroupModule;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -30,17 +30,17 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name do Grupo"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPlanoDiario", HeaderText = "Taxa do Plano Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPlanRate", HeaderText = "Taxa do Plano Diário"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPorKmDiario", HeaderText = "Taxa por KM Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPerKmRate", HeaderText = "Taxa por KM Diário"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoControlado", HeaderText = "Taxa do Plano Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledPlanRate", HeaderText = "Taxa do Plano Controlado"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "LimiteKmControlado", HeaderText = "Limites de KM Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledKmLimit", HeaderText = "Limites de KM Controlado"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaKmExcedidoControlado", HeaderText = "Taxa por KM Excedidos Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledExceededKmRate", HeaderText = "Taxa por KM Excedidos Controlado"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoLivre", HeaderText = "Taxa do Plano Livre"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "UnlimitedPlanRate", HeaderText = "Taxa do Plano Livre"}
            };
 
             return colunas;
@@ -50,14 +50,14 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             return gridGrupoDeVeiculos.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<GrupoDeVeiculo> grupoDeVeiculos)
+        public void AtualizarRegistros(List<VehicleGroup> grupoDeVeiculos)
         {
             gridGrupoDeVeiculos.Rows.Clear();
 
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculos)
+            foreach (VehicleGroup grupo in grupoDeVeiculos)
             {
-                gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaPorKmDiario, grupo.TaxaPlanoControlado,
-                    grupo.LimiteKmControlado, grupo.TaxaKmExcedidoControlado, grupo.TaxaPlanoLivre);
+                gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Name, grupo.DailyPlanRate, grupo.DailyPerKmRate, grupo.ControlledPlanRate,
+                    grupo.ControlledKmLimit, grupo.ControlledExceededKmRate, grupo.UnlimitedPlanRate);
             }
         }
     }
