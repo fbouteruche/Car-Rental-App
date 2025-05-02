@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 
 namespace CarRental.Tests.SevicoModule
 {
@@ -11,7 +11,7 @@ namespace CarRental.Tests.SevicoModule
         [TestMethod]
         public void DeveCriarServicoCorreto()
         {
-            Servico servico = new Servico(0, "nome", true, 100f);
+            Service servico = new Service(0, "nome", true, 100f);
             Assert.AreEqual("VALIDO", servico.Validate());
         }
 
@@ -19,7 +19,7 @@ namespace CarRental.Tests.SevicoModule
 
         public void DeveCriarServicoIncorreto()
         {
-            Servico servico = new Servico(0, "", true, 0f);
+            Service servico = new Service(0, "", true, 0f);
             Assert.AreEqual("O nome não pode ser nulo\nO valor não pode ser nulo", servico.Validate());
         }
     }

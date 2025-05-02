@@ -1,6 +1,6 @@
 ﻿using CarRental.Controladores.FuncionarioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 using System.Collections.Generic;
 using System;
 using CarRental.Tests.Shared;

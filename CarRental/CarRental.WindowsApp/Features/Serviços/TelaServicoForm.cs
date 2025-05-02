@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.ServicoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace CarRental.WindowsApp.Features.Servicos
 {
     public partial class TelaServicoForm : Form
     {
-        private Servico servico;
+        private Service servico;
 
         public TelaServicoForm(string titulo)
         {
@@ -24,7 +24,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             lblCadastroServico.Text = titulo;
         }
 
-        public Servico Servico
+        public Service Servico
         {
             get { return servico; }
             set
@@ -32,9 +32,9 @@ namespace CarRental.WindowsApp.Features.Servicos
                 servico = value;
 
                 txtId.Text = servico.Id.ToString();
-                txtNome.Text = servico.Nome.ToString();
-                txtValor.Text = servico.Valor.ToString();
-                if (servico.EhTaxadoDiario)
+                txtNome.Text = servico.Name.ToString();
+                txtValor.Text = servico.Value.ToString();
+                if (servico.IsChargedDaily)
                     rdbCalcDiaria.Checked = true;
                 else
                     rdbTaxaFixa.Checked = true;
@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Servicos
                 valor = 0;
             bool ehTaxadoDiario = rdbCalcDiaria.Checked;
 
-            servico = new Servico(id, nome, ehTaxadoDiario, valor);
+            servico = new Service(id, nome, ehTaxadoDiario, valor);
 
             string resultadoValidacao = servico.Validate();
 

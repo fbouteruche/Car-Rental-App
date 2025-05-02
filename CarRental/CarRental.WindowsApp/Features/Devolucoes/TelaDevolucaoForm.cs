@@ -1,6 +1,6 @@
 ﻿using CarRental.Controladores.VeiculoModule;
-using CarRental.Domain.LocacaoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.RentalModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.Domain.VeiculoModule;
 using CarRental.WindowsApp.Servicos;
@@ -19,7 +19,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public partial class TelaDevolucaoForm : Form
     {
-        private Locacao devolucao;
+        private Rental devolucao;
         ServicosForm telaServico;
         ControladorVeiculo controladorVeiculo =  new ControladorVeiculo();
         public TelaDevolucaoForm(string titulo)
@@ -30,7 +30,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             telaServico = new ServicosForm();
         }
 
-        public Locacao Devolucao
+        public Rental Devolucao
         {
             get { return devolucao; }
 
@@ -216,7 +216,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             {
                 cLBoxServicosSelecionados.Items.Clear();
                 int i = 0;
-                foreach (Servico servico in Devolucao.Servicos)
+                foreach (Service servico in Devolucao.Servicos)
                 {
                     cLBoxServicosSelecionados.Items.Add(servico);
                     cLBoxServicosSelecionados.SetItemChecked(i++, true);

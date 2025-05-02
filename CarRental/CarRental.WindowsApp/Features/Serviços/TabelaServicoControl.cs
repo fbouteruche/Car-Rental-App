@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.SevicosModule;
+﻿using CarRental.Domain.ServiceModule;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace CarRental.WindowsApp.Features.Servicos
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "EhTaxadoDiario", HeaderText = "É taxado diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "IsChargedDaily", HeaderText = "É taxado diário"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Value", HeaderText = "Value"},
             };
@@ -43,13 +43,13 @@ namespace CarRental.WindowsApp.Features.Servicos
             return gridServicos.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Servico> servicos)
+        public void AtualizarRegistros(List<Service> servicos)
         {
             gridServicos.Rows.Clear();
 
-            foreach (Servico servico in servicos)
+            foreach (Service servico in servicos)
             {
-                gridServicos.Rows.Add(servico.Id, servico.Nome, servico.EhTaxadoDiario, servico.Valor);
+                gridServicos.Rows.Add(servico.Id, servico.Name, servico.IsChargedDaily, servico.Value);
             }
         }
     }

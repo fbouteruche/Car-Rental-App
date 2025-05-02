@@ -4,10 +4,10 @@ using CarRental.Controladores.FuncionarioModule;
 using CarRental.Controladores.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.Coupon;
-using CarRental.Domain.FuncionarioModule;
-using CarRental.Domain.LocacaoModule;
-using CarRental.Domain.RelacionamentoLocServModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.EmployeeModule;
+using CarRental.Domain.RentalModule;
+using CarRental.Domain.RentalServiceRelationshipModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.Domain.VeiculoModule;
 using CarRental.WindowsApp.Servicos;
@@ -26,17 +26,17 @@ namespace CarRental.WindowsApp.Features.Locacoes
 {
     public partial class TelaLocacaoForm : Form
     {
-        private Locacao locacao;
+        private Rental locacao;
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
         private ControladorCupom controladorCupom = new ControladorCupom();
-        public List<Servico> Servicos;
+        public List<Service> Servicos;
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
         {
-            Servicos = new List<Servico>();
+            Servicos = new List<Service>();
             InitializeComponent();
             lblTitulo.Text = titulo;
             CarregarDados();
@@ -44,7 +44,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             cBoxPlano.SelectedIndex = 0;
         }
 
-        public Locacao Locacao
+        public Rental Locacao
         {
             get { return locacao; }
 
@@ -117,7 +117,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                     cupom = null;
             }
 
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
+            locacao = new Rental(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
             controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validate();

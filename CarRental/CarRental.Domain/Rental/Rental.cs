@@ -1,7 +1,7 @@
 ﻿using CarRental.Domain.ClienteModule;
 using CarRental.Domain.Coupon;
-using CarRental.Domain.FuncionarioModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.EmployeeModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.Domain.VeiculoModule;
 using System;
@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Domain.LocacaoModule
+namespace CarRental.Domain.RentalModule
 {
-    public class Locacao : BaseEntity
+    public class Rental : BaseEntity
     {
         private Veiculo veiculo;
         private Employee funcionarioLocador;
@@ -27,10 +27,10 @@ namespace CarRental.Domain.LocacaoModule
         private double precoLocacao;
         private double precoDevolucao;
         private bool estaAberta;
-        private List<Servico> servicos;
+        private List<Service> servicos;
 
         //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Locacao(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
+        public Rental(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Service> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -51,7 +51,7 @@ namespace CarRental.Domain.LocacaoModule
         }
 
         //Construtor SOMENTE para carregar do banco
-        public Locacao(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
+        public Rental(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Service> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -83,7 +83,7 @@ namespace CarRental.Domain.LocacaoModule
         public double PrecoLocacao { get => precoLocacao; }
         public double PrecoDevolucao { get => precoDevolucao; }
         public bool EstaAberta { get => estaAberta; }
-        public List<Servico> Servicos { get => servicos; set => servicos = value; }
+        public List<Service> Servicos { get => servicos; set => servicos = value; }
 
         public void AbrirLocacao(DateTime dataAbertura)
         {
@@ -148,12 +148,12 @@ namespace CarRental.Domain.LocacaoModule
 
         public override string ToString()
         {
-            return $"Locacao = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}";
+            return $"RentalModule = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Locacao locacao &&
+            return obj is Rental locacao &&
                    id == locacao.id &&
                    EqualityComparer<Veiculo>.Default.Equals(veiculo, locacao.veiculo) &&
                    EqualityComparer<Employee>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&

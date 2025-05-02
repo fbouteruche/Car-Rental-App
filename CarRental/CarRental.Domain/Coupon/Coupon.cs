@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.ParceiroModule;
+﻿using CarRental.Domain.PartnerModule;
 using CarRental.Domain.Shared;
 using System;
 using System.Collections.Generic;

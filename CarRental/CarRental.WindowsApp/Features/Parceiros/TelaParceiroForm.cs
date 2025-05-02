@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.ParceiroModule;
+﻿using CarRental.Domain.PartnerModule;
 using System;
 using System.IO;
 using System.Windows.Forms;

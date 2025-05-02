@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Domain.ParceiroModule;
+using CarRental.Domain.PartnerModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

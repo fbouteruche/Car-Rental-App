@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.FuncionarioModule;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

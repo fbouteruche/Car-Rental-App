@@ -5,8 +5,8 @@ using CarRental.Controladores.LocacaoModule;
 using CarRental.Controladores.ServicoModule;
 using CarRental.Controladores.VeiculoModule;
 using CarRental.Domain.ClienteModule;
-using CarRental.Domain.LocacaoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.RentalModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -49,9 +49,9 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardLocacao()
         {
-            List<Locacao> todasLocacao = controladorLocacao.SelecionarTodos();
-            List<Locacao> locacoesAbertas = new List<Locacao>();
-            foreach (Locacao locacao in todasLocacao)
+            List<Rental> todasLocacao = controladorLocacao.SelecionarTodos();
+            List<Rental> locacoesAbertas = new List<Rental>();
+            foreach (Rental locacao in todasLocacao)
                 if (locacao.EstaAberta)
                     locacoesAbertas.Add(locacao);
 
@@ -59,7 +59,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
             int retornam7dias = 0;
             
 
-            foreach (Locacao locacao in locacoesAbertas)
+            foreach (Rental locacao in locacoesAbertas)
             {
                 if (locacao.DataDeChegada.Date == DateTime.Today )
                 {
@@ -78,7 +78,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardServicos()
         {
-            List<Servico> todosServicos = controladorServicos.SelecionarTodos();
+            List<Service> todosServicos = controladorServicos.SelecionarTodos();
             int servicosTotal = todosServicos.Count;
 
             lbServicos.Text = servicosTotal.ToString();

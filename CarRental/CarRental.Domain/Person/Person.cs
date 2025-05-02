@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Domain.PessoaModule
+namespace CarRental.Domain.PersonModule
 {
     public abstract class Person : BaseEntity
     {

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using CarRental.Domain.Coupon;
-using CarRental.Domain.ParceiroModule;
+using CarRental.Domain.PartnerModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

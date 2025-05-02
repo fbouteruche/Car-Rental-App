@@ -1,6 +1,6 @@
 ﻿using CarRental.Domain.Coupon;
 using CarRental.Domain.GrupoDeVeiculosModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;
 
@@ -55,16 +55,16 @@ namespace CarRental.Domain.Shared
             return precoPorDia + precoPorKm;
         }
 
-        public static double CalculateServices(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
+        public static double CalculateServices(List<Service> servicos, DateTime dataInicial, DateTime dataFinal)
         {
             double resultado = 0;
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
-            foreach (Servico servico in servicos)
+            foreach (Service servico in servicos)
             {
-                if (servico.EhTaxadoDiario)
-                    resultado += servico.Valor * intervaloDeDias;
+                if (servico.IsChargedDaily)
+                    resultado += servico.Value * intervaloDeDias;
                 else
-                    resultado += servico.Valor;
+                    resultado += servico.Value;
             }
             return resultado;
         }

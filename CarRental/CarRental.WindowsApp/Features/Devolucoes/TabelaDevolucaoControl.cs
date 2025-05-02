@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.LocacaoModule;
+﻿using CarRental.Domain.RentalModule;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -50,11 +50,11 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             return gridDevolucoes.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Locacao> devolucoes)
+        public void AtualizarRegistros(List<Rental> devolucoes)
         {
             gridDevolucoes.Rows.Clear();
 
-            foreach (Locacao devolucao in devolucoes)
+            foreach (Rental devolucao in devolucoes)
                 gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Name, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
         }
     }

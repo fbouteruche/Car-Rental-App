@@ -1,8 +1,8 @@
 ﻿using CarRental.Controladores.LocacaoModule;
 using CarRental.Controladores.RelacionamentoLocServModule;
 using CarRental.Controladores.Shared;
-using CarRental.Domain.LocacaoModule;
-using CarRental.Domain.RelacionamentoLocServModule;
+using CarRental.Domain.RentalModule;
+using CarRental.Domain.RentalServiceRelationshipModule;
 using CarRental.WindowsApp.Servicos;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -19,7 +19,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
     {
         private readonly ControladorLocacao controlador = null;
         private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
-        private RelacionamentoLocServ relacionamento;
+        private RentalServiceRelationship relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
         ConversorParaPdf conversorPdf;
         public OperacoesLocacao(ControladorLocacao ctrlLocacao)
@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 if (resultadoLocacao == "VALIDO")
                 {
-                    relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
+                    relacionamento = new RentalServiceRelationship(0, tela.Locacao, tela.Servicos);
                     controladorRelacionamento.InserirNovo(relacionamento);
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
 
@@ -54,7 +54,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                     }
                 }
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelecionarTodos();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -72,7 +72,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
 
             TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Locação");
 
@@ -82,7 +82,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             {
                 controlador.Editar(id, tela.Locacao);
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelecionarTodos();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -101,14 +101,14 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelecionarTodos();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -126,7 +126,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         }
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = controlador.SelecionarTodos();
+            List<Rental> locacoes = controlador.SelecionarTodos();
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;

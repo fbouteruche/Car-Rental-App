@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.ServicoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.WindowsApp.Features.Servicos;
 using System;
@@ -16,19 +16,19 @@ namespace CarRental.WindowsApp.Servicos
 {
     public partial class ServicosForm : Form
     {
-        public List<Servico> servicosSelecionados;
+        public List<Service> servicosSelecionados;
         public string seguro = "Nenhum";
         ControladorServico controladorServico;
         public ServicosForm()
         {
             controladorServico = new ControladorServico();
-            servicosSelecionados = new List<Servico>();
+            servicosSelecionados = new List<Service>();
             InitializeComponent();
             AtualizarListCheckBox();
             cBoxSeguro.SelectedIndex = 0; 
         }
 
-        public void InicializarCampos(List<Servico> servicosIniciais, string seguroInicial, bool campoSeguroEhEditavel)
+        public void InicializarCampos(List<Service> servicosIniciais, string seguroInicial, bool campoSeguroEhEditavel)
         {
             if (seguroInicial.Contains("Terceiro"))
                 cBoxSeguro.SelectedIndex = 2;
@@ -49,14 +49,14 @@ namespace CarRental.WindowsApp.Servicos
         private void AtualizarListCheckBox()
         {
             cLBoxServicos.Items.Clear();
-            foreach (Servico servico in controladorServico.SelecionarTodos())
+            foreach (Service servico in controladorServico.SelecionarTodos())
                 cLBoxServicos.Items.Add(servico);
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             seguro = cBoxSeguro.SelectedItem.ToString().Replace(" ", "");
-            foreach (Servico servico in cLBoxServicos.CheckedItems)
+            foreach (Service servico in cLBoxServicos.CheckedItems)
                 servicosSelecionados.Add(servico);
         }
 

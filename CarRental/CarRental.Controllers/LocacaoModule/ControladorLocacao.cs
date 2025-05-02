@@ -6,9 +6,9 @@ using CarRental.Controladores.Shared;
 using CarRental.Controladores.VeiculoModule;
 using CarRental.Domain.ClienteModule;
 using CarRental.Domain.Coupon;
-using CarRental.Domain.FuncionarioModule;
-using CarRental.Domain.LocacaoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.EmployeeModule;
+using CarRental.Domain.RentalModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controladores.LocacaoModule
 {
-    public class ControladorLocacao : Controlador<Locacao>
+    public class ControladorLocacao : Controlador<Rental>
     {
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
@@ -106,7 +106,7 @@ namespace CarRental.Controladores.LocacaoModule
 
 
         #endregion
-        public override string InserirNovo(Locacao registro)
+        public override string InserirNovo(Rental registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -115,18 +115,18 @@ namespace CarRental.Controladores.LocacaoModule
 
             return resultadoValidacao;
         }
-        public override List<Locacao> SelecionarTodos()
+        public override List<Rental> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmLocacao);
         }
-        public override Locacao SelecionarPorId(int id)
+        public override Rental SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
-        private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
+        private List<Service> SelecionarServicosComIdLocacao(int idLocacao)
         {
-            List<Servico> servicosDaLocacao = new List<Servico>();
+            List<Service> servicosDaLocacao = new List<Service>();
             List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
             foreach (int idServico in idsDeServicos)
             {
@@ -135,7 +135,7 @@ namespace CarRental.Controladores.LocacaoModule
             return servicosDaLocacao;
         }
 
-        public override string Editar(int id, Locacao registro)
+        public override string Editar(int id, Rental registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -166,7 +166,7 @@ namespace CarRental.Controladores.LocacaoModule
             return Db.Exists(sqlSelecionarLocacaoPorId, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
+        private Dictionary<string, object> ObtemParametrosLocacao(Rental locacao)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -195,7 +195,7 @@ namespace CarRental.Controladores.LocacaoModule
             return Convert.ToInt32(reader["ID_SERVICO"]);
         }
 
-        private Locacao ConverterEmLocacao(IDataReader reader)
+        private Rental ConverterEmLocacao(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var id_veiculo = Convert.ToInt32(reader["ID_VEICULO"]);
@@ -217,8 +217,8 @@ namespace CarRental.Controladores.LocacaoModule
             var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
-            List <Servico>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
-            //foreach (Servico servico in controladorServico.SelecionarTodos())
+            List <Service>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
+            //foreach (Service servico in controladorServico.SelecionarTodos())
             //{
             //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
             //    if (idsDeServicos.Contains(servico.Id))
@@ -235,7 +235,7 @@ namespace CarRental.Controladores.LocacaoModule
             else
                 cupom = null;
 
-            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
+            return new Rental(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
         }
     }
 }

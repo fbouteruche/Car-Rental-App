@@ -1,6 +1,6 @@
 ﻿using CarRental.Controladores.ParceiroModule;
 using CarRental.Domain.Coupon;
-using CarRental.Domain.ParceiroModule;
+using CarRental.Domain.PartnerModule;
 using System;
 using System.Drawing;
 using System.IO;

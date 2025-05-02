@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.Shared;
-using CarRental.Domain.ParceiroModule;
+using CarRental.Domain.PartnerModule;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Domain.ParceiroModule
+namespace CarRental.Domain.PartnerModule
 {
     public class Partner : BaseEntity
     {

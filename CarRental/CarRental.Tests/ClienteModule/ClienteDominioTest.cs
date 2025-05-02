@@ -12,21 +12,21 @@ namespace CarRental.Tests.ClienteModule
         [TestMethod]
         public void DeveCriarClienteCorreto_CompletoPessoaFisica()
         {
-            cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "11-1111111", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
         public void DeveCriarClienteCorreto_CompletoPessoaJuridica()
         {
-            cliente = new Customer(0, "Name Teste", "29.073.791/0001-61", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), false);
+            cliente = new Customer(0, "Name Teste", "29.073.791/0001-61", "Address Customer", "11-1111111", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), false);
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultado = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultado = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultado = cliente.Validate();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
         #endregion
     }

@@ -1,12 +1,12 @@
 ﻿using CarRental.Controladores.Shared;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace CarRental.Controladores.ServicoModule
 {
-    public class ControladorServico : Controlador<Servico>
+    public class ControladorServico : Controlador<Service>
     {
         #region queries
         private const string sqlInserirServico =
@@ -65,7 +65,7 @@ namespace CarRental.Controladores.ServicoModule
             WHERE 
                 [ID] = @ID";
         #endregion
-        public override string InserirNovo(Servico registro)
+        public override string InserirNovo(Service registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -74,15 +74,15 @@ namespace CarRental.Controladores.ServicoModule
 
             return resultadoValidacao;
         }
-        public override List<Servico> SelecionarTodos()
+        public override List<Service> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmServico);
         }
-        public override Servico SelecionarPorId(int id)
+        public override Service SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AdicionarParametro("ID", id));
         }
-        public override string Editar(int id, Servico registro)
+        public override string Editar(int id, Service registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -113,26 +113,26 @@ namespace CarRental.Controladores.ServicoModule
             return Db.Exists(sqlExisteServico, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosServico(Servico servico)
+        private Dictionary<string, object> ObtemParametrosServico(Service servico)
         {
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", servico.Id);
-            parametros.Add("NOME", servico.Nome);
-            parametros.Add("EHTAXADODIARIO", servico.EhTaxadoDiario);
-            parametros.Add("VALOR", servico.Valor);
+            parametros.Add("NOME", servico.Name);
+            parametros.Add("EHTAXADODIARIO", servico.IsChargedDaily);
+            parametros.Add("VALOR", servico.Value);
 
             return parametros;
         }
         
-        private Servico ConverterEmServico(IDataReader reader)
+        private Service ConverterEmServico(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
             bool ehTaxadoDiario = Convert.ToBoolean(reader["EHTAXADODIARIO"]);
             double valor = Convert.ToDouble(reader["VALOR"]);
 
-            Servico servico = new Servico(id, nome, ehTaxadoDiario, valor);
+            Service servico = new Service(id, nome, ehTaxadoDiario, valor);
 
             servico.Id = id;
 

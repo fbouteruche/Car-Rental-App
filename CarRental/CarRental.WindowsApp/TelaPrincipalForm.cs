@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CarRental.WindowsApp.Clientes;
 using CarRental.WindowsApp.Funcionarios;
 using CarRental.WindowsApp.ClientesModule;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 using CarRental.Controladores.FuncionarioModule;
 using CarRental.WindowsApp.Shared;
 using CarRental.WindowsApp.Features.Funcionarios;

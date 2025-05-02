@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.LocacaoModule;
-using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.RentalModule;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
 
             TelaDevolucaoForm tela = new TelaDevolucaoForm("Devolução de Veículo");
 
@@ -36,7 +36,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.Editar(tela.Devolucao.Id , tela.Devolucao);
-                List<Locacao> funcionarios = controlador.SelecionarTodos();
+                List<Rental> funcionarios = controlador.SelecionarTodos();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
             }
@@ -58,14 +58,14 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelecionarTodos();
 
                 tabelaDevolucao.AtualizarRegistros(veiculos);
 
@@ -79,7 +79,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
             if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
-                List<Locacao> devolucoes = controlador.SelecionarTodos();
+                List<Rental> devolucoes = controlador.SelecionarTodos();
                 string tipoLocacao = "";
 
                 switch (telaFiltro.TipoFiltro)
@@ -89,8 +89,8 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                     case FiltroDevolucaoEnum.DevolucoesPendentes:
                         {
-                            List<Locacao> filtro = new List<Locacao>();
-                            foreach (Locacao devolucao in devolucoes)
+                            List<Rental> filtro = new List<Rental>();
+                            foreach (Rental devolucao in devolucoes)
                                 if (devolucao.EstaAberta)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
@@ -100,8 +100,8 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                     case FiltroDevolucaoEnum.DevolucoesFinalizadas:
                         {
-                            List<Locacao> filtro = new List<Locacao>();
-                            foreach (Locacao devolucao in devolucoes)
+                            List<Rental> filtro = new List<Rental>();
+                            foreach (Rental devolucao in devolucoes)
                                 if (!devolucao.EstaAberta)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
@@ -125,7 +125,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = controlador.SelecionarTodos();
+            List<Rental> locacoes = controlador.SelecionarTodos();
 
             tabelaDevolucao.AtualizarRegistros(locacoes);
 

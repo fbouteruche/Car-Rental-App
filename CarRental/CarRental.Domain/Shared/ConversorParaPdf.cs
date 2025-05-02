@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.LocacaoModule;
+﻿using CarRental.Domain.RentalModule;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -27,7 +27,7 @@ namespace CarRental.Controladores.Shared
         public string FontFamily { get => fontFamily; set => fontFamily = value; }
         public double TamanhoFonteTitulo { get => tamanhoFonteTitulo; set => tamanhoFonteTitulo = value; }
 
-        public void ConverterLocacaoEmPdf(Locacao locacao)
+        public void ConverterLocacaoEmPdf(Rental locacao)
         {
             string arquivo = $@"..\..\..\Recibos\recibo{locacao.Id}.pdf";
             string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";

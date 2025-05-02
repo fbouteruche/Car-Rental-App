@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.FuncionarioModule;
+﻿using CarRental.Domain.EmployeeModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

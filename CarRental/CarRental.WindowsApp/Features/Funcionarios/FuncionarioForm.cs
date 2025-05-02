@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 using CarRental.WindowsApp.Funcionarios;
 
 namespace CarRental.WindowsApp.Funcionarios

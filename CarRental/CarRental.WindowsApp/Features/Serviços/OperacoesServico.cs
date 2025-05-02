@@ -1,5 +1,5 @@
 ﻿using CarRental.Controladores.ServicoModule;
-using CarRental.Domain.SevicosModule;
+using CarRental.Domain.ServiceModule;
 using CarRental.WindowsApp.Servicos;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -30,11 +30,11 @@ namespace CarRental.WindowsApp.Features.Servicos
             {
                 controlador.InserirNovo(tela.Servico);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelecionarTodos();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{tela.Servico.Name}] inserido com sucesso");
             }
         }
 
@@ -44,12 +44,12 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um servico para poder editar!", "Edição de Servicos",
+                MessageBox.Show("Selecione um servico para poder editar!", "Edição de Services",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Servico servicoSelecionada = controlador.SelecionarPorId(id);
+            Service servicoSelecionada = controlador.SelecionarPorId(id);
 
             TelaServicoForm tela = new TelaServicoForm("Edição de Serviços");
 
@@ -59,11 +59,11 @@ namespace CarRental.WindowsApp.Features.Servicos
             {
                 controlador.Editar(id, tela.Servico);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelecionarTodos();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{tela.Servico.Name}] editado com sucesso");
             }
         }
 
@@ -73,29 +73,29 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma servico para poder excluir!", "Exclusão de Servicos",
+                MessageBox.Show("Selecione uma servico para poder excluir!", "Exclusão de Services",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Servico servicoSelecionada = controlador.SelecionarPorId(id);
+            Service servicoSelecionada = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Nome}] ?",
-                "Exclusão de Servicos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Name}] ?",
+                "Exclusão de Services", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelecionarTodos();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{servicoSelecionada.Nome}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{servicoSelecionada.Name}] removido com sucesso");
             }
         }
 
         public UserControl ObterTabela()
         {
-            List<Servico> servicos = controlador.SelecionarTodos();
+            List<Service> servicos = controlador.SelecionarTodos();
 
             tabelaServicos.AtualizarRegistros(servicos);
 

@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.Shared;
 using System.Windows.Forms;
 

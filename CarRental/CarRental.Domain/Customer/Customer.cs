@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.PessoaModule;
+﻿using CarRental.Domain.PersonModule;
 using System;
 using System.Collections.Generic;
 

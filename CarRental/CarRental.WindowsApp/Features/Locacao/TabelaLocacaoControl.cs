@@ -1,4 +1,4 @@
-﻿using CarRental.Domain.LocacaoModule;
+﻿using CarRental.Domain.RentalModule;
 using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -41,11 +41,11 @@ namespace CarRental.WindowsApp.Features.Locacoes
             return gridLocacao.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Locacao> locacoes)
+        public void AtualizarRegistros(List<Rental> locacoes)
         {
             gridLocacao.Rows.Clear();
 
-            foreach (Locacao locacao in locacoes)
+            foreach (Rental locacao in locacoes)
             {
                 gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor, locacao.PrecoLocacao,
                     locacao.DataDeSaida, locacao.DataPrevistaDeChegada);

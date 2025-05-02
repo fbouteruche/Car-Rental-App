@@ -1,8 +1,8 @@
-﻿using CarRental.Domain.PessoaModule;
+﻿using CarRental.Domain.PersonModule;
 using System;
 using System.Collections.Generic;
 
-namespace CarRental.Domain.FuncionarioModule
+namespace CarRental.Domain.EmployeeModule
 {
     public class Employee : Person
     {

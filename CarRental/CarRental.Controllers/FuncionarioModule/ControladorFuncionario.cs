@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using CarRental.Controladores.Shared;
-using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.EmployeeModule;
 
 namespace CarRental.Controladores.FuncionarioModule
 {
