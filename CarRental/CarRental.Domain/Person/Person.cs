@@ -21,9 +21,9 @@ namespace CarRental.Domain.PessoaModule
             string validationResult = "";
             bool uniqueIdValidationResult = false;
             if (IsPhysicalPerson)
-                uniqueIdValidationResult = ValidateCpf(UniqueId);
+                uniqueIdValidationResult = ValidateSSN(UniqueId);
             else
-                uniqueIdValidationResult = ValidateCnpj(UniqueId);
+                uniqueIdValidationResult = ValidateTaxId(UniqueId);
 
             if (this.Name.Length == 0)
                 validationResult = "The name cannot be null\n";
@@ -34,9 +34,9 @@ namespace CarRental.Domain.PessoaModule
             if (!uniqueIdValidationResult)
             {
                 if (IsPhysicalPerson)
-                    validationResult += "The CPF is not valid\n";
+                    validationResult += "The SSN is not valid\n";
                 else
-                    validationResult += "The CNPJ is not valid\n";
+                    validationResult += "The EIN is not valid\n";
             }
             if (validationResult == "")
                 validationResult = "VALID";
@@ -44,75 +44,70 @@ namespace CarRental.Domain.PessoaModule
             return validationResult;
         }
 
-        private static bool ValidateCpf(string cpf)
+        private static bool ValidateSSN(string ssn)
         {
-            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            string tempCpf;
-            string digito;
-            int soma;
-            int resto;
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "").Replace(",", "");
-            if (cpf.Length != 11)
+            int[] multiplier1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplier2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempSsn;
+            string digit;
+            int sum;
+            int remainder;
+            ssn = ssn.Trim();
+            ssn = ssn.Replace(".", "").Replace("-", "").Replace(",", "");
+            if (ssn.Length != 11)
                 return false;
-            tempCpf = cpf.Substring(0, 9);
-            soma = 0;
+            tempSsn = ssn.Substring(0, 9);
+            sum = 0;
 
             for (int i = 0; i < 9; i++)
-                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
-            resto = soma % 11;
-            if (resto < 2)
-                resto = 0;
+                sum += int.Parse(tempSsn[i].ToString()) * multiplier1[i];
+            remainder = sum % 11;
+            if (remainder < 2)
+                remainder = 0;
             else
-                resto = 11 - resto;
-            digito = resto.ToString();
-            tempCpf = tempCpf + digito;
-            soma = 0;
+                remainder = 11 - remainder;
+            digit = remainder.ToString();
+            tempSsn = tempSsn + digit;
+            sum = 0;
             for (int i = 0; i < 10; i++)
-                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
-            resto = soma % 11;
-            if (resto < 2)
-                resto = 0;
+                sum += int.Parse(tempSsn[i].ToString()) * multiplier2[i];
+            remainder = sum % 11;
+            if (remainder < 2)
+                remainder = 0;
             else
-                resto = 11 - resto;
-            digito = digito + resto.ToString();
-            return cpf.EndsWith(digito);
+                remainder = 11 - remainder;
+            digit = digit + remainder.ToString();
+            return ssn.EndsWith(digit);
         }
 
-        private static bool ValidateCnpj(string cnpj)
+        private static bool ValidateTaxId(string taxId)
         {
-            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int soma;
-            int resto;
-            string digito;
-            string tempCnpj;
-            cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
-            if (cnpj.Length != 14)
+            //validate US tax ID (EIN)
+            // This is a simplified version and may not cover all cases
+            // In a real-world scenario, you would use a more robust validation method
+            // For example, you could use a regex pattern to validate the format of the EIN
+            // or use a library that provides EIN validation
+            // For now, we'll just check if the length is 9 and if it contains only digits
+            taxId = taxId.Trim();
+            taxId = taxId.Replace("-", "").Replace(" ", "");
+            if (taxId.Length != 9)
                 return false;
-            tempCnpj = cnpj.Substring(0, 12);
-            soma = 0;
-            for (int i = 0; i < 12; i++)
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
-            resto = (soma % 11);
-            if (resto < 2)
-                resto = 0;
-            else
-                resto = 11 - resto;
-            digito = resto.ToString();
-            tempCnpj = tempCnpj + digito;
-            soma = 0;
-            for (int i = 0; i < 13; i++)
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
-            resto = (soma % 11);
-            if (resto < 2)
-                resto = 0;
-            else
-                resto = 11 - resto;
-            digito = digito + resto.ToString();
-            return cnpj.EndsWith(digito);
+            foreach (char c in taxId)
+                {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+            // Check if the first two digits are not both zeros
+            if (taxId.StartsWith("00"))
+                return false;
+            // Check if the first digit is not a zero
+            if (taxId[0] == '0')
+                return false;
+            // Check if the last digit is not a zero
+            if (taxId[8] == '0')
+                return false;
+ 
+            return true;
         }
     }
 }

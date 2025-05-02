@@ -15,7 +15,7 @@ namespace CarRental.Domain.LocacaoModule
     public class Locacao : BaseEntity
     {
         private Veiculo veiculo;
-        private Funcionario funcionarioLocador;
+        private Employee funcionarioLocador;
         private Customer clienteContratante;
         private Customer clienteCondutor;
         private Coupon.Coupon cupom;
@@ -30,7 +30,7 @@ namespace CarRental.Domain.LocacaoModule
         private List<Servico> servicos;
 
         //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -51,7 +51,7 @@ namespace CarRental.Domain.LocacaoModule
         }
 
         //Construtor SOMENTE para carregar do banco
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Employee funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -71,7 +71,7 @@ namespace CarRental.Domain.LocacaoModule
         }
 
         public Veiculo Veiculo { get => veiculo; }
-        public Funcionario FuncionarioLocador { get => funcionarioLocador; }
+        public Employee FuncionarioLocador { get => funcionarioLocador; }
         public Customer ClienteContratante { get => clienteContratante; }
         public Customer ClienteCondutor { get => clienteCondutor; }
         public Coupon.Coupon Cupom { get => cupom; }
@@ -156,7 +156,7 @@ namespace CarRental.Domain.LocacaoModule
             return obj is Locacao locacao &&
                    id == locacao.id &&
                    EqualityComparer<Veiculo>.Default.Equals(veiculo, locacao.veiculo) &&
-                   EqualityComparer<Funcionario>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
+                   EqualityComparer<Employee>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
                    EqualityComparer<Customer>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
                    EqualityComparer<Customer>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
                    dataDeSaida == locacao.dataDeSaida &&
@@ -174,7 +174,7 @@ namespace CarRental.Domain.LocacaoModule
             int hashCode = 1457090499;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(funcionarioLocador);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Employee>.Default.GetHashCode(funcionarioLocador);
             hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteContratante);
             hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteCondutor);
             hashCode = hashCode * -1521134295 + dataDeSaida.GetHashCode();

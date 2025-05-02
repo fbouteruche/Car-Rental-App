@@ -9,17 +9,17 @@ namespace CarRental.Domain.ClienteModule
         public string DriverLicense { get; }
         public DateTime? LicenseExpiryDate { get; }
 
-        public Customer(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime? validadeCnh, bool ehPessoaFisica)
+        public Customer(int id, string name, string uniqueIdentifier, string address, string phone, string email, string driverLicenseNumber, DateTime? licenseExpiryDate, bool isPhysicalPerson)
         {
             this.id = id;
-            Name = nome;
-            UniqueId = registroUnico;
-            Address = endereco;
-            Phone = telefone;
+            Name = name;
+            UniqueId = uniqueIdentifier;
+            Address = address;
+            Phone = phone;
             Email = email;
-            DriverLicense = cnh;
-            LicenseExpiryDate = validadeCnh;
-            IsPhysicalPerson = ehPessoaFisica;
+            DriverLicense = driverLicenseNumber;
+            LicenseExpiryDate = licenseExpiryDate;
+            IsPhysicalPerson = isPhysicalPerson;
         }
 
         public override string Validate()
@@ -80,16 +80,16 @@ namespace CarRental.Domain.ClienteModule
 
         public override bool Equals(object obj)
         {
-            return obj is Customer cliente &&
-                   id == cliente.id &&
-                   Name == cliente.Name &&
-                   UniqueId == cliente.UniqueId &&
-                   Address == cliente.Address &&
-                   Phone == cliente.Phone &&
-                   Email == cliente.Email &&
-                   IsPhysicalPerson == cliente.IsPhysicalPerson &&
-                   DriverLicense == cliente.DriverLicense &&
-                   LicenseExpiryDate == cliente.LicenseExpiryDate;
+            return obj is Customer otherCustomer &&
+                   id == otherCustomer.id &&
+                   Name == otherCustomer.Name &&
+                   UniqueId == otherCustomer.UniqueId &&
+                   Address == otherCustomer.Address &&
+                   Phone == otherCustomer.Phone &&
+                   Email == otherCustomer.Email &&
+                   IsPhysicalPerson == otherCustomer.IsPhysicalPerson &&
+                   DriverLicense == otherCustomer.DriverLicense &&
+                   LicenseExpiryDate == otherCustomer.LicenseExpiryDate;
         }
 
         public override int GetHashCode()

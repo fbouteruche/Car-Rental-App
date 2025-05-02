@@ -185,7 +185,7 @@ namespace CarRental.WindowsApp.Funcionarios
             this.lbCargo.Name = "lbCargo";
             this.lbCargo.Size = new System.Drawing.Size(46, 17);
             this.lbCargo.TabIndex = 44;
-            this.lbCargo.Text = "Cargo";
+            this.lbCargo.Text = "JobTitle";
             // 
             // lbSalario
             // 
@@ -323,7 +323,7 @@ namespace CarRental.WindowsApp.Funcionarios
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 46;
-            this.label1.Text = "Senha";
+            this.label1.Text = "UserPassword";
             // 
             // mskTxtDataAdmissao
             // 

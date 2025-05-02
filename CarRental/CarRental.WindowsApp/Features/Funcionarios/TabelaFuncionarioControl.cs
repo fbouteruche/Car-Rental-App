@@ -38,15 +38,15 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "E-mail"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "MatriculaInterna", HeaderText = "Matricula"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "InternalRegistration", HeaderText = "Matricula"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "UsuarioAcesso", HeaderText = "Usuário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "LoginUsername", HeaderText = "Usuário"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Cargo"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "JobTitle", HeaderText = "JobTitle"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Salario", HeaderText = "Salário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Salary", HeaderText = "Salário"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataAdmissao", HeaderText = "Data de admissão"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "HiringDate", HeaderText = "Data de admissão"}
            };
 
             return colunas;
@@ -57,15 +57,15 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             return gridFuncionarios.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Funcionario> funcionarios)
+        public void AtualizarRegistros(List<Employee> funcionarios)
         {
             gridFuncionarios.Rows.Clear();
 
-            foreach (Funcionario funcionario in funcionarios)
+            foreach (Employee funcionario in funcionarios)
             {
                 gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Name, funcionario.UniqueId,
-                    funcionario.Address, funcionario.Phone, funcionario.Email, funcionario.MatriculaInterna,
-                    funcionario.UsuarioAcesso, funcionario.Cargo, funcionario.Salario, funcionario.DataAdmissao);
+                    funcionario.Address, funcionario.Phone, funcionario.Email, funcionario.InternalRegistration,
+                    funcionario.LoginUsername, funcionario.JobTitle, funcionario.Salary, funcionario.HiringDate);
             }
         }
     }

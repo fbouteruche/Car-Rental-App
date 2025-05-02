@@ -31,7 +31,7 @@ namespace CarRental.Tests.LocacaoModule
         ControladorCupom controladorCupom = null;
         GrupoDeVeiculo grupoVeiculos;
         Veiculo veiculo;
-        Funcionario funcionario;
+        Employee funcionario;
         Customer clienteContratante;
         Customer clienteCondutor;
         Locacao locacao;
@@ -55,7 +55,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteContratante);
@@ -76,7 +76,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteContratante);
@@ -99,7 +99,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteContratante);
@@ -122,7 +122,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
             veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteContratante);

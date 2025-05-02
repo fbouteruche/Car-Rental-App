@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Coupon\Coupon.cs" />
-    <Compile Include="Employee\Funcionario.cs" />
+    <Compile Include="Employee\Employee.cs" />
     <Compile Include="VehicleGroup\GrupoDeVeiculo.cs" />
     <Compile Include="VehicleImage\ImagemVeiculo.cs" />
     <Compile Include="Rental\Locacao.cs" />
@@ -61,7 +61,7 @@
     <Compile Include="Rental\CalcularLocacao.cs" />
     <Compile Include="Shared\ConversorParaPdf.cs" />
     <Compile Include="Shared\BaseEntity.cs" />
-    <Compile Include="VeiculoModule\Veiculo.cs" />
+    <Compile Include="Vehicle\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

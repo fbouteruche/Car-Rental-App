@@ -60,7 +60,7 @@ namespace CarRental.WindowsApp.Features.Login
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Senha";
+            this.label4.Text = "UserPassword";
             // 
             // textSenha
             // 
@@ -121,7 +121,7 @@ namespace CarRental.WindowsApp.Features.Login
             this.linkLabel1.Size = new System.Drawing.Size(117, 13);
             this.linkLabel1.TabIndex = 27;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Esqueceu Sua Senha?";
+            this.linkLabel1.Text = "Esqueceu Sua UserPassword?";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // TelaLogin

@@ -30,9 +30,9 @@ namespace CarRental.WindowsApp.Features.Login
 
             else
             {
-                foreach (Funcionario funcionario in controlador.SelecionarTodos())
+                foreach (Employee funcionario in controlador.SelecionarTodos())
                 {
-                    if (textUsuario.Text == funcionario.UsuarioAcesso && textSenha.Text == funcionario.Senha)
+                    if (textUsuario.Text == funcionario.LoginUsername && textSenha.Text == funcionario.UserPassword)
                     {
                         EfetuarLogin();
                         return;

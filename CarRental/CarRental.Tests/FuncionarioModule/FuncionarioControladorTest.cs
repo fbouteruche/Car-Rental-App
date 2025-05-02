@@ -10,8 +10,8 @@ namespace CarRental.Tests.FuncionarioModule
     [TestClass]
     public class FuncionarioControladorTest
     {
-        Funcionario funcionario;
-        Funcionario funcionario2;
+        Employee funcionario;
+        Employee funcionario2;
         ControladorFuncionario ctr; 
 
         public FuncionarioControladorTest()
@@ -24,7 +24,7 @@ namespace CarRental.Tests.FuncionarioModule
         public void DeveInserirFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);
@@ -37,12 +37,12 @@ namespace CarRental.Tests.FuncionarioModule
         public void DeveExcluirFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Name Teste removido", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste removido", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             
             //action
             ctr.InserirNovo(funcionario);
             ctr.Excluir(funcionario.Id);
-            Funcionario funcionarioEncontrado = ctr.SelecionarPorId(funcionario.Id);
+            Employee funcionarioEncontrado = ctr.SelecionarPorId(funcionario.Id);
 
             //assert
             Assert.IsNull(funcionarioEncontrado);
@@ -52,8 +52,8 @@ namespace CarRental.Tests.FuncionarioModule
         public void DeveEditarFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            Funcionario funcionarioEditado = new Funcionario(0, "Name Teste2", "954.746.736-04", "Address Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", "12345", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            Employee funcionarioEditado = new Employee(0, "Name Teste2", "954.746.736-04", "Address Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", "12345", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);
@@ -67,8 +67,8 @@ namespace CarRental.Tests.FuncionarioModule
         public void DeveSelecionarTodosFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            funcionario2 = new Funcionario(0, "Name Teste", "954.746.736-04", "Address Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario2 = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);

@@ -6,7 +6,7 @@ using CarRental.Domain.FuncionarioModule;
 
 namespace CarRental.Controladores.FuncionarioModule
 {
-    public class ControladorFuncionario : Controlador<Funcionario>
+    public class ControladorFuncionario : Controlador<Employee>
     {
 
         #region Queries
@@ -60,7 +60,7 @@ namespace CarRental.Controladores.FuncionarioModule
         private const string comandoSelecionarPorId = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
         #endregion
 
-        public override string Editar(int id, Funcionario registro)
+        public override string Editar(int id, Employee registro)
         {
             string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
@@ -89,7 +89,7 @@ namespace CarRental.Controladores.FuncionarioModule
             return Db.Exists(comandoSelecionarPorId, AdicionarParametro("ID", id));
         }
 
-        public override string InserirNovo(Funcionario registro)
+        public override string InserirNovo(Employee registro)
         {
             string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
@@ -98,17 +98,17 @@ namespace CarRental.Controladores.FuncionarioModule
             return resultadoValidacao;
         }
 
-        public override Funcionario SelecionarPorId(int id)
+        public override Employee SelecionarPorId(int id)
         {
             return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
 
-        public override List<Funcionario> SelecionarTodos()
+        public override List<Employee> SelecionarTodos()
         {
             return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
         }
 
-        private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
+        private Dictionary<string, object> ObtemParametrosFuncionario(Employee funcionario)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -118,18 +118,18 @@ namespace CarRental.Controladores.FuncionarioModule
             parametros.Add("ENDERECO", funcionario.Address);
             parametros.Add("TELEFONE", funcionario.Phone);
             parametros.Add("EMAIL", funcionario.Email);
-            parametros.Add("MATRICULAINTERNA", funcionario.MatriculaInterna);
-            parametros.Add("USUARIOACESSO", funcionario.UsuarioAcesso);
-            parametros.Add("SENHA", funcionario.Senha);
-            parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
-            parametros.Add("CARGO", funcionario.Cargo);
-            parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salario)));
+            parametros.Add("MATRICULAINTERNA", funcionario.InternalRegistration);
+            parametros.Add("USUARIOACESSO", funcionario.LoginUsername);
+            parametros.Add("SENHA", funcionario.UserPassword);
+            parametros.Add("DATAADMISSAO", funcionario.HiringDate);
+            parametros.Add("CARGO", funcionario.JobTitle);
+            parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salary)));
             parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(funcionario.IsPhysicalPerson));
 
             return parametros;
         }
 
-        private Funcionario ConverterEmFuncionario(IDataReader reader)
+        private Employee ConverterEmFuncionario(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
@@ -145,7 +145,7 @@ namespace CarRental.Controladores.FuncionarioModule
             double salario = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
             bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
 
-            Funcionario funcionario = new Funcionario(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso,senha, dataAdmissao, cargo, salario, ehPessoaFisica);
+            Employee funcionario = new Employee(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso,senha, dataAdmissao, cargo, salario, ehPessoaFisica);
 
             funcionario.Id = id;
 
