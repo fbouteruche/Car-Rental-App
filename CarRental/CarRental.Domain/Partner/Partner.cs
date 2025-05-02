@@ -9,19 +9,19 @@ namespace CarRental.Domain.PartnerModule
 {
     public class Partner : BaseEntity
     {
-        public string Nome { get; }
+        public string Name { get; }
 
         public Partner(int id, string name)
         {
             Id = id;
-            Nome = name;
+            Name = name;
         }
 
         public override string Validate()
         {
             string validationResult = "";
 
-            if (string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty(Name))
                 validationResult += "The Name field is required";
             if (validationResult == "")
                 validationResult = "VALID";
@@ -33,20 +33,20 @@ namespace CarRental.Domain.PartnerModule
         {
             return obj is Partner comparerdPartner &&
                    Id == comparerdPartner.Id &&
-                   Nome == comparerdPartner.Nome;
+                   Name == comparerdPartner.Name;
         }
 
         public override int GetHashCode()
         {
             int hashCode = -1643562096;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             return hashCode;
         }
 
         public override string ToString()
         {
-            return $" {id}, {Nome}";
+            return $" {id}, {Name}";
         }
     }
 }

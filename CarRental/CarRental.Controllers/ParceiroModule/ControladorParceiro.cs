@@ -116,7 +116,7 @@ namespace CarRental.Controllers.ParceiroModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", registro.Id);
-            parametros.Add("NOMEPARCEIRO", registro.Nome);
+            parametros.Add("NOMEPARCEIRO", registro.Name);
 
             return parametros;
         }

@@ -38,7 +38,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             gridParceiros.Rows.Clear();
 
             foreach (Partner parceiro in parceiros)
-                gridParceiros.Rows.Add(parceiro.Id, parceiro.Nome);
+                gridParceiros.Rows.Add(parceiro.Id, parceiro.Name);
 
         }
 

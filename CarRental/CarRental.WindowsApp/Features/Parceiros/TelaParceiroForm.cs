@@ -22,7 +22,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
                 parceiro = value;
 
                 txtId.Text = parceiro.Id.ToString();
-                txtNome.Text = parceiro.Nome;
+                txtNome.Text = parceiro.Name;
             }
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
