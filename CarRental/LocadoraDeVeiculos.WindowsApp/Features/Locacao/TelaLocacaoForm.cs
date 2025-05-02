@@ -88,9 +88,9 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
         private void CarregaCondutor()
         {
-            List<Cliente> clientesPf = new List<Cliente>();
-            foreach (Cliente cliente in controladorCliente.SelecionarTodos())
-                if (cliente.EhPessoaFisica)
+            List<Customer> clientesPf = new List<Customer>();
+            foreach (Customer cliente in controladorCliente.SelecionarTodos())
+                if (cliente.IsPhysicalPerson)
                     clientesPf.Add(cliente);
             cBoxCondutor.DataSource = clientesPf;
         }
@@ -101,8 +101,8 @@ namespace CarRental.WindowsApp.Features.Locacoes
             string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
             Veiculo veiculo = cBoxVeiculo.SelectedItem as Veiculo;
             Funcionario funcionarioLocador = cBoxFuncionario.SelectedItem as Funcionario;
-            Cliente clienteContratante = cBoxCliente.SelectedItem as Cliente;
-            Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
+            Customer clienteContratante = cBoxCliente.SelectedItem as Customer;
+            Customer condutor = cBoxCondutor.SelectedItem as Customer;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
             string tipoDeSeguro = "Nenhum";

@@ -212,7 +212,7 @@ namespace CarRental.WindowsApp.ClientesModule
             this.lbTelefone.Name = "lbTelefone";
             this.lbTelefone.Size = new System.Drawing.Size(49, 13);
             this.lbTelefone.TabIndex = 21;
-            this.lbTelefone.Text = "Telefone";
+            this.lbTelefone.Text = "Phone";
             // 
             // lbEmail
             // 

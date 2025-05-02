@@ -18,16 +18,16 @@ namespace CarRental.Domain.Coupon
         public DateTime ExpirationDate { get; }
         public Parceiro Partner { get; }
 
-        public Coupon(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro)
+        public Coupon(int id, string name, string code, double value, double minimumValue, bool isFixedDiscount, DateTime expirationDate, Parceiro partner)
         {
             Id = id;
-            Name = nome;
-            Code = codigo;
-            Value = valor;
-            MinimumValue = valorMinimo;
-            IsFixedDiscount = ehDescontoFixo;
-            ExpirationDate = validade;
-            Partner = parceiro;
+            Name = name;
+            Code = code;
+            Value = value;
+            MinimumValue = minimumValue;
+            IsFixedDiscount = isFixedDiscount;
+            ExpirationDate = expirationDate;
+            Partner = partner;
         }
         public override string Validate()
         {

@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
                 controlador.Editar(id, tela.Funcionario);
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] editado com sucesso");
             }
 
         }
@@ -66,12 +66,12 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
             Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Name}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Excluir(id);
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] removido com sucesso");
             }
         }
 
@@ -89,7 +89,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
                 controlador.InserirNovo(tela.Funcionario);
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Name}] inserido com sucesso");
             }
         }
 

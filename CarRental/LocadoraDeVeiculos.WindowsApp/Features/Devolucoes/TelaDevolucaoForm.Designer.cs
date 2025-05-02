@@ -278,7 +278,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(39, 13);
             this.lblCliente.TabIndex = 8;
-            this.lblCliente.Text = "Cliente";
+            this.lblCliente.Text = "Customer";
             // 
             // lblFuncionario
             // 

@@ -132,7 +132,7 @@ namespace CarRental.WindowsApp.Funcionarios
             this.lbTelefone.Name = "lbTelefone";
             this.lbTelefone.Size = new System.Drawing.Size(64, 17);
             this.lbTelefone.TabIndex = 27;
-            this.lbTelefone.Text = "Telefone";
+            this.lbTelefone.Text = "Phone";
             // 
             // lbTituloCadastroDeFuncionarios
             // 

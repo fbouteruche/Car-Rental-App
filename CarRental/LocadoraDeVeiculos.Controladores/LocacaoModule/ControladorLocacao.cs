@@ -227,8 +227,8 @@ namespace CarRental.Controladores.LocacaoModule
 
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
             Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
-            Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
-            Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
+            Customer clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
+            Customer clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
             Coupon cupom;
             if (id_cupom != 0)
                 cupom = controladorCupom.SelecionarPorId(id_cupom);

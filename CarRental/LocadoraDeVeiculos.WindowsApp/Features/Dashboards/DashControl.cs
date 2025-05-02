@@ -86,14 +86,14 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardCliente()
         {
-            List<Cliente> todosClientes = controladorCliente.SelecionarTodos();
+            List<Customer> todosClientes = controladorCliente.SelecionarTodos();
             int clientesTotal = todosClientes.Count;
             int clientesPF = 0;
             int clientesPJ = 0;
 
-            foreach (Cliente cliente in todosClientes)
+            foreach (Customer cliente in todosClientes)
             {
-                if (cliente.EhPessoaFisica)
+                if (cliente.IsPhysicalPerson)
                 {
                     clientesPF++;
                 }

@@ -32,7 +32,7 @@ namespace CarRental.WindowsApp.Servicos
         {
             if (seguroInicial.Contains("Terceiro"))
                 cBoxSeguro.SelectedIndex = 2;
-            else if (seguroInicial.Contains("Cliente"))
+            else if (seguroInicial.Contains("Customer"))
                 cBoxSeguro.SelectedIndex = 1;
 
             if (servicosIniciais != null)

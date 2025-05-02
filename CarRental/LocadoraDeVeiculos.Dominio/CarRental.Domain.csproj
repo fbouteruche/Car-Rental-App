@@ -48,14 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\Cliente.cs" />
+    <Compile Include="Customer\Customer.cs" />
     <Compile Include="Coupon\Coupon.cs" />
     <Compile Include="Employee\Funcionario.cs" />
     <Compile Include="VehicleGroup\GrupoDeVeiculo.cs" />
     <Compile Include="VehicleImage\ImagemVeiculo.cs" />
     <Compile Include="Rental\Locacao.cs" />
     <Compile Include="Partner\Parceiro.cs" />
-    <Compile Include="Person\Pessoa.cs" />
+    <Compile Include="Person\Person.cs" />
     <Compile Include="RentalServiceRelationship\RelacionamentoLocServ.cs" />
     <Compile Include="Services\Servico.cs" />
     <Compile Include="Rental\CalcularLocacao.cs" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controladores.ClientesModule
 {
-    public class ControladorCliente : Controlador<Cliente>
+    public class ControladorCliente : Controlador<Customer>
     {
         #region Queries
             private const string sqlInserirClientes =
@@ -77,7 +77,7 @@ namespace CarRental.Controladores.ClientesModule
 
 		#endregion
 
-		public override string Editar(int id, Cliente registro)
+		public override string Editar(int id, Customer registro)
 		{
 			string resultadoValidacao = registro.Validate();
 
@@ -109,7 +109,7 @@ namespace CarRental.Controladores.ClientesModule
 			return Db.Exists(sqlExisteCliente, AdicionarParametro("ID", id));
 		}
 
-		public override string InserirNovo(Cliente registro)
+		public override string InserirNovo(Customer registro)
 		{
 			string resultadoValidacao = registro.Validate();
 
@@ -122,17 +122,17 @@ namespace CarRental.Controladores.ClientesModule
 
        
 
-        public override Cliente SelecionarPorId(int id)
+        public override Customer SelecionarPorId(int id)
 		{
 			return Db.Get(sqlSelecionarClientesPorId, ConverterEmClientes, AdicionarParametro("ID", id));
 		}
 
-		public override List<Cliente> SelecionarTodos()
+		public override List<Customer> SelecionarTodos()
 		{
 			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmClientes);
 		}
 
-        private Cliente ConverterEmClientes(IDataReader reader)
+        private Customer ConverterEmClientes(IDataReader reader)
         {
 			DateTime? validadeCnh = null;
 			int id = Convert.ToInt32(reader["ID"]);
@@ -146,24 +146,24 @@ namespace CarRental.Controladores.ClientesModule
 				validadeCnh = Convert.ToDateTime(reader["VALIDADECNH"]);
 			bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISiCA"]);
 
-			Cliente cliente = new Cliente(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica);
+			Customer cliente = new Customer(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica);
 			cliente.Id = id;
 			return cliente;
 		}
 
-        private Dictionary<string, object> ObtemParametrosClientes(Cliente cliente)
+        private Dictionary<string, object> ObtemParametrosClientes(Customer cliente)
 		{
 			var parametros = new Dictionary<string, object>();
 
 			parametros.Add("ID", cliente.Id);
-			parametros.Add("NOME", cliente.Nome);
-			parametros.Add("REGISTROUNICO", cliente.RegistroUnico);
-			parametros.Add("ENDERECO", cliente.Endereco);
-			parametros.Add("TELEFONE", cliente.Telefone);
+			parametros.Add("NOME", cliente.Name);
+			parametros.Add("REGISTROUNICO", cliente.UniqueId);
+			parametros.Add("ENDERECO", cliente.Address);
+			parametros.Add("TELEFONE", cliente.Phone);
 			parametros.Add("EMAIL", cliente.Email);
-			parametros.Add("CNH", cliente.Cnh);
-			parametros.Add("VALIDADECNH", cliente.ValidadeCnh);
-			parametros.Add("EHPESSOAFISICA", cliente.EhPessoaFisica);
+			parametros.Add("CNH", cliente.DriverLicense);
+			parametros.Add("VALIDADECNH", cliente.LicenseExpiryDate);
+			parametros.Add("EHPESSOAFISICA", cliente.IsPhysicalPerson);
 
 			return parametros;
 		}

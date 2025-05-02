@@ -41,9 +41,9 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 txtId.Text = devolucao.Id.ToString();
                 txtKmInicial.Text = devolucao.Veiculo.kilometragem.ToString();
                 txtVeiculo.Text = devolucao.Veiculo.modelo;
-                txtFuncionario.Text = devolucao.FuncionarioLocador.Nome;
-                txtCliente.Text = devolucao.ClienteContratante.Nome;
-                txtCondutor.Text = devolucao.ClienteCondutor.Nome;
+                txtFuncionario.Text = devolucao.FuncionarioLocador.Name;
+                txtCliente.Text = devolucao.ClienteContratante.Name;
+                txtCondutor.Text = devolucao.ClienteCondutor.Name;
                 txtPlano.Text = devolucao.TipoDoPlano;
                 txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();

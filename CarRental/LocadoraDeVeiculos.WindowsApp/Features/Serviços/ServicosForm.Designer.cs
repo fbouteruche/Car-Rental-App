@@ -77,7 +77,7 @@ namespace CarRental.WindowsApp.Servicos
             this.cBoxSeguro.FormattingEnabled = true;
             this.cBoxSeguro.Items.AddRange(new object[] {
             "Nenhum",
-            "Seguro Cliente",
+            "Seguro Customer",
             "Seguro Terceiro"});
             this.cBoxSeguro.Location = new System.Drawing.Point(105, 209);
             this.cBoxSeguro.Name = "cBoxSeguro";

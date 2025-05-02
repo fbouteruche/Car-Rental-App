@@ -16,8 +16,8 @@ namespace CarRental.Domain.LocacaoModule
     {
         private Veiculo veiculo;
         private Funcionario funcionarioLocador;
-        private Cliente clienteContratante;
-        private Cliente clienteCondutor;
+        private Customer clienteContratante;
+        private Customer clienteCondutor;
         private Coupon.Coupon cupom;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
@@ -30,7 +30,7 @@ namespace CarRental.Domain.LocacaoModule
         private List<Servico> servicos;
 
         //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -51,7 +51,7 @@ namespace CarRental.Domain.LocacaoModule
         }
 
         //Construtor SOMENTE para carregar do banco
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Customer clienteContratante, Customer clienteCondutor, Coupon.Coupon cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
@@ -72,8 +72,8 @@ namespace CarRental.Domain.LocacaoModule
 
         public Veiculo Veiculo { get => veiculo; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; }
-        public Cliente ClienteContratante { get => clienteContratante; }
-        public Cliente ClienteCondutor { get => clienteCondutor; }
+        public Customer ClienteContratante { get => clienteContratante; }
+        public Customer ClienteCondutor { get => clienteCondutor; }
         public Coupon.Coupon Cupom { get => cupom; }
         public DateTime DataDeSaida { get => dataDeSaida; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
@@ -122,11 +122,11 @@ namespace CarRental.Domain.LocacaoModule
             if (this.clienteContratante == null)
                 resultadoValidacao += "O cliente contratante não pode ser nulo\n";
 
-            else if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
+            else if (!this.clienteContratante.IsPhysicalPerson && this.clienteCondutor == null)
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
             if (this.clienteCondutor != null)
-                if (!this.clienteCondutor.EhPessoaFisica)
+                if (!this.clienteCondutor.IsPhysicalPerson)
                     resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
 
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
@@ -157,8 +157,8 @@ namespace CarRental.Domain.LocacaoModule
                    id == locacao.id &&
                    EqualityComparer<Veiculo>.Default.Equals(veiculo, locacao.veiculo) &&
                    EqualityComparer<Funcionario>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
-                   EqualityComparer<Cliente>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
-                   EqualityComparer<Cliente>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
+                   EqualityComparer<Customer>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
+                   EqualityComparer<Customer>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
                    dataDeSaida == locacao.dataDeSaida &&
                    dataPrevistaDeChegada == locacao.dataPrevistaDeChegada &&
                    dataDeChegada == locacao.dataDeChegada &&
@@ -175,8 +175,8 @@ namespace CarRental.Domain.LocacaoModule
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
             hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(funcionarioLocador);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteContratante);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteCondutor);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteContratante);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Customer>.Default.GetHashCode(clienteCondutor);
             hashCode = hashCode * -1521134295 + dataDeSaida.GetHashCode();
             hashCode = hashCode * -1521134295 + dataPrevistaDeChegada.GetHashCode();
             hashCode = hashCode * -1521134295 + dataDeChegada.GetHashCode();

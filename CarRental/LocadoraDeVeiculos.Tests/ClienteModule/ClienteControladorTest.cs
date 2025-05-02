@@ -13,7 +13,7 @@ namespace CarRental.Tests.ClienteModule
     public class ClienteControladorTest
     {
         ControladorCliente controlador = null;
-        Cliente cliente;
+        Customer cliente;
         public ClienteControladorTest()
         {
             controlador = new ControladorCliente();
@@ -23,13 +23,13 @@ namespace CarRental.Tests.ClienteModule
         public void DeveInserir_NovoCliente()
         {
             //arrange
-            Cliente cliente = new Cliente(0, "Name Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            Customer cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
 
             //action
             controlador.InserirNovo(cliente);
 
             //assert
-            Cliente clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            Customer clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
             clienteEncontrado.Should().Be(cliente);
 
         }
@@ -38,16 +38,16 @@ namespace CarRental.Tests.ClienteModule
         public void DeveAtualizar_Cliente()
         {
             //arrange
-            cliente = new Cliente(0, "Name Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controlador.InserirNovo(cliente);
 
-            Cliente clienteeditado = new Cliente(2, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
+            Customer clienteeditado = new Customer(2, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
 
             //action
             controlador.Editar(cliente.Id, clienteeditado);
 
             //assert
-            Cliente clienteAtualizado = controlador.SelecionarPorId(cliente.Id);
+            Customer clienteAtualizado = controlador.SelecionarPorId(cliente.Id);
             clienteAtualizado.Should().Be(cliente);
         }
 
@@ -55,21 +55,21 @@ namespace CarRental.Tests.ClienteModule
         public void DeveExcluir_Cliente()
         {
             //arrange
-            Cliente cliente = new Cliente(0, "Name Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            Customer cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controlador.InserirNovo(cliente);
 
             //action
             controlador.Excluir(cliente.Id);
 
             //assert
-            Cliente clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            Customer clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
             clienteEncontrado.Should().BeNull();
         }
 
         [TestMethod]
         public void DeveSelecionar_TodosClientes()
         {
-            Cliente c1 = new Cliente(0, "Name Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            Customer c1 = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
 
             controlador.InserirNovo(c1);
             controlador.InserirNovo(c1);
@@ -77,8 +77,8 @@ namespace CarRental.Tests.ClienteModule
             var clientes = controlador.SelecionarTodos();
 
             clientes.Should().HaveCount(2);
-            clientes[0].Nome.Should().Be("Name Teste");
-            clientes[1].Nome.Should().Be("Name Teste");
+            clientes[0].Name.Should().Be("Name Teste");
+            clientes[1].Name.Should().Be("Name Teste");
             ResetarBanco.ResetarTabelas();
         }
 
@@ -86,11 +86,11 @@ namespace CarRental.Tests.ClienteModule
         public void DeveSelecionar_Cliente_PorID()
         {
             //arrange
-            Cliente cliente = new Cliente(0, "Name Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            Customer cliente = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controlador.InserirNovo(cliente);
 
             //action
-            Cliente clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            Customer clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
 
             //assert
             clienteEncontrado.Should().NotBeNull();

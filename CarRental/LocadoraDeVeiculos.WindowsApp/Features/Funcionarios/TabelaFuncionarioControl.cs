@@ -32,9 +32,9 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cpf", HeaderText = "CPF"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Address", HeaderText = "Endereço"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Telefone"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Phone", HeaderText = "Phone"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "E-mail"},
 
@@ -63,8 +63,8 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
             foreach (Funcionario funcionario in funcionarios)
             {
-                gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.RegistroUnico,
-                    funcionario.Endereco, funcionario.Telefone, funcionario.Email, funcionario.MatriculaInterna,
+                gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Name, funcionario.UniqueId,
+                    funcionario.Address, funcionario.Phone, funcionario.Email, funcionario.MatriculaInterna,
                     funcionario.UsuarioAcesso, funcionario.Cargo, funcionario.Salario, funcionario.DataAdmissao);
             }
         }

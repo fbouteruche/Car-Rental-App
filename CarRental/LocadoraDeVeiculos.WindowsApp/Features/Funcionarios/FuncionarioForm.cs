@@ -32,10 +32,10 @@ namespace CarRental.WindowsApp.Funcionarios
                 funcionario = value;
 
                 textId.Text = funcionario.Id.ToString();
-                textNome.Text = funcionario.Nome.ToString();
-                mskTxtCpf.Text = funcionario.RegistroUnico;
-                textEndereco.Text = funcionario.Endereco.ToString();
-                mskTxtTelefone.Text = funcionario.Telefone.ToString();
+                textNome.Text = funcionario.Name.ToString();
+                mskTxtCpf.Text = funcionario.UniqueId;
+                textEndereco.Text = funcionario.Address.ToString();
+                mskTxtTelefone.Text = funcionario.Phone.ToString();
                 textEmail.Text = funcionario.Email.ToString();
                 textMatriculaInterna.Text = funcionario.MatriculaInterna.ToString();
                 textUsuarioAcesso.Text = funcionario.UsuarioAcesso.ToString();

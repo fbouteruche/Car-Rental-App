@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CarRental.Domain.FuncionarioModule
 {
-    public class Funcionario : Pessoa
+    public class Funcionario : Person
     {
         public int MatriculaInterna { get; }
         public string UsuarioAcesso { get; }
@@ -17,19 +17,19 @@ namespace CarRental.Domain.FuncionarioModule
         public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso,string senha, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
         {
             this.id = id;
-            Nome = nome;
-            RegistroUnico = registroUnico;
-            Endereco = endereco;
-            Telefone = telefone;
+            Name = nome;
+            UniqueId = registroUnico;
+            Address = endereco;
+            Phone = telefone;
             Email = email;
-            EhPessoaFisica = true;
+            IsPhysicalPerson = true;
             MatriculaInterna = matriculaInterna;
             UsuarioAcesso = usuarioAcesso;
             Senha = senha;
             DataAdmissao = dataAdmissao;
             Cargo = cargo;
             Salario = salario;
-            EhPessoaFisica = ehPessoaFisica;
+            IsPhysicalPerson = ehPessoaFisica;
         }
 
         public override string Validate()
@@ -47,8 +47,8 @@ namespace CarRental.Domain.FuncionarioModule
                 resultadoValidação += "Data de admissão inválida\n";
             if (Senha.Length <= 3)
                 resultadoValidação += "A senha não pode ser menor que três caracteres\n";
-            if (base.ValidarPessoa() != "VALIDO")
-                resultadoValidação += base.ValidarPessoa();
+            if (base.ValidatePerson() != "VALIDO")
+                resultadoValidação += base.ValidatePerson();
             if (resultadoValidação == "")
                 resultadoValidação += "VALIDO";
             return resultadoValidação;
@@ -56,19 +56,19 @@ namespace CarRental.Domain.FuncionarioModule
 
         public override string ToString()
         {
-            return $" {id} {Nome} {MatriculaInterna} {Telefone} {UsuarioAcesso} {Cargo}";
+            return $" {id} {Name} {MatriculaInterna} {Phone} {UsuarioAcesso} {Cargo}";
         }
 
         public override bool Equals(object obj)
         {
             return obj is Funcionario funcionario &&
                    id == funcionario.id &&
-                   Nome == funcionario.Nome &&
-                   RegistroUnico == funcionario.RegistroUnico &&
-                   Endereco == funcionario.Endereco &&
-                   Telefone == funcionario.Telefone &&
+                   Name == funcionario.Name &&
+                   UniqueId == funcionario.UniqueId &&
+                   Address == funcionario.Address &&
+                   Phone == funcionario.Phone &&
                    Email == funcionario.Email &&
-                   EhPessoaFisica == funcionario.EhPessoaFisica &&
+                   IsPhysicalPerson == funcionario.IsPhysicalPerson &&
                    MatriculaInterna == funcionario.MatriculaInterna &&
                    UsuarioAcesso == funcionario.UsuarioAcesso &&
                    DataAdmissao == funcionario.DataAdmissao &&
@@ -81,12 +81,12 @@ namespace CarRental.Domain.FuncionarioModule
         {
             int hashCode = 497940720;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(UniqueId);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Address);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Phone);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
-            hashCode = hashCode * -1521134295 + EhPessoaFisica.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsPhysicalPerson.GetHashCode();
             hashCode = hashCode * -1521134295 + MatriculaInterna.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(UsuarioAcesso);
             hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();

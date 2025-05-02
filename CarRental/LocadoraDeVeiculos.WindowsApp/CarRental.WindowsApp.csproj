@@ -332,27 +332,17 @@
       <Name>CarRental.Domain</Name>
     </ProjectReference>
     <Content Include="Libraries\DataGridViewGrouper.dll" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\CarRental.Domain.csproj">
       <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\CarRental.Controllers.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
-      <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
-      <Name>LocadoraDeVeiculos.Dominio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
-      <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
-      <Name>LocadoraDeVeiculos.Controladores</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+    <ProjectReference Include="..\CarRental.Domain\CarRental.Domain.csproj">
       <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>

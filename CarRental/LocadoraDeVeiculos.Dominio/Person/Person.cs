@@ -7,44 +7,44 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.PessoaModule
 {
-    public abstract class Pessoa : BaseEntity
+    public abstract class Person : BaseEntity
     {
-        public string Nome { get; set; }
-        public string RegistroUnico { get; set; }
-        public string Endereco { get; set; }
-        public string Telefone { get; set; }
+        public string Name { get; set; }
+        public string UniqueId { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
-        public bool EhPessoaFisica { get; set; }
+        public bool IsPhysicalPerson { get; set; }
 
-        public virtual string ValidarPessoa()
+        public virtual string ValidatePerson()
         {
-            string resultadoValidacao = "";
-            bool resultadoValidacaoRegistroUnico = false;
-            if (EhPessoaFisica)
-                resultadoValidacaoRegistroUnico = ValidarCpf(RegistroUnico);
+            string validationResult = "";
+            bool uniqueIdValidationResult = false;
+            if (IsPhysicalPerson)
+                uniqueIdValidationResult = ValidateCpf(UniqueId);
             else
-                resultadoValidacaoRegistroUnico = ValidarCnpj(RegistroUnico);
+                uniqueIdValidationResult = ValidateCnpj(UniqueId);
 
-            if (this.Nome.Length == 0)
-                resultadoValidacao = "O nome não pode ser nulo\n";
-            if (this.Endereco.Length <= 0)
-                resultadoValidacao += "O endereço não pode ser nulo\n";
+            if (this.Name.Length == 0)
+                validationResult = "The name cannot be null\n";
+            if (this.Address.Length <= 0)
+                validationResult += "The address cannot be null\n";
             if (this.Email.Length == 0 || (!this.Email.Contains('@')))
-                resultadoValidacao += "O e-mail é obrigatório está incorreto e deve estar correto\n";
-            if (!resultadoValidacaoRegistroUnico)
+                validationResult += "The email is mandatory, incorrect, and must be valid\n";
+            if (!uniqueIdValidationResult)
             {
-                if (EhPessoaFisica)
-                    resultadoValidacao += "O CPF não é válido\n";
+                if (IsPhysicalPerson)
+                    validationResult += "The CPF is not valid\n";
                 else
-                    resultadoValidacao += "O CNPJ não é válido\n";
+                    validationResult += "The CNPJ is not valid\n";
             }
-            if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+            if (validationResult == "")
+                validationResult = "VALID";
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
-        private static bool ValidarCpf(string cpf)
+        private static bool ValidateCpf(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -80,7 +80,7 @@ namespace CarRental.Domain.PessoaModule
             return cpf.EndsWith(digito);
         }
 
-        private static bool ValidarCnpj(string cnpj)
+        private static bool ValidateCnpj(string cnpj)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };

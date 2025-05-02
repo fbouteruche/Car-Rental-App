@@ -113,10 +113,10 @@ namespace CarRental.Controladores.FuncionarioModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", funcionario.Id);
-            parametros.Add("NOME", funcionario.Nome);
-            parametros.Add("REGISTROUNICO", funcionario.RegistroUnico);
-            parametros.Add("ENDERECO", funcionario.Endereco);
-            parametros.Add("TELEFONE", funcionario.Telefone);
+            parametros.Add("NOME", funcionario.Name);
+            parametros.Add("REGISTROUNICO", funcionario.UniqueId);
+            parametros.Add("ENDERECO", funcionario.Address);
+            parametros.Add("TELEFONE", funcionario.Phone);
             parametros.Add("EMAIL", funcionario.Email);
             parametros.Add("MATRICULAINTERNA", funcionario.MatriculaInterna);
             parametros.Add("USUARIOACESSO", funcionario.UsuarioAcesso);
@@ -124,7 +124,7 @@ namespace CarRental.Controladores.FuncionarioModule
             parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
             parametros.Add("CARGO", funcionario.Cargo);
             parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salario)));
-            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(funcionario.EhPessoaFisica));
+            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(funcionario.IsPhysicalPerson));
 
             return parametros;
         }

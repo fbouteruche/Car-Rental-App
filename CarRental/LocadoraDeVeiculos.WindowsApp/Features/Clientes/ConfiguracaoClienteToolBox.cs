@@ -18,17 +18,17 @@ namespace CarRental.WindowsApp.Features.Clientes
 
         public string ToolTipAdicionar
         {
-            get { return "Adicionar um novo Cliente"; }
+            get { return "Adicionar um novo Customer"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Cliente existente"; }
+            get { return "Editar um Customer existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Cliente existente"; }
+            get { return "Excluir um Customer existente"; }
         }
 
 

@@ -8,7 +8,7 @@ namespace CarRental.WindowsApp.ClientesModule
 {
     public partial class ClientesForm : Form
     {
-        private Cliente cliente;
+        private Customer cliente;
         public ClientesForm(string titulo)
         {
             InitializeComponent();
@@ -16,7 +16,7 @@ namespace CarRental.WindowsApp.ClientesModule
             this.Text = titulo;
         }
 
-        public Cliente Clientes
+        public Customer Clientes
         {
             get { return cliente; }
 
@@ -24,7 +24,7 @@ namespace CarRental.WindowsApp.ClientesModule
             {
                 cliente = value;
                 
-                if (cliente.EhPessoaFisica)
+                if (cliente.IsPhysicalPerson)
                 {
                     radioButton1.Checked = true;
                     radioButton2.Checked = false;
@@ -33,17 +33,17 @@ namespace CarRental.WindowsApp.ClientesModule
                 {
                     radioButton1.Checked = false;
                     radioButton2.Checked = true;
-                    dtpValidade.Text = cliente.ValidadeCnh.ToString();
+                    dtpValidade.Text = cliente.LicenseExpiryDate.ToString();
                 }
                 textId.Text = cliente.Id.ToString();
 
-                textNome.Text = cliente.Nome;
-                maskRegistro.Text = cliente.RegistroUnico;
-                textEndereco.Text = cliente.Endereco;
-                maskTelefone.Text = cliente.Telefone;
+                textNome.Text = cliente.Name;
+                maskRegistro.Text = cliente.UniqueId;
+                textEndereco.Text = cliente.Address;
+                maskTelefone.Text = cliente.Phone;
                 tetxtEmail.Text = cliente.Email;
-                maskedCNH.Text = cliente.Cnh;
-                //dtpValidade.Text = cliente.ValidadeCnh.ToShortDateString();
+                maskedCNH.Text = cliente.DriverLicense;
+                //dtpValidade.Text = cliente.LicenseExpiryDate.ToShortDateString();
             }
         }
 
@@ -84,7 +84,7 @@ namespace CarRental.WindowsApp.ClientesModule
             }
 
             Id = 0;
-            cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
+            cliente = new Customer(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validate();
 

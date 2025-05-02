@@ -33,17 +33,17 @@ namespace CarRental.WindowsApp.Clientes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "RegistroUnico", HeaderText = "Registro"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "UniqueId", HeaderText = "Registro"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Address", HeaderText = "Endereço"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Telefone"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Phone", HeaderText = "Phone"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "Email"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "CNH", HeaderText = "CNH"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "ExpirationDate CHN"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "LicenseExpiryDate", HeaderText = "ExpirationDate CHN"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "ehpessoafisica", HeaderText = "É pessoa física "}
                
@@ -62,7 +62,7 @@ namespace CarRental.WindowsApp.Clientes
             CarregarTabela(clientes);
         }
 
-        private void CarregarTabela(List<Cliente> clientes)
+        private void CarregarTabela(List<Customer> clientes)
         {
             gridClientes.DataSource = clientes;
         }
