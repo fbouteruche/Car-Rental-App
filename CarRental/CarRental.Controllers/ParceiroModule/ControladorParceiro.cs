@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controladores.ParceiroModule
 {
-    public class ControladorParceiro : Controlador<Parceiro>
+    public class ControladorParceiro : Controlador<Partner>
     {
         #region queries
         private const string sqlInserirParceiro =
@@ -60,7 +60,7 @@ namespace CarRental.Controladores.ParceiroModule
                 WHERE 
                     [ID] = @ID";
         #endregion
-        public override string InserirNovo(Parceiro registro)
+        public override string InserirNovo(Partner registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -70,16 +70,16 @@ namespace CarRental.Controladores.ParceiroModule
             return resultadoValidacao;
         }
 
-        public override List<Parceiro> SelecionarTodos()
+        public override List<Partner> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
         }       
 
-        public override Parceiro SelecionarPorId(int id)
+        public override Partner SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }        
-        public override string Editar(int id, Parceiro registro)
+        public override string Editar(int id, Partner registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -111,7 +111,7 @@ namespace CarRental.Controladores.ParceiroModule
             return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosParceiro(Parceiro registro)
+        private Dictionary<string, object> ObtemParametrosParceiro(Partner registro)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -120,12 +120,12 @@ namespace CarRental.Controladores.ParceiroModule
 
             return parametros;
         }
-        private Parceiro ConverterEmParceiro(IDataReader reader)
+        private Partner ConverterEmParceiro(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOMEPARCEIRO"]);
 
-            Parceiro parceiro = new Parceiro(id, nome);
+            Partner parceiro = new Partner(id, nome);
 
             parceiro.Id = id;
 

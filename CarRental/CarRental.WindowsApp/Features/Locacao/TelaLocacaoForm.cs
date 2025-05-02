@@ -141,8 +141,8 @@ namespace CarRental.WindowsApp.Features.Locacoes
             {
                 Servicos = telaServico.servicosSelecionados;
                 TipoSeguro = telaServico.seguro;
-                double precoGarantia = CalcularLocacao.CalcularGarantia();
-                double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
+                double precoGarantia = CalculateRental.CalculateGuarantee();
+                double precoSeguro = CalculateRental.CalculateInsurance(telaServico.seguro);
                 txtTotal.Text = Convert.ToString(precoGarantia + precoSeguro);
             }
         }

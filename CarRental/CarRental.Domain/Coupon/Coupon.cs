@@ -16,9 +16,9 @@ namespace CarRental.Domain.Coupon
         public double MinimumValue { get; }
         public bool IsFixedDiscount { get; }
         public DateTime ExpirationDate { get; }
-        public Parceiro Partner { get; }
+        public Partner Partner { get; }
 
-        public Coupon(int id, string name, string code, double value, double minimumValue, bool isFixedDiscount, DateTime expirationDate, Parceiro partner)
+        public Coupon(int id, string name, string code, double value, double minimumValue, bool isFixedDiscount, DateTime expirationDate, Partner partner)
         {
             Id = id;
             Name = name;
@@ -62,7 +62,7 @@ namespace CarRental.Domain.Coupon
                    MinimumValue == comparedCoupon.MinimumValue &&
                    IsFixedDiscount == comparedCoupon.IsFixedDiscount &&
                    ExpirationDate == comparedCoupon.ExpirationDate &&
-                   EqualityComparer<Parceiro>.Default.Equals(Partner, comparedCoupon.Partner);
+                   EqualityComparer<Partner>.Default.Equals(Partner, comparedCoupon.Partner);
         }
 
         public override int GetHashCode()
@@ -75,7 +75,7 @@ namespace CarRental.Domain.Coupon
             hashCode = hashCode * -1521134295 + MinimumValue.GetHashCode();
             hashCode = hashCode * -1521134295 + IsFixedDiscount.GetHashCode();
             hashCode = hashCode * -1521134295 + ExpirationDate.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Parceiro>.Default.GetHashCode(Partner);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Partner>.Default.GetHashCode(Partner);
             return hashCode;
         }
     }

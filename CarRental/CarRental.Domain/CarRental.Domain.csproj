@@ -54,11 +54,11 @@
     <Compile Include="VehicleGroup\GrupoDeVeiculo.cs" />
     <Compile Include="VehicleImage\ImagemVeiculo.cs" />
     <Compile Include="Rental\Locacao.cs" />
-    <Compile Include="Partner\Parceiro.cs" />
+    <Compile Include="Partner\Partner.cs" />
     <Compile Include="Person\Person.cs" />
     <Compile Include="RentalServiceRelationship\RelacionamentoLocServ.cs" />
     <Compile Include="Services\Servico.cs" />
-    <Compile Include="Rental\CalcularLocacao.cs" />
+    <Compile Include="Rental\CalculateRental.cs" />
     <Compile Include="Shared\ConversorParaPdf.cs" />
     <Compile Include="Shared\BaseEntity.cs" />
     <Compile Include="Vehicle\Veiculo.cs" />

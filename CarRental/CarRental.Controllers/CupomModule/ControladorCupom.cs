@@ -214,7 +214,7 @@ namespace CarRental.Controladores.CupomModule
 
             int idParceiro = Convert.ToInt32(reader["ID_PARCEIRO"]);
             string nomeParceiro = Convert.ToString(reader["NOMEPARCEIRO"]);
-            Parceiro parceiro = new Parceiro(idParceiro, nomeParceiro);
+            Partner parceiro = new Partner(idParceiro, nomeParceiro);
 
 
             Coupon cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);

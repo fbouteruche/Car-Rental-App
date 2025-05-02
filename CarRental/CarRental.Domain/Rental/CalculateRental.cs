@@ -6,31 +6,31 @@ using System.Collections.Generic;
 
 namespace CarRental.Domain.Shared
 {
-    public static class CalcularLocacao
+    public static class CalculateRental
     {
         public const double VALOR_SEGURO_CLIENTE = 250.50f;
         public const double VALOR_SEGURO_TERCEIRO = 500.75f;
         public const double VALOR_GARANTIA = 1000f;
         public const double PORCENT_MULTA_DE_ATRASO_DIARIA = 0.1f;
 
-        public static double CalcularGarantia()
+        public static double CalculateGuarantee()
         {
             return VALOR_GARANTIA;
         }
 
-        public static double CalcularSeguro(string tipoSeguro)
+        public static double CalculateInsurance(string insuranceType)
         {
             double valorFinal;
-            if (tipoSeguro.Equals("SeguroCliente"))
+            if (insuranceType.Equals("SeguroCliente"))
                     valorFinal = VALOR_SEGURO_CLIENTE;
-            else if(tipoSeguro.Equals("SeguroTerceiro"))
+            else if(insuranceType.Equals("SeguroTerceiro"))
                 valorFinal = VALOR_SEGURO_TERCEIRO;
             else
                 valorFinal = 0;
             return valorFinal;
         }
 
-        public static double CalcularPlano(string tipoPlano, GrupoDeVeiculo grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal) 
+        public static double CalculatePlan(string tipoPlano, GrupoDeVeiculo grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal) 
         {
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
             double precoPorDia = 0;
@@ -55,7 +55,7 @@ namespace CarRental.Domain.Shared
             return precoPorDia + precoPorKm;
         }
 
-        public static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
+        public static double CalculateServices(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
         {
             double resultado = 0;
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
@@ -69,7 +69,7 @@ namespace CarRental.Domain.Shared
             return resultado;
         }
 
-        public static double CalcularDiferencaCombustivel(double qtdTotalTanque, double porcentCombustivelAtual, double valorPorLitro)
+        public static double CalculateFuelDifference(double qtdTotalTanque, double porcentCombustivelAtual, double valorPorLitro)
         {
             double medidaAtualDoTanque = qtdTotalTanque * porcentCombustivelAtual;
             double diferencaDoTanque = qtdTotalTanque - medidaAtualDoTanque;
@@ -78,7 +78,7 @@ namespace CarRental.Domain.Shared
             return valorAPagar;
         }
 
-        public static double CalcularMultaDevolucaoAtrasada(double precoTotal, DateTime dataPrevistaDeChegada, DateTime dataRealDeChegada)
+        public static double CalculateLateReturnFee(double precoTotal, DateTime dataPrevistaDeChegada, DateTime dataRealDeChegada)
         {
             double resultado = 0;
             if (dataRealDeChegada > dataPrevistaDeChegada) 
@@ -90,7 +90,7 @@ namespace CarRental.Domain.Shared
             return resultado;
         }
 
-        public static double CalcularCupomDesconto(double precoTotal, Coupon.Coupon cupom)
+        public static double CalculateDiscountCoupon(double precoTotal, Coupon.Coupon cupom)
         {
             double resultado = 0;
             if (cupom != null)

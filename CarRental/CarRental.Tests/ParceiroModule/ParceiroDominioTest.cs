@@ -17,7 +17,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveCriarParceiro_Correto()
         {
             //arrange
-            Parceiro parceiro = new Parceiro(0, "NDD");
+            Partner parceiro = new Partner(0, "NDD");
 
             //action
             var resultadoValidacao = parceiro.Validate();
@@ -30,7 +30,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveApresentarErro_NomeIncorreto()
         {
             //arrange
-            Parceiro parceiro = new Parceiro(0, "");
+            Partner parceiro = new Partner(0, "");
 
             //action
             var resultadoValidacao = parceiro.Validate();

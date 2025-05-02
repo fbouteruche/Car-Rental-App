@@ -90,8 +90,8 @@ namespace CarRental.Domain.LocacaoModule
             estaAberta = true;
             dataDeSaida = dataAbertura;
             veiculo.estaAlugado = true;
-            precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
-            precoLocacao += CalcularLocacao.CalcularGarantia();
+            precoLocacao = CalculateRental.CalculateInsurance(tipoDeSeguro);
+            precoLocacao += CalculateRental.CalculateGuarantee();
             precoLocacao = Math.Round(precoLocacao, 2);
         }
 
@@ -103,10 +103,10 @@ namespace CarRental.Domain.LocacaoModule
             veiculo.estaAlugado = false;
             precoDevolucao = precoLocacao;
             precoDevolucao += adicionalDoCombustivel;
-            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, dataDeSaida, dataDeChegada);
-            precoDevolucao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
-            precoDevolucao += CalcularLocacao.CalcularMultaDevolucaoAtrasada(precoDevolucao, dataPrevistaDeChegada, dataDeChegada);
-            precoDevolucao -= CalcularLocacao.CalcularCupomDesconto(precoDevolucao, cupom);
+            precoDevolucao += CalculateRental.CalculatePlan(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, dataDeSaida, dataDeChegada);
+            precoDevolucao += CalculateRental.CalculateServices(servicos, dataDeSaida, dataDeChegada);
+            precoDevolucao += CalculateRental.CalculateLateReturnFee(precoDevolucao, dataPrevistaDeChegada, dataDeChegada);
+            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, cupom);
             precoDevolucao = Math.Round(precoDevolucao, 2);
         }
 

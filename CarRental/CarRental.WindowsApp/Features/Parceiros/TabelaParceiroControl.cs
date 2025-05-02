@@ -33,11 +33,11 @@ namespace CarRental.WindowsApp.Features.Parceiros
             return colunas;
         }
 
-        internal void AtualizarRegistros(List<Parceiro> parceiros)
+        internal void AtualizarRegistros(List<Partner> parceiros)
         {
             gridParceiros.Rows.Clear();
 
-            foreach (Parceiro parceiro in parceiros)
+            foreach (Partner parceiro in parceiros)
                 gridParceiros.Rows.Add(parceiro.Id, parceiro.Nome);
 
         }

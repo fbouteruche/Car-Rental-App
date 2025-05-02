@@ -7,13 +7,13 @@ namespace CarRental.WindowsApp.Features.Parceiros
 {
     public partial class TelaParceiroForm : Form
     {
-        Parceiro parceiro;
+        Partner parceiro;
         public TelaParceiroForm(string titulo)
         {
             InitializeComponent();
             labelTitulo.Text = titulo;
         }
-        public Parceiro Parceiro
+        public Partner Parceiro
         {
             get { return parceiro; }
 
@@ -32,7 +32,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             if (txtId.Text.Length > 0)
                 id = Convert.ToInt32(txtId.Text);
 
-            parceiro = new Parceiro(id, nome);
+            parceiro = new Partner(id, nome);
 
             string resultadoValidacao = parceiro.Validate();
 

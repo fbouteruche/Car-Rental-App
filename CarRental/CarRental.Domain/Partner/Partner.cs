@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.ParceiroModule
 {
-    public class Parceiro : BaseEntity
+    public class Partner : BaseEntity
     {
         public string Nome { get; }
 
-        public Parceiro(int id, string nome)
+        public Partner(int id, string name)
         {
             Id = id;
-            Nome = nome;
+            Nome = name;
         }
 
         public override string Validate()
         {
-            string resultadoValidacao = "";
+            string validationResult = "";
 
             if (string.IsNullOrEmpty(Nome))
-                resultadoValidacao += "O campo nome é obrigatório";
-            if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                validationResult += "The Name field is required";
+            if (validationResult == "")
+                validationResult = "VALID";
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Parceiro parceiro &&
-                   Id == parceiro.Id &&
-                   Nome == parceiro.Nome;
+            return obj is Partner comparerdPartner &&
+                   Id == comparerdPartner.Id &&
+                   Nome == comparerdPartner.Nome;
         }
 
         public override int GetHashCode()

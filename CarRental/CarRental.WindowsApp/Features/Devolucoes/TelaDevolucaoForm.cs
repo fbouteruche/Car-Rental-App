@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
             if (!double.TryParse(txtValorCombustivel.Text, out double valorPorLitro))
                 valorPorLitro = 0;
-            double precoCombustivel = CalcularLocacao.CalcularDiferencaCombustivel(Devolucao.Veiculo.capacidadeTanque, porcentagemTanque, valorPorLitro);
+            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Veiculo.capacidadeTanque, porcentagemTanque, valorPorLitro);
             return precoCombustivel;
         }
         #endregion
@@ -234,10 +234,10 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 precoDevolucao = 0;
 
             precoDevolucao += ReceberPrecoCombustivel();
-            precoDevolucao += CalcularLocacao.CalcularPlano(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
-            precoDevolucao += CalcularLocacao.CalcularServicos(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
-            precoDevolucao +=  CalcularLocacao.CalcularMultaDevolucaoAtrasada(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
-            precoDevolucao -= CalcularLocacao.CalcularCupomDesconto(precoDevolucao, Devolucao.Cupom);
+            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
+            precoDevolucao += CalculateRental.CalculateServices(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
+            precoDevolucao +=  CalculateRental.CalculateLateReturnFee(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
+            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, Devolucao.Cupom);
             txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
         }
     }

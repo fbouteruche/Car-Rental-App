@@ -10,7 +10,7 @@ namespace CarRental.Tests.CupomModule
     [TestCategory("Domínio")]
     public class CupomDominioTest
     {
-        Parceiro parceiro = new Parceiro(1, "Partner teste");
+        Partner parceiro = new Partner(1, "Partner teste");
 
         [TestMethod]
         public void DeveCriarCupom_Completo_Porcentagem()

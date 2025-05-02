@@ -16,7 +16,7 @@ namespace CarRental.Tests.ParceiroModule
     public class ParceiroControladorTest
     {
         ControladorParceiro controlador = null;
-        Parceiro parceiro;
+        Partner parceiro;
         public ParceiroControladorTest()
         {
             controlador = new ControladorParceiro();
@@ -27,7 +27,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveInserirUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Name Teste");
+            parceiro = new Partner(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);
@@ -41,14 +41,14 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveSelecionarDoisParceiros()
         {
             //arrange
-            parceiro = new Parceiro(0, "Name Teste");
+            parceiro = new Partner(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);
             controlador.InserirNovo(parceiro);
 
             //assert
-            List<Parceiro> parceiroEncontrado = controlador.SelecionarTodos();
+            List<Partner> parceiroEncontrado = controlador.SelecionarTodos();
             parceiroEncontrado.Count.Should().Be(2);
         }
 
@@ -56,15 +56,15 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveEditarUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Name Teste");
-            Parceiro parceiroEditado = new Parceiro(0, "Name Alterado");
+            parceiro = new Partner(0, "Name Teste");
+            Partner parceiroEditado = new Partner(0, "Name Alterado");
 
             //action
             controlador.InserirNovo(parceiro);
             controlador.Editar(parceiro.Id, parceiroEditado);
 
             //assert
-            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            Partner parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
             parceiroEncontrado.Should().Be(parceiroEditado);
         }
 
@@ -72,15 +72,15 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveExcluirUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Name Teste");
+            parceiro = new Partner(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);
-            List<Parceiro> parceiroInserido = controlador.SelecionarTodos();
+            List<Partner> parceiroInserido = controlador.SelecionarTodos();
             controlador.Excluir(parceiro.Id);
 
             //assert
-            List<Parceiro> bancoAposExclusao = controlador.SelecionarTodos();
+            List<Partner> bancoAposExclusao = controlador.SelecionarTodos();
             bancoAposExclusao.Count.Should().NotBe(parceiroInserido.Count);
         }
     }

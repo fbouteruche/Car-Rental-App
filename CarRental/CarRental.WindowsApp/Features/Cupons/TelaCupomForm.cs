@@ -91,7 +91,7 @@ namespace CarRental.WindowsApp.Features.Cupons
                 ehDescontoFixo = true;
             DateTime validade = dtpValidade.Value;
 
-            Parceiro parceiro = cBoxParceiro.SelectedItem as Parceiro;
+            Partner parceiro = cBoxParceiro.SelectedItem as Partner;
 
             cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
 

@@ -20,7 +20,7 @@ namespace CarRental.Tests.CupomModule
         ControladorCupom controlador = null;
         ControladorParceiro controladorParceiro = null;
         Coupon cupom;
-        Parceiro parceiro;
+        Partner parceiro;
         public CupomControladorTest()
         {
             controlador = new ControladorCupom();
@@ -95,7 +95,7 @@ namespace CarRental.Tests.CupomModule
 
         private void InserirParceiro()
         {
-            parceiro = new Parceiro(0, "Name Teste");
+            parceiro = new Partner(0, "Name Teste");
             controladorParceiro.InserirNovo(parceiro);
         }
     }
