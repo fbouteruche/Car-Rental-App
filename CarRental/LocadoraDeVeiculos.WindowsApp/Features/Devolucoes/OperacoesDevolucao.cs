@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.LocacaoModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public class OperacoesDevolucao : ICadastravel
     {

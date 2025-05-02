@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.PessoaModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.WindowsApp.Shared;
-using LocadoraDeVeiculos.WindowsApp.Funcionarios;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.Shared;
+using CarRental.Domain.PessoaModule;
+using CarRental.Controladores.Shared;
+using CarRental.WindowsApp.Shared;
+using CarRental.WindowsApp.Funcionarios;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Funcionarios
 {
     public class OperacoesFuncionario : ICadastravel
     {

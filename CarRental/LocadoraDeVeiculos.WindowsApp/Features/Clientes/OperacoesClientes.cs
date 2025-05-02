@@ -1,8 +1,8 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.WindowsApp.Clientes;
-using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.ClientesModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.WindowsApp.Clientes;
+using CarRental.WindowsApp.ClientesModule;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
+namespace CarRental.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {

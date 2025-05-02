@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+﻿using CarRental.Controladores.FuncionarioModule;
+using CarRental.Domain.FuncionarioModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Login
+namespace CarRental.WindowsApp.Features.Login
 {
     public partial class TelaLogin : Form
     {

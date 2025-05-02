@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
+namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 {
     public partial class TabelaGrupoDeVeiculosControl : UserControl
     {

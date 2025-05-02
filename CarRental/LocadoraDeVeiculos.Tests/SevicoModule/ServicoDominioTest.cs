@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
+using CarRental.Domain.SevicosModule;
 
-namespace LocadoraDeVeiculos.Tests.SevicoModule
+namespace CarRental.Tests.SevicoModule
 {
 
     [TestClass]

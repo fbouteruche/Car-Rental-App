@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.ParceiroModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.Coupon;
+using CarRental.Domain.ParceiroModule;
+using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.CupomModule
+namespace CarRental.Tests.CupomModule
 {
     [TestClass]
     public class CupomControladorTest
     {
         ControladorCupom controlador = null;
         ControladorParceiro controladorParceiro = null;
-        Cupom cupom;
+        Coupon cupom;
         Parceiro parceiro;
         public CupomControladorTest()
         {
@@ -33,13 +33,13 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Coupon(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
 
             //action
             controlador.InserirNovo(cupom);
 
             //assert
-            Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+            Coupon cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
             cupomEncontrado.Should().Be(cupom);
         }        
 
@@ -48,14 +48,14 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Coupon(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
 
             //action
             controlador.InserirNovo(cupom);
             controlador.InserirNovo(cupom);
 
             //assert
-            List<Cupom> parceiroEncontrado = controlador.SelecionarTodos();
+            List<Coupon> parceiroEncontrado = controlador.SelecionarTodos();
             parceiroEncontrado.Count.Should().Be(2);
         }
 
@@ -64,15 +64,15 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
-            Cupom cupomEditado = new Cupom(0, "CupomEditado", "EDITADO", 50, 2000, false, DateTime.Today.AddDays(10), parceiro);
+            cupom = new Coupon(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            Coupon cupomEditado = new Coupon(0, "CupomEditado", "EDITADO", 50, 2000, false, DateTime.Today.AddDays(10), parceiro);
 
             //action
             controlador.InserirNovo(cupom);
             controlador.Editar(cupom.Id, cupomEditado);
 
             //assert
-            Cupom parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
+            Coupon parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
             parceiroEncontrado.Should().Be(cupomEditado);
         }
 
@@ -81,15 +81,15 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Coupon(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
 
             //action
             controlador.InserirNovo(cupom);
-            List<Cupom> cupomInserido = controlador.SelecionarTodos();
+            List<Coupon> cupomInserido = controlador.SelecionarTodos();
             controlador.Excluir(cupom.Id);
 
             //assert
-            List<Cupom> bancoAposExclusao = controlador.SelecionarTodos();
+            List<Coupon> bancoAposExclusao = controlador.SelecionarTodos();
             bancoAposExclusao.Count.Should().NotBe(cupomInserido.Count);
         }
 

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
+namespace CarRental.WindowsApp.Funcionarios
 {
     partial class FuncionarioForm
     {

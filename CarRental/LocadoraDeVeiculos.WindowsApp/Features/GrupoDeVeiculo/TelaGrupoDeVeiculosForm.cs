@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+﻿using CarRental.Domain.GrupoDeVeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
+namespace CarRental.WindowsApp.GrupoDeVeiculos
 {
     public partial class TarefaGrupoDeVeiculosForm : Form
     {

@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public class ConfiguracaoDevolucaoToolBox : IConfiguracaoToolBox
     {

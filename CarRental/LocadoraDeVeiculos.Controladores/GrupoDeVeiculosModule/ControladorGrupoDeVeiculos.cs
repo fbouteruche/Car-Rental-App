@@ -1,10 +1,10 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+﻿using CarRental.Controladores.Shared;
+using CarRental.Domain.GrupoDeVeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
+namespace CarRental.Controladores.GrupoDeVeiculosModule
 {
     public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculo>
     {

@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using CarRental.Domain.Shared;
+using CarRental.Domain.VeiculoModule;
 using System.IO;
 
-namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
+namespace CarRental.Domain.ImagemVeiculoModule
 {
     public class ImagemVeiculo : EntidadeBase
     {

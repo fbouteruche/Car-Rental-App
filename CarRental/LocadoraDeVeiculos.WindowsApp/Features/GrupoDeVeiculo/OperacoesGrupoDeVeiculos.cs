@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.WindowsApp.GrupoDeVeiculos;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
+namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 {
     public class OperacoesGrupoDeVeiculos : ICadastravel
     {

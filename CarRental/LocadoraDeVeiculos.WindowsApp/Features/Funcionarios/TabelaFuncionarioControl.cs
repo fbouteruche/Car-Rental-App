@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,11 +7,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.Shared;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.Shared;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Funcionarios
 {
     public partial class TabelaFuncionarioControl : UserControl
     {

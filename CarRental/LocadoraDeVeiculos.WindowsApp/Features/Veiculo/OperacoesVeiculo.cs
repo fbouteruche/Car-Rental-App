@@ -1,12 +1,12 @@
-﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
-using LocadoraDeVeiculos.WindowsApp.Veiculos;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+﻿using CarRental.Controladores.VeiculoModule;
+using CarRental.WindowsApp.Shared;
+using CarRental.WindowsApp.Veiculos;
+using CarRental.Domain.VeiculoModule;
+using CarRental.Domain.ImagemVeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
+namespace CarRental.WindowsApp.Features.Veiculos
 {
     public class OperacoesVeiculo : ICadastravel
     {
@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 if(tela.Veiculo.imagens.Count !=0)
-                    foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
+                    foreach (Domain.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
                         imagem.idVeiculo = tela.Veiculo.Id;
                 
                 controlador.InserirNovo(tela.Veiculo);

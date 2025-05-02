@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Domain.SevicosModule;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Servicos
 {
     public partial class TabelaServicoControl : UserControl
     {

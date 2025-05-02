@@ -1,23 +1,23 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Controladores.LocacaoModule;
+using CarRental.Controladores.ServicoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.VeiculoModule;
+using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Tests.LocacaoModule
+namespace CarRental.Tests.LocacaoModule
 {
     [TestClass]
     public class LocacaoControladorTest

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Cupons
 {
     partial class TabelaCupomControl
     {

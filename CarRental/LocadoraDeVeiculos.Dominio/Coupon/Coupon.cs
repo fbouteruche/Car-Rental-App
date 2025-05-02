@@ -1,14 +1,14 @@
-﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.ParceiroModule;
+using CarRental.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Dominio.CupomModule
+namespace CarRental.Domain.Coupon
 {
-    public class Cupom : EntidadeBase
+    public class Coupon : EntidadeBase
     {
         public string Nome { get; }
         public string Codigo { get; }
@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public DateTime Validade { get; }
         public Parceiro Parceiro { get; }
 
-        public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro)
+        public Coupon(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro)
         {
             Id = id;
             Nome = nome;
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
 
         public override bool Equals(object obj)
         {
-            return obj is Cupom cupom &&
+            return obj is Coupon cupom &&
                    Id == cupom.Id &&
                    Nome == cupom.Nome &&
                    Codigo == cupom.Codigo &&

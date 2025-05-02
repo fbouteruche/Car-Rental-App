@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.WindowsApp.Funcionarios;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.WindowsApp.Funcionarios;
 
-namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
+namespace CarRental.WindowsApp.Funcionarios
 {
     public partial class FuncionarioForm : Form
     {

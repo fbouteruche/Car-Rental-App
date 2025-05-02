@@ -1,9 +1,9 @@
-﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
+﻿using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.Shared;
+using CarRental.Domain.VeiculoModule;
+using CarRental.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public partial class TelaDevolucaoForm : Form
     {

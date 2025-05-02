@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Shared
+namespace CarRental.WindowsApp.Shared
 {
     public interface IConfiguracaoToolBox
     {

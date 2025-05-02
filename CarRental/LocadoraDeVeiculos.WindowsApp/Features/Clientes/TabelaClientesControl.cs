@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+using CarRental.Controladores.ClientesModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.WindowsApp.Shared;
 
-namespace LocadoraDeVeiculos.WindowsApp.Clientes
+namespace CarRental.WindowsApp.Clientes
 {
     public partial class TabelaClientesControl : UserControl
     {

@@ -1,6 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.CupomModule;
+using CarRental.Domain.Coupon;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Cupons
 {
     public class OperacoesCupom : ICadastravel
     {
@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             {
                 controlador.InserirNovo(tela.Cupom);
 
-                List<Cupom> cupons = controlador.SelecionarTodos();
+                List<Coupon> cupons = controlador.SelecionarTodos();
 
                 tabela.AtualizarRegistros(cupons);
 
@@ -47,14 +47,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 return;
             }
 
-            Cupom cupomSelecionado = controlador.SelecionarPorId(id);
+            Coupon cupomSelecionado = controlador.SelecionarPorId(id);
             TelaCupomForm tela = new TelaCupomForm("Edição de Cupom");
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.Editar(id, tela.Cupom);
-                List<Cupom> funcionarios = controlador.SelecionarTodos();
+                List<Coupon> funcionarios = controlador.SelecionarTodos();
                 tabela.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Nome}] editado com sucesso");
             }
@@ -70,12 +70,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 return;
             }
 
-            Cupom parceiroSelecionado = controlador.SelecionarPorId(id);
+            Coupon parceiroSelecionado = controlador.SelecionarPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Nome}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Excluir(id);
-                List<Cupom> cupons = controlador.SelecionarTodos();
+                List<Coupon> cupons = controlador.SelecionarTodos();
                 tabela.AtualizarRegistros(cupons);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Nome}] removido com sucesso");
             }
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public UserControl ObterTabela()
         {
-            List<Cupom> cupons = controlador.SelecionarTodos();
+            List<Coupon> cupons = controlador.SelecionarTodos();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
+﻿using CarRental.Controladores.ServicoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.Shared;
+using CarRental.WindowsApp.Features.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Servicos
+namespace CarRental.WindowsApp.Servicos
 {
     public partial class ServicosForm : Form
     {

@@ -1,15 +1,15 @@
-﻿using LocadoraDeVeiculos.Dominio.VeiculoModule;
+﻿using CarRental.Domain.VeiculoModule;
 using System;
 using System.IO;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
+using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.WindowsApp.Features.ImagemVeiculo;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace LocadoraDeVeiculos.WindowsApp.Veiculos
+namespace CarRental.WindowsApp.Veiculos
 {
     public partial class VeiculoForm : Form
     {

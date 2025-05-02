@@ -1,10 +1,10 @@
-﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.LocacaoModule;
+using CarRental.Controladores.RelacionamentoLocServModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.RelacionamentoLocServModule;
+using CarRental.WindowsApp.Servicos;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Locacoes
 {
     public class OperacoesLocacao : ICadastravel
     {

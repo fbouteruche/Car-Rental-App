@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.Shared;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Controladores.Shared
+namespace CarRental.Controladores.Shared
 {
     public abstract class Controlador<T> where T : EntidadeBase
     {

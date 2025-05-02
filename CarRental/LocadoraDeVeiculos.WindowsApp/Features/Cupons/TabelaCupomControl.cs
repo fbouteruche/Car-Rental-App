@@ -1,9 +1,9 @@
-﻿using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Domain.Coupon;
+using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Cupons
 {
     public partial class TabelaCupomControl : UserControl
     {
@@ -30,11 +30,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             return colunas;
         }
 
-        internal void AtualizarRegistros(List<Cupom> cupons)
+        internal void AtualizarRegistros(List<Coupon> cupons)
         {
             gridCupons.Rows.Clear();
 
-            foreach (Cupom cupom in cupons)
+            foreach (Coupon cupom in cupons)
                 gridCupons.Rows.Add(cupom.Id, cupom.Nome, cupom.Codigo, cupom.Valor, cupom.EhDescontoFixo, cupom.Validade);
         }
 

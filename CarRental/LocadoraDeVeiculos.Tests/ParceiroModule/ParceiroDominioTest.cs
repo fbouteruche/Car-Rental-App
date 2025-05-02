@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using CarRental.Domain.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.ParceiroModule
+namespace CarRental.Tests.ParceiroModule
 {
     [TestClass]
     [TestCategory("Domínio")]

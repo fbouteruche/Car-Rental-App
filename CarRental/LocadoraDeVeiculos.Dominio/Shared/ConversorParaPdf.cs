@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+﻿using CarRental.Domain.LocacaoModule;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.Shared
+namespace CarRental.Controladores.Shared
 {
     public class ConversorParaPdf
     {

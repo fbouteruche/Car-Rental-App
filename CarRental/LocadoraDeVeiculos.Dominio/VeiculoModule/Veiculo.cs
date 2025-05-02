@@ -1,10 +1,10 @@
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Dominio.Shared;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Domain.Shared;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace LocadoraDeVeiculos.Dominio.VeiculoModule
+namespace CarRental.Domain.VeiculoModule
 {
     public class Veiculo : EntidadeBase
     {

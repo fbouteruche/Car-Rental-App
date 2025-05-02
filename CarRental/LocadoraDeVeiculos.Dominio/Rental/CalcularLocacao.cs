@@ -1,10 +1,10 @@
-﻿using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
+﻿using CarRental.Domain.Coupon;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.SevicosModule;
 using System;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Dominio.Shared
+namespace CarRental.Domain.Shared
 {
     public static class CalcularLocacao
     {
@@ -90,7 +90,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             return resultado;
         }
 
-        public static double CalcularCupomDesconto(double precoTotal, Cupom cupom)
+        public static double CalcularCupomDesconto(double precoTotal, Coupon.Coupon cupom)
         {
             double resultado = 0;
             if (cupom != null)

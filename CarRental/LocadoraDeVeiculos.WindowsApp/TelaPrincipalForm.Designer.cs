@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp
+namespace CarRental.WindowsApp
 {
     partial class TelaPrincipalForm
     {
@@ -190,7 +190,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // btnAdicionar
             // 
             this.btnAdicionar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdicionar.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources._36x1;
+            this.btnAdicionar.Image = global::CarRental.WindowsApp.Properties.Resources._36x1;
             this.btnAdicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionar.Name = "btnAdicionar";
@@ -223,7 +223,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // btnFiltrar
             // 
             this.btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFiltrar.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.outline_filter_alt_black_36dp;
+            this.btnFiltrar.Image = global::CarRental.WindowsApp.Properties.Resources.outline_filter_alt_black_36dp;
             this.btnFiltrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFiltrar.Name = "btnFiltrar";

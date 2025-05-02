@@ -1,8 +1,8 @@
-﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+﻿using CarRental.Domain.FuncionarioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.FuncionarioModule
+namespace CarRental.Tests.FuncionarioModule
 {
     [TestClass]
     public class FuncionarioDominioTest

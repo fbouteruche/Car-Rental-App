@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Login
+namespace CarRental.WindowsApp.Features.Login
 {
     partial class TelaLogin
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.Dominio.Shared
+namespace CarRental.Domain.Shared
 {
     public abstract class EntidadeBase
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Parceiros
 {
     partial class TabelaParceiroControl
     {

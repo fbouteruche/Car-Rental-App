@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using CarRental.Domain.VeiculoModule;
 
-namespace LocadoraDeVeiculos.Tests.VeiculoModule
+namespace CarRental.Tests.VeiculoModule
 {
     [TestClass]
     public class VeiculoTest

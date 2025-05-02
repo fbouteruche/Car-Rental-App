@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+using CarRental.WindowsApp.Shared;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Funcionarios
 {
     public class ConfiguracaoFuncionarioToolBox : IConfiguracaoToolBox
     {

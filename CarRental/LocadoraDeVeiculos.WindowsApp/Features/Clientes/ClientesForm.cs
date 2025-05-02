@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
+using CarRental.Domain.ClienteModule;
 
-namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
+namespace CarRental.WindowsApp.ClientesModule
 {
     public partial class ClientesForm : Form
     {

@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Controladores.ServicoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.WindowsApp.Servicos;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Servicos
 {
     class OperacoesServico : ICadastravel
     {

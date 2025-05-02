@@ -1,13 +1,13 @@
-﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
+namespace CarRental.Domain.RelacionamentoLocServModule
 {
     public class RelacionamentoLocServ : EntidadeBase
     {

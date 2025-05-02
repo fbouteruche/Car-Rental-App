@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.ImagemVeiculoModule;
 
-namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
+namespace CarRental.Controladores.ImagemVeiculoModule
 {
     public class ControladorImagemVeiculo : Controlador<ImagemVeiculo>
     {

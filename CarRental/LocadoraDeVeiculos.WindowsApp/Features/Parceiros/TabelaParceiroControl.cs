@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Domain.ParceiroModule;
+using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Parceiros
 {
     public partial class TabelaParceiroControl : UserControl
     {

@@ -1,15 +1,15 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.Controladores.Shared;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.VeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using CarRental.Domain.ImagemVeiculoModule;
 using System.Collections.Generic;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Tests.Shared;
 
-namespace LocadoraDeVeiculos.Tests.VeiculoModule
+namespace CarRental.Tests.VeiculoModule
 {
     [TestClass]
     public class VeiculoControladorTest

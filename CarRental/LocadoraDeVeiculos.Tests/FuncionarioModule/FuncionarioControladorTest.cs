@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using CarRental.Controladores.FuncionarioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using CarRental.Domain.FuncionarioModule;
 using System.Collections.Generic;
 using System;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Tests.Shared;
 
-namespace LocadoraDeVeiculos.Tests.FuncionarioModule
+namespace CarRental.Tests.FuncionarioModule
 {
     [TestClass]
     public class FuncionarioControladorTest

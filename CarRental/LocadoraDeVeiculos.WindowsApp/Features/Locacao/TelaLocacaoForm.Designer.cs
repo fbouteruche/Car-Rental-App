@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Locacoes
 {
     partial class TelaLocacaoForm
     {

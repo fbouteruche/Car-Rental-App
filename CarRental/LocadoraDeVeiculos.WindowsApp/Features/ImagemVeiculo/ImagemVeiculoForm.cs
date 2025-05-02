@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Veiculos;
+using CarRental.WindowsApp.Features.Veiculos;
+using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.WindowsApp.Veiculos;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
+namespace CarRental.WindowsApp.Features.ImagemVeiculo
 {
     public partial class ImagemVeiculoForm : Form
     {
@@ -20,13 +20,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private const int voltar = -1;
         private const int avancar = 1;
         private int imagemAtual = 0;
-        public List<Dominio.ImagemVeiculoModule.ImagemVeiculo> imagens;
+        public List<Domain.ImagemVeiculoModule.ImagemVeiculo> imagens;
         private readonly VeiculoForm telaBase;
         public ImagemVeiculoForm(VeiculoForm telaBase)
         {
             this.telaBase = telaBase;
             if (telaBase.imagensVeiculo == null)
-                imagens = new List<Dominio.ImagemVeiculoModule.ImagemVeiculo>();
+                imagens = new List<Domain.ImagemVeiculoModule.ImagemVeiculo>();
             else
                 imagens = telaBase.imagensVeiculo;
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 if (tamanho <= doisMB)
                 {
 
-                    imagens.Add(new Dominio.ImagemVeiculoModule.ImagemVeiculo(0, 0, (Bitmap)Image.FromFile(imagem)));
+                    imagens.Add(new Domain.ImagemVeiculoModule.ImagemVeiculo(0, 0, (Bitmap)Image.FromFile(imagem)));
                     if (imagens.Count == 1)
                         AtualizarImagem();
                     else

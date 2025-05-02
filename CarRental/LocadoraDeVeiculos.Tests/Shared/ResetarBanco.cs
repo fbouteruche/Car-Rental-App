@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
+﻿using CarRental.Controladores.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.Shared
+namespace CarRental.Tests.Shared
 {
     public static class ResetarBanco
     {    

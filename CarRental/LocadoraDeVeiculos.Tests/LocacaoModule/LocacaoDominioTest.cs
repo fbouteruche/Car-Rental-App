@@ -1,13 +1,13 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.ClienteModule;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.VeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.LocacaoModule
+namespace CarRental.Tests.LocacaoModule
 {
     [TestClass]
     public class LocacaoDominioTest

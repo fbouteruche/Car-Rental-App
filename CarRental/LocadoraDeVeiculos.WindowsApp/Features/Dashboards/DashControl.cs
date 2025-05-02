@@ -1,13 +1,13 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+﻿using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controladores.LocacaoModule;
+using CarRental.Controladores.ServicoModule;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
+namespace CarRental.WindowsApp.Features.Dashboards
 {
     public partial class DashControl : UserControl
     {

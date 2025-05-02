@@ -1,8 +1,8 @@
-﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
+﻿using CarRental.Domain.PessoaModule;
 using System;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
+namespace CarRental.Domain.FuncionarioModule
 {
     public class Funcionario : Pessoa
     {

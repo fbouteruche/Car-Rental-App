@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Shared
+namespace CarRental.WindowsApp.Shared
 {
     public static class DataGridViewExtensions
     {

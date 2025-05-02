@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using CarRental.Domain.GrupoDeVeiculosModule;
 using FluentAssertions;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
+namespace CarRental.Tests.GrupoDeVeiculosModule
 {
     [TestClass]
     public class GrupoDeVeiculosDominioTest

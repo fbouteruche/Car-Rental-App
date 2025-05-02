@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Devolucoes
 {
     partial class TelaDevolucaoForm
     {
@@ -477,7 +477,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.FuelGauge1;
+            this.pictureBox1.Image = global::CarRental.WindowsApp.Properties.Resources.FuelGauge1;
             this.pictureBox1.Location = new System.Drawing.Point(122, 115);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(212, 80);

@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
+﻿using CarRental.Controladores.ServicoModule;
+using CarRental.Domain.SevicosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Servicos
 {
     public partial class TelaServicoForm : Form
     {

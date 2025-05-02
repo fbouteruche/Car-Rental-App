@@ -1,13 +1,13 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
+﻿using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controladores.LocacaoModule;
+using CarRental.Controladores.ServicoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.RelacionamentoLocServModule;
+using CarRental.Domain.SevicosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
+namespace CarRental.Controladores.RelacionamentoLocServModule
 {
     public class ControladorRelacionamentoLocServ : Controlador<RelacionamentoLocServ>
     {

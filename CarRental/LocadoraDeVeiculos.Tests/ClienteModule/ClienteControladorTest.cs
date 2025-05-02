@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.ClienteModule;
+using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.ClienteModule
+namespace CarRental.Tests.ClienteModule
 {
     [TestClass]
     [TestCategory("Controladores")]

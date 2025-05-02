@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.Shared;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Dominio.SevicosModule
+namespace CarRental.Domain.SevicosModule
 {
     public class Servico : EntidadeBase
     {    

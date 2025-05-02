@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Controladores.ParceiroModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.ParceiroModule;
+using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.ParceiroModule
+namespace CarRental.Tests.ParceiroModule
 {
     [TestClass]
     public class ParceiroControladorTest

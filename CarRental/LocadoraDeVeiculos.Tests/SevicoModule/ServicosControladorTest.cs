@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using CarRental.Controladores.ServicoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.SevicosModule;
+using CarRental.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Tests.SevicoModule
+namespace CarRental.Tests.SevicoModule
 {
     [TestClass]
     public class ServicosControladorTest

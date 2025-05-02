@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
+namespace CarRental.WindowsApp.ClientesModule
 {
     partial class ClientesForm
     {

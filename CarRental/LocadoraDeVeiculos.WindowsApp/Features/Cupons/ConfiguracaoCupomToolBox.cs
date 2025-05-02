@@ -1,6 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.WindowsApp.Shared;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Cupons
 {
     public class ConfiguracaoCupomToolBox : IConfiguracaoToolBox
     {

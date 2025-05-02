@@ -1,14 +1,14 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+﻿using CarRental.Controladores.Shared;
+using CarRental.Domain.GrupoDeVeiculosModule;
+using CarRental.Domain.ImagemVeiculoModule;
+using CarRental.Controladores.ImagemVeiculoModule;
+using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 
-namespace LocadoraDeVeiculos.Controladores.VeiculoModule
+namespace CarRental.Controladores.VeiculoModule
 {
     public class ControladorVeiculo : Controlador<Veiculo>
     {

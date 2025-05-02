@@ -1,6 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using CarRental.Controladores.Shared;
+using CarRental.Domain.Coupon;
+using CarRental.Domain.ParceiroModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.CupomModule
+namespace CarRental.Controladores.CupomModule
 {
-    public class ControladorCupom : Controlador<Cupom>
+    public class ControladorCupom : Controlador<Coupon>
     {
         #region queries
         private const string sqlInserirCupom =
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             WHERE 
                 [CODIGO] = @CODIGO";
         #endregion
-        public override string InserirNovo(Cupom registro)
+        public override string InserirNovo(Coupon registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -134,22 +134,22 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             return resultadoValidacao;
         }
 
-        public override List<Cupom> SelecionarTodos()
+        public override List<Coupon> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
-        public override Cupom SelecionarPorId(int id)
+        public override Coupon SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
 
-        public Cupom SelecionarPorCodigo(string codigo)
+        public Coupon SelecionarPorCodigo(string codigo)
         {
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
         }
 
-        public override string Editar(int id, Cupom registro)
+        public override string Editar(int id, Coupon registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -186,7 +186,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
         }
 
-        private Dictionary<string, object> ObtemParametrosCupom(Cupom registro)
+        private Dictionary<string, object> ObtemParametrosCupom(Coupon registro)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -202,7 +202,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             return parametros;
         }
 
-        private Cupom ConverterEmCupom(IDataReader reader)
+        private Coupon ConverterEmCupom(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOMECUPOM"]);
@@ -217,7 +217,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             Parceiro parceiro = new Parceiro(idParceiro, nomeParceiro);
 
 
-            Cupom cupom = new Cupom(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
+            Coupon cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
 
             cupom.Id = id;
 

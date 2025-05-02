@@ -1,15 +1,15 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
+﻿using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controladores.ServicoModule;
+using CarRental.Controladores.Shared;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.Domain.Coupon;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.LocacaoModule
+namespace CarRental.Controladores.LocacaoModule
 {
     public class ControladorLocacao : Controlador<Locacao>
     {
@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
-            Cupom cupom;
+            Coupon cupom;
             if (id_cupom != 0)
                 cupom = controladorCupom.SelecionarPorId(id_cupom);
             else

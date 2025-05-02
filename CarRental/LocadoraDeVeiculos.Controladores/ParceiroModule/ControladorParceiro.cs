@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using CarRental.Controladores.Shared;
+using CarRental.Domain.ParceiroModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.ParceiroModule
+namespace CarRental.Controladores.ParceiroModule
 {
     public class ControladorParceiro : Controlador<Parceiro>
     {

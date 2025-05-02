@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public partial class FiltroDevolucaoForm : Form
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using CarRental.Controladores.Shared;
+using CarRental.Domain.FuncionarioModule;
 
-namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
+namespace CarRental.Controladores.FuncionarioModule
 {
     public class ControladorFuncionario : Controlador<Funcionario>
     {

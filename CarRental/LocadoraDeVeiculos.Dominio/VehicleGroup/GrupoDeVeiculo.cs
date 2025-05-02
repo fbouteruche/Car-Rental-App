@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.Shared;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
+namespace CarRental.Domain.GrupoDeVeiculosModule
 {
     public class GrupoDeVeiculo : EntidadeBase
     {

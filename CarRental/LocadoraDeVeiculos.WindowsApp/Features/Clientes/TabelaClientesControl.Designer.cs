@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Clientes
+namespace CarRental.WindowsApp.Clientes
 {
     partial class TabelaClientesControl
     {

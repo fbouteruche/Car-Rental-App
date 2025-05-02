@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
+namespace CarRental.WindowsApp.Features.Dashboards
 {
     partial class DashControl
     {
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox10
             // 
             this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox10.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_serviços_100;
+            this.pictureBox10.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_serviços_100;
             this.pictureBox10.Location = new System.Drawing.Point(149, 88);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(72, 72);
@@ -171,7 +171,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.carKey;
+            this.pictureBox1.Image = global::CarRental.WindowsApp.Properties.Resources.carKey;
             this.pictureBox1.Location = new System.Drawing.Point(277, 86);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(72, 72);
@@ -182,7 +182,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.car2;
+            this.pictureBox3.Image = global::CarRental.WindowsApp.Properties.Resources.car2;
             this.pictureBox3.Location = new System.Drawing.Point(22, 86);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(72, 72);
@@ -259,7 +259,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.car;
+            this.pictureBox2.Image = global::CarRental.WindowsApp.Properties.Resources.car;
             this.pictureBox2.Location = new System.Drawing.Point(156, 86);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(72, 72);
@@ -324,7 +324,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox9
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox9.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_calendário_100;
+            this.pictureBox9.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_calendário_100;
             this.pictureBox9.Location = new System.Drawing.Point(283, 88);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(72, 72);
@@ -346,7 +346,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox7
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96;
+            this.pictureBox7.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96;
             this.pictureBox7.Location = new System.Drawing.Point(156, 88);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(72, 72);
@@ -379,7 +379,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox8
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox8.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_hoje_100;
+            this.pictureBox8.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_hoje_100;
             this.pictureBox8.Location = new System.Drawing.Point(28, 88);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(72, 72);
@@ -411,7 +411,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_empresa_cliente_100;
+            this.pictureBox5.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_empresa_cliente_100;
             this.pictureBox5.Location = new System.Drawing.Point(288, 86);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(72, 72);
@@ -422,7 +422,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox6
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_chamada_em_conferência_100;
+            this.pictureBox6.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_chamada_em_conferência_100;
             this.pictureBox6.Location = new System.Drawing.Point(149, 86);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(72, 72);
@@ -433,7 +433,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_usuário_1001;
+            this.pictureBox4.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_usuário_1001;
             this.pictureBox4.Location = new System.Drawing.Point(16, 86);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(72, 72);

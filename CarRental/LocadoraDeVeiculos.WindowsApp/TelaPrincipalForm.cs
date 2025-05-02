@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.WindowsApp.Clientes;
-using LocadoraDeVeiculos.WindowsApp.Funcionarios;
-using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
-using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
-using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
-using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
-using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
-using LocadoraDeVeiculos.Controladores.CupomModule;
+using CarRental.WindowsApp.Clientes;
+using CarRental.WindowsApp.Funcionarios;
+using CarRental.WindowsApp.ClientesModule;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.WindowsApp.Shared;
+using CarRental.WindowsApp.Features.Funcionarios;
+using CarRental.WindowsApp.Features.Servicos;
+using CarRental.Controladores.ServicoModule;
+using CarRental.WindowsApp.Features.Clientes;
+using CarRental.Controladores.ClientesModule;
+using CarRental.WindowsApp.Features.Veiculos;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.WindowsApp.Features.GrupoDeVeiculos;
+using CarRental.Controladores.GrupoDeVeiculosModule;
+using CarRental.WindowsApp.Features.Locacoes;
+using CarRental.Controladores.LocacaoModule;
+using CarRental.WindowsApp.Features.Devolucoes;
+using CarRental.WindowsApp.Features.Dashboards;
+using CarRental.WindowsApp.Features.Parceiros;
+using CarRental.Controladores.ParceiroModule;
+using CarRental.WindowsApp.Features.Cupons;
+using CarRental.Controladores.CupomModule;
 
-namespace LocadoraDeVeiculos.WindowsApp
+namespace CarRental.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
     {

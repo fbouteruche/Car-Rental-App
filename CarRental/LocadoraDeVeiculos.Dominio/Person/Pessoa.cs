@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using CarRental.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Dominio.PessoaModule
+namespace CarRental.Domain.PessoaModule
 {
     public abstract class Pessoa : EntidadeBase
     {

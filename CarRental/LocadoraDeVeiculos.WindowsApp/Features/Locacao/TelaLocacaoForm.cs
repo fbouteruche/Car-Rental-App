@@ -1,16 +1,16 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
+﻿using CarRental.Controladores.ClientesModule;
+using CarRental.Controladores.CupomModule;
+using CarRental.Controladores.FuncionarioModule;
+using CarRental.Controladores.VeiculoModule;
+using CarRental.Domain.ClienteModule;
+using CarRental.Domain.Coupon;
+using CarRental.Domain.FuncionarioModule;
+using CarRental.Domain.LocacaoModule;
+using CarRental.Domain.RelacionamentoLocServModule;
+using CarRental.Domain.SevicosModule;
+using CarRental.Domain.Shared;
+using CarRental.Domain.VeiculoModule;
+using CarRental.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Locacoes
 {
     public partial class TelaLocacaoForm : Form
     {
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             string tipoDeSeguro = "Nenhum";
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
-            Cupom cupom = null;
+            Coupon cupom = null;
             bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
             if (existe)
             {

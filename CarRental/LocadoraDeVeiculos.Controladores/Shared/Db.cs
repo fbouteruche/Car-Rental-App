@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Controladores.Shared
+namespace CarRental.Controladores.Shared
 {
     public delegate T ConverterDelegate<T>(IDataReader reader);
 

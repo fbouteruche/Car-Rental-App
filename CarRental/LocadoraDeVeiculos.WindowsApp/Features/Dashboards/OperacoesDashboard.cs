@@ -1,11 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
+﻿using CarRental.Controladores.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
+namespace CarRental.WindowsApp.Features.Dashboards
 {
     public class OperacoesDashboard
     {

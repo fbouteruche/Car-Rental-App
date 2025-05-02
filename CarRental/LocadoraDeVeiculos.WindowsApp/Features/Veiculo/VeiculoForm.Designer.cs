@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Veiculos
+namespace CarRental.WindowsApp.Veiculos
 {
     partial class VeiculoForm
     {

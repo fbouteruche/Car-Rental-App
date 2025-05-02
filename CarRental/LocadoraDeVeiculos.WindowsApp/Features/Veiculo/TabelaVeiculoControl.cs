@@ -1,9 +1,9 @@
-﻿using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using CarRental.Domain.VeiculoModule;
+using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
+namespace CarRental.WindowsApp.Features.Veiculos
 {
     public partial class TabelaVeiculoControl : UserControl
     {

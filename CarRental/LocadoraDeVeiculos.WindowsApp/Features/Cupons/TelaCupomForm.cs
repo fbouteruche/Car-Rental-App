@@ -1,16 +1,16 @@
-﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
-using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using CarRental.Controladores.ParceiroModule;
+using CarRental.Domain.Coupon;
+using CarRental.Domain.ParceiroModule;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Cupons
 {
     public partial class TelaCupomForm : Form
     {
-        Cupom cupom;
+        Coupon cupom;
         ControladorParceiro controladorParceiro;
         public TelaCupomForm(string titulo)
         {
@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             cBoxParceiro.DataSource = controladorParceiro.SelecionarTodos();
         }
 
-        public Cupom Cupom
+        public Coupon Cupom
         {
             get { return cupom; }
 
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             Parceiro parceiro = cBoxParceiro.SelectedItem as Parceiro;
 
-            cupom = new Cupom(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
+            cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
 
             string resultadoValidacao = cupom.Validar();
 

@@ -1,9 +1,9 @@
-﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using CarRental.Domain.ParceiroModule;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Parceiros
 {
     public partial class TelaParceiroForm : Form
     {
