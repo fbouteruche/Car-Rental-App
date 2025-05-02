@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.10530.239 main
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Domain", "LocadoraDeVeiculos.Dominio\CarRental.Domain.csproj", "{7F169E59-39E2-4908-BE88-38206B8983F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Domain", "CarRental.Domain\CarRental.Domain.csproj", "{7F169E59-39E2-4908-BE88-38206B8983F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.WindowsApp", "LocadoraDeVeiculos.WindowsApp\CarRental.WindowsApp.csproj", "{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.WindowsApp", "CarRental.WindowsApp\CarRental.WindowsApp.csproj", "{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Controllers", "LocadoraDeVeiculos.Controladores\CarRental.Controllers.csproj", "{35789073-23E1-426D-BBC2-E1AF3DB9935E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Controllers", "CarRental.Controllers\CarRental.Controllers.csproj", "{35789073-23E1-426D-BBC2-E1AF3DB9935E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Tests", "LocadoraDeVeiculos.Tests\CarRental.Tests.csproj", "{5DEF9302-2DDF-456E-92E0-09774B401F45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Tests", "CarRental.Tests\CarRental.Tests.csproj", "{5DEF9302-2DDF-456E-92E0-09774B401F45}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CarRental.SqlServer", "LocadoraDeVeiculos.SqlServer\CarRental.SqlServer.sqlproj", "{22C0B170-9B97-4D20-B23B-3810DD8B9260}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CarRental.SqlServer", "CarRental.SqlServer\CarRental.SqlServer.sqlproj", "{22C0B170-9B97-4D20-B23B-3810DD8B9260}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64FE4CE7-CB4E-44D2-86D3-4214491988B4}"
 EndProject

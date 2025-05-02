@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\CarRental.Domain.csproj">
+    <ProjectReference Include="..\CarRental.Domain\CarRental.Domain.csproj">
       <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
       <Name>CarRental.Domain</Name>
     </ProjectReference>
