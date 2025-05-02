@@ -10,7 +10,7 @@ using System.IO;
 
 namespace CarRental.Domain.ImagemVeiculoModule
 {
-    public class ImagemVeiculo : EntidadeBase
+    public class ImagemVeiculo : BaseEntity
     {
         public int idVeiculo { get; set; }
         public Bitmap imagem { get; set; }
@@ -28,7 +28,7 @@ namespace CarRental.Domain.ImagemVeiculoModule
             throw new NotImplementedException();
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "VALIDO";
             return resultadoValidacao;

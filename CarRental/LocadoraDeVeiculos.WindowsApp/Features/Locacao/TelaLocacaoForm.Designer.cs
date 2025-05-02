@@ -108,7 +108,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             this.lblValorInicial.Name = "lblValorInicial";
             this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
             this.lblValorInicial.TabIndex = 2;
-            this.lblValorInicial.Text = "Valor Inicial: R$";
+            this.lblValorInicial.Text = "Value Inicial: R$";
             // 
             // btnServicos
             // 

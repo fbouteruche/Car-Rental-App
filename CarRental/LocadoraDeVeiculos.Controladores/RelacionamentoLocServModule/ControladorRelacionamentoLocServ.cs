@@ -82,7 +82,7 @@ namespace CarRental.Controladores.RelacionamentoLocServModule
 
         public override string InserirNovo(RelacionamentoLocServ registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
                 foreach (Servico servico in registro.Servicos)

@@ -62,7 +62,7 @@ namespace CarRental.Controladores.ParceiroModule
         #endregion
         public override string InserirNovo(Parceiro registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametrosParceiro(registro));
@@ -81,7 +81,7 @@ namespace CarRental.Controladores.ParceiroModule
         }        
         public override string Editar(int id, Parceiro registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {

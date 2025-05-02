@@ -68,7 +68,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
 
             grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
 
-            string resultadoValidacao = grupoDeVeiculos.Validar();
+            string resultadoValidacao = grupoDeVeiculos.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

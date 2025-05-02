@@ -108,7 +108,7 @@ namespace CarRental.Controladores.LocacaoModule
         #endregion
         public override string InserirNovo(Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
@@ -137,7 +137,7 @@ namespace CarRental.Controladores.LocacaoModule
 
         public override string Editar(int id, Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {

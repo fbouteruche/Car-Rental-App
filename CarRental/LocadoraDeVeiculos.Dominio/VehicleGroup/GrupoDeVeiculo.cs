@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CarRental.Domain.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculo : EntidadeBase
+    public class GrupoDeVeiculo : BaseEntity
     {
         private string nome;
         private double taxaPlanoDiario;
@@ -33,7 +33,7 @@ namespace CarRental.Domain.GrupoDeVeiculosModule
             this.taxaPlanoLivre = taxaPlanoLivre;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
 

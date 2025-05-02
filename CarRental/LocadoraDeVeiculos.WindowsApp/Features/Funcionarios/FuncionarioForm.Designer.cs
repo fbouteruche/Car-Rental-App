@@ -84,7 +84,7 @@ namespace CarRental.WindowsApp.Funcionarios
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(45, 17);
             this.lbNome.TabIndex = 24;
-            this.lbNome.Text = "Nome";
+            this.lbNome.Text = "Name";
             // 
             // lbCPF
             // 

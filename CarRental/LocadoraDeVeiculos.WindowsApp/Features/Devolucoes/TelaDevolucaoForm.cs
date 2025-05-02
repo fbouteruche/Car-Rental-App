@@ -77,7 +77,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 double precoCombustivel = ReceberPrecoCombustivel();
                 Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
 
-                string resultadoValidacao = Devolucao.Validar();
+                string resultadoValidacao = Devolucao.Validate();
                 Veiculo veiculoAtualizado = devolucao.Veiculo;
                 controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
 

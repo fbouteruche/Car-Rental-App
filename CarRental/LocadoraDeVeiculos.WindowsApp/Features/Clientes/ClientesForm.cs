@@ -86,7 +86,7 @@ namespace CarRental.WindowsApp.ClientesModule
             Id = 0;
             cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
 
-            string resultadoValidacao = cliente.Validar();
+            string resultadoValidacao = cliente.Validate();
 
 
             if (resultadoValidacao != "VALIDO")

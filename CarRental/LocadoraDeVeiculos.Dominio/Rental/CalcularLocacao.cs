@@ -95,16 +95,16 @@ namespace CarRental.Domain.Shared
             double resultado = 0;
             if (cupom != null)
             {
-                bool ehAindaValidoHoje = DateTime.Now <= cupom.Validade;
-                bool ehValorMaiorQuePrecoMinimo = precoTotal >= cupom.ValorMinimo;
+                bool ehAindaValidoHoje = DateTime.Now <= cupom.ExpirationDate;
+                bool ehValorMaiorQuePrecoMinimo = precoTotal >= cupom.MinimumValue;
 
                 if (ehAindaValidoHoje && ehValorMaiorQuePrecoMinimo)
                 {
-                    if (cupom.EhDescontoFixo)
-                        resultado = cupom.Valor;
+                    if (cupom.IsFixedDiscount)
+                        resultado = cupom.Value;
                     else
                     {
-                        double porcentagemDeDesconto = cupom.Valor / 100;
+                        double porcentagemDeDesconto = cupom.Value / 100;
                         resultado = precoTotal * porcentagemDeDesconto;
                     }
                 }

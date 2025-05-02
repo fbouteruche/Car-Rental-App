@@ -95,7 +95,7 @@ namespace CarRental.Tests.CupomModule
 
         private void InserirParceiro()
         {
-            parceiro = new Parceiro(0, "Nome Teste");
+            parceiro = new Parceiro(0, "Name Teste");
             controladorParceiro.InserirNovo(parceiro);
         }
     }

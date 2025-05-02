@@ -126,7 +126,7 @@ namespace CarRental.Controladores.CupomModule
         #endregion
         public override string InserirNovo(Coupon registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(registro));
@@ -151,7 +151,7 @@ namespace CarRental.Controladores.CupomModule
 
         public override string Editar(int id, Coupon registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {
@@ -191,13 +191,13 @@ namespace CarRental.Controladores.CupomModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", registro.Id);
-            parametros.Add("NOMECUPOM", registro.Nome);
-            parametros.Add("CODIGO", registro.Codigo);
-            parametros.Add("VALORMINIMO", registro.ValorMinimo);
-            parametros.Add("VALOR", registro.Valor);
-            parametros.Add("EHDESCONTOFIXO", registro.EhDescontoFixo);
-            parametros.Add("VALIDADE", registro.Validade);
-            parametros.Add("ID_PARCEIRO", registro.Parceiro.Id);
+            parametros.Add("NOMECUPOM", registro.Name);
+            parametros.Add("CODIGO", registro.Code);
+            parametros.Add("VALORMINIMO", registro.MinimumValue);
+            parametros.Add("VALOR", registro.Value);
+            parametros.Add("EHDESCONTOFIXO", registro.IsFixedDiscount);
+            parametros.Add("VALIDADE", registro.ExpirationDate);
+            parametros.Add("ID_PARCEIRO", registro.Partner.Id);
 
             return parametros;
         }

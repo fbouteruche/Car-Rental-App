@@ -28,7 +28,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome do Grupo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name do Grupo"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPlanoDiario", HeaderText = "Taxa do Plano Diário"},
 

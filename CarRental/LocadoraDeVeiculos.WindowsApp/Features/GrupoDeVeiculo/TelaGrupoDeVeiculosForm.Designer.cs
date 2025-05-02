@@ -129,7 +129,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
             this.lbNomeGrupo.Name = "lbNomeGrupo";
             this.lbNomeGrupo.Size = new System.Drawing.Size(80, 13);
             this.lbNomeGrupo.TabIndex = 42;
-            this.lbNomeGrupo.Text = "Nome do grupo";
+            this.lbNomeGrupo.Text = "Name do grupo";
             // 
             // lbTaxaPlanoDiário
             // 

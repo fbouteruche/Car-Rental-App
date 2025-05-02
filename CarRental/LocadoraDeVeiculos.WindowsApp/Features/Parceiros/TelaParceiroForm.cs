@@ -34,7 +34,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             parceiro = new Parceiro(id, nome);
 
-            string resultadoValidacao = parceiro.Validar();
+            string resultadoValidacao = parceiro.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

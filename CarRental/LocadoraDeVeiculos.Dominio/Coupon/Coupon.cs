@@ -8,74 +8,74 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.Coupon
 {
-    public class Coupon : EntidadeBase
+    public class Coupon : BaseEntity
     {
-        public string Nome { get; }
-        public string Codigo { get; }
-        public double Valor { get; }
-        public double ValorMinimo { get; }
-        public bool EhDescontoFixo { get; }
-        public DateTime Validade { get; }
-        public Parceiro Parceiro { get; }
+        public string Name { get; }
+        public string Code { get; }
+        public double Value { get; }
+        public double MinimumValue { get; }
+        public bool IsFixedDiscount { get; }
+        public DateTime ExpirationDate { get; }
+        public Parceiro Partner { get; }
 
         public Coupon(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro)
         {
             Id = id;
-            Nome = nome;
-            Codigo = codigo;
-            Valor = valor;
-            ValorMinimo = valorMinimo;
-            EhDescontoFixo = ehDescontoFixo;
-            Validade = validade;
-            Parceiro = parceiro;
+            Name = nome;
+            Code = codigo;
+            Value = valor;
+            MinimumValue = valorMinimo;
+            IsFixedDiscount = ehDescontoFixo;
+            ExpirationDate = validade;
+            Partner = parceiro;
         }
-        public override string Validar()
+        public override string Validate()
         {
-            string resultadoValicadacao = "";
+            string validationResult = "";
 
-            if (Nome.Length == 0)
-                resultadoValicadacao += "O campo nome é obrigatório\n";
-            if (Codigo.Length == 0)
-                resultadoValicadacao += "O campo código é obrigatório\n";
-            if (Valor <= 0)
-                resultadoValicadacao += "O valor não pode ser negativo ou 0(zero)\n";
-            if(!EhDescontoFixo && Valor > 100)
-                resultadoValicadacao += "A porcentagem de desconto não pode ser maior que 100%\n";
-            if (Parceiro == null)
-                resultadoValicadacao += "É obrigatório possuir um parceiro vinculado\n";
-            if (resultadoValicadacao == "")
-                resultadoValicadacao = "VALIDO";
-            return resultadoValicadacao;
+            if (Name.Length == 0)
+                validationResult += "The name field is required\n";
+            if (Code.Length == 0)
+                validationResult += "The code field is required\n";
+            if (Value <= 0)
+                validationResult += "The value cannot be negative or 0 (zero)\n";
+            if (!IsFixedDiscount && Value > 100)
+                validationResult += "The discount percentage cannot be greater than 100%\n";
+            if (Partner == null)
+                validationResult += "A partner is required\n";
+            if (validationResult == "")
+                validationResult = "VALID";
+            return validationResult;
         }
         public override string ToString()
         {
-            return $"[{id}, {Nome}, {Codigo}, {EhDescontoFixo}, {Valor}]";
+            return $"[{id}, {Name}, {Code}, {IsFixedDiscount}, {Value}]";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Coupon cupom &&
-                   Id == cupom.Id &&
-                   Nome == cupom.Nome &&
-                   Codigo == cupom.Codigo &&
-                   Valor == cupom.Valor &&
-                   ValorMinimo == cupom.ValorMinimo &&
-                   EhDescontoFixo == cupom.EhDescontoFixo &&
-                   Validade == cupom.Validade &&
-                   EqualityComparer<Parceiro>.Default.Equals(Parceiro, cupom.Parceiro);
+            return obj is Coupon comparedCoupon &&
+                   Id == comparedCoupon.Id &&
+                   Name == comparedCoupon.Name &&
+                   Code == comparedCoupon.Code &&
+                   Value == comparedCoupon.Value &&
+                   MinimumValue == comparedCoupon.MinimumValue &&
+                   IsFixedDiscount == comparedCoupon.IsFixedDiscount &&
+                   ExpirationDate == comparedCoupon.ExpirationDate &&
+                   EqualityComparer<Parceiro>.Default.Equals(Partner, comparedCoupon.Partner);
         }
 
         public override int GetHashCode()
         {
             int hashCode = -1097376669;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Codigo);
-            hashCode = hashCode * -1521134295 + Valor.GetHashCode();
-            hashCode = hashCode * -1521134295 + ValorMinimo.GetHashCode();
-            hashCode = hashCode * -1521134295 + EhDescontoFixo.GetHashCode();
-            hashCode = hashCode * -1521134295 + Validade.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Parceiro>.Default.GetHashCode(Parceiro);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Code);
+            hashCode = hashCode * -1521134295 + Value.GetHashCode();
+            hashCode = hashCode * -1521134295 + MinimumValue.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsFixedDiscount.GetHashCode();
+            hashCode = hashCode * -1521134295 + ExpirationDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Parceiro>.Default.GetHashCode(Partner);
             return hashCode;
         }
     }

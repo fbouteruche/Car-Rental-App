@@ -26,7 +26,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Valor Inicial"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Value Inicial"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "DataDeSaida", HeaderText = "Data de Locação"},
 

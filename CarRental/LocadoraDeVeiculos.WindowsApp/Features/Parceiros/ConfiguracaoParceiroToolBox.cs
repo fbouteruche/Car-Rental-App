@@ -16,17 +16,17 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
         public string TipoCadastro
         {
-            get { return "Cadastro de um novo Parceiro"; }
+            get { return "Cadastro de um novo Partner"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Parceiro existente"; }
+            get { return "Editar um Partner existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Parceiro existente"; }
+            get { return "Excluir um Partner existente"; }
         }
     }
 }

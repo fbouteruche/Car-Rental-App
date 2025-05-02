@@ -79,7 +79,7 @@ namespace CarRental.Controladores.ClientesModule
 
 		public override string Editar(int id, Cliente registro)
 		{
-			string resultadoValidacao = registro.Validar();
+			string resultadoValidacao = registro.Validate();
 
 			if (resultadoValidacao == "VALIDO")
 			{
@@ -111,7 +111,7 @@ namespace CarRental.Controladores.ClientesModule
 
 		public override string InserirNovo(Cliente registro)
 		{
-			string resultadoValidacao = registro.Validar();
+			string resultadoValidacao = registro.Validate();
 
 			if (resultadoValidacao == "VALIDO")
 			{

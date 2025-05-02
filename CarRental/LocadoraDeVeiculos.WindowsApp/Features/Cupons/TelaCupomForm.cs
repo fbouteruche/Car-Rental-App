@@ -35,9 +35,9 @@ namespace CarRental.WindowsApp.Features.Cupons
                 cupom = value;
 
                 txtId.Text = cupom.Id.ToString();
-                txtNome.Text = cupom.Nome;
-                txtCodigo.Text = cupom.Codigo;
-                if (cupom.EhDescontoFixo)
+                txtNome.Text = cupom.Name;
+                txtCodigo.Text = cupom.Code;
+                if (cupom.IsFixedDiscount)
                 {
                     rBtnValorFixo.Checked = true;
                     rBtnPorcentagem.Checked = false;
@@ -49,10 +49,10 @@ namespace CarRental.WindowsApp.Features.Cupons
                     rBtnPorcentagem.Checked = true;
                     numUpDownValor.Maximum = 100;
                 }
-                numUpDownValor.Value = Convert.ToDecimal(cupom.Valor);
-                numUpDownValorMinimo.Value = Convert.ToDecimal(cupom.ValorMinimo);
-                dtpValidade.Value = cupom.Validade;
-                cBoxParceiro.SelectedItem = cupom.Parceiro;
+                numUpDownValor.Value = Convert.ToDecimal(cupom.Value);
+                numUpDownValorMinimo.Value = Convert.ToDecimal(cupom.MinimumValue);
+                dtpValidade.Value = cupom.ExpirationDate;
+                cBoxParceiro.SelectedItem = cupom.Partner;
             }
         }
         #region Radio Buttons
@@ -60,7 +60,7 @@ namespace CarRental.WindowsApp.Features.Cupons
         {
             if (rBtnValorFixo.Checked == true)
             {
-                lbValor.Text = "Valor";
+                lbValor.Text = "Value";
                 lbValor.Location = new Point(70, 215);
                 numUpDownValor.Maximum = 15000;
             }
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
 
-            string resultadoValidacao = cupom.Validar();
+            string resultadoValidacao = cupom.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

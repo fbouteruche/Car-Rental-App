@@ -32,7 +32,7 @@ namespace CarRental.Domain.FuncionarioModule
             EhPessoaFisica = ehPessoaFisica;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidação = "";
             if (UsuarioAcesso.Length == 0)

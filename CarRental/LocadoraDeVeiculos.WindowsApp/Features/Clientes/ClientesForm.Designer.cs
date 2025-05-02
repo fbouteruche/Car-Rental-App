@@ -180,7 +180,7 @@ namespace CarRental.WindowsApp.ClientesModule
             this.lbValidade.Name = "lbValidade";
             this.lbValidade.Size = new System.Drawing.Size(74, 13);
             this.lbValidade.TabIndex = 35;
-            this.lbValidade.Text = "Validade CNH";
+            this.lbValidade.Text = "ExpirationDate CNH";
             // 
             // textId
             // 
@@ -270,7 +270,7 @@ namespace CarRental.WindowsApp.ClientesModule
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 17;
-            this.lbNome.Text = "Nome";
+            this.lbNome.Text = "Name";
             // 
             // lbId
             // 

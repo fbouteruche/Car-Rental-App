@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.PessoaModule
 {
-    public abstract class Pessoa : EntidadeBase
+    public abstract class Pessoa : BaseEntity
     {
         public string Nome { get; set; }
         public string RegistroUnico { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.ParceiroModule
 {
-    public class Parceiro : EntidadeBase
+    public class Parceiro : BaseEntity
     {
         public string Nome { get; }
 
@@ -17,7 +17,7 @@ namespace CarRental.Domain.ParceiroModule
             Nome = nome;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
 

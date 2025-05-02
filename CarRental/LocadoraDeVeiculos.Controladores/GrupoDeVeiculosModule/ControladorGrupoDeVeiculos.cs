@@ -61,7 +61,7 @@ namespace CarRental.Controladores.GrupoDeVeiculosModule
 
         public override string InserirNovo(GrupoDeVeiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
             foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
@@ -80,7 +80,7 @@ namespace CarRental.Controladores.GrupoDeVeiculosModule
 
         public override string Editar(int id, GrupoDeVeiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
             foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)

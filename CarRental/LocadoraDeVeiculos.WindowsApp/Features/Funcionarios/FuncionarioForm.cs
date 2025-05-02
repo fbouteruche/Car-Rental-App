@@ -67,7 +67,7 @@ namespace CarRental.WindowsApp.Funcionarios
              
             funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,senha,dataAdmissao,cargo,salario,true);
 
-            string resultadoValidacao = funcionario.Validar();
+            string resultadoValidacao = funcionario.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

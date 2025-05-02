@@ -33,7 +33,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
                 tabela.AtualizarRegistros(cupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{tela.Cupom.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{tela.Cupom.Name}] inserido com sucesso");
             }
         }
 
@@ -56,7 +56,7 @@ namespace CarRental.WindowsApp.Features.Cupons
                 controlador.Editar(id, tela.Cupom);
                 List<Coupon> funcionarios = controlador.SelecionarTodos();
                 tabela.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Name}] editado com sucesso");
             }
         }
 
@@ -72,12 +72,12 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             Coupon parceiroSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Nome}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Excluir(id);
                 List<Coupon> cupons = controlador.SelecionarTodos();
                 tabela.AtualizarRegistros(cupons);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Nome}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Name}] removido com sucesso");
             }
         }
 

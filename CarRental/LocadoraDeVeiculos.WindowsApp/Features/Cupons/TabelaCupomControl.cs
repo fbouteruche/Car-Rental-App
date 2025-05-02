@@ -20,11 +20,11 @@ namespace CarRental.WindowsApp.Features.Cupons
             var colunas = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Codigo", HeaderText = "Codigo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "EhDescontoFixo", HeaderText = "Desconto Fixo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Validade", HeaderText = "Validade"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Code", HeaderText = "Code"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Value", HeaderText = "Value"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "IsFixedDiscount", HeaderText = "Desconto Fixo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ExpirationDate", HeaderText = "ExpirationDate"},
            };
 
             return colunas;
@@ -35,7 +35,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             gridCupons.Rows.Clear();
 
             foreach (Coupon cupom in cupons)
-                gridCupons.Rows.Add(cupom.Id, cupom.Nome, cupom.Codigo, cupom.Valor, cupom.EhDescontoFixo, cupom.Validade);
+                gridCupons.Rows.Add(cupom.Id, cupom.Name, cupom.Code, cupom.Value, cupom.IsFixedDiscount, cupom.ExpirationDate);
         }
 
         internal int ObtemIdSelecionado()

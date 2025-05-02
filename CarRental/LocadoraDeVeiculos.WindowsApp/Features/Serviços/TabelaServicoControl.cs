@@ -28,11 +28,11 @@ namespace CarRental.WindowsApp.Features.Servicos
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "EhTaxadoDiario", HeaderText = "É taxado diário"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Value", HeaderText = "Value"},
             };
 
             return colunas;

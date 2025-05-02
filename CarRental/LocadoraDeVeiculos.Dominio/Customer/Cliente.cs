@@ -22,7 +22,7 @@ namespace CarRental.Domain.ClienteModule
             EhPessoaFisica = ehPessoaFisica;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidação = "";
             if (EhPessoaFisica)

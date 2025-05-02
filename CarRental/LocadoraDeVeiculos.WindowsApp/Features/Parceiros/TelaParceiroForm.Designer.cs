@@ -58,7 +58,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             this.lbPlaca.Name = "lbPlaca";
             this.lbPlaca.Size = new System.Drawing.Size(35, 13);
             this.lbPlaca.TabIndex = 76;
-            this.lbPlaca.Text = "Nome";
+            this.lbPlaca.Text = "Name";
             // 
             // lbNome
             // 

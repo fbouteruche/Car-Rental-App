@@ -28,7 +28,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cpf", HeaderText = "CPF"},
 

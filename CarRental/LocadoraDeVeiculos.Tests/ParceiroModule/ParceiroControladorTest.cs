@@ -27,7 +27,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveInserirUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Nome Teste");
+            parceiro = new Parceiro(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);
@@ -41,7 +41,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveSelecionarDoisParceiros()
         {
             //arrange
-            parceiro = new Parceiro(0, "Nome Teste");
+            parceiro = new Parceiro(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);
@@ -56,8 +56,8 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveEditarUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Nome Teste");
-            Parceiro parceiroEditado = new Parceiro(0, "Nome Alterado");
+            parceiro = new Parceiro(0, "Name Teste");
+            Parceiro parceiroEditado = new Parceiro(0, "Name Alterado");
 
             //action
             controlador.InserirNovo(parceiro);
@@ -72,7 +72,7 @@ namespace CarRental.Tests.ParceiroModule
         public void DeveExcluirUmParceiro()
         {
             //arrange
-            parceiro = new Parceiro(0, "Nome Teste");
+            parceiro = new Parceiro(0, "Name Teste");
 
             //action
             controlador.InserirNovo(parceiro);

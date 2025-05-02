@@ -20,7 +20,7 @@ namespace CarRental.Tests.ParceiroModule
             Parceiro parceiro = new Parceiro(0, "NDD");
 
             //action
-            var resultadoValidacao = parceiro.Validar();
+            var resultadoValidacao = parceiro.Validate();
 
             //assert
             resultadoValidacao.Should().Be("VALIDO");
@@ -33,7 +33,7 @@ namespace CarRental.Tests.ParceiroModule
             Parceiro parceiro = new Parceiro(0, "");
 
             //action
-            var resultadoValidacao = parceiro.Validar();
+            var resultadoValidacao = parceiro.Validate();
 
             //assert
             resultadoValidacao.Should().Be("O campo nome é obrigatório");

@@ -377,7 +377,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             this.lblValorInicial.Name = "lblValorInicial";
             this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
             this.lblValorInicial.TabIndex = 34;
-            this.lblValorInicial.Text = "Valor Inicial: R$";
+            this.lblValorInicial.Text = "Value Inicial: R$";
             // 
             // lblEncerrar
             // 
@@ -554,7 +554,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             this.lblValorCombustivel.Name = "lblValorCombustivel";
             this.lblValorCombustivel.Size = new System.Drawing.Size(123, 13);
             this.lblValorCombustivel.TabIndex = 19;
-            this.lblValorCombustivel.Text = "Valor do Combustivel R$";
+            this.lblValorCombustivel.Text = "Value do Combustivel R$";
             // 
             // txtValorCombustivel
             // 

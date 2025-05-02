@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CarRental.Domain.SevicosModule
 {
-    public class Servico : EntidadeBase
+    public class Servico : BaseEntity
     {    
         public Servico(int id, string nome, bool EhTaxadoDiario, double valor)
         {
@@ -16,7 +16,7 @@ namespace CarRental.Domain.SevicosModule
         public bool EhTaxadoDiario { get; }
         public double Valor { get; }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
             if (this.Nome.Length == 0)

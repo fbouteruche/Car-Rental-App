@@ -60,7 +60,7 @@
     <Compile Include="Services\Servico.cs" />
     <Compile Include="Rental\CalcularLocacao.cs" />
     <Compile Include="Shared\ConversorParaPdf.cs" />
-    <Compile Include="Shared\EntidadeBase.cs" />
+    <Compile Include="Shared\BaseEntity.cs" />
     <Compile Include="VeiculoModule\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

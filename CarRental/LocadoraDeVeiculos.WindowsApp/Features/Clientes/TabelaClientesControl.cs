@@ -31,7 +31,7 @@ namespace CarRental.WindowsApp.Clientes
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "RegistroUnico", HeaderText = "Registro"},
 
@@ -43,7 +43,7 @@ namespace CarRental.WindowsApp.Clientes
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "CNH", HeaderText = "CNH"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "Validade CHN"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "ExpirationDate CHN"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "ehpessoafisica", HeaderText = "É pessoa física "}
                

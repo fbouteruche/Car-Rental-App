@@ -56,7 +56,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(35, 13);
             this.labelNome.TabIndex = 0;
-            this.labelNome.Text = "Nome";
+            this.labelNome.Text = "Name";
             // 
             // labelValor
             // 
@@ -67,7 +67,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(31, 13);
             this.labelValor.TabIndex = 1;
-            this.labelValor.Text = "Valor";
+            this.labelValor.Text = "Value";
             // 
             // txtNome
             // 

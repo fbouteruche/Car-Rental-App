@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace CarRental.Domain.VeiculoModule
 {
-    public class Veiculo : EntidadeBase
+    public class Veiculo : BaseEntity
     {
         public string modelo;
         public GrupoDeVeiculo grupoVeiculos;
@@ -50,7 +50,7 @@ namespace CarRental.Domain.VeiculoModule
             this.imagens = imagens;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
 

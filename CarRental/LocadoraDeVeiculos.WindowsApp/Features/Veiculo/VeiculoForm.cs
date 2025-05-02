@@ -98,7 +98,7 @@ namespace CarRental.WindowsApp.Veiculos
 
             veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
 
-            string resultadoValidacao = veiculo.Validar();
+            string resultadoValidacao = veiculo.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

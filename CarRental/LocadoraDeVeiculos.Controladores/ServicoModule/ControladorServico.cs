@@ -67,7 +67,7 @@ namespace CarRental.Controladores.ServicoModule
         #endregion
         public override string InserirNovo(Servico registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(sqlInserirServico, ObtemParametrosServico(registro));
@@ -84,7 +84,7 @@ namespace CarRental.Controladores.ServicoModule
         }
         public override string Editar(int id, Servico registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {

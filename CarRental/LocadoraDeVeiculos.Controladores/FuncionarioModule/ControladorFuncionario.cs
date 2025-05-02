@@ -62,7 +62,7 @@ namespace CarRental.Controladores.FuncionarioModule
 
         public override string Editar(int id, Funcionario registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
@@ -91,7 +91,7 @@ namespace CarRental.Controladores.FuncionarioModule
 
         public override string InserirNovo(Funcionario registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));
 

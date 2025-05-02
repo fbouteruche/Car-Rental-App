@@ -113,14 +113,14 @@ namespace CarRental.WindowsApp.Features.Locacoes
             if (existe)
             {
                 cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
-                if (cupom.Validade < DateTime.Now)
+                if (cupom.ExpirationDate < DateTime.Now)
                     cupom = null;
             }
 
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
             controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
-            string resultadoValidacao = locacao.Validar();
+            string resultadoValidacao = locacao.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

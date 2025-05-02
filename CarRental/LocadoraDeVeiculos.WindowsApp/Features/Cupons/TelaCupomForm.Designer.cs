@@ -80,7 +80,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.lbValidade.Name = "lbValidade";
             this.lbValidade.Size = new System.Drawing.Size(48, 13);
             this.lbValidade.TabIndex = 82;
-            this.lbValidade.Text = "Validade";
+            this.lbValidade.Text = "ExpirationDate";
             // 
             // txtId
             // 
@@ -101,7 +101,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.lbValorMinimo.Name = "lbValorMinimo";
             this.lbValorMinimo.Size = new System.Drawing.Size(69, 13);
             this.lbValorMinimo.TabIndex = 78;
-            this.lbValorMinimo.Text = "Valor Mínimo";
+            this.lbValorMinimo.Text = "Value Mínimo";
             // 
             // lbValor
             // 
@@ -134,7 +134,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 75;
-            this.lbNome.Text = "Nome";
+            this.lbNome.Text = "Name";
             // 
             // lbId
             // 
@@ -174,7 +174,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.rBtnValorFixo.Size = new System.Drawing.Size(71, 17);
             this.rBtnValorFixo.TabIndex = 3;
             this.rBtnValorFixo.TabStop = true;
-            this.rBtnValorFixo.Text = "Valor Fixo";
+            this.rBtnValorFixo.Text = "Value Fixo";
             this.rBtnValorFixo.UseVisualStyleBackColor = true;
             this.rBtnValorFixo.CheckedChanged += new System.EventHandler(this.rBtnValorFixo_CheckedChanged);
             // 
@@ -216,7 +216,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.lblParceiro.Name = "lblParceiro";
             this.lblParceiro.Size = new System.Drawing.Size(46, 13);
             this.lblParceiro.TabIndex = 83;
-            this.lblParceiro.Text = "Parceiro";
+            this.lblParceiro.Text = "Partner";
             // 
             // cBoxParceiro
             // 

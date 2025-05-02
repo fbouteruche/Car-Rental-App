@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.RelacionamentoLocServModule
 {
-    public class RelacionamentoLocServ : EntidadeBase
+    public class RelacionamentoLocServ : BaseEntity
     {
         public Locacao Locacao { get; }
         public List<Servico> Servicos { get; }
@@ -21,7 +21,7 @@ namespace CarRental.Domain.RelacionamentoLocServModule
             Servicos = servicos;
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
             if (Locacao.Id == 0)

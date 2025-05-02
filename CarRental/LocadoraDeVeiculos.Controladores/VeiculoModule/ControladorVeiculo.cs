@@ -162,7 +162,7 @@ namespace CarRental.Controladores.VeiculoModule
         #endregion
         public override string InserirNovo(Veiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {
@@ -197,7 +197,7 @@ namespace CarRental.Controladores.VeiculoModule
         }
         public override string Editar(int id, Veiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALIDO")
             {

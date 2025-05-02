@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.LocacaoModule
 {
-    public class Locacao : EntidadeBase
+    public class Locacao : BaseEntity
     {
         private Veiculo veiculo;
         private Funcionario funcionarioLocador;
@@ -110,7 +110,7 @@ namespace CarRental.Domain.LocacaoModule
             precoDevolucao = Math.Round(precoDevolucao, 2);
         }
 
-        public override string Validar()
+        public override string Validate()
         {
             string resultadoValidacao = "";
             if (this.veiculo == null)

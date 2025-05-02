@@ -51,7 +51,7 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             servico = new Servico(id, nome, ehTaxadoDiario, valor);
 
-            string resultadoValidacao = servico.Validar();
+            string resultadoValidacao = servico.Validate();
 
             if (resultadoValidacao != "VALIDO")
             {

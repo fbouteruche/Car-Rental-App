@@ -12,7 +12,7 @@ namespace CarRental.Tests.SevicoModule
         public void DeveCriarServicoCorreto()
         {
             Servico servico = new Servico(0, "nome", true, 100f);
-            Assert.AreEqual("VALIDO", servico.Validar());
+            Assert.AreEqual("VALIDO", servico.Validate());
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace CarRental.Tests.SevicoModule
         public void DeveCriarServicoIncorreto()
         {
             Servico servico = new Servico(0, "", true, 0f);
-            Assert.AreEqual("O nome não pode ser nulo\nO valor não pode ser nulo", servico.Validar());
+            Assert.AreEqual("O nome não pode ser nulo\nO valor não pode ser nulo", servico.Validate());
         }
     }
 }
