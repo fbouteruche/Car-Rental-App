@@ -79,14 +79,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\CarRental.Controllers.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
-      <Name>LocadoraDeVeiculos.Controladores</Name>
+      <Name>CarRental.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\CarRental.Domain.csproj">
       <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
-      <Name>LocadoraDeVeiculos.Dominio</Name>
+      <Name>CarRental.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
