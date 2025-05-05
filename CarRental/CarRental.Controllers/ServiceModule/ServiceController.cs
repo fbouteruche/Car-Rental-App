@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace CarRental.Controllers.ServicoModule
+namespace CarRental.Controllers.ServiceModule
 {
-    public class ControladorServico : Controller<Service>
+    public class ServiceController : Controller<Service>
     {
         #region queries
-        private const string sqlInserirServico =
+        private const string sqlInsertService =
             @"INSERT INTO TBSERVICO
             (
                 [NOME],
@@ -22,7 +22,7 @@ namespace CarRental.Controllers.ServicoModule
                 @EHTAXADODIARIO,
                 @VALOR
             )";
-        private const string sqlSelecionarTodosServicos =
+        private const string sqlSelectAllServices =
             @"SELECT 
                 [ID],
                 [NOME],
@@ -31,7 +31,7 @@ namespace CarRental.Controllers.ServicoModule
             FROM 
                 TBSERVICO ORDER BY ID;";
 
-        private const string sqlSelecionarServicoPorId =
+        private const string sqlSelectServiceById =
             @"SELECT  
                 [ID],
                 [NOME],
@@ -42,7 +42,7 @@ namespace CarRental.Controllers.ServicoModule
             WHERE 
                 [ID] = @ID";
 
-        private const string sqlEditarServico =
+        private const string sqlEditService =
             @"UPDATE TBSERVICO SET
                 [NOME] = @NOME,
                 [EHTAXADODIARIO] = @EHTAXADODIARIO,
@@ -50,14 +50,14 @@ namespace CarRental.Controllers.ServicoModule
             WHERE
                 [ID] = @ID
             ";
-        private const string sqlDeletarServico =
+        private const string sqlDeleteService =
             @"DELETE 
                 FROM 
                 TBSERVICO 
             WHERE 
                 [ID] = @ID";
 
-        private const string sqlExisteServico =
+        private const string sqlServiceExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -70,17 +70,17 @@ namespace CarRental.Controllers.ServicoModule
             string resultadoValidacao = registro.Validate();
 
             if (resultadoValidacao == "VALID")
-                registro.Id = Db.Insert(sqlInserirServico, ObtemParametrosServico(registro));
+                registro.Id = Db.Insert(sqlInsertService, GetServiceParameters(registro));
 
             return resultadoValidacao;
         }
         public override List<Service> SelectAll()
         {
-            return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmServico);
+            return Db.GetAll(sqlSelectAllServices, ConvertToService);
         }
         public override Service SelectById(int id)
         {
-            return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AddParameter("ID", id));
+            return Db.Get(sqlSelectServiceById, ConvertToService, AddParameter("ID", id));
         }
         public override string Edit(int id, Service registro)
         {
@@ -89,7 +89,7 @@ namespace CarRental.Controllers.ServicoModule
             if (resultadoValidacao == "VALID")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarServico, ObtemParametrosServico(registro));
+                Db.Update(sqlEditService, GetServiceParameters(registro));
             }
 
             return resultadoValidacao;
@@ -98,7 +98,7 @@ namespace CarRental.Controllers.ServicoModule
         {
             try
             {
-                Db.Delete(sqlDeletarServico, AddParameter("ID", id));
+                Db.Delete(sqlDeleteService, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -110,10 +110,10 @@ namespace CarRental.Controllers.ServicoModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteServico, AddParameter("ID", id));
+            return Db.Exists(sqlServiceExists, AddParameter("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosServico(Service servico)
+        private Dictionary<string, object> GetServiceParameters(Service servico)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -125,7 +125,7 @@ namespace CarRental.Controllers.ServicoModule
             return parametros;
         }
         
-        private Service ConverterEmServico(IDataReader reader)
+        private Service ConvertToService(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);

@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ServicoModule;
+﻿using CarRental.Controllers.ServiceModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
 using CarRental.WindowsApp.Features.Servicos;
@@ -18,10 +18,10 @@ namespace CarRental.WindowsApp.Servicos
     {
         public List<Service> servicosSelecionados;
         public string seguro = "Nenhum";
-        ControladorServico controladorServico;
+        ServiceController controladorServico;
         public ServicosForm()
         {
-            controladorServico = new ControladorServico();
+            controladorServico = new ServiceController();
             servicosSelecionados = new List<Service>();
             InitializeComponent();
             AtualizarListCheckBox();

@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ServicoModule;
+﻿using CarRental.Controllers.ServiceModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.WindowsApp.Servicos;
 using CarRental.WindowsApp.Shared;
@@ -13,10 +13,10 @@ namespace CarRental.WindowsApp.Features.Servicos
 {
     class OperacoesServico : ICadastravel
     {
-        private readonly ControladorServico controlador = null;
+        private readonly ServiceController controlador = null;
         private readonly TabelaServicoControl tabelaServicos = null;
 
-        public OperacoesServico(ControladorServico ctrlServico)
+        public OperacoesServico(ServiceController ctrlServico)
         {
             controlador = ctrlServico;
             tabelaServicos = new TabelaServicoControl();

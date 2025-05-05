@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.ServiceModule;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.ServiceModule;
 using CarRental.Tests.Shared;
@@ -12,11 +12,11 @@ namespace CarRental.Tests.SevicoModule
     [TestCategory("Controllers")]
     public class ServicosControladorTest
     {
-        ControladorServico controlador = null;
+        ServiceController controlador = null;
         Service novoServico;
         public ServicosControladorTest()
         {
-            controlador = new ControladorServico();
+            controlador = new ServiceController();
             ResetarBanco.ResetarTabelas();
         }
         [TestMethod]

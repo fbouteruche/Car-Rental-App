@@ -49,7 +49,7 @@
     <Compile Include="RentalModule\RentalController.cs" />
     <Compile Include="PartnerModule\PartnerController.cs" />
     <Compile Include="RentalServiceRelationshipModule\ControladorRelacionamentoLocServ.cs" />
-    <Compile Include="ServiceModule\ControladorServico.cs" />
+    <Compile Include="ServiceModule\ServiceController.cs" />
     <Compile Include="CustomersModule\CustomerController.cs" />
     <Compile Include="VehicleGroupModule\VehicleGroupController.cs" />
     <Compile Include="Shared\Controller.cs" />

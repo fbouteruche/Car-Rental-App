@@ -4,7 +4,7 @@ using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Controllers.RentalModule;
-using CarRental.Controllers.ServicoModule;
+using CarRental.Controllers.ServiceModule;
 using CarRental.Controllers.Shared;
 using CarRental.Controllers.VehicleModule;
 using CarRental.Domain.CustomerModule;
@@ -28,7 +28,7 @@ namespace CarRental.Tests.LocacaoModule
         VehicleController controladorVeiculo = null;
         ControladorFuncionario controladorFuncionario = null;
         CustomerController controladorCliente = null;
-        ControladorServico controladorServico = null;
+        ServiceController controladorServico = null;
         CouponController controladorCupom = null;
         VehicleGroup grupoVeiculos;
         Vehicle veiculo;
@@ -43,7 +43,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorVeiculo = new VehicleController();
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new CustomerController();
-            controladorServico = new ControladorServico();
+            controladorServico = new ServiceController();
             controladorCupom = new CouponController();
             controlador = new RentalController(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
             ResetarBanco.ResetarTabelas();
