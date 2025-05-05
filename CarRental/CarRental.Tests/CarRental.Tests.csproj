@@ -58,8 +58,8 @@
     <Compile Include="ClienteModule\CustomerTest.cs" />
     <Compile Include="ClienteModule\ClienteControladorTest.cs" />
     <Compile Include="CupomModule\CupomControladorTest.cs" />
-    <Compile Include="CupomModule\CupomDominioTest.cs" />
-    <Compile Include="FuncionarioModule\FuncionarioDominioTest.cs" />
+    <Compile Include="CupomModule\CouponTest.cs" />
+    <Compile Include="FuncionarioModule\EmployeeTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioControladorTest.cs" />
     <Compile Include="LocacaoModule\LocacaoDominioTest.cs" />
     <Compile Include="LocacaoModule\LocacaoControladorTest.cs" />
