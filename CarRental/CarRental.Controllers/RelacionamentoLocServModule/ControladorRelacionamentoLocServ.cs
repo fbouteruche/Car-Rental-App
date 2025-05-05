@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ClientesModule;
+﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.LocacaoModule;
@@ -21,7 +21,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
     {
         private int id = 0;
         ControladorServico controladorServico = new ControladorServico();
-        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom());
+        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new CustomerController(), new ControladorServico(), new ControladorCupom());
         #region queries Relacionamento
         private const string sqlInserirRelacao =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]

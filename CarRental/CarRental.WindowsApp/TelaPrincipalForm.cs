@@ -17,7 +17,7 @@ using CarRental.WindowsApp.Features.Funcionarios;
 using CarRental.WindowsApp.Features.Servicos;
 using CarRental.Controllers.ServicoModule;
 using CarRental.WindowsApp.Features.Clientes;
-using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CustomersModule;
 using CarRental.WindowsApp.Features.Veiculos;
 using CarRental.Controllers.VeiculoModule;
 using CarRental.WindowsApp.Features.GrupoDeVeiculos;
@@ -83,7 +83,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesClientes(new ControladorCliente());
+            operacoes = new OperacoesClientes(new CustomerController());
 
             ConfigurarPainelRegistros();
         }
@@ -124,7 +124,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new CustomerController(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }
@@ -138,7 +138,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
+            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new CustomerController(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }

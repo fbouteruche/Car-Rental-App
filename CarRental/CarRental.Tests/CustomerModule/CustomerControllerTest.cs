@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.CustomerModule;
 using CarRental.Tests.Shared;
@@ -12,11 +12,11 @@ namespace CarRental.Tests.CustomerModule
     [TestCategory("Controllers")]
     public class CustomerControllerTest
     {
-        ControladorCliente controller = null;
+        CustomerController controller = null;
         Customer customer;
         public CustomerControllerTest()
         {
-            controller = new ControladorCliente();
+            controller = new CustomerController();
             ResetarBanco.ResetarTabelas();
         }
         [TestMethod]

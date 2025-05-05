@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ClientesModule;
+﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Domain.CustomerModule;
 using CarRental.WindowsApp.Clientes;
 using CarRental.WindowsApp.ClientesModule;
@@ -14,9 +14,9 @@ namespace CarRental.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {
-        private readonly ControladorCliente controlador = null;
+        private readonly CustomerController controlador = null;
         private readonly TabelaClientesControl tabelaCliente = null;
-        public OperacoesClientes (ControladorCliente ctrlCliente)
+        public OperacoesClientes (CustomerController ctrlCliente)
         {
             controlador = ctrlCliente;
             tabelaCliente = new TabelaClientesControl();

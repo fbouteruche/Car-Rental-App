@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ClientesModule;
+﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.VeiculoModule;
@@ -29,7 +29,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private Rental locacao;
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
-        private ControladorCliente controladorCliente = new ControladorCliente();
+        private CustomerController controladorCliente = new CustomerController();
         private ControladorCupom controladorCupom = new ControladorCupom();
         public List<Service> Servicos;
         public string TipoSeguro = "Nenhum";

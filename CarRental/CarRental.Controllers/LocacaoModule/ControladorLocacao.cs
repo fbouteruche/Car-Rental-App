@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ClientesModule;
+﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.ServicoModule;
@@ -23,11 +23,11 @@ namespace CarRental.Controllers.LocacaoModule
     {
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
-        private ControladorCliente controladorCliente = null;
+        private CustomerController controladorCliente = null;
         private ControladorServico controladorServico = null;
         private ControladorCupom controladorCupom = new ControladorCupom();
 
-        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente, ControladorServico controladorServico, ControladorCupom controladorCupom)
+        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ControladorServico controladorServico, ControladorCupom controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;

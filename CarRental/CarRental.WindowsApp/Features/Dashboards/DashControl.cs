@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ClientesModule;
+﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CupomModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.LocacaoModule;
@@ -23,7 +23,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
     public partial class DashControl : UserControl
     {
         ControladorVeiculo controladorVeiculo;
-        ControladorCliente controladorCliente;
+        CustomerController controladorCliente;
         ControladorServico controladorServicos;
         ControladorLocacao controladorLocacao;
         ControladorFuncionario controladorFuncionario;
@@ -32,7 +32,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
         {
             InitializeComponent();
             controladorVeiculo = new ControladorVeiculo();
-            controladorCliente = new ControladorCliente();
+            controladorCliente = new CustomerController();
             controladorServicos = new ControladorServico();
             controladorFuncionario = new ControladorFuncionario();
             controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos, controladorCupom);

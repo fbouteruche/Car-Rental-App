@@ -50,7 +50,7 @@
     <Compile Include="ParceiroModule\ControladorParceiro.cs" />
     <Compile Include="RelacionamentoLocServModule\ControladorRelacionamentoLocServ.cs" />
     <Compile Include="ServicoModule\ControladorServico.cs" />
-    <Compile Include="ClientesModule\ControladorClientes.cs" />
+    <Compile Include="CustomersModule\CustomerController.cs" />
     <Compile Include="GrupoDeVeiculosModule\ControladorGrupoDeVeiculos.cs" />
     <Compile Include="Shared\Controller.cs" />
     <Compile Include="Shared\Db.cs" />

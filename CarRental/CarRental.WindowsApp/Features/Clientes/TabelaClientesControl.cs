@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.Controllers.ClientesModule;
+using CarRental.Controllers.CustomersModule;
 using CarRental.Domain.CustomerModule;
 using CarRental.WindowsApp.Shared;
 
@@ -15,10 +15,10 @@ namespace CarRental.WindowsApp.Clientes
 {
     public partial class TabelaClientesControl : UserControl
     {
-        private ControladorCliente controladorCliente = null;
+        private CustomerController controladorCliente = null;
         public TabelaClientesControl()
         {
-            controladorCliente = new ControladorCliente();
+            controladorCliente = new CustomerController();
             InitializeComponent();
             gridClientes.ConfigurarGridZebrado();
             gridClientes.ConfigurarGridSomenteLeitura();
