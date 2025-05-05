@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.CustomersModule;
-using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.VeiculoModule;
 using CarRental.Domain.CustomerModule;
@@ -30,7 +30,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private CustomerController controladorCliente = new CustomerController();
-        private ControladorCupom controladorCupom = new ControladorCupom();
+        private CouponController controladorCupom = new CouponController();
         public List<Service> Servicos;
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
@@ -109,10 +109,10 @@ namespace CarRental.WindowsApp.Features.Locacoes
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             Coupon cupom = null;
-            bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
+            bool existe = controladorCupom.CodeExists(txtCupom.Text);
             if (existe)
             {
-                cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+                cupom = controladorCupom.SelectByCode(txtCupom.Text);
                 if (cupom.ExpirationDate < DateTime.Now)
                     cupom = null;
             }
@@ -150,7 +150,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private void btnVerificar_Click(object sender, EventArgs e)
         {
             string cupom = txtCupom.Text;
-            bool existe = controladorCupom.ExisteCodigo(cupom);
+            bool existe = controladorCupom.CodeExists(cupom);
             if (existe)
                 txtCupom.BackColor = Color.Green;
             else

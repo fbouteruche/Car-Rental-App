@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using CarRental.Controllers.CustomersModule;
-using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.GrupoDeVeiculosModule;
 using CarRental.Controllers.LocacaoModule;
@@ -29,7 +29,7 @@ namespace CarRental.Tests.LocacaoModule
         ControladorFuncionario controladorFuncionario = null;
         CustomerController controladorCliente = null;
         ControladorServico controladorServico = null;
-        ControladorCupom controladorCupom = null;
+        CouponController controladorCupom = null;
         VehicleGroup grupoVeiculos;
         Vehicle veiculo;
         Employee funcionario;
@@ -44,7 +44,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new CustomerController();
             controladorServico = new ControladorServico();
-            controladorCupom = new ControladorCupom();
+            controladorCupom = new CouponController();
             controlador = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
             ResetarBanco.ResetarTabelas();
         }

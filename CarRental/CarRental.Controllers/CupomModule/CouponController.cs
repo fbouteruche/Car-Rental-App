@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controllers.CupomModule
+namespace CarRental.Controllers.CouponModule
 {
-    public class ControladorCupom : Controller<Coupon>
+    public class CouponController : Controller<Coupon>
     {
         #region queries
-        private const string sqlInserirCupom =
+        private const string sqlInsertCoupon =
            @"INSERT INTO [TBCUPOM_DESCONTO]
                 (
                     [NOMECUPOM],
@@ -35,7 +35,7 @@ namespace CarRental.Controllers.CupomModule
                     @ID_PARCEIRO
                 )";
 
-        private const string sqlEditarCupom =
+        private const string sqlEditCoupon =
             @" UPDATE [TBCUPOM_DESCONTO]
                 SET 
                     [NOMECUPOM] = @NOMECUPOM, 
@@ -47,11 +47,11 @@ namespace CarRental.Controllers.CupomModule
                     [ID_PARCEIRO] = @ID_PARCEIRO
                 WHERE [ID] = @ID";
 
-        private const string sqlDeletarCupom =
+        private const string sqlDeleteCoupon =
             @"DELETE FROM [TBCUPOM_DESCONTO] 
                 WHERE [ID] = @ID";
 
-        private const string sqlSelecionarTodosCupons =
+        private const string sqlSelectAllCoupons =
             @"SELECT 
                     D.[ID],       
                     D.[NOMECUPOM],       
@@ -68,7 +68,7 @@ namespace CarRental.Controllers.CupomModule
                 [TBPARCEIRO] AS P
             ON
                 D.ID_PARCEIRO = P.ID";
-        private const string sqlSelecionarCupomPorId =
+        private const string sqlSelectCouponById =
             @"SELECT 
                     D.[ID],       
                     D.[NOMECUPOM],       
@@ -88,7 +88,7 @@ namespace CarRental.Controllers.CupomModule
             WHERE 
                 D.[ID] = @ID";
 
-        private const string sqlSelecionarCupomPorCodigo =
+        private const string sqlSelectCouponByCode =
             @"SELECT 
                     D.[ID],       
                     D.[NOMECUPOM],       
@@ -108,7 +108,7 @@ namespace CarRental.Controllers.CupomModule
             WHERE 
                 D.[CODIGO] = @CODIGO";
 
-        private const string sqlExisteCupom =
+        private const string sqlCouponExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -116,7 +116,7 @@ namespace CarRental.Controllers.CupomModule
             WHERE 
                 [ID] = @ID";
 
-        private const string sqlExisteCodigo =
+        private const string sqlCodeExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -124,49 +124,49 @@ namespace CarRental.Controllers.CupomModule
             WHERE 
                 [CODIGO] = @CODIGO";
         #endregion
-        public override string InsertNew(Coupon registro)
+        public override string InsertNew(Coupon coupon)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = coupon.Validate();
 
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(registro));
+            if (validationResult == "VALID")
+                coupon.Id = Db.Insert(sqlInsertCoupon, GetCouponParameters(coupon));
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override List<Coupon> SelectAll()
         {
-            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
+            return Db.GetAll(sqlSelectAllCoupons, ConvertToCoupon);
         }
 
         public override Coupon SelectById(int id)
         {
-            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AddParameter("ID", id));
+            return Db.Get(sqlSelectCouponById, ConvertToCoupon, AddParameter("ID", id));
         }
 
-        public Coupon SelecionarPorCodigo(string codigo)
+        public Coupon SelectByCode(string code)
         {
-            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AddParameter("CODIGO", codigo));
+            return Db.Get(sqlSelectCouponByCode, ConvertToCoupon, AddParameter("CODIGO", code));
         }
 
-        public override string Edit(int id, Coupon registro)
+        public override string Edit(int id, Coupon coupon)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = coupon.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (validationResult == "VALID")
             {
-                registro.Id = id;
-                Db.Update(sqlEditarCupom, ObtemParametrosCupom(registro));
+                coupon.Id = id;
+                Db.Update(sqlEditCoupon, GetCouponParameters(coupon));
             }
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarCupom, AddParameter("ID", id));
+                Db.Delete(sqlDeleteCoupon, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -178,50 +178,49 @@ namespace CarRental.Controllers.CupomModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteCupom, AddParameter("ID", id));
+            return Db.Exists(sqlCouponExists, AddParameter("ID", id));
         }
 
-        public bool ExisteCodigo(string codigo)
+        public bool CodeExists(string code)
         {
-            return Db.Exists(sqlExisteCodigo, AddParameter("CODIGO", codigo));
+            return Db.Exists(sqlCodeExists, AddParameter("CODIGO", code));
         }
 
-        private Dictionary<string, object> ObtemParametrosCupom(Coupon registro)
+        private Dictionary<string, object> GetCouponParameters(Coupon coupon)
         {
-            var parametros = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>();
 
-            parametros.Add("ID", registro.Id);
-            parametros.Add("NOMECUPOM", registro.Name);
-            parametros.Add("CODIGO", registro.Code);
-            parametros.Add("VALORMINIMO", registro.MinimumValue);
-            parametros.Add("VALOR", registro.Value);
-            parametros.Add("EHDESCONTOFIXO", registro.IsFixedDiscount);
-            parametros.Add("VALIDADE", registro.ExpirationDate);
-            parametros.Add("ID_PARCEIRO", registro.Partner.Id);
+            parameters.Add("ID", coupon.Id);
+            parameters.Add("NOMECUPOM", coupon.Name);
+            parameters.Add("CODIGO", coupon.Code);
+            parameters.Add("VALORMINIMO", coupon.MinimumValue);
+            parameters.Add("VALOR", coupon.Value);
+            parameters.Add("EHDESCONTOFIXO", coupon.IsFixedDiscount);
+            parameters.Add("VALIDADE", coupon.ExpirationDate);
+            parameters.Add("ID_PARCEIRO", coupon.Partner.Id);
 
-            return parametros;
+            return parameters;
         }
 
-        private Coupon ConverterEmCupom(IDataReader reader)
+        private Coupon ConvertToCoupon(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOMECUPOM"]);
-            string codigo = Convert.ToString(reader["CODIGO"]);
-            double valorMinimo = Convert.ToDouble(reader["VALORMINIMO"]);
-            double valor = Convert.ToDouble(reader["VALOR"]);            
-            bool ehDescontoFixo = Convert.ToBoolean(reader["EHDESCONTOFIXO"]);
-            DateTime validade = Convert.ToDateTime(reader["VALIDADE"]);
+            string name = Convert.ToString(reader["NOMECUPOM"]);
+            string code = Convert.ToString(reader["CODIGO"]);
+            double minimumValue = Convert.ToDouble(reader["VALORMINIMO"]);
+            double value = Convert.ToDouble(reader["VALOR"]);            
+            bool isFixedDiscount = Convert.ToBoolean(reader["EHDESCONTOFIXO"]);
+            DateTime expirationDate = Convert.ToDateTime(reader["VALIDADE"]);
 
-            int idParceiro = Convert.ToInt32(reader["ID_PARCEIRO"]);
-            string nomeParceiro = Convert.ToString(reader["NOMEPARCEIRO"]);
-            Partner parceiro = new Partner(idParceiro, nomeParceiro);
+            int partnerId = Convert.ToInt32(reader["ID_PARCEIRO"]);
+            string partnerName = Convert.ToString(reader["NOMEPARCEIRO"]);
+            Partner partner = new Partner(partnerId, partnerName);
 
+            Coupon coupon = new Coupon(id, name, code, value, minimumValue, isFixedDiscount, expirationDate, partner);
 
-            Coupon cupom = new Coupon(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
+            coupon.Id = id;
 
-            cupom.Id = id;
-
-            return cupom;
+            return coupon;
         }
     }
 }

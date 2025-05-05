@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.CustomersModule;
-using CarRental.Controllers.CupomModule;
+using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
 using CarRental.Controllers.LocacaoModule;
 using CarRental.Controllers.ServicoModule;
@@ -27,7 +27,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
         ControladorServico controladorServicos;
         ControladorLocacao controladorLocacao;
         ControladorFuncionario controladorFuncionario;
-        ControladorCupom controladorCupom;
+        CouponController controladorCupom;
         public DashControl()
         {
             InitializeComponent();

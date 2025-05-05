@@ -64,7 +64,7 @@ namespace CarRental.Controllers.ParceiroModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametrosParceiro(registro));
 
             return resultadoValidacao;

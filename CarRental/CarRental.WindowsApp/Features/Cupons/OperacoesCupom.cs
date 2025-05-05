@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.CupomModule;
+﻿using CarRental.Controllers.CouponModule;
 using CarRental.Domain.CouponModule;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -12,10 +12,10 @@ namespace CarRental.WindowsApp.Features.Cupons
 {
     public class OperacoesCupom : ICadastravel
     {
-        private ControladorCupom controlador;
+        private CouponController controlador;
         private readonly TabelaCupomControl tabela;
 
-        public OperacoesCupom(ControladorCupom controladorCupom)
+        public OperacoesCupom(CouponController controladorCupom)
         {
             controlador = controladorCupom;
             tabela = new TabelaCupomControl();
