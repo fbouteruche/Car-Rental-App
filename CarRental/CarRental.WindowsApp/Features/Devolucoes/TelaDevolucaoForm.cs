@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
             if (!double.TryParse(txtValorCombustivel.Text, out double valorPorLitro))
                 valorPorLitro = 0;
-            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Vehicle.capacidadeTanque, porcentagemTanque, valorPorLitro);
+            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Vehicle.tankCapacity, porcentagemTanque, valorPorLitro);
             return precoCombustivel;
         }
         #endregion

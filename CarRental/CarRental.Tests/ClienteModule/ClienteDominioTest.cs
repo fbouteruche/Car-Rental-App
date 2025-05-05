@@ -5,6 +5,7 @@ using CarRental.Domain.CustomerModule;
 namespace CarRental.Tests.ClienteModule
 {
     [TestClass]
+    [TestCategory("Domínio")]
     public class ClienteDominioTest
     {
         Customer cliente;
@@ -56,7 +57,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("CNH inválida\nCNH fora do prazo de validade\nO nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultadoValidaca);
+            Assert.AreEqual("Invalid Driver's License\nDriver's License expired\nThe name cannot be null\nThe address cannot be null\nThe email is mandatory, incorrect, and must be valid\nThe SSN is not valid\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -66,7 +67,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("CNH inválida\n", resultadoValidaca);
+            Assert.AreEqual("Driver's License expired\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -76,7 +77,7 @@ namespace CarRental.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validate();
 
-            Assert.AreEqual("CNH fora do prazo de validade\n", resultadoValidaca);
+            Assert.AreEqual("Driver's License expired\n", resultadoValidaca);
         }
 
         [TestMethod]

@@ -238,10 +238,10 @@ namespace CarRental.Controllers.VeiculoModule
             parametros.Add("ID_GRUPOVEICULO", veiculo.vehicleGroup.Id);
             parametros.Add("PLACA", veiculo.licensePlate);
             parametros.Add("CHASSI", veiculo.chassis);
-            parametros.Add("MARCA", veiculo.marca);
+            parametros.Add("MARCA", veiculo.brand);
             parametros.Add("COR", veiculo.color);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.fuelType);
-            parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
+            parametros.Add("CAPACIDADETANQUE", veiculo.tankCapacity);
             parametros.Add("ANO", veiculo.year);
             parametros.Add("KILOMETRAGEM", veiculo.mileage);
             parametros.Add("NUMEROPORTAS", veiculo.numberOfDoors);

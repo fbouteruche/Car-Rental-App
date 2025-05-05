@@ -43,10 +43,10 @@ namespace CarRental.WindowsApp.Veiculos
                 cBoxGrupo.Text = veiculo.vehicleGroup.Name;
                 textPlaca.Text = veiculo.licensePlate;
                 textChassi.Text = veiculo.chassis;
-                textMarca.Text = veiculo.marca;
+                textMarca.Text = veiculo.brand;
                 textCor.Text = veiculo.color;
                 cBoxCombustivel.Text = veiculo.fuelType;
-                numUpDownCapTanque.Text = veiculo.capacidadeTanque.ToString();
+                numUpDownCapTanque.Text = veiculo.tankCapacity.ToString();
                 textAno.Text = veiculo.year.ToString();
                 textKM.Text = veiculo.mileage.ToString();
                 numUpDownQtdPortas.Text = veiculo.numberOfDoors.ToString();

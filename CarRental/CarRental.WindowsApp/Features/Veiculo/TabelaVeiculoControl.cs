@@ -43,7 +43,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
             gridVeiculos.Rows.Clear();
 
             foreach (Vehicle veiculo in veiculos)
-                gridVeiculos.Rows.Add(veiculo.Id, veiculo.model, veiculo.vehicleGroup, veiculo.licensePlate, veiculo.marca, veiculo.color, veiculo.fuelType, veiculo.year, veiculo.numberOfDoors, veiculo.passengerCapacity, veiculo.trunkSize);
+                gridVeiculos.Rows.Add(veiculo.Id, veiculo.model, veiculo.vehicleGroup, veiculo.licensePlate, veiculo.brand, veiculo.color, veiculo.fuelType, veiculo.year, veiculo.numberOfDoors, veiculo.passengerCapacity, veiculo.trunkSize);
         }
     }
 }
