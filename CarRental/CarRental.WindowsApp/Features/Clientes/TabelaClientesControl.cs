@@ -58,7 +58,7 @@ namespace CarRental.WindowsApp.Clientes
 
         public void AtualizarRegistros()
         {
-            var clientes = controladorCliente.SelecionarTodos();
+            var clientes = controladorCliente.SelectAll();
             CarregarTabela(clientes);
         }
 

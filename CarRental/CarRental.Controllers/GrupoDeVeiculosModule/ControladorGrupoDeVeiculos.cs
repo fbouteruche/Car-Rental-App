@@ -6,7 +6,7 @@ using System.Data;
 
 namespace CarRental.Controllers.GrupoDeVeiculosModule
 {
-    public class ControladorGrupoDeVeiculos : Controlador<VehicleGroup>
+    public class ControladorGrupoDeVeiculos : Controller<VehicleGroup>
     {
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
@@ -59,11 +59,11 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
                 WHERE 
                     [ID] = @ID";
 
-        public override string InserirNovo(VehicleGroup registro)
+        public override string InsertNew(VehicleGroup registro)
         {
             string resultadoValidacao = registro.Validate();
 
-            List<VehicleGroup> grupoDeVeiculosRegistrados = SelecionarTodos();
+            List<VehicleGroup> grupoDeVeiculosRegistrados = SelectAll();
             foreach (VehicleGroup grupo in grupoDeVeiculosRegistrados)
             {
                 if (registro.Name == grupo.Name)
@@ -78,11 +78,11 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, VehicleGroup registro)
+        public override string Edit(int id, VehicleGroup registro)
         {
             string resultadoValidacao = registro.Validate();
 
-            List<VehicleGroup> grupoDeVeiculosRegistrados = SelecionarTodos();
+            List<VehicleGroup> grupoDeVeiculosRegistrados = SelectAll();
             foreach (VehicleGroup grupo in grupoDeVeiculosRegistrados)
             {
                 if (id != grupo.Id && registro.Name == grupo.Name)
@@ -98,11 +98,11 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return resultadoValidacao;
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlExcluirGrupoDeVeiculos, AdicionarParametro("ID", id));
+                Db.Delete(sqlExcluirGrupoDeVeiculos, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -112,17 +112,17 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteGrupoDeVeiculos, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExisteGrupoDeVeiculos, AddParameter("ID", id));
         }
 
-        public override VehicleGroup SelecionarPorId(int id)
+        public override VehicleGroup SelectById(int id)
         {
-            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AddParameter("ID", id));
         }
 
-        public override List<VehicleGroup> SelecionarTodos()
+        public override List<VehicleGroup> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
         }

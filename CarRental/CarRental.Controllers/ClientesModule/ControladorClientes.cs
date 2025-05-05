@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controllers.ClientesModule
 {
-    public class ControladorCliente : Controlador<Customer>
+    public class ControladorCliente : Controller<Customer>
     {
         #region Queries
             private const string sqlInserirClientes =
@@ -77,7 +77,7 @@ namespace CarRental.Controllers.ClientesModule
 
 		#endregion
 
-		public override string Editar(int id, Customer registro)
+		public override string Edit(int id, Customer registro)
 		{
 			string resultadoValidacao = registro.Validate();
 
@@ -90,11 +90,11 @@ namespace CarRental.Controllers.ClientesModule
 			return resultadoValidacao;
 		}
 
-		public override bool Excluir(int id)
+		public override bool Delete(int id)
 		{
 			try
 			{
-				Db.Delete(sqlExcluirClientes, AdicionarParametro("ID", id));
+				Db.Delete(sqlExcluirClientes, AddParameter("ID", id));
 			}
 			catch (Exception)
 			{
@@ -104,16 +104,16 @@ namespace CarRental.Controllers.ClientesModule
 			return true;
 		}
 
-		public override bool Existe(int id)
+		public override bool Exists(int id)
 		{
-			return Db.Exists(sqlExisteCliente, AdicionarParametro("ID", id));
+			return Db.Exists(sqlExisteCliente, AddParameter("ID", id));
 		}
 
-		public override string InserirNovo(Customer registro)
+		public override string InsertNew(Customer registro)
 		{
 			string resultadoValidacao = registro.Validate();
 
-			if (resultadoValidacao == "VALIDO")
+			if (resultadoValidacao == "VALID")
 			{
 				registro.Id = Db.Insert(sqlInserirClientes, ObtemParametrosClientes(registro));
 			}
@@ -122,12 +122,12 @@ namespace CarRental.Controllers.ClientesModule
 
        
 
-        public override Customer SelecionarPorId(int id)
+        public override Customer SelectById(int id)
 		{
-			return Db.Get(sqlSelecionarClientesPorId, ConverterEmClientes, AdicionarParametro("ID", id));
+			return Db.Get(sqlSelecionarClientesPorId, ConverterEmClientes, AddParameter("ID", id));
 		}
 
-		public override List<Customer> SelecionarTodos()
+		public override List<Customer> SelectAll()
 		{
 			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmClientes);
 		}

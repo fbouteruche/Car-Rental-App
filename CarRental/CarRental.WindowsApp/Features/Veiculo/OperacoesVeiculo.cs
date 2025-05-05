@@ -27,9 +27,9 @@ namespace CarRental.WindowsApp.Features.Veiculos
                     foreach (Domain.VehicleImageModule.VehicleImage imagem in tela.Veiculo.images)
                         imagem.VehicleId = tela.Veiculo.Id;
                 
-                controlador.InserirNovo(tela.Veiculo);
+                controlador.InsertNew(tela.Veiculo);
 
-                List<Vehicle> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelectAll();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -46,7 +46,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Vehicle tarefaSelecionada = controlador.SelecionarPorId(id);
+            Vehicle tarefaSelecionada = controlador.SelectById(id);
 
             VeiculoForm tela = new VeiculoForm("Edição de Veiculos");
 
@@ -54,9 +54,9 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Veiculo);
+                controlador.Edit(id, tela.Veiculo);
 
-                List<Vehicle> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelectAll();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -74,14 +74,14 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Vehicle tarefaSelecionada = controlador.SelecionarPorId(id);
+            Vehicle tarefaSelecionada = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.model}] ?",
                 "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                controlador.Delete(id);
 
-                List<Vehicle> veiculos = controlador.SelecionarTodos();
+                List<Vehicle> veiculos = controlador.SelectAll();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -94,7 +94,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
         }
         public UserControl ObterTabela()
         {
-            List<Vehicle> veiculos = controlador.SelecionarTodos();
+            List<Vehicle> veiculos = controlador.SelectAll();
 
             tabelaVeiculo.AtualizarRegistros(veiculos);
 

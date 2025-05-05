@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Servicos
         private void AtualizarListCheckBox()
         {
             cLBoxServicos.Items.Clear();
-            foreach (Service servico in controladorServico.SelecionarTodos())
+            foreach (Service servico in controladorServico.SelectAll())
                 cLBoxServicos.Items.Add(servico);
         }
 
@@ -65,7 +65,7 @@ namespace CarRental.WindowsApp.Servicos
             TelaServicoForm telaServicoForm = new TelaServicoForm("Cadastro de Serviços");
             if (telaServicoForm.ShowDialog() == DialogResult.OK)
             {
-                controladorServico.InserirNovo(telaServicoForm.Servico);
+                controladorServico.InsertNew(telaServicoForm.Servico);
                 AtualizarListCheckBox();                
             }
         }

@@ -6,7 +6,7 @@ using CarRental.Domain.EmployeeModule;
 
 namespace CarRental.Controllers.FuncionarioModule
 {
-    public class ControladorFuncionario : Controlador<Employee>
+    public class ControladorFuncionario : Controller<Employee>
     {
 
         #region Queries
@@ -60,7 +60,7 @@ namespace CarRental.Controllers.FuncionarioModule
         private const string comandoSelecionarPorId = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
         #endregion
 
-        public override string Editar(int id, Employee registro)
+        public override string Edit(int id, Employee registro)
         {
             string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
@@ -71,11 +71,11 @@ namespace CarRental.Controllers.FuncionarioModule
             return resultadoValidacao;
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+                Db.Delete(comandoExcluir, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -84,12 +84,12 @@ namespace CarRental.Controllers.FuncionarioModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(comandoSelecionarPorId, AdicionarParametro("ID", id));
+            return Db.Exists(comandoSelecionarPorId, AddParameter("ID", id));
         }
 
-        public override string InserirNovo(Employee registro)
+        public override string InsertNew(Employee registro)
         {
             string resultadoValidacao = registro.Validate();
             if (resultadoValidacao == "VALIDO")
@@ -98,12 +98,12 @@ namespace CarRental.Controllers.FuncionarioModule
             return resultadoValidacao;
         }
 
-        public override Employee SelecionarPorId(int id)
+        public override Employee SelectById(int id)
         {
-            return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
+            return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AddParameter("ID", id));
         }
 
-        public override List<Employee> SelecionarTodos()
+        public override List<Employee> SelectAll()
         {
             return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
         }

@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardLocacao()
         {
-            List<Rental> todasLocacao = controladorLocacao.SelecionarTodos();
+            List<Rental> todasLocacao = controladorLocacao.SelectAll();
             List<Rental> locacoesAbertas = new List<Rental>();
             foreach (Rental locacao in todasLocacao)
                 if (locacao.IsOpen)
@@ -78,7 +78,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardServicos()
         {
-            List<Service> todosServicos = controladorServicos.SelecionarTodos();
+            List<Service> todosServicos = controladorServicos.SelectAll();
             int servicosTotal = todosServicos.Count;
 
             lbServicos.Text = servicosTotal.ToString();
@@ -86,7 +86,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardCliente()
         {
-            List<Customer> todosClientes = controladorCliente.SelecionarTodos();
+            List<Customer> todosClientes = controladorCliente.SelectAll();
             int clientesTotal = todosClientes.Count;
             int clientesPF = 0;
             int clientesPJ = 0;
@@ -110,7 +110,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardVeiculo()
         {
-            List<Vehicle> TodosVeiculos = controladorVeiculo.SelecionarTodos();
+            List<Vehicle> TodosVeiculos = controladorVeiculo.SelectAll();
             int carrosNoTotal = TodosVeiculos.Count;
             int carrosAlugados = 0;
             int carrosDisponiveis = 0;

@@ -13,8 +13,8 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
         public string ToolTipAdicionar { get { return "Adicionar um Funcionário"; } }
 
-        public string ToolTipEditar { get { return "Editar um Funcionário"; } }
+        public string ToolTipEditar { get { return "Edit um Funcionário"; } }
 
-        public string ToolTipExcluir { get { return "Excluir um Funcionário"; } }
+        public string ToolTipExcluir { get { return "Delete um Funcionário"; } }
     }
 }

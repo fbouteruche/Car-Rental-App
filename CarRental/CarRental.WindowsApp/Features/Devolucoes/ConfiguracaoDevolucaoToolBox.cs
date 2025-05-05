@@ -13,8 +13,8 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
         public string ToolTipAdicionar { get { return "Registrar Devolução"; } }
 
-        public string ToolTipEditar { get { return "Editar Devolução"; } }
+        public string ToolTipEditar { get { return "Edit Devolução"; } }
 
-        public string ToolTipExcluir { get { return "Excluir devolução"; } }
+        public string ToolTipExcluir { get { return "Delete devolução"; } }
     }
 }

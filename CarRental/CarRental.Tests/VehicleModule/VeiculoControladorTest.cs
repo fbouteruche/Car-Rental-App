@@ -33,14 +33,14 @@ namespace CarRental.Tests.VeiculoModule
         {
             //arrange
             grupoVeiculos = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
-            controlador.InserirNovo(novoVeiculo);
+            controlador.InsertNew(novoVeiculo);
 
             //assert
-            Vehicle veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
+            Vehicle veiculoEncontrado = controlador.SelectById(novoVeiculo.Id);
             veiculoEncontrado.Should().Be(novoVeiculo);
         }
 
@@ -49,15 +49,15 @@ namespace CarRental.Tests.VeiculoModule
         {
             //arrange  
             grupoVeiculos = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
-            controlador.InserirNovo(novoVeiculo);
-            controlador.InserirNovo(novoVeiculo);
+            controlador.InsertNew(novoVeiculo);
+            controlador.InsertNew(novoVeiculo);
 
             //assert
-            List<Vehicle> veiculoEncontrado = controlador.SelecionarTodos();
+            List<Vehicle> veiculoEncontrado = controlador.SelectAll();
             veiculoEncontrado.Count.Should().Be(2);
         }
 
@@ -67,18 +67,18 @@ namespace CarRental.Tests.VeiculoModule
             //arrange
             imagem = new List<VehicleImage>();
             grupoVeiculos = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             VehicleGroup grupoEditado = new VehicleGroup(0, "Pique Velozes e Furiosos", 100, 60.5, 40, 300, 45.2, 500);
-            controladorGrupoDeVeiculos.InserirNovo(grupoEditado);
+            controladorGrupoDeVeiculos.InsertNew(grupoEditado);
             Vehicle veiculoEditado = new Vehicle(0, "Monza Tubarão Turbão Rebaixado", grupoEditado, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'G', false, false, false, false,imagem);
             //action
-            controlador.InserirNovo(novoVeiculo);
-            controlador.Editar(novoVeiculo.Id, veiculoEditado);
+            controlador.InsertNew(novoVeiculo);
+            controlador.Edit(novoVeiculo.Id, veiculoEditado);
 
             //assert
-            Vehicle veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
+            Vehicle veiculoEncontrado = controlador.SelectById(novoVeiculo.Id);
             veiculoEncontrado.Should().Be(veiculoEditado);
         }
 
@@ -87,15 +87,15 @@ namespace CarRental.Tests.VeiculoModule
         {
             //arrange
             grupoVeiculos = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             novoVeiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             //action
-            controlador.InserirNovo(novoVeiculo);
-            controlador.Excluir(novoVeiculo.Id);
+            controlador.InsertNew(novoVeiculo);
+            controlador.Delete(novoVeiculo.Id);
 
             //assert
-            List<Vehicle> veiculoEncontrado = controlador.SelecionarTodos();
+            List<Vehicle> veiculoEncontrado = controlador.SelectAll();
             veiculoEncontrado.Count.Should().Be(0);
         }        
     }

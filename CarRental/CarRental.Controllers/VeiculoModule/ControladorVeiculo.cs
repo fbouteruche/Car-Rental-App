@@ -10,7 +10,7 @@ using System.Drawing;
 
 namespace CarRental.Controllers.VeiculoModule
 {
-    public class ControladorVeiculo : Controlador<Vehicle>
+    public class ControladorVeiculo : Controller<Vehicle>
     {
         private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
         #region queries
@@ -160,7 +160,7 @@ namespace CarRental.Controllers.VeiculoModule
         private const string sqlVeiculoTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
-        public override string InserirNovo(Vehicle registro)
+        public override string InsertNew(Vehicle registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -172,13 +172,13 @@ namespace CarRental.Controllers.VeiculoModule
                     foreach (VehicleImage imagemVeiculo in registro.images)
                     {
                         imagemVeiculo.VehicleId = registro.Id;
-                        controladorImagem.InserirNovo(imagemVeiculo);
+                        controladorImagem.InsertNew(imagemVeiculo);
                     }
                 }
             }
             return resultadoValidacao;
         }
-        public override List<Vehicle> SelecionarTodos()
+        public override List<Vehicle> SelectAll()
         {
             List<Vehicle>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
 
@@ -189,13 +189,13 @@ namespace CarRental.Controllers.VeiculoModule
 
             return veiculos;
         }
-        public override Vehicle SelecionarPorId(int id)
+        public override Vehicle SelectById(int id)
         {
-            Vehicle veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            Vehicle veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AddParameter("ID", id));
             veiculo.images = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
-        public override string Editar(int id, Vehicle registro)
+        public override string Edit(int id, Vehicle registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -210,11 +210,11 @@ namespace CarRental.Controllers.VeiculoModule
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarVeiculo, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarVeiculo, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -224,9 +224,9 @@ namespace CarRental.Controllers.VeiculoModule
             return true;
         }
      
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExisteVeiculo, AddParameter("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosVeiculo(Vehicle veiculo)

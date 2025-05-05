@@ -36,18 +36,18 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para poder Editar!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Funcionário para poder Edit!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Employee funcionarioSelecionado = controlador.SelecionarPorId(id);
+            Employee funcionarioSelecionado = controlador.SelectById(id);
             FuncionarioForm tela = new FuncionarioForm("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Funcionario);
-                List<Employee> funcionarios = controlador.SelecionarTodos();
+                controlador.Edit(id, tela.Funcionario);
+                List<Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] editado com sucesso");
             }
@@ -64,12 +64,12 @@ namespace CarRental.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Employee funcionarioSelecionado = controlador.SelecionarPorId(id);
+            Employee funcionarioSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Name}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-                List<Employee> funcionarios = controlador.SelecionarTodos();
+                controlador.Delete(id);
+                List<Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] removido com sucesso");
             }
@@ -86,8 +86,8 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Funcionario);
-                List<Employee> funcionarios = controlador.SelecionarTodos();
+                controlador.InsertNew(tela.Funcionario);
+                List<Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Name}] inserido com sucesso");
             }
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
         public UserControl ObterTabela()
         {
-            List<Employee> funcionarios = controlador.SelecionarTodos();
+            List<Employee> funcionarios = controlador.SelectAll();
             tabelaFuncionarios.AtualizarRegistros(funcionarios);
             return tabelaFuncionarios;
         }

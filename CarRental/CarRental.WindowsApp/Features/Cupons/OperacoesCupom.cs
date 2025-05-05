@@ -27,9 +27,9 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Cupom);
+                controlador.InsertNew(tela.Cupom);
 
-                List<Coupon> cupons = controlador.SelecionarTodos();
+                List<Coupon> cupons = controlador.SelectAll();
 
                 tabela.AtualizarRegistros(cupons);
 
@@ -43,18 +43,18 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um CouponModule para poder Editar!", "Edição de Cupons", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um CouponModule para poder Edit!", "Edição de Cupons", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Coupon cupomSelecionado = controlador.SelecionarPorId(id);
+            Coupon cupomSelecionado = controlador.SelectById(id);
             TelaCupomForm tela = new TelaCupomForm("Edição de CouponModule");
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Cupom);
-                List<Coupon> funcionarios = controlador.SelecionarTodos();
+                controlador.Edit(id, tela.Cupom);
+                List<Coupon> funcionarios = controlador.SelectAll();
                 tabela.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{cupomSelecionado.Name}] editado com sucesso");
             }
@@ -70,12 +70,12 @@ namespace CarRental.WindowsApp.Features.Cupons
                 return;
             }
 
-            Coupon parceiroSelecionado = controlador.SelecionarPorId(id);
+            Coupon parceiroSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-                List<Coupon> cupons = controlador.SelecionarTodos();
+                controlador.Delete(id);
+                List<Coupon> cupons = controlador.SelectAll();
                 tabela.AtualizarRegistros(cupons);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{parceiroSelecionado.Name}] removido com sucesso");
             }
@@ -83,7 +83,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
         public UserControl ObterTabela()
         {
-            List<Coupon> cupons = controlador.SelecionarTodos();
+            List<Coupon> cupons = controlador.SelectAll();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

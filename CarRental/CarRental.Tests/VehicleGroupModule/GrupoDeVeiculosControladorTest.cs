@@ -26,9 +26,9 @@ namespace CarRental.Tests.VehiculeGroupTest
         {
             VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f); ;
 
-            controlador.InserirNovo(novoGrupoDeVeiculos);
+            controlador.InsertNew(novoGrupoDeVeiculos);
 
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(novoGrupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = controlador.SelectById(novoGrupoDeVeiculos.Id);
             grupoDeVeiculosEncontrado.Should().Be(novoGrupoDeVeiculos);
         }
 
@@ -36,13 +36,13 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void DeveAtualizar_GrupoDeVeiculos()
         {
             VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 14f, 30.2f);
-            controlador.InserirNovo(grupoDeVeiculos);
+            controlador.InsertNew(grupoDeVeiculos);
 
             VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 5.12f, 37.52f, 99.31f, 2, 15f, 11.2f);
 
-            controlador.Editar(grupoDeVeiculos.Id, novoGrupoDeVeiculos);
+            controlador.Edit(grupoDeVeiculos.Id, novoGrupoDeVeiculos);
 
-            var grupoDeVeiculosAtualizado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosAtualizado = controlador.SelectById(grupoDeVeiculos.Id);
             grupoDeVeiculosAtualizado.Should().Be(novoGrupoDeVeiculos);
         }
 
@@ -50,11 +50,11 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void DeveExcluir_GrupoDeVeiculos()
         {
             VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
-            controlador.InserirNovo(grupoDeVeiculos);
+            controlador.InsertNew(grupoDeVeiculos);
 
-            controlador.Excluir(grupoDeVeiculos.Id);
+            controlador.Delete(grupoDeVeiculos.Id);
 
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = controlador.SelectById(grupoDeVeiculos.Id);
             grupoDeVeiculosEncontrado.Should().BeNull();
         }
 
@@ -62,9 +62,9 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void DeveSelecionar_GrupoDeVeiculosPorId()
         {
             VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 14f, 65.2f);
-            controlador.InserirNovo(grupoDeVeiculos);
+            controlador.InsertNew(grupoDeVeiculos);
 
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = controlador.SelectById(grupoDeVeiculos.Id);
 
             grupoDeVeiculosEncontrado.Should().NotBeNull();
         }
@@ -73,13 +73,13 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void DeveSelecionar_TodosGrupoDeVeiculos()
         {
             VehicleGroup g1 = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 11f, 65f);
-            controlador.InserirNovo(g1);
+            controlador.InsertNew(g1);
             VehicleGroup g2 = new VehicleGroup(0, "emon", 5.12f, 37.52f, 99.31f, 2, 4.5f, 50f);
-            controlador.InserirNovo(g2);
+            controlador.InsertNew(g2);
             VehicleGroup g3 = new VehicleGroup(0, "meno", 5.21f, 35.72f, 93.91f, 20, 5f, 11f);
-            controlador.InserirNovo(g3);
+            controlador.InsertNew(g3);
 
-            List<VehicleGroup> grupoDeVeiculosAgrupado = controlador.SelecionarTodos();
+            List<VehicleGroup> grupoDeVeiculosAgrupado = controlador.SelectAll();
 
             grupoDeVeiculosAgrupado.Should().HaveCount(3);
             grupoDeVeiculosAgrupado[0].Name.Should().Be("nome");
@@ -91,9 +91,9 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void DeveRetornarTrue_QuandoExisteGrupoDeVeiculos()
         {
             VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 5f, 30f);
-            controlador.InserirNovo(grupoDeVeiculos);
+            controlador.InsertNew(grupoDeVeiculos);
 
-            bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
+            bool existeGrupoDeVeiculos = controlador.Exists(grupoDeVeiculos.Id);
 
             existeGrupoDeVeiculos.Should().BeTrue();
         }
@@ -103,7 +103,7 @@ namespace CarRental.Tests.VehiculeGroupTest
         {
             VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
 
-            bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
+            bool existeGrupoDeVeiculos = controlador.Exists(grupoDeVeiculos.Id);
 
             existeGrupoDeVeiculos.Should().BeFalse();
         }
@@ -112,10 +112,10 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void NaoDeveInserir_GrupoDeVeiculosQuandoNomeJaExiste()
         {
             VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
-            controlador.InserirNovo(novoGrupoDeVeiculos);
+            controlador.InsertNew(novoGrupoDeVeiculos);
             VehicleGroup identicoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
             
-            string resposta = controlador.InserirNovo(identicoGrupoDeVeiculos);
+            string resposta = controlador.InsertNew(identicoGrupoDeVeiculos);
 
             resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
         }
@@ -124,12 +124,12 @@ namespace CarRental.Tests.VehiculeGroupTest
         public void NaoDeveAtualizar_GrupoDeVeiculosQuandoNomeJaExiste()
         {
             VehicleGroup grupoDeVeiculosParaEditar = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 11f, 50.5f);
-            controlador.InserirNovo(grupoDeVeiculosParaEditar);
+            controlador.InsertNew(grupoDeVeiculosParaEditar);
             VehicleGroup grupoDeVeiculosExistente = new VehicleGroup(0, "emon", 5.12f, 37.52f, 99.31f, 2, 5f, 90f);
-            controlador.InserirNovo(grupoDeVeiculosExistente);
+            controlador.InsertNew(grupoDeVeiculosExistente);
 
             VehicleGroup grupoDeVeiculosConflitante = new VehicleGroup(0, "emon", 5.21f, 35.72f, 93.91f, 20, 13f, 85.3f);
-            string resposta =  controlador.Editar(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
+            string resposta =  controlador.Edit(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
 
             resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
         }

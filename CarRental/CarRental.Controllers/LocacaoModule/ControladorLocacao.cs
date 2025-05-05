@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controllers.LocacaoModule
 {
-    public class ControladorLocacao : Controlador<Rental>
+    public class ControladorLocacao : Controller<Rental>
     {
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
@@ -106,7 +106,7 @@ namespace CarRental.Controllers.LocacaoModule
 
 
         #endregion
-        public override string InserirNovo(Rental registro)
+        public override string InsertNew(Rental registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -115,27 +115,27 @@ namespace CarRental.Controllers.LocacaoModule
 
             return resultadoValidacao;
         }
-        public override List<Rental> SelecionarTodos()
+        public override List<Rental> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmLocacao);
         }
-        public override Rental SelecionarPorId(int id)
+        public override Rental SelectById(int id)
         {
-            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AddParameter("ID", id));
         }
 
         private List<Service> SelecionarServicosComIdLocacao(int idLocacao)
         {
             List<Service> servicosDaLocacao = new List<Service>();
-            List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
+            List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AddParameter("ID_LOCACAO", idLocacao));
             foreach (int idServico in idsDeServicos)
             {
-                servicosDaLocacao.Add(controladorServico.SelecionarPorId(idServico));
+                servicosDaLocacao.Add(controladorServico.SelectById(idServico));
             }
             return servicosDaLocacao;
         }
 
-        public override string Editar(int id, Rental registro)
+        public override string Edit(int id, Rental registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -147,11 +147,11 @@ namespace CarRental.Controllers.LocacaoModule
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarLocacao, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarLocacao, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -161,9 +161,9 @@ namespace CarRental.Controllers.LocacaoModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelecionarLocacaoPorId, AdicionarParametro("ID", id));
+            return Db.Exists(sqlSelecionarLocacaoPorId, AddParameter("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosLocacao(Rental locacao)
@@ -218,20 +218,20 @@ namespace CarRental.Controllers.LocacaoModule
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
             List <Service>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
-            //foreach (Service servico in controladorServico.SelecionarTodos())
+            //foreach (Service servico in controladorServico.SelectAll())
             //{
             //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
             //    if (idsDeServicos.Contains(servico.Id))
             //        servicosDaLocacao.Add(servico);
             //}
 
-            Vehicle veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
-            Employee funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
-            Customer clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
-            Customer clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
+            Vehicle veiculo = controladorVeiculo.SelectById(id_veiculo);
+            Employee funcionarioLocador = controladorFuncionario.SelectById(id_funcionario);
+            Customer clienteContratante = controladorCliente.SelectById(id_clienteContratante);
+            Customer clienteCondutor = controladorCliente.SelectById(id_clienteCondutor);
             Coupon cupom;
             if (id_cupom != 0)
-                cupom = controladorCupom.SelecionarPorId(id_cupom);
+                cupom = controladorCupom.SelectById(id_cupom);
             else
                 cupom = null;
 

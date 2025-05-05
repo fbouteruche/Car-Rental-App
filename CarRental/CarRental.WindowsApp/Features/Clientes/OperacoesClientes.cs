@@ -31,7 +31,7 @@ namespace CarRental.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para editar", "Edição de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Customer clienteSelecionado = controlador.SelecionarPorId(id);
+            Customer clienteSelecionado = controlador.SelectById(id);
 
             ClientesForm tela = new ClientesForm("Edição de Clientes");
 
@@ -39,9 +39,9 @@ namespace CarRental.WindowsApp.Features.Clientes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Clientes);
+                controlador.Edit(id, tela.Clientes);
 
-                List<Customer> contatos = controlador.SelecionarTodos();
+                List<Customer> contatos = controlador.SelectAll();
 
                 tabelaCliente.AtualizarRegistros();
 
@@ -56,14 +56,14 @@ namespace CarRental.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para excluir", "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Customer clienteSelecionado = controlador.SelecionarPorId(id);
+            Customer clienteSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cliente: [{clienteSelecionado.Name}] ?",
                 "Exclusão de Customer", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                controlador.Delete(id);
 
-                List<Customer> contatos = controlador.SelecionarTodos();
+                List<Customer> contatos = controlador.SelectAll();
 
                 tabelaCliente.AtualizarRegistros();
 
@@ -75,8 +75,8 @@ namespace CarRental.WindowsApp.Features.Clientes
             ClientesForm tela = new ClientesForm("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Clientes);
-                List<Customer> clientes = controlador.SelecionarTodos();
+                controlador.InsertNew(tela.Clientes);
+                List<Customer> clientes = controlador.SelectAll();
 
                 tabelaCliente.AtualizarRegistros();
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{tela.Clientes.Name}] inserido com sucesso");
@@ -85,7 +85,7 @@ namespace CarRental.WindowsApp.Features.Clientes
 
         public UserControl ObterTabela()
         {
-            List<Customer> contatos = controlador.SelecionarTodos();
+            List<Customer> contatos = controlador.SelectAll();
             tabelaCliente.AtualizarRegistros();
 
             return tabelaCliente;

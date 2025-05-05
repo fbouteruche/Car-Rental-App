@@ -26,7 +26,7 @@ namespace CarRental.WindowsApp.Veiculos
 
         private void CarregarGruposDeVeiculos()
         {
-            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelecionarTodos();
+            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelectAll();
         }
 
         public Vehicle Veiculo

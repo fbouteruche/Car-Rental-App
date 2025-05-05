@@ -28,10 +28,10 @@ namespace CarRental.Tests.FuncionarioModule
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
-            ctr.InserirNovo(funcionario);
+            ctr.InsertNew(funcionario);
 
             //assert
-            Assert.AreEqual(funcionario,ctr.SelecionarPorId(funcionario.Id));
+            Assert.AreEqual(funcionario,ctr.SelectById(funcionario.Id));
         }
 
         [TestMethod]
@@ -41,9 +41,9 @@ namespace CarRental.Tests.FuncionarioModule
             funcionario = new Employee(0, "Name Teste removido", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             
             //action
-            ctr.InserirNovo(funcionario);
-            ctr.Excluir(funcionario.Id);
-            Employee funcionarioEncontrado = ctr.SelecionarPorId(funcionario.Id);
+            ctr.InsertNew(funcionario);
+            ctr.Delete(funcionario.Id);
+            Employee funcionarioEncontrado = ctr.SelectById(funcionario.Id);
 
             //assert
             Assert.IsNull(funcionarioEncontrado);
@@ -57,11 +57,11 @@ namespace CarRental.Tests.FuncionarioModule
             Employee funcionarioEditado = new Employee(0, "Name Teste2", "954.746.736-04", "Address Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", "12345", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
 
             //action
-            ctr.InserirNovo(funcionario);
-            ctr.Editar(funcionario.Id, funcionarioEditado);
+            ctr.InsertNew(funcionario);
+            ctr.Edit(funcionario.Id, funcionarioEditado);
 
             //acert
-            Assert.AreEqual(funcionarioEditado,ctr.SelecionarPorId(funcionario.Id));
+            Assert.AreEqual(funcionarioEditado,ctr.SelectById(funcionario.Id));
         }
 
         [TestMethod]
@@ -72,9 +72,9 @@ namespace CarRental.Tests.FuncionarioModule
             funcionario2 = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
-            ctr.InserirNovo(funcionario);
-            ctr.InserirNovo(funcionario2);
-            var lista = ctr.SelecionarTodos();
+            ctr.InsertNew(funcionario);
+            ctr.InsertNew(funcionario2);
+            var lista = ctr.SelectAll();
 
             //assert
             Assert.IsNotNull(lista);

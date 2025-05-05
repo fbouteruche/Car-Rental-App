@@ -23,12 +23,12 @@ namespace CarRental.WindowsApp.Features.Clientes
 
         public string ToolTipEditar
         {
-            get { return "Editar um Customer existente"; }
+            get { return "Edit um Customer existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Customer existente"; }
+            get { return "Delete um Customer existente"; }
         }
 
 

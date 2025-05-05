@@ -26,10 +26,10 @@ namespace CarRental.Tests.CustomerModule
             Customer customer = new Customer(0, "Test Name", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
 
             // act
-            controller.InserirNovo(customer);
+            controller.InsertNew(customer);
 
             // assert
-            Customer foundCustomer = controller.SelecionarPorId(customer.Id);
+            Customer foundCustomer = controller.SelectById(customer.Id);
             foundCustomer.Should().Be(customer);
         }
 
@@ -38,15 +38,15 @@ namespace CarRental.Tests.CustomerModule
         {
             // arrange
             customer = new Customer(0, "Test Name", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controller.InserirNovo(customer);
+            controller.InsertNew(customer);
 
             Customer editedCustomer = new Customer(2, "Arnaldo", "888.777.666.55", "Laguna Street", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
 
             // act
-            controller.Editar(customer.Id, editedCustomer);
+            controller.Edit(customer.Id, editedCustomer);
 
             // assert
-            Customer updatedCustomer = controller.SelecionarPorId(customer.Id);
+            Customer updatedCustomer = controller.SelectById(customer.Id);
             updatedCustomer.Should().Be(customer);
         }
 
@@ -55,13 +55,13 @@ namespace CarRental.Tests.CustomerModule
         {
             // arrange
             Customer customer = new Customer(0, "Test Name", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controller.InserirNovo(customer);
+            controller.InsertNew(customer);
 
             // act
-            controller.Excluir(customer.Id);
+            controller.Delete(customer.Id);
 
             // assert
-            Customer foundCustomer = controller.SelecionarPorId(customer.Id);
+            Customer foundCustomer = controller.SelectById(customer.Id);
             foundCustomer.Should().BeNull();
         }
 
@@ -70,10 +70,10 @@ namespace CarRental.Tests.CustomerModule
         {
             Customer c1 = new Customer(0, "Test Name", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
 
-            controller.InserirNovo(c1);
-            controller.InserirNovo(c1);
+            controller.InsertNew(c1);
+            controller.InsertNew(c1);
 
-            var customers = controller.SelecionarTodos();
+            var customers = controller.SelectAll();
 
             customers.Should().HaveCount(2);
             customers[0].Name.Should().Be("Test Name");
@@ -86,10 +86,10 @@ namespace CarRental.Tests.CustomerModule
         {
             // arrange
             Customer customer = new Customer(0, "Test Name", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controller.InserirNovo(customer);
+            controller.InsertNew(customer);
 
             // act
-            Customer foundCustomer = controller.SelecionarPorId(customer.Id);
+            Customer foundCustomer = controller.SelectById(customer.Id);
 
             // assert
             foundCustomer.Should().NotBeNull();

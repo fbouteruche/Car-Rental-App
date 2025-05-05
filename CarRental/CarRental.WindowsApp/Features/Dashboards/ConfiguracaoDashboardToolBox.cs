@@ -20,12 +20,12 @@ namespace CarRental.WindowsApp.Features.Dashboards
 
         public string ToolTipEditar
         {
-            get { return "Editar"; }
+            get { return "Edit"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir"; }
+            get { return "Delete"; }
         }
     }
 }

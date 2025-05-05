@@ -26,10 +26,10 @@ namespace CarRental.Tests.SevicoModule
             novoServico = new Service(0, "nome", true, 100);
 
             //action
-            controlador.InserirNovo(novoServico);
+            controlador.InsertNew(novoServico);
 
             //assert
-            Service servicoEncontrado = controlador.SelecionarPorId(novoServico.Id);
+            Service servicoEncontrado = controlador.SelectById(novoServico.Id);
             servicoEncontrado.Should().Be(novoServico);
         }
         [TestMethod]
@@ -39,11 +39,11 @@ namespace CarRental.Tests.SevicoModule
             novoServico = new Service(0, "nome", true, 100);
 
             //action
-            controlador.InserirNovo(novoServico);
-            controlador.InserirNovo(novoServico);
+            controlador.InsertNew(novoServico);
+            controlador.InsertNew(novoServico);
 
             //assert
-            List<Service> servicoEncontrado = controlador.SelecionarTodos();
+            List<Service> servicoEncontrado = controlador.SelectAll();
             servicoEncontrado.Count.Should().Be(2);
         }
 
@@ -54,11 +54,11 @@ namespace CarRental.Tests.SevicoModule
             novoServico = new Service(0, "nome", true, 100);
             Service servicoEditado = new Service(0, "Lavar Carro", false, 80);
             //action
-            controlador.InserirNovo(novoServico);
-            controlador.Editar(novoServico.Id, servicoEditado);
+            controlador.InsertNew(novoServico);
+            controlador.Edit(novoServico.Id, servicoEditado);
 
             //assert
-            Service servicoEncontrado = controlador.SelecionarPorId(novoServico.Id);
+            Service servicoEncontrado = controlador.SelectById(novoServico.Id);
             servicoEncontrado.Should().Be(servicoEditado);
         }
 
@@ -69,11 +69,11 @@ namespace CarRental.Tests.SevicoModule
             novoServico = new Service(0, "nome", true, 100);
 
             //action
-            controlador.InserirNovo(novoServico);
-            controlador.Excluir(novoServico.Id);
+            controlador.InsertNew(novoServico);
+            controlador.Delete(novoServico.Id);
 
             //assert
-            List<Service> servicoEncontrado = controlador.SelecionarTodos();
+            List<Service> servicoEncontrado = controlador.SelectAll();
             servicoEncontrado.Count.Should().Be(0);
         }
     }

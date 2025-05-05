@@ -16,12 +16,12 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
         public string ToolTipEditar
         {
-            get { return "Editar um Vehicle existente"; }
+            get { return "Edit um Vehicle existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Vehicle existente"; }
+            get { return "Delete um Vehicle existente"; }
         }
     }
 }

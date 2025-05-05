@@ -10,7 +10,7 @@ using CarRental.Domain.VehicleImageModule;
 
 namespace CarRental.Controllers.ImagemVeiculoModule
 {
-    public class ControladorImagemVeiculo : Controlador<VehicleImage>
+    public class ControladorImagemVeiculo : Controller<VehicleImage>
     {
 
         private Bitmap bmp;
@@ -31,7 +31,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
         private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecioarTodos = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
         #endregion
-        public override string Editar(int id, VehicleImage registro)
+        public override string Edit(int id, VehicleImage registro)
         {
             registro.Id = Db.Insert(comandoInserir,ObtemParametrosImagem(registro));
             return "";
@@ -45,16 +45,16 @@ namespace CarRental.Controllers.ImagemVeiculoModule
                     ExcluirPorIdDoVeiculo(registros[0].VehicleId);
                 foreach (VehicleImage imagem in registros)
                 {
-                    InserirNovo(imagem);
+                    InsertNew(imagem);
                 }
             }
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+                Db.Delete(comandoExcluir, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -67,7 +67,7 @@ namespace CarRental.Controllers.ImagemVeiculoModule
         {
             try
             {
-                Db.Delete(comandoExcluirTodosPorIdDoVeiculo, AdicionarParametro("ID_Veiculo", idVeiculo));
+                Db.Delete(comandoExcluirTodosPorIdDoVeiculo, AddParameter("ID_Veiculo", idVeiculo));
             }
             catch (Exception)
             {
@@ -77,12 +77,12 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override string InserirNovo(VehicleImage registro)
+        public override string InsertNew(VehicleImage registro)
         {
             string resultadoValidacao = "VALIDO";
 
@@ -91,23 +91,23 @@ namespace CarRental.Controllers.ImagemVeiculoModule
             return resultadoValidacao;
         }
 
-        public override VehicleImage SelecionarPorId(int id)
+        public override VehicleImage SelectById(int id)
         {
-            return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AdicionarParametro("ID",id));
+            return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AddParameter("ID",id));
         }
         public List<VehicleImage> SelecionarPorIdDoVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AdicionarParametro("ID_VEICULO", id));
+            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AddParameter("ID_VEICULO", id));
         }
 
-        public override List<VehicleImage> SelecionarTodos()
+        public override List<VehicleImage> SelectAll()
         {
             return Db.GetAll(comandoSelecioarTodos,ConverteEmImagemVeiculo);
         }
 
         public List<VehicleImage> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverteEmImagemVeiculo,AdicionarParametro("ID_VEICULO",id));
+            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverteEmImagemVeiculo,AddParameter("ID_VEICULO",id));
         }
 
         private Dictionary<string, object> ObtemParametrosImagem(VehicleImage imagemVeiculo)

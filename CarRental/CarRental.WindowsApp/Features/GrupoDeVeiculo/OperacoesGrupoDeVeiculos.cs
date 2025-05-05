@@ -37,7 +37,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
                 return;
             }
 
-            VehicleGroup grupoSelecionado = controlador.SelecionarPorId(id);
+            VehicleGroup grupoSelecionado = controlador.SelectById(id);
 
             TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Veiculos");
 
@@ -45,9 +45,9 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.GrupoDeVeiculos);
+                controlador.Edit(id, tela.GrupoDeVeiculos);
 
-                List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
@@ -63,14 +63,14 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
                 MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            VehicleGroup grupoSelecionado = controlador.SelecionarPorId(id);
+            VehicleGroup grupoSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Name}]?",
                 "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                controlador.Delete(id);
 
-                List<VehicleGroup> grupos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupos = controlador.SelectAll();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
 
@@ -89,9 +89,9 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.GrupoDeVeiculos);
+                controlador.InsertNew(tela.GrupoDeVeiculos);
 
-                List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
+                List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
@@ -101,7 +101,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
         public UserControl ObterTabela()
         {
-            List<VehicleGroup> grupoDeVeiculos = controlador.SelecionarTodos();
+            List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
             tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
             return tabelaGrupoDeVeiculos;

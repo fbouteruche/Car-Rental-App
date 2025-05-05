@@ -36,12 +36,12 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                string resultadoLocacao = controlador.InserirNovo(tela.Locacao);
+                string resultadoLocacao = controlador.InsertNew(tela.Locacao);
 
                 if (resultadoLocacao == "VALIDO")
                 {
                     relacionamento = new RentalServiceRelationship(0, tela.Locacao, tela.Servicos);
-                    controladorRelacionamento.InserirNovo(relacionamento);
+                    controladorRelacionamento.InsertNew(relacionamento);
                     conversorPdf.ConvertRentalToPdf(tela.Locacao);
 
                     try
@@ -54,7 +54,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                     }
                 }
 
-                List<Rental> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelectAll();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -72,7 +72,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelectById(id);
 
             TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Locação");
 
@@ -80,9 +80,9 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Locacao);
+                controlador.Edit(id, tela.Locacao);
 
-                List<Rental> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelectAll();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -101,14 +101,14 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelecionarPorId(id);
+            Rental locacaoSelecionada = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                controlador.Delete(id);
 
-                List<Rental> veiculos = controlador.SelecionarTodos();
+                List<Rental> veiculos = controlador.SelectAll();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -126,7 +126,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         }
         public UserControl ObterTabela()
         {
-            List<Rental> locacoes = controlador.SelecionarTodos();
+            List<Rental> locacoes = controlador.SelectAll();
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;

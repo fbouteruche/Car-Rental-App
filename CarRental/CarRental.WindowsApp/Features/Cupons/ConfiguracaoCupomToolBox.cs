@@ -16,12 +16,12 @@ namespace CarRental.WindowsApp.Features.Cupons
 
         public string ToolTipEditar
         {
-            get { return "Editar um CouponModule existente"; }
+            get { return "Edit um CouponModule existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um CouponModule existente"; }
+            get { return "Delete um CouponModule existente"; }
         }
     }
 }

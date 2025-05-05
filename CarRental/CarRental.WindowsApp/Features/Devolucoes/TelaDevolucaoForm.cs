@@ -79,7 +79,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                 string resultadoValidacao = Devolucao.Validate();
                 Vehicle veiculoAtualizado = devolucao.Vehicle;
-                controladorVeiculo.Editar(devolucao.Vehicle.Id, veiculoAtualizado);
+                controladorVeiculo.Edit(devolucao.Vehicle.Id, veiculoAtualizado);
 
 
                 if (resultadoValidacao != "VALIDO")

@@ -24,9 +24,9 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Parceiro);
+                controlador.InsertNew(tela.Parceiro);
 
-                List<Partner> parceiros = controlador.SelecionarTodos();
+                List<Partner> parceiros = controlador.SelectAll();
 
                 tabela.AtualizarRegistros(parceiros);
 
@@ -40,18 +40,18 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Partner para poder Editar!", "Edição de Parceiros", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Partner para poder Edit!", "Edição de Parceiros", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Partner parceiroSelecionado = controlador.SelecionarPorId(id);
+            Partner parceiroSelecionado = controlador.SelectById(id);
             TelaParceiroForm tela = new TelaParceiroForm("Edição de Partner");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Parceiro);
-                List<Partner> parceiros = controlador.SelecionarTodos();
+                controlador.Edit(id, tela.Parceiro);
+                List<Partner> parceiros = controlador.SelectAll();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{parceiroSelecionado.Name}] editado com sucesso");
             }
@@ -67,12 +67,12 @@ namespace CarRental.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Partner parceiroSelecionado = controlador.SelecionarPorId(id);
+            Partner parceiroSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Partner: [{parceiroSelecionado.Name}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-                List<Partner> parceiros = controlador.SelecionarTodos();
+                controlador.Delete(id);
+                List<Partner> parceiros = controlador.SelectAll();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{parceiroSelecionado.Name}] removido com sucesso");
             }
@@ -88,7 +88,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
-            List<Partner> cupons = controlador.SelecionarTodos();
+            List<Partner> cupons = controlador.SelectAll();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

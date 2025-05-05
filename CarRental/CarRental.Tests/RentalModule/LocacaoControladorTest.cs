@@ -53,20 +53,20 @@ namespace CarRental.Tests.LocacaoModule
         public void DeveInserirUmaLocacao()
         {
             grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            controladorVeiculo.InserirNovo(veiculo);
+            controladorVeiculo.InsertNew(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            controladorFuncionario.InserirNovo(funcionario);
+            controladorFuncionario.InsertNew(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteContratante);
+            controladorCliente.InsertNew(clienteContratante);
             clienteCondutor = new Customer(0, "Nardolindo", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteCondutor);
+            controladorCliente.InsertNew(clienteCondutor);
 
             locacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0,0,false,null);
-            controlador.InserirNovo(locacao);
+            controlador.InsertNew(locacao);
 
-            var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
+            var locacaoEncontrada = controlador.SelectById(locacao.Id);
             locacaoEncontrada.Should().Be(locacao);
         }
 
@@ -74,22 +74,22 @@ namespace CarRental.Tests.LocacaoModule
         public void DeveSelecionarDuasLocacoes()
         {
             grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            controladorVeiculo.InserirNovo(veiculo);
+            controladorVeiculo.InsertNew(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            controladorFuncionario.InserirNovo(funcionario);
+            controladorFuncionario.InsertNew(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteContratante);
+            controladorCliente.InsertNew(clienteContratante);
             clienteCondutor = new Customer(0, "Nardolindo", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteCondutor);
+            controladorCliente.InsertNew(clienteCondutor);
 
             locacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
-            controlador.InserirNovo(locacao);
+            controlador.InsertNew(locacao);
             Rental outraLocacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today.AddDays(-10), DateTime.Today.AddDays(15), "PlanoDiario", "SeguroCliente", null);
-            controlador.InserirNovo(outraLocacao);
+            controlador.InsertNew(outraLocacao);
 
-            List<Rental> locacaoEncontrado = controlador.SelecionarTodos();
+            List<Rental> locacaoEncontrado = controlador.SelectAll();
             locacaoEncontrado.Count.Should().Be(2);
         }
 
@@ -97,22 +97,22 @@ namespace CarRental.Tests.LocacaoModule
         public void DeveEditarUmaLocacao()
         {
             grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            controladorVeiculo.InserirNovo(veiculo);
+            controladorVeiculo.InsertNew(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            controladorFuncionario.InserirNovo(funcionario);
+            controladorFuncionario.InsertNew(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteContratante);
+            controladorCliente.InsertNew(clienteContratante);
             clienteCondutor = new Customer(0, "Nardolindo", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteCondutor);
+            controladorCliente.InsertNew(clienteCondutor);
 
             locacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
-            controlador.InserirNovo(locacao);
+            controlador.InsertNew(locacao);
             Rental outraLocacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0, 0, false, null);
-            controlador.Editar(locacao.Id, outraLocacao);
+            controlador.Edit(locacao.Id, outraLocacao);
 
-            var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
+            var locacaoEncontrada = controlador.SelectById(locacao.Id);
             locacaoEncontrada.Should().Be(outraLocacao);
         }
 
@@ -120,21 +120,21 @@ namespace CarRental.Tests.LocacaoModule
         public void DeveExcluirUmVeiculo()
         {
             grupoVeiculos = new VehicleGroup(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
-            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            controladorGrupoDeVeiculos.InsertNew(grupoVeiculos);
             veiculo = new Vehicle(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            controladorVeiculo.InserirNovo(veiculo);
+            controladorVeiculo.InsertNew(veiculo);
             funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            controladorFuncionario.InserirNovo(funcionario);
+            controladorFuncionario.InsertNew(funcionario);
             clienteContratante = new Customer(0, "Name Teste", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteContratante);
+            controladorCliente.InsertNew(clienteContratante);
             clienteCondutor = new Customer(0, "Nardolindo", "954.746.736-04", "Address Customer", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controladorCliente.InserirNovo(clienteCondutor);
+            controladorCliente.InsertNew(clienteCondutor);
 
             locacao = new Rental(0, veiculo, funcionario, clienteContratante, clienteCondutor, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
-            controlador.InserirNovo(locacao);
-            controlador.Excluir(locacao.Id);
+            controlador.InsertNew(locacao);
+            controlador.Delete(locacao.Id);
 
-            List<Rental> locacaoEncontrado = controlador.SelecionarTodos();
+            List<Rental> locacaoEncontrado = controlador.SelectAll();
             locacaoEncontrado.Count.Should().Be(0);
         }
 

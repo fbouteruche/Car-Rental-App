@@ -52,7 +52,7 @@
     <Compile Include="ServicoModule\ControladorServico.cs" />
     <Compile Include="ClientesModule\ControladorClientes.cs" />
     <Compile Include="GrupoDeVeiculosModule\ControladorGrupoDeVeiculos.cs" />
-    <Compile Include="Shared\Controlador.cs" />
+    <Compile Include="Shared\Controller.cs" />
     <Compile Include="Shared\Db.cs" />
     <Compile Include="VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

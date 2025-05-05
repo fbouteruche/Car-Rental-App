@@ -69,19 +69,19 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
         private void CarregarDados()
         {
-            cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
+            cBoxFuncionario.DataSource = controladorFuncionario.SelectAll();
             List<Vehicle> veiculosDisponiveis = new List<Vehicle>();
             if (lblTitulo.Text.Contains("Edição"))
-                veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
+                veiculosDisponiveis = controladorVeiculo.SelectAll();
             else
                 AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
             cBoxVeiculo.DataSource = veiculosDisponiveis;
-            cBoxCliente.DataSource = controladorCliente.SelecionarTodos();
+            cBoxCliente.DataSource = controladorCliente.SelectAll();
         }
 
         private void AdicionaApenasVeiculoDisponivel(List<Vehicle> veiculosDisponiveis)
         {
-            foreach (Vehicle item in controladorVeiculo.SelecionarTodos())
+            foreach (Vehicle item in controladorVeiculo.SelectAll())
                 if (!item.isRented)
                     veiculosDisponiveis.Add(item);
         }
@@ -89,7 +89,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         private void CarregaCondutor()
         {
             List<Customer> clientesPf = new List<Customer>();
-            foreach (Customer cliente in controladorCliente.SelecionarTodos())
+            foreach (Customer cliente in controladorCliente.SelectAll())
                 if (cliente.IsPhysicalPerson)
                     clientesPf.Add(cliente);
             cBoxCondutor.DataSource = clientesPf;
@@ -119,7 +119,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
             locacao = new Rental(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Vehicle veiculoAtualizado = locacao.Vehicle;
-            controladorVeiculo.Editar(locacao.Vehicle.Id, veiculoAtualizado);
+            controladorVeiculo.Edit(locacao.Vehicle.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validate();
 
             if (resultadoValidacao != "VALIDO")

@@ -21,12 +21,12 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
         public string ToolTipEditar
         {
-            get { return "Editar um Partner existente"; }
+            get { return "Edit um Partner existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Partner existente"; }
+            get { return "Delete um Partner existente"; }
         }
     }
 }

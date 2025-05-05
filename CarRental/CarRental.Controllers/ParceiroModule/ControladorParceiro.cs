@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controllers.ParceiroModule
 {
-    public class ControladorParceiro : Controlador<Partner>
+    public class ControladorParceiro : Controller<Partner>
     {
         #region queries
         private const string sqlInserirParceiro =
@@ -60,7 +60,7 @@ namespace CarRental.Controllers.ParceiroModule
                 WHERE 
                     [ID] = @ID";
         #endregion
-        public override string InserirNovo(Partner registro)
+        public override string InsertNew(Partner registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -70,16 +70,16 @@ namespace CarRental.Controllers.ParceiroModule
             return resultadoValidacao;
         }
 
-        public override List<Partner> SelecionarTodos()
+        public override List<Partner> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
         }       
 
-        public override Partner SelecionarPorId(int id)
+        public override Partner SelectById(int id)
         {
-            return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AddParameter("ID", id));
         }        
-        public override string Editar(int id, Partner registro)
+        public override string Edit(int id, Partner registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -92,11 +92,11 @@ namespace CarRental.Controllers.ParceiroModule
             return resultadoValidacao;
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarParceiro, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarParceiro, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -106,9 +106,9 @@ namespace CarRental.Controllers.ParceiroModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExisteParceiro, AddParameter("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosParceiro(Partner registro)

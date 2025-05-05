@@ -28,9 +28,9 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Servico);
+                controlador.InsertNew(tela.Servico);
 
-                List<Service> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelectAll();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Servicos
                 return;
             }
 
-            Service servicoSelecionada = controlador.SelecionarPorId(id);
+            Service servicoSelecionada = controlador.SelectById(id);
 
             TelaServicoForm tela = new TelaServicoForm("Edição de Serviços");
 
@@ -57,9 +57,9 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Servico);
+                controlador.Edit(id, tela.Servico);
 
-                List<Service> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelectAll();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -78,14 +78,14 @@ namespace CarRental.WindowsApp.Features.Servicos
                 return;
             }
 
-            Service servicoSelecionada = controlador.SelecionarPorId(id);
+            Service servicoSelecionada = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Name}] ?",
                 "Exclusão de Services", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                controlador.Delete(id);
 
-                List<Service> servicos = controlador.SelecionarTodos();
+                List<Service> servicos = controlador.SelectAll();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp.Features.Servicos
 
         public UserControl ObterTabela()
         {
-            List<Service> servicos = controlador.SelecionarTodos();
+            List<Service> servicos = controlador.SelectAll();
 
             tabelaServicos.AtualizarRegistros(servicos);
 

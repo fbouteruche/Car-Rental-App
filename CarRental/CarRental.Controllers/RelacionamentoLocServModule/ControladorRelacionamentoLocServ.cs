@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controllers.RelacionamentoLocServModule
 {
-    public class ControladorRelacionamentoLocServ : Controlador<RentalServiceRelationship>
+    public class ControladorRelacionamentoLocServ : Controller<RentalServiceRelationship>
     {
         private int id = 0;
         ControladorServico controladorServico = new ControladorServico();
@@ -56,16 +56,16 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
             @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         #endregion
-        public override string Editar(int id, RentalServiceRelationship registro)
+        public override string Edit(int id, RentalServiceRelationship registro)
         {
             throw new NotImplementedException();
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarRelacao, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarRelacao, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -75,12 +75,12 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelecionarRelacaoPorId, AdicionarParametro("ID", id));
+            return Db.Exists(sqlSelecionarRelacaoPorId, AddParameter("ID", id));
         }
 
-        public override string InserirNovo(RentalServiceRelationship registro)
+        public override string InsertNew(RentalServiceRelationship registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -94,17 +94,17 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
             return resultadoValidacao;
         }
 
-        public override RentalServiceRelationship SelecionarPorId(int id)
+        public override RentalServiceRelationship SelectById(int id)
         {
-            return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AddParameter("ID", id));
         }
 
         public object SelecionarPorLocacao(int id)
         {
-            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AdicionarParametro("ID_LOCACAO", id));
+            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AddParameter("ID_LOCACAO", id));
         }
 
-        public override List<RentalServiceRelationship> SelecionarTodos()
+        public override List<RentalServiceRelationship> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
         }
@@ -115,10 +115,10 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
             var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
 
             List<Service> filtrado = new List<Service>();
-            foreach (Service item in controladorServico.SelecionarTodos())
+            foreach (Service item in controladorServico.SelectAll())
                 if (item.Id == id_servico)
                     filtrado.Add(item);
-            Rental locacao = controladorLocacao.SelecionarPorId(id_locacao);
+            Rental locacao = controladorLocacao.SelectById(id_locacao);
 
             return new RentalServiceRelationship(id, locacao, filtrado);
         }

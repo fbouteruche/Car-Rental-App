@@ -21,12 +21,12 @@ namespace CarRental.WindowsApp.Features.Servicos
 
         public string ToolTipEditar
         {
-            get { return "Editar um Serviço existente"; }
+            get { return "Edit um Serviço existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Serviço existente"; }
+            get { return "Delete um Serviço existente"; }
         }
     }
 }

@@ -16,12 +16,12 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
         public string ToolTipEditar
         {
-            get { return "Editar Locação de Vehicle"; }
+            get { return "Edit Locação de Vehicle"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir uma Locação de Vehicle"; }
+            get { return "Delete uma Locação de Vehicle"; }
         }
     }
 }

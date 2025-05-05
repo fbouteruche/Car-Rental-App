@@ -21,12 +21,12 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
         public string ToolTipEditar
         {
-            get { return "Editar um Grupo de Veiculos existente"; }
+            get { return "Edit um Grupo de Veiculos existente"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Grupo de Veiculos existente"; }
+            get { return "Delete um Grupo de Veiculos existente"; }
         }
     }
 }

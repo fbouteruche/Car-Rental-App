@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Controllers.CupomModule
 {
-    public class ControladorCupom : Controlador<Coupon>
+    public class ControladorCupom : Controller<Coupon>
     {
         #region queries
         private const string sqlInserirCupom =
@@ -124,7 +124,7 @@ namespace CarRental.Controllers.CupomModule
             WHERE 
                 [CODIGO] = @CODIGO";
         #endregion
-        public override string InserirNovo(Coupon registro)
+        public override string InsertNew(Coupon registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -134,22 +134,22 @@ namespace CarRental.Controllers.CupomModule
             return resultadoValidacao;
         }
 
-        public override List<Coupon> SelecionarTodos()
+        public override List<Coupon> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
-        public override Coupon SelecionarPorId(int id)
+        public override Coupon SelectById(int id)
         {
-            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AddParameter("ID", id));
         }
 
         public Coupon SelecionarPorCodigo(string codigo)
         {
-            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
+            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AddParameter("CODIGO", codigo));
         }
 
-        public override string Editar(int id, Coupon registro)
+        public override string Edit(int id, Coupon registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -162,11 +162,11 @@ namespace CarRental.Controllers.CupomModule
             return resultadoValidacao;
         }
 
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarCupom, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarCupom, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -176,14 +176,14 @@ namespace CarRental.Controllers.CupomModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExisteCupom, AddParameter("ID", id));
         }
 
         public bool ExisteCodigo(string codigo)
         {
-            return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
+            return Db.Exists(sqlExisteCodigo, AddParameter("CODIGO", codigo));
         }
 
         private Dictionary<string, object> ObtemParametrosCupom(Coupon registro)

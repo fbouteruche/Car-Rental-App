@@ -6,7 +6,7 @@ using System.Data;
 
 namespace CarRental.Controllers.ServicoModule
 {
-    public class ControladorServico : Controlador<Service>
+    public class ControladorServico : Controller<Service>
     {
         #region queries
         private const string sqlInserirServico =
@@ -65,7 +65,7 @@ namespace CarRental.Controllers.ServicoModule
             WHERE 
                 [ID] = @ID";
         #endregion
-        public override string InserirNovo(Service registro)
+        public override string InsertNew(Service registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -74,15 +74,15 @@ namespace CarRental.Controllers.ServicoModule
 
             return resultadoValidacao;
         }
-        public override List<Service> SelecionarTodos()
+        public override List<Service> SelectAll()
         {
             return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmServico);
         }
-        public override Service SelecionarPorId(int id)
+        public override Service SelectById(int id)
         {
-            return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AddParameter("ID", id));
         }
-        public override string Editar(int id, Service registro)
+        public override string Edit(int id, Service registro)
         {
             string resultadoValidacao = registro.Validate();
 
@@ -94,11 +94,11 @@ namespace CarRental.Controllers.ServicoModule
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarServico, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarServico, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -108,9 +108,9 @@ namespace CarRental.Controllers.ServicoModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteServico, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExisteServico, AddParameter("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosServico(Service servico)

@@ -23,7 +23,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
         private void CarregarParceiros()
         {
-            cBoxParceiro.DataSource = controladorParceiro.SelecionarTodos();
+            cBoxParceiro.DataSource = controladorParceiro.SelectAll();
         }
 
         public Coupon Cupom

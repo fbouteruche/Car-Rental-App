@@ -31,10 +31,10 @@ namespace CarRental.Tests.ParceiroModule
             parceiro = new Partner(0, "Name Teste");
 
             //action
-            controlador.InserirNovo(parceiro);
+            controlador.InsertNew(parceiro);
 
             //assert
-            var parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            var parceiroEncontrado = controlador.SelectById(parceiro.Id);
             parceiroEncontrado.Should().Be(parceiro);
         }
 
@@ -45,11 +45,11 @@ namespace CarRental.Tests.ParceiroModule
             parceiro = new Partner(0, "Name Teste");
 
             //action
-            controlador.InserirNovo(parceiro);
-            controlador.InserirNovo(parceiro);
+            controlador.InsertNew(parceiro);
+            controlador.InsertNew(parceiro);
 
             //assert
-            List<Partner> parceiroEncontrado = controlador.SelecionarTodos();
+            List<Partner> parceiroEncontrado = controlador.SelectAll();
             parceiroEncontrado.Count.Should().Be(2);
         }
 
@@ -61,11 +61,11 @@ namespace CarRental.Tests.ParceiroModule
             Partner parceiroEditado = new Partner(0, "Name Alterado");
 
             //action
-            controlador.InserirNovo(parceiro);
-            controlador.Editar(parceiro.Id, parceiroEditado);
+            controlador.InsertNew(parceiro);
+            controlador.Edit(parceiro.Id, parceiroEditado);
 
             //assert
-            Partner parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            Partner parceiroEncontrado = controlador.SelectById(parceiro.Id);
             parceiroEncontrado.Should().Be(parceiroEditado);
         }
 
@@ -76,12 +76,12 @@ namespace CarRental.Tests.ParceiroModule
             parceiro = new Partner(0, "Name Teste");
 
             //action
-            controlador.InserirNovo(parceiro);
-            List<Partner> parceiroInserido = controlador.SelecionarTodos();
-            controlador.Excluir(parceiro.Id);
+            controlador.InsertNew(parceiro);
+            List<Partner> parceiroInserido = controlador.SelectAll();
+            controlador.Delete(parceiro.Id);
 
             //assert
-            List<Partner> bancoAposExclusao = controlador.SelecionarTodos();
+            List<Partner> bancoAposExclusao = controlador.SelectAll();
             bancoAposExclusao.Count.Should().NotBe(parceiroInserido.Count);
         }
     }
