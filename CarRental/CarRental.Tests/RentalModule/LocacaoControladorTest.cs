@@ -2,7 +2,7 @@
 using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
-using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Controllers.RentalModule;
 using CarRental.Controllers.ServicoModule;
 using CarRental.Controllers.Shared;
@@ -24,7 +24,7 @@ namespace CarRental.Tests.LocacaoModule
     public class LocacaoControladorTest
     {
         RentalController controlador = null;
-        ControladorGrupoDeVeiculos controladorGrupoDeVeiculos = null;
+        VehicleGroupContoller controladorGrupoDeVeiculos = null;
         VehicleController controladorVeiculo = null;
         ControladorFuncionario controladorFuncionario = null;
         CustomerController controladorCliente = null;
@@ -39,7 +39,7 @@ namespace CarRental.Tests.LocacaoModule
 
         public LocacaoControladorTest()
         {
-            controladorGrupoDeVeiculos = new ControladorGrupoDeVeiculos();
+            controladorGrupoDeVeiculos = new VehicleGroupContoller();
             controladorVeiculo = new VehicleController();
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new CustomerController();

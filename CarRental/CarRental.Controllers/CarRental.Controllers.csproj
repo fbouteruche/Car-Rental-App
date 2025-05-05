@@ -51,7 +51,7 @@
     <Compile Include="RentalServiceRelationshipModule\ControladorRelacionamentoLocServ.cs" />
     <Compile Include="ServiceModule\ControladorServico.cs" />
     <Compile Include="CustomersModule\CustomerController.cs" />
-    <Compile Include="VehicleGroupModule\ControladorGrupoDeVeiculos.cs" />
+    <Compile Include="VehicleGroupModule\VehicleGroupContoller.cs" />
     <Compile Include="Shared\Controller.cs" />
     <Compile Include="Shared\Db.cs" />
     <Compile Include="VehicleModule\VehicleController.cs" />

@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace CarRental.Controllers.GrupoDeVeiculosModule
+namespace CarRental.Controllers.VehicleGroupModule
 {
-    public class ControladorGrupoDeVeiculos : Controller<VehicleGroup>
+    public class VehicleGroupContoller : Controller<VehicleGroup>
     {
-        private const string sqlInserirGrupoDeVeiculos =
+        private const string sqlInsertVehicleGroup =
                 @"INSERT INTO TBGRUPOVEICULO
                 (
 	                [NOME],
@@ -30,7 +30,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
 	                @TAXAPLANOLIVRE
                 );";
 
-        private const string sqlEditarGrupoDeVeiculos =
+        private const string sqlUpdateVehicleGroup =
                 @"UPDATE TBGRUPOVEICULO 
                 SET
 	                [NOME] = @NOME,
@@ -42,16 +42,16 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
 	                [TAXAPLANOLIVRE] = @TAXAPLANOLIVRE
                 WHERE [ID] = @ID;";
 
-        private const string sqlExcluirGrupoDeVeiculos =
+        private const string sqlDeleteVehicleGroup =
                 @"DELETE FROM TBGRUPOVEICULO  WHERE [ID] = @ID;";
 
-        private const string sqlSelecionarGrupoDeVeiculosPorId =
+        private const string sqlSelectVehicleGroupById =
                 @"SELECT * FROM TBGRUPOVEICULO WHERE [ID] = @ID;";
 
-        private const string sqlSelecionarTodosGrupoDeVeiculoss =
+        private const string sqlSelectAllVehicleGroups =
                 @"SELECT * FROM TBGRUPOVEICULO;";
 
-        private const string sqlExisteGrupoDeVeiculos =
+        private const string sqlVehicleGroupExists =
                 @"SELECT 
                     COUNT(*) 
                 FROM 
@@ -72,7 +72,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
 
             if (resultadoValidacao == "VALID")
             {
-                registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
+                registro.Id = Db.Insert(sqlInsertVehicleGroup, GetVehicleGroupParameters(registro));
             }
 
             return resultadoValidacao;
@@ -92,7 +92,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             if (resultadoValidacao == "VALID")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
+                Db.Update(sqlUpdateVehicleGroup, GetVehicleGroupParameters(registro));
             }
 
             return resultadoValidacao;
@@ -102,7 +102,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
         {
             try
             {
-                Db.Delete(sqlExcluirGrupoDeVeiculos, AddParameter("ID", id));
+                Db.Delete(sqlDeleteVehicleGroup, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -114,20 +114,20 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteGrupoDeVeiculos, AddParameter("ID", id));
+            return Db.Exists(sqlVehicleGroupExists, AddParameter("ID", id));
         }
 
         public override VehicleGroup SelectById(int id)
         {
-            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AddParameter("ID", id));
+            return Db.Get(sqlSelectVehicleGroupById, ConvertToVehicleGroup, AddParameter("ID", id));
         }
 
         public override List<VehicleGroup> SelectAll()
         {
-            return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
+            return Db.GetAll(sqlSelectAllVehicleGroups, ConvertToVehicleGroup);
         }
 
-        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(VehicleGroup grupoDeVeiculos)
+        private Dictionary<string, object> GetVehicleGroupParameters(VehicleGroup grupoDeVeiculos)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -143,7 +143,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
             return parametros;
         }
 
-        private VehicleGroup ConverterEmGrupoDeVeiculos(IDataReader reader)
+        private VehicleGroup ConvertToVehicleGroup(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;

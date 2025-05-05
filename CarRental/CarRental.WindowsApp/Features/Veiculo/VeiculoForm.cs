@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.VehicleImageModule;
 using CarRental.WindowsApp.Features.ImagemVeiculo;
@@ -14,7 +14,7 @@ namespace CarRental.WindowsApp.Veiculos
     public partial class VeiculoForm : Form
     {
         private Vehicle veiculo;
-        private ControladorGrupoDeVeiculos controladorGrupoVeiculos = new ControladorGrupoDeVeiculos();
+        private VehicleGroupContoller controladorGrupoVeiculos = new VehicleGroupContoller();
         public VeiculoForm(string titulo)
         {            
             InitializeComponent();

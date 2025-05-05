@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Controllers.Shared;
 using CarRental.Controllers.VehicleModule;
 using CarRental.Domain.VehicleGroupModule;
@@ -16,7 +16,7 @@ namespace CarRental.Tests.VehicleModule
     public class VehicleControllerTests
     {
         VehicleController controller = null;
-        ControladorGrupoDeVeiculos vehicleGroupController = null;
+        VehicleGroupContoller vehicleGroupController = null;
         Vehicle newVehicle;
         VehicleGroup vehicleGroup;
         List<VehicleImage> images;
@@ -24,7 +24,7 @@ namespace CarRental.Tests.VehicleModule
         public VehicleControllerTests()
         {
             controller = new VehicleController();
-            vehicleGroupController = new ControladorGrupoDeVeiculos();
+            vehicleGroupController = new VehicleGroupContoller();
 
             ResetarBanco.ResetarTabelas();
         }

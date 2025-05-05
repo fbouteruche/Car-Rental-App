@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.GrupoDeVeiculosModule;
+﻿using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.WindowsApp.GrupoDeVeiculos;
 using CarRental.WindowsApp.Shared;
@@ -13,10 +13,10 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 {
     public class OperacoesGrupoDeVeiculos : ICadastravel
     {
-        private readonly ControladorGrupoDeVeiculos controlador = null;
+        private readonly VehicleGroupContoller controlador = null;
         private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos = null;
 
-        public OperacoesGrupoDeVeiculos(ControladorGrupoDeVeiculos ctrlGrupoDeVeiculos)
+        public OperacoesGrupoDeVeiculos(VehicleGroupContoller ctrlGrupoDeVeiculos)
         {
             controlador = ctrlGrupoDeVeiculos;
             tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();

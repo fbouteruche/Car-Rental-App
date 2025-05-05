@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.Tests.Shared;
@@ -11,13 +11,13 @@ namespace CarRental.Tests.VehiculeGroupTest
 {
     [TestClass]
     [TestCategory("Controllers")]
-    public class GrupoDeVeiculosControladorTest
+    public class VehicleGroupControllerTest
     {
-        ControladorGrupoDeVeiculos controlador = null;
+        VehicleGroupContoller controlador = null;
 
-        public GrupoDeVeiculosControladorTest()
+        public VehicleGroupControllerTest()
         {
-            controlador = new ControladorGrupoDeVeiculos();
+            controlador = new VehicleGroupContoller();
             ResetarBanco.ResetarTabelas();
         }
 

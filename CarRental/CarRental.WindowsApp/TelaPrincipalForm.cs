@@ -21,7 +21,7 @@ using CarRental.Controllers.CustomersModule;
 using CarRental.WindowsApp.Features.Veiculos;
 using CarRental.Controllers.VehicleModule;
 using CarRental.WindowsApp.Features.GrupoDeVeiculos;
-using CarRental.Controllers.GrupoDeVeiculosModule;
+using CarRental.Controllers.VehicleGroupModule;
 using CarRental.WindowsApp.Features.Locacoes;
 using CarRental.Controllers.RentalModule;
 using CarRental.WindowsApp.Features.Devolucoes;
@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+            operacoes = new OperacoesGrupoDeVeiculos(new VehicleGroupContoller());
 
             ConfigurarPainelRegistros();
         }
