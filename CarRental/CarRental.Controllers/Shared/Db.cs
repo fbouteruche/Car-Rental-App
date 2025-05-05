@@ -13,29 +13,29 @@ namespace CarRental.Controllers.Shared
 
     public static class Db
     {
-        private static readonly string bancoDeDados;
+        private static readonly string databaseName;
         private static readonly string connectionString = "";
-        private static readonly string nomeProvider;
-        private static readonly DbProviderFactory fabricaProvedor;
+        private static readonly string providerName;
+        private static readonly DbProviderFactory providerFactory;
 
         static Db()
         {
-            bancoDeDados = ConfigurationManager.AppSettings["bancoDeDados"];
+            databaseName = ConfigurationManager.AppSettings["databaseName"];
 
-            connectionString = ConfigurationManager.ConnectionStrings[bancoDeDados].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings[databaseName].ConnectionString;
 
-            nomeProvider = ConfigurationManager.ConnectionStrings[bancoDeDados].ProviderName;
+            providerName = ConfigurationManager.ConnectionStrings[databaseName].ProviderName;
 
-            fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
+            providerFactory = DbProviderFactories.GetFactory(providerName);
         }
 
         public static int Insert(string sql, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using (IDbConnection connection = providerFactory.CreateConnection())
             {
                 connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                using (IDbCommand command = providerFactory.CreateCommand())
                 {
                     command.CommandText = sql.AppendSelectIdentity();
                     command.Connection = connection;
@@ -52,11 +52,11 @@ namespace CarRental.Controllers.Shared
 
         public static void Update(string sql, Dictionary<string, object> parameters = null)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using (IDbConnection connection = providerFactory.CreateConnection())
             {
                 connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                using (IDbCommand command = providerFactory.CreateCommand())
                 {
                     command.CommandText = sql;
 
@@ -78,11 +78,11 @@ namespace CarRental.Controllers.Shared
 
         public static List<T> GetAll<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters = null)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using (IDbConnection connection = providerFactory.CreateConnection())
             {
                 connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                using (IDbCommand command = providerFactory.CreateCommand())
                 {
                     command.CommandText = sql;
 
@@ -110,11 +110,11 @@ namespace CarRental.Controllers.Shared
 
         public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using (IDbConnection connection = providerFactory.CreateConnection())
             {
                 connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                using (IDbCommand command = providerFactory.CreateCommand())
                 {
                     command.CommandText = sql;
 
@@ -128,7 +128,6 @@ namespace CarRental.Controllers.Shared
 
                     using (IDataReader reader = command.ExecuteReader())
                     {
-
                         if (reader.Read())
                             t = convert(reader);
 
@@ -140,11 +139,11 @@ namespace CarRental.Controllers.Shared
 
         public static bool Exists(string sql, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using (IDbConnection connection = providerFactory.CreateConnection())
             {
                 connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                using (IDbCommand command = providerFactory.CreateCommand())
                 {
                     command.CommandText = sql;
 
@@ -183,7 +182,7 @@ namespace CarRental.Controllers.Shared
 
         private static string AppendSelectIdentity(this string sql)
         {
-            switch (nomeProvider)
+            switch (providerName)
             {
                 case "System.Data.SqlClient": return sql + ";SELECT SCOPE_IDENTITY()";
 
