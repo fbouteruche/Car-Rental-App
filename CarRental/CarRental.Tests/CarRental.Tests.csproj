@@ -77,7 +77,7 @@
   <ItemGroup>
     <Compile Include="CustomerModule\CustomerTest.cs" />
     <Compile Include="CustomerModule\CustomerControllerTest.cs" />
-    <Compile Include="CouponModule\CupomControladorTest.cs" />
+    <Compile Include="CouponModule\CouponControllerTest.cs" />
     <Compile Include="CouponModule\CouponTest.cs" />
     <Compile Include="EmployeeModule\EmployeeTest.cs" />
     <Compile Include="EmployeeModule\FuncionarioControladorTest.cs" />
