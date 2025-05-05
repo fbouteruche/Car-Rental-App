@@ -55,23 +55,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteModule\CustomerTest.cs" />
-    <Compile Include="ClienteModule\ClienteControladorTest.cs" />
-    <Compile Include="CupomModule\CupomControladorTest.cs" />
-    <Compile Include="CupomModule\CouponTest.cs" />
-    <Compile Include="FuncionarioModule\EmployeeTest.cs" />
-    <Compile Include="FuncionarioModule\FuncionarioControladorTest.cs" />
-    <Compile Include="LocacaoModule\RentalTest.cs" />
-    <Compile Include="LocacaoModule\LocacaoControladorTest.cs" />
-    <Compile Include="ParceiroModule\ParceiroControladorTest.cs" />
-    <Compile Include="ParceiroModule\PartnerTest.cs" />
-    <Compile Include="SevicoModule\ServicosControladorTest.cs" />
-    <Compile Include="GrupoDeVeiculosModule\VehicleGroupTest.cs" />
-    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />
-    <Compile Include="SevicoModule\ServicoDominioTest.cs" />
+    <Compile Include="CustomerModule\CustomerTest.cs" />
+    <Compile Include="CustomerModule\ClienteControladorTest.cs" />
+    <Compile Include="CouponModule\CupomControladorTest.cs" />
+    <Compile Include="CouponModule\CouponTest.cs" />
+    <Compile Include="EmployeeModule\EmployeeTest.cs" />
+    <Compile Include="EmployeeModule\FuncionarioControladorTest.cs" />
+    <Compile Include="RentalModule\RentalTest.cs" />
+    <Compile Include="RentalModule\LocacaoControladorTest.cs" />
+    <Compile Include="PartnerModule\ParceiroControladorTest.cs" />
+    <Compile Include="PartnerModule\PartnerTest.cs" />
+    <Compile Include="ServiceModule\ServicosControladorTest.cs" />
+    <Compile Include="VehicleGroupModule\VehicleGroupTest.cs" />
+    <Compile Include="VehicleGroupModule\GrupoDeVeiculosControladorTest.cs" />
+    <Compile Include="ServiceModule\Service.cs" />
     <Compile Include="Shared\ResetarBanco.cs" />
     <Compile Include="VeiculoModule\VeiculoControladorTest.cs" />
-    <Compile Include="VeiculoModule\VeiculoDominioTest.cs" />
+    <Compile Include="VeiculoModule\VehicleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

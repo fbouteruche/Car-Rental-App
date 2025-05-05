@@ -3,7 +3,7 @@ using CarRental.Domain.VehicleGroupModule;
 using FluentAssertions;
 using System;
 
-namespace CarRental.Tests.GrupoDeVeiculosModule
+namespace CarRental.Tests.VehiculeGroupTest
 {
     [TestClass]
     [TestCategory("Domain")]

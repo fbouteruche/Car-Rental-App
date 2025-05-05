@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace CarRental.Tests.GrupoDeVeiculosModule
+namespace CarRental.Tests.VehiculeGroupTest
 {
     [TestClass]
     [TestCategory("Controllers")]
