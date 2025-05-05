@@ -34,7 +34,7 @@ namespace CarRental.Tests.VehicleModule
             // arrange
             vehicleGroup = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             vehicleGroupController.InsertNew(vehicleGroup);
-            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
 
             // act
             controller.InsertNew(newVehicle);
@@ -50,7 +50,7 @@ namespace CarRental.Tests.VehicleModule
             // arrange
             vehicleGroup = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             vehicleGroupController.InsertNew(vehicleGroup);
-            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
 
             // act
             controller.InsertNew(newVehicle);
@@ -68,11 +68,11 @@ namespace CarRental.Tests.VehicleModule
             images = new List<VehicleImage>();
             vehicleGroup = new VehicleGroup(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             vehicleGroupController.InsertNew(vehicleGroup);
-            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            newVehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
 
             VehicleGroup editedGroup = new VehicleGroup(0, "Pique Velozes e Furiosos", 100, 60.5, 40, 300, 45.2, 500);
             vehicleGroupController.InsertNew(editedGroup);
-            Vehicle editedVehicle = new Vehicle(0, "Monza Tubarão Turbão Rebaixado", editedGroup, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'G', false, false, false, false, images);
+            Vehicle editedVehicle = new Vehicle(0, "Monza Tubarão Turbão Rebaixado", editedGroup, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'L', false, false, false, false, images);
             // act
             controller.InsertNew(newVehicle);
             controller.Edit(newVehicle.Id, editedVehicle);

@@ -236,21 +236,21 @@ namespace CarRental.Controllers.VehicleModule
             parameters.Add("ID", vehicle.Id);
             parameters.Add("MODELO", vehicle.model);
             parameters.Add("ID_GRUPOVEICULO", vehicle.vehicleGroup.Id);
-            parameters.Add("PLATE", vehicle.licensePlate);
-            parameters.Add("CHASSIS", vehicle.chassis);
-            parameters.Add("BRAND", vehicle.brand);
-            parameters.Add("COLOR", vehicle.color);
-            parameters.Add("FUELTYPE", vehicle.fuelType);
-            parameters.Add("TANKCAPACITY", vehicle.tankCapacity);
-            parameters.Add("YEAR", vehicle.year);
-            parameters.Add("MILEAGE", vehicle.mileage);
-            parameters.Add("NUMBEROFDOORS", vehicle.numberOfDoors);
-            parameters.Add("PASSENGERCAPACITY", vehicle.passengerCapacity);
-            parameters.Add("TRUNKSIZE", vehicle.trunkSize);
-            parameters.Add("HASAIRCONDITIONING", vehicle.hasAirConditioning);
-            parameters.Add("HASPOWERSTEERING", vehicle.hasPowerSteering);
-            parameters.Add("HASABS", vehicle.hasAbsBrakes);
-            parameters.Add("ISRENTED", vehicle.isRented);
+            parameters.Add("PLACA", vehicle.licensePlate);
+            parameters.Add("CHASSI", vehicle.chassis);
+            parameters.Add("MARCA", vehicle.brand);
+            parameters.Add("COR", vehicle.color);
+            parameters.Add("TIPOCOMBUSTIVEL", vehicle.fuelType);
+            parameters.Add("CAPACIDADETANQUE", vehicle.tankCapacity);
+            parameters.Add("ANO", vehicle.year);
+            parameters.Add("KILOMETRAGEM", vehicle.mileage);
+            parameters.Add("NUMEROPORTAS", vehicle.numberOfDoors);
+            parameters.Add("CAPACIDADEPESSOAS", vehicle.passengerCapacity);
+            parameters.Add("TAMANHOPORTAMALA", vehicle.trunkSize);
+            parameters.Add("TEMARCONDICIONADO", vehicle.hasAirConditioning);
+            parameters.Add("TEMDIRECAOHIDRAULICA", vehicle.hasPowerSteering);
+            parameters.Add("TEMFREIOSABS", vehicle.hasAbsBrakes);
+            parameters.Add("ESTAALUGADO", vehicle.isRented);
 
             return parameters;
         }

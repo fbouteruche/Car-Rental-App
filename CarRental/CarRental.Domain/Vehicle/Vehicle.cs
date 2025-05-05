@@ -90,7 +90,8 @@ namespace CarRental.Domain.VehicleModule
 
         public override bool Equals(object obj)
         {
-            return obj is Vehicle vehicle &&
+            var vehicle = obj as Vehicle;
+            return !(vehicle is null) &&
                    id == vehicle.id &&
                    model == vehicle.model &&
                    EqualityComparer<VehicleGroup>.Default.Equals(vehicleGroup, vehicle.vehicleGroup) &&
@@ -109,7 +110,7 @@ namespace CarRental.Domain.VehicleModule
                    hasPowerSteering == vehicle.hasPowerSteering &&
                    hasAbsBrakes == vehicle.hasAbsBrakes &&
                    isRented == vehicle.isRented &&
-                   images == vehicle.images;
+                   (images == vehicle.images || (images.Count == 0 && vehicle.images.Count == 0) || (images.Count == 0 && vehicle.images == null));
         }
 
         public override int GetHashCode()
