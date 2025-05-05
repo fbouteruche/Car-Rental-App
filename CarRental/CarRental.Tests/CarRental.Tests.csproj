@@ -55,7 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteModule\ClienteDominioTest.cs" />
+    <Compile Include="ClienteModule\CustomerTest.cs" />
     <Compile Include="ClienteModule\ClienteControladorTest.cs" />
     <Compile Include="CupomModule\CupomControladorTest.cs" />
     <Compile Include="CupomModule\CupomDominioTest.cs" />
