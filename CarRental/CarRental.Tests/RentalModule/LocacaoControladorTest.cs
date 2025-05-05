@@ -24,7 +24,7 @@ namespace CarRental.Tests.LocacaoModule
     public class LocacaoControladorTest
     {
         RentalController controlador = null;
-        VehicleGroupContoller controladorGrupoDeVeiculos = null;
+        VehicleGroupController controladorGrupoDeVeiculos = null;
         VehicleController controladorVeiculo = null;
         ControladorFuncionario controladorFuncionario = null;
         CustomerController controladorCliente = null;
@@ -39,7 +39,7 @@ namespace CarRental.Tests.LocacaoModule
 
         public LocacaoControladorTest()
         {
-            controladorGrupoDeVeiculos = new VehicleGroupContoller();
+            controladorGrupoDeVeiculos = new VehicleGroupController();
             controladorVeiculo = new VehicleController();
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new CustomerController();

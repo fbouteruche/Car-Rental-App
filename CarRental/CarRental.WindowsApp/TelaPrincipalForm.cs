@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoDeVeiculos(new VehicleGroupContoller());
+            operacoes = new OperacoesGrupoDeVeiculos(new VehicleGroupController());
 
             ConfigurarPainelRegistros();
         }

@@ -13,11 +13,11 @@ namespace CarRental.Tests.VehiculeGroupTest
     [TestCategory("Controllers")]
     public class VehicleGroupControllerTest
     {
-        VehicleGroupContoller controlador = null;
+        VehicleGroupController controlador = null;
 
         public VehicleGroupControllerTest()
         {
-            controlador = new VehicleGroupContoller();
+            controlador = new VehicleGroupController();
             ResetarBanco.ResetarTabelas();
         }
 
@@ -117,7 +117,7 @@ namespace CarRental.Tests.VehiculeGroupTest
             
             string resposta = controlador.InsertNew(identicoGrupoDeVeiculos);
 
-            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+            resposta.Should().Be("The vehicle group name must be unique\n");
         }
 
         [TestMethod]
@@ -131,7 +131,7 @@ namespace CarRental.Tests.VehiculeGroupTest
             VehicleGroup grupoDeVeiculosConflitante = new VehicleGroup(0, "emon", 5.21f, 35.72f, 93.91f, 20, 13f, 85.3f);
             string resposta =  controlador.Edit(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
 
-            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+            resposta.Should().Be("The vehicle group name must be unique\n");
         }
     }
 }

@@ -13,10 +13,10 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 {
     public class OperacoesGrupoDeVeiculos : ICadastravel
     {
-        private readonly VehicleGroupContoller controlador = null;
+        private readonly VehicleGroupController controlador = null;
         private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos = null;
 
-        public OperacoesGrupoDeVeiculos(VehicleGroupContoller ctrlGrupoDeVeiculos)
+        public OperacoesGrupoDeVeiculos(VehicleGroupController ctrlGrupoDeVeiculos)
         {
             controlador = ctrlGrupoDeVeiculos;
             tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();

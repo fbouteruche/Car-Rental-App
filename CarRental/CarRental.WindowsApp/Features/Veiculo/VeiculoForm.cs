@@ -14,7 +14,7 @@ namespace CarRental.WindowsApp.Veiculos
     public partial class VeiculoForm : Form
     {
         private Vehicle veiculo;
-        private VehicleGroupContoller controladorGrupoVeiculos = new VehicleGroupContoller();
+        private VehicleGroupController controladorGrupoVeiculos = new VehicleGroupController();
         public VeiculoForm(string titulo)
         {            
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace CarRental.Tests.VehicleModule
     public class VehicleControllerTests
     {
         VehicleController controller = null;
-        VehicleGroupContoller vehicleGroupController = null;
+        VehicleGroupController vehicleGroupController = null;
         Vehicle newVehicle;
         VehicleGroup vehicleGroup;
         List<VehicleImage> images;
@@ -24,7 +24,7 @@ namespace CarRental.Tests.VehicleModule
         public VehicleControllerTests()
         {
             controller = new VehicleController();
-            vehicleGroupController = new VehicleGroupContoller();
+            vehicleGroupController = new VehicleGroupController();
 
             ResetarBanco.ResetarTabelas();
         }
