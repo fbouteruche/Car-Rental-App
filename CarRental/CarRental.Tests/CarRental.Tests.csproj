@@ -66,7 +66,7 @@
     <Compile Include="ParceiroModule\ParceiroControladorTest.cs" />
     <Compile Include="ParceiroModule\ParceiroDominioTest.cs" />
     <Compile Include="SevicoModule\ServicosControladorTest.cs" />
-    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosDominioTest.cs" />
+    <Compile Include="GrupoDeVeiculosModule\VehicleGroupTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />
     <Compile Include="SevicoModule\ServicoDominioTest.cs" />
     <Compile Include="Shared\ResetarBanco.cs" />
