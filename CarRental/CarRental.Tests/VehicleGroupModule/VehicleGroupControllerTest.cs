@@ -7,131 +7,131 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace CarRental.Tests.VehiculeGroupTest
+namespace CarRental.Tests.VehicleGroupModule
 {
     [TestClass]
     [TestCategory("Controllers")]
-    public class VehicleGroupControllerTest
+    public class VehicleGroupControllerTests
     {
-        VehicleGroupController controlador = null;
+        VehicleGroupController controller = null;
 
-        public VehicleGroupControllerTest()
+        public VehicleGroupControllerTests()
         {
-            controlador = new VehicleGroupController();
+            controller = new VehicleGroupController();
             ResetarBanco.ResetarTabelas();
         }
 
         [TestMethod]
-        public void DeveInserir_GrupoDeVeiculos()
+        public void ShouldInsert_VehicleGroup()
         {
-            VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f); ;
+            VehicleGroup newVehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
 
-            controlador.InsertNew(novoGrupoDeVeiculos);
+            controller.InsertNew(newVehicleGroup);
 
-            var grupoDeVeiculosEncontrado = controlador.SelectById(novoGrupoDeVeiculos.Id);
-            grupoDeVeiculosEncontrado.Should().Be(novoGrupoDeVeiculos);
+            var foundVehicleGroup = controller.SelectById(newVehicleGroup.Id);
+            foundVehicleGroup.Should().Be(newVehicleGroup);
         }
 
         [TestMethod]
-        public void DeveAtualizar_GrupoDeVeiculos()
+        public void ShouldUpdate_VehicleGroup()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 14f, 30.2f);
-            controlador.InsertNew(grupoDeVeiculos);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 14f, 30.2f);
+            controller.InsertNew(vehicleGroup);
 
-            VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 5.12f, 37.52f, 99.31f, 2, 15f, 11.2f);
+            VehicleGroup newVehicleGroup = new VehicleGroup(0, "name", 5.12f, 37.52f, 99.31f, 2, 15f, 11.2f);
 
-            controlador.Edit(grupoDeVeiculos.Id, novoGrupoDeVeiculos);
+            controller.Edit(vehicleGroup.Id, newVehicleGroup);
 
-            var grupoDeVeiculosAtualizado = controlador.SelectById(grupoDeVeiculos.Id);
-            grupoDeVeiculosAtualizado.Should().Be(novoGrupoDeVeiculos);
+            var updatedVehicleGroup = controller.SelectById(vehicleGroup.Id);
+            updatedVehicleGroup.Should().Be(newVehicleGroup);
         }
 
         [TestMethod]
-        public void DeveExcluir_GrupoDeVeiculos()
+        public void ShouldDelete_VehicleGroup()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
-            controlador.InsertNew(grupoDeVeiculos);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
+            controller.InsertNew(vehicleGroup);
 
-            controlador.Delete(grupoDeVeiculos.Id);
+            controller.Delete(vehicleGroup.Id);
 
-            var grupoDeVeiculosEncontrado = controlador.SelectById(grupoDeVeiculos.Id);
-            grupoDeVeiculosEncontrado.Should().BeNull();
+            var foundVehicleGroup = controller.SelectById(vehicleGroup.Id);
+            foundVehicleGroup.Should().BeNull();
         }
 
         [TestMethod]
-        public void DeveSelecionar_GrupoDeVeiculosPorId()
+        public void ShouldSelect_VehicleGroupById()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 14f, 65.2f);
-            controlador.InsertNew(grupoDeVeiculos);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 14f, 65.2f);
+            controller.InsertNew(vehicleGroup);
 
-            var grupoDeVeiculosEncontrado = controlador.SelectById(grupoDeVeiculos.Id);
+            var foundVehicleGroup = controller.SelectById(vehicleGroup.Id);
 
-            grupoDeVeiculosEncontrado.Should().NotBeNull();
+            foundVehicleGroup.Should().NotBeNull();
         }
 
         [TestMethod]
-        public void DeveSelecionar_TodosGrupoDeVeiculos()
+        public void ShouldSelect_AllVehicleGroups()
         {
-            VehicleGroup g1 = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 11f, 65f);
-            controlador.InsertNew(g1);
+            VehicleGroup g1 = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 11f, 65f);
+            controller.InsertNew(g1);
             VehicleGroup g2 = new VehicleGroup(0, "emon", 5.12f, 37.52f, 99.31f, 2, 4.5f, 50f);
-            controlador.InsertNew(g2);
+            controller.InsertNew(g2);
             VehicleGroup g3 = new VehicleGroup(0, "meno", 5.21f, 35.72f, 93.91f, 20, 5f, 11f);
-            controlador.InsertNew(g3);
+            controller.InsertNew(g3);
 
-            List<VehicleGroup> grupoDeVeiculosAgrupado = controlador.SelectAll();
+            List<VehicleGroup> groupedVehicleGroups = controller.SelectAll();
 
-            grupoDeVeiculosAgrupado.Should().HaveCount(3);
-            grupoDeVeiculosAgrupado[0].Name.Should().Be("nome");
-            grupoDeVeiculosAgrupado[1].Name.Should().Be("emon");
-            grupoDeVeiculosAgrupado[2].Name.Should().Be("meno");
+            groupedVehicleGroups.Should().HaveCount(3);
+            groupedVehicleGroups[0].Name.Should().Be("name");
+            groupedVehicleGroups[1].Name.Should().Be("emon");
+            groupedVehicleGroups[2].Name.Should().Be("meno");
         }
 
         [TestMethod]
-        public void DeveRetornarTrue_QuandoExisteGrupoDeVeiculos()
+        public void ShouldReturnTrue_WhenVehicleGroupExists()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 5f, 30f);
-            controlador.InsertNew(grupoDeVeiculos);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 5f, 30f);
+            controller.InsertNew(vehicleGroup);
 
-            bool existeGrupoDeVeiculos = controlador.Exists(grupoDeVeiculos.Id);
+            bool exists = controller.Exists(vehicleGroup.Id);
 
-            existeGrupoDeVeiculos.Should().BeTrue();
+            exists.Should().BeTrue();
         }
 
         [TestMethod]
-        public void DeveRetornarFalse_QuandoNaoExisteGrupoDeVeiculos()
+        public void ShouldReturnFalse_WhenVehicleGroupDoesNotExist()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
 
-            bool existeGrupoDeVeiculos = controlador.Exists(grupoDeVeiculos.Id);
+            bool exists = controller.Exists(vehicleGroup.Id);
 
-            existeGrupoDeVeiculos.Should().BeFalse();
+            exists.Should().BeFalse();
         }
 
         [TestMethod]
-        public void NaoDeveInserir_GrupoDeVeiculosQuandoNomeJaExiste()
+        public void ShouldNotInsert_VehicleGroup_WhenNameAlreadyExists()
         {
-            VehicleGroup novoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
-            controlador.InsertNew(novoGrupoDeVeiculos);
-            VehicleGroup identicoGrupoDeVeiculos = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
+            VehicleGroup newVehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
+            controller.InsertNew(newVehicleGroup);
+            VehicleGroup identicalVehicleGroup = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 15f, 11.2f);
             
-            string resposta = controlador.InsertNew(identicoGrupoDeVeiculos);
+            string response = controller.InsertNew(identicalVehicleGroup);
 
-            resposta.Should().Be("The vehicle group name must be unique\n");
+            response.Should().Be("The vehicle group name must be unique\n");
         }
 
         [TestMethod]
-        public void NaoDeveAtualizar_GrupoDeVeiculosQuandoNomeJaExiste()
+        public void ShouldNotUpdate_VehicleGroup_WhenNameAlreadyExists()
         {
-            VehicleGroup grupoDeVeiculosParaEditar = new VehicleGroup(0, "nome", 12.50f, 25.73f, 13.99f, 200, 11f, 50.5f);
-            controlador.InsertNew(grupoDeVeiculosParaEditar);
-            VehicleGroup grupoDeVeiculosExistente = new VehicleGroup(0, "emon", 5.12f, 37.52f, 99.31f, 2, 5f, 90f);
-            controlador.InsertNew(grupoDeVeiculosExistente);
+            VehicleGroup vehicleGroupToEdit = new VehicleGroup(0, "name", 12.50f, 25.73f, 13.99f, 200, 11f, 50.5f);
+            controller.InsertNew(vehicleGroupToEdit);
+            VehicleGroup existingVehicleGroup = new VehicleGroup(0, "emon", 5.12f, 37.52f, 99.31f, 2, 5f, 90f);
+            controller.InsertNew(existingVehicleGroup);
 
-            VehicleGroup grupoDeVeiculosConflitante = new VehicleGroup(0, "emon", 5.21f, 35.72f, 93.91f, 20, 13f, 85.3f);
-            string resposta =  controlador.Edit(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
+            VehicleGroup conflictingVehicleGroup = new VehicleGroup(0, "emon", 5.21f, 35.72f, 93.91f, 20, 13f, 85.3f);
+            string response =  controller.Edit(vehicleGroupToEdit.Id, conflictingVehicleGroup);
 
-            resposta.Should().Be("The vehicle group name must be unique\n");
+            response.Should().Be("The vehicle group name must be unique\n");
         }
     }
 }
