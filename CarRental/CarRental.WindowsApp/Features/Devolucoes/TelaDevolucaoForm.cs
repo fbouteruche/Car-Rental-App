@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.VeiculoModule;
+﻿using CarRental.Controllers.VehicleModule;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
@@ -21,7 +21,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
     {
         private Rental devolucao;
         ServicosForm telaServico;
-        ControladorVeiculo controladorVeiculo =  new ControladorVeiculo();
+        VehiculeController controladorVeiculo =  new VehiculeController();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();

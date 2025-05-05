@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.VeiculoModule;
+﻿using CarRental.Controllers.VehicleModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,11 @@ namespace CarRental.WindowsApp.Features.Dashboards
 {
     public class OperacoesDashboard
     {
-        private readonly ControladorVeiculo controladorVeiculo = null;
+        private readonly VehiculeController controladorVeiculo = null;
         //private readonly ControladorLocacao controladorLocacao = null;
         //private readonly DashboardControl dashboardControl = null;
 
-        public OperacoesDashboard(ControladorVeiculo controladorVeiculo) //ControladorLocacao controladorLocacao)
+        public OperacoesDashboard(VehiculeController controladorVeiculo) //ControladorLocacao controladorLocacao)
         {
             //this.controladorLocacao = controladorLocacao;
             this.controladorVeiculo = controladorVeiculo;

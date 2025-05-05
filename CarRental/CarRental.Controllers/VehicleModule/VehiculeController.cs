@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 
-namespace CarRental.Controllers.VeiculoModule
+namespace CarRental.Controllers.VehicleModule
 {
-    public class ControladorVeiculo : Controller<Vehicle>
+    public class VehiculeController : Controller<Vehicle>
     {
-        private VehicleImageController controladorImagem = new VehicleImageController();
+        private VehicleImageController imageController = new VehicleImageController();
         #region queries
-        private const string sqlInserirVeiculo =
+        private const string sqlInsertVehicle =
             @"INSERT INTO TBVEICULO
             (
                 [MODELO],
@@ -55,7 +55,7 @@ namespace CarRental.Controllers.VeiculoModule
                 @TEMFREIOSABS,
                 @ESTAALUGADO
             )";
-        private const string sqlSelecionarTodosVeiculos =
+        private const string sqlSelectAllVehicles =
             @"SELECT
                 CV.[ID],
                 CV.[MODELO],
@@ -87,7 +87,7 @@ namespace CarRental.Controllers.VeiculoModule
                 [TBGRUPOVEICULO] AS CG
             ON
                 CG.ID = CV.ID_GRUPOVEICULO";
-        private const string sqlSelecionarVeiculoPorId =
+        private const string sqlSelectVehicleById =
             @"SELECT  
                 CV.[ID],
                 CV.[MODELO],
@@ -121,7 +121,7 @@ namespace CarRental.Controllers.VeiculoModule
                 CG.ID = CV.ID_GRUPOVEICULO
             WHERE 
                 CV.[ID] = @ID";
-        private const string sqlEditarVeiculo =
+        private const string sqlEditVehicle =
             @"UPDATE TBVEICULO SET
                 [MODELO] = @MODELO,
                 [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO,
@@ -143,13 +143,13 @@ namespace CarRental.Controllers.VeiculoModule
             WHERE
                 [ID] = @ID
             ";
-        private const string sqlDeletarVeiculo =
+        private const string sqlDeleteVehicle =
             @"DELETE 
                 FROM 
                 TBVEICULO 
             WHERE 
                 [ID] = @ID";
-        private const string sqlExisteVeiculo =
+        private const string sqlVehicleExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -157,7 +157,7 @@ namespace CarRental.Controllers.VeiculoModule
             WHERE 
                 [ID] = @ID";
 
-        private const string sqlVeiculoTotal =
+        private const string sqlVehicleTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
         public override string InsertNew(Vehicle registro)
@@ -166,13 +166,13 @@ namespace CarRental.Controllers.VeiculoModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
+                registro.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(registro));
                 if (registro.images != null)
                 {
                     foreach (VehicleImage imagemVeiculo in registro.images)
                     {
                         imagemVeiculo.VehicleId = registro.Id;
-                        controladorImagem.InsertNew(imagemVeiculo);
+                        imageController.InsertNew(imagemVeiculo);
                     }
                 }
             }
@@ -180,19 +180,19 @@ namespace CarRental.Controllers.VeiculoModule
         }
         public override List<Vehicle> SelectAll()
         {
-            List<Vehicle>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+            List<Vehicle>veiculos = Db.GetAll(sqlSelectAllVehicles, ConvertToVehicle);
 
             foreach (Vehicle veiculo in veiculos)
             {
-                veiculo.images = controladorImagem.SelectAllImagesOfVehicle(veiculo.Id);
+                veiculo.images = imageController.SelectAllImagesOfVehicle(veiculo.Id);
             }
 
             return veiculos;
         }
         public override Vehicle SelectById(int id)
         {
-            Vehicle veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AddParameter("ID", id));
-            veiculo.images = controladorImagem.SelectAllImagesOfVehicle(id);
+            Vehicle veiculo = Db.Get(sqlSelectVehicleById, ConvertToVehicle, AddParameter("ID", id));
+            veiculo.images = imageController.SelectAllImagesOfVehicle(id);
             return veiculo;
         }
         public override string Edit(int id, Vehicle registro)
@@ -202,10 +202,10 @@ namespace CarRental.Controllers.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
+                Db.Update(sqlEditVehicle, GetVehicleParameters(registro));
                 foreach (VehicleImage imagem in registro.images)
                     imagem.VehicleId = registro.Id;
-                controladorImagem.EditList(registro.images);
+                imageController.EditList(registro.images);
             }
 
             return resultadoValidacao;
@@ -214,7 +214,7 @@ namespace CarRental.Controllers.VeiculoModule
         {
             try
             {
-                Db.Delete(sqlDeletarVeiculo, AddParameter("ID", id));
+                Db.Delete(sqlDeleteVehicle, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -226,10 +226,10 @@ namespace CarRental.Controllers.VeiculoModule
      
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlExisteVeiculo, AddParameter("ID", id));
+            return Db.Exists(sqlVehicleExists, AddParameter("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosVeiculo(Vehicle veiculo)
+        private Dictionary<string, object> GetVehicleParameters(Vehicle veiculo)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -255,7 +255,7 @@ namespace CarRental.Controllers.VeiculoModule
             return parametros;
         }
 
-        private Vehicle ConverterEmVeiculo(IDataReader reader)
+        private Vehicle ConvertToVehicle(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
@@ -292,7 +292,7 @@ namespace CarRental.Controllers.VeiculoModule
 
             return veiculo;
         }
-        private int ConverterDados(IDataReader reader)
+        private int ConvertData(IDataReader reader)
         {
             return Convert.ToInt32(reader["qtd"]);
         }

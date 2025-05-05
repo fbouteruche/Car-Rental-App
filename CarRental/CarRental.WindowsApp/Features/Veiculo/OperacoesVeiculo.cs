@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.VeiculoModule;
+﻿using CarRental.Controllers.VehicleModule;
 using CarRental.WindowsApp.Shared;
 using CarRental.WindowsApp.Veiculos;
 using CarRental.Domain.VehicleModule;
@@ -10,9 +10,9 @@ namespace CarRental.WindowsApp.Features.Veiculos
 {
     public class OperacoesVeiculo : ICadastravel
     {
-        private readonly ControladorVeiculo controlador = null;
+        private readonly VehiculeController controlador = null;
         private readonly TabelaVeiculoControl tabelaVeiculo = null;
-        public OperacoesVeiculo(ControladorVeiculo ctrlVeiculo)
+        public OperacoesVeiculo(VehiculeController ctrlVeiculo)
         {
             controlador = ctrlVeiculo;
             tabelaVeiculo = new TabelaVeiculoControl();

@@ -1,7 +1,7 @@
 ﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CouponModule;
 using CarRental.Controllers.FuncionarioModule;
-using CarRental.Controllers.VeiculoModule;
+using CarRental.Controllers.VehicleModule;
 using CarRental.Domain.CustomerModule;
 using CarRental.Domain.CouponModule;
 using CarRental.Domain.EmployeeModule;
@@ -28,7 +28,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
     {
         private Rental locacao;
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-        private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
+        private VehiculeController controladorVeiculo = new VehiculeController();
         private CustomerController controladorCliente = new CustomerController();
         private CouponController controladorCupom = new CouponController();
         public List<Service> Servicos;
