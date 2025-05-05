@@ -22,7 +22,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
 {
     public partial class DashControl : UserControl
     {
-        VehiculeController controladorVeiculo;
+        VehicleController controladorVeiculo;
         CustomerController controladorCliente;
         ControladorServico controladorServicos;
         RentalController controladorLocacao;
@@ -31,7 +31,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
         public DashControl()
         {
             InitializeComponent();
-            controladorVeiculo = new VehiculeController();
+            controladorVeiculo = new VehicleController();
             controladorCliente = new CustomerController();
             controladorServicos = new ControladorServico();
             controladorFuncionario = new ControladorFuncionario();

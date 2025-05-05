@@ -9,11 +9,11 @@ namespace CarRental.WindowsApp.Features.Dashboards
 {
     public class OperacoesDashboard
     {
-        private readonly VehiculeController controladorVeiculo = null;
+        private readonly VehicleController controladorVeiculo = null;
         //private readonly ControladorLocacao controladorLocacao = null;
         //private readonly DashboardControl dashboardControl = null;
 
-        public OperacoesDashboard(VehiculeController controladorVeiculo) //ControladorLocacao controladorLocacao)
+        public OperacoesDashboard(VehicleController controladorVeiculo) //ControladorLocacao controladorLocacao)
         {
             //this.controladorLocacao = controladorLocacao;
             this.controladorVeiculo = controladorVeiculo;

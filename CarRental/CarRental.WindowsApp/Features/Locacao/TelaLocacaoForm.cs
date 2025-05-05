@@ -28,7 +28,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
     {
         private Rental locacao;
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-        private VehiculeController controladorVeiculo = new VehiculeController();
+        private VehicleController controladorVeiculo = new VehicleController();
         private CustomerController controladorCliente = new CustomerController();
         private CouponController controladorCupom = new CouponController();
         public List<Service> Servicos;

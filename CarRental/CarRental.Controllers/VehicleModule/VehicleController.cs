@@ -76,12 +76,12 @@ namespace CarRental.Controllers.VehicleModule
                 CV.[TEMFREIOSABS],
                 CV.[ESTAALUGADO],
                 CG.[NOME],
-	            CG.[TAXAPLANODIARIO],
-	            CG.[TAXAPORKMDIARIO],
-	            CG.[TAXAPLANOCONTROLADO],
-	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO],
-	            CG.[TAXAPLANOLIVRE]
+                CG.[TAXAPLANODIARIO],
+                CG.[TAXAPORKMDIARIO],
+                CG.[TAXAPLANOCONTROLADO],
+                CG.[LIMITEKMCONTROLADO],
+                CG.[TAXAKMEXCEDIDOCONTROLADO],
+                CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -108,12 +108,12 @@ namespace CarRental.Controllers.VehicleModule
                 CV.[TEMFREIOSABS],
                 CV.[ESTAALUGADO],
                 CG.[NOME],
-	            CG.[TAXAPLANODIARIO],
-	            CG.[TAXAPORKMDIARIO],
-	            CG.[TAXAPLANOCONTROLADO],
-	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO],
-	            CG.[TAXAPLANOLIVRE]
+                CG.[TAXAPLANODIARIO],
+                CG.[TAXAPORKMDIARIO],
+                CG.[TAXAPLANOCONTROLADO],
+                CG.[LIMITEKMCONTROLADO],
+                CG.[TAXAKMEXCEDIDOCONTROLADO],
+                CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -160,18 +160,18 @@ namespace CarRental.Controllers.VehicleModule
         private const string sqlVehicleTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
-        public override string InsertNew(Vehicle record)
+        public override string InsertNew(Vehicle vehicle)
         {
-            string validationResult = record.Validate();
+            string validationResult = vehicle.Validate();
 
             if (validationResult == "VALIDO")
             {
-                record.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(record));
-                if (record.images != null)
+                vehicle.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(vehicle));
+                if (vehicle.images != null)
                 {
-                    foreach (VehicleImage vehicleImage in record.images)
+                    foreach (VehicleImage vehicleImage in vehicle.images)
                     {
-                        vehicleImage.VehicleId = record.Id;
+                        vehicleImage.VehicleId = vehicle.Id;
                         imageController.InsertNew(vehicleImage);
                     }
                 }
@@ -195,17 +195,17 @@ namespace CarRental.Controllers.VehicleModule
             vehicle.images = imageController.SelectAllImagesOfVehicle(id);
             return vehicle;
         }
-        public override string Edit(int id, Vehicle record)
+        public override string Edit(int id, Vehicle vehicle)
         {
-            string validationResult = record.Validate();
+            string validationResult = vehicle.Validate();
 
             if (validationResult == "VALIDO")
             {
-                record.Id = id;
-                Db.Update(sqlEditVehicle, GetVehicleParameters(record));
-                foreach (VehicleImage image in record.images)
-                    image.VehicleId = record.Id;
-                imageController.EditList(record.images);
+                vehicle.Id = id;
+                Db.Update(sqlEditVehicle, GetVehicleParameters(vehicle));
+                foreach (VehicleImage image in vehicle.images)
+                    image.VehicleId = vehicle.Id;
+                imageController.EditList(vehicle.images);
             }
 
             return validationResult;
@@ -236,21 +236,21 @@ namespace CarRental.Controllers.VehicleModule
             parameters.Add("ID", vehicle.Id);
             parameters.Add("MODELO", vehicle.model);
             parameters.Add("ID_GRUPOVEICULO", vehicle.vehicleGroup.Id);
-            parameters.Add("PLACA", vehicle.licensePlate);
-            parameters.Add("CHASSI", vehicle.chassis);
-            parameters.Add("MARCA", vehicle.brand);
-            parameters.Add("COR", vehicle.color);
-            parameters.Add("TIPOCOMBUSTIVEL", vehicle.fuelType);
-            parameters.Add("CAPACIDADETANQUE", vehicle.tankCapacity);
-            parameters.Add("ANO", vehicle.year);
-            parameters.Add("KILOMETRAGEM", vehicle.mileage);
-            parameters.Add("NUMEROPORTAS", vehicle.numberOfDoors);
-            parameters.Add("CAPACIDADEPESSOAS", vehicle.passengerCapacity);
-            parameters.Add("TAMANHOPORTAMALA", vehicle.trunkSize);
-            parameters.Add("TEMARCONDICIONADO", vehicle.hasAirConditioning);
-            parameters.Add("TEMDIRECAOHIDRAULICA", vehicle.hasPowerSteering);
-            parameters.Add("TEMFREIOSABS", vehicle.hasAbsBrakes);
-            parameters.Add("ESTAALUGADO", vehicle.isRented);
+            parameters.Add("PLATE", vehicle.licensePlate);
+            parameters.Add("CHASSIS", vehicle.chassis);
+            parameters.Add("BRAND", vehicle.brand);
+            parameters.Add("COLOR", vehicle.color);
+            parameters.Add("FUELTYPE", vehicle.fuelType);
+            parameters.Add("TANKCAPACITY", vehicle.tankCapacity);
+            parameters.Add("YEAR", vehicle.year);
+            parameters.Add("MILEAGE", vehicle.mileage);
+            parameters.Add("NUMBEROFDOORS", vehicle.numberOfDoors);
+            parameters.Add("PASSENGERCAPACITY", vehicle.passengerCapacity);
+            parameters.Add("TRUNKSIZE", vehicle.trunkSize);
+            parameters.Add("HASAIRCONDITIONING", vehicle.hasAirConditioning);
+            parameters.Add("HASPOWERSTEERING", vehicle.hasPowerSteering);
+            parameters.Add("HASABS", vehicle.hasAbsBrakes);
+            parameters.Add("ISRENTED", vehicle.isRented);
 
             return parameters;
         }
@@ -265,7 +265,7 @@ namespace CarRental.Controllers.VehicleModule
             var brand = Convert.ToString(reader["MARCA"]);
             var color = Convert.ToString(reader["COR"]);
             var fuelType = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
-            var tankCapacity = Convert.ToDouble(reader["capacidadeTanque"]);
+            var tankCapacity = Convert.ToDouble(reader["CAPACIDADETANQUE"]);
             var year = Convert.ToInt32(reader["ANO"]);
             var mileage = Convert.ToDouble(reader["KILOMETRAGEM"]);
             var numberOfDoors = Convert.ToInt32(reader["NUMEROPORTAS"]);
@@ -294,7 +294,7 @@ namespace CarRental.Controllers.VehicleModule
         }
         private int ConvertData(IDataReader reader)
         {
-            return Convert.ToInt32(reader["qtd"]);
+            return Convert.ToInt32(reader["QTD"]);
         }
     }
 }

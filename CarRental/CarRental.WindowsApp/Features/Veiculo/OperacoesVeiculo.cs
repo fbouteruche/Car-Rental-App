@@ -10,9 +10,9 @@ namespace CarRental.WindowsApp.Features.Veiculos
 {
     public class OperacoesVeiculo : ICadastravel
     {
-        private readonly VehiculeController controlador = null;
+        private readonly VehicleController controlador = null;
         private readonly TabelaVeiculoControl tabelaVeiculo = null;
-        public OperacoesVeiculo(VehiculeController ctrlVeiculo)
+        public OperacoesVeiculo(VehicleController ctrlVeiculo)
         {
             controlador = ctrlVeiculo;
             tabelaVeiculo = new TabelaVeiculoControl();

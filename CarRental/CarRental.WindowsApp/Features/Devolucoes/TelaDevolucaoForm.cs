@@ -21,7 +21,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
     {
         private Rental devolucao;
         ServicosForm telaServico;
-        VehiculeController controladorVeiculo =  new VehiculeController();
+        VehicleController controladorVeiculo =  new VehicleController();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
