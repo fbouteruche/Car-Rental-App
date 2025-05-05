@@ -6,6 +6,7 @@ using System;
 namespace CarRental.Tests.GrupoDeVeiculosModule
 {
     [TestClass]
+    [TestCategory("Domain")]
     public class GrupoDeVeiculosDominioTest
     {
         [TestMethod]

@@ -5,6 +5,7 @@ using System;
 namespace CarRental.Tests.FuncionarioModule
 {
     [TestClass]
+    [TestCategory("Domain")]
     public class FuncionarioDominioTest
     {
         Employee funcionario;

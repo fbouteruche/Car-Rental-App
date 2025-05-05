@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 namespace CarRental.Tests.ParceiroModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class ParceiroControladorTest
     {
         ControladorParceiro controlador = null;

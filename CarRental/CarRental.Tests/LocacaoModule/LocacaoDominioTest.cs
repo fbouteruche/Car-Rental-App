@@ -10,6 +10,7 @@ using System;
 namespace CarRental.Tests.LocacaoModule
 {
     [TestClass]
+    [TestCategory("Domain")]
     public class LocacaoDominioTest
     {
         Vehicle veiculo;

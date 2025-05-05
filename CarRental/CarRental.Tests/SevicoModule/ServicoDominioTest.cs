@@ -5,6 +5,7 @@ namespace CarRental.Tests.SevicoModule
 {
 
     [TestClass]
+    [TestCategory("Domain")]
     public class ServicoDominioTest
     {
 

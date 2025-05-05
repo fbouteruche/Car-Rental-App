@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CarRental.Tests.ParceiroModule
 {
     [TestClass]
-    [TestCategory("Domínio")]
+    [TestCategory("Domain")]
     public class ParceiroDominioTest
     {
         [TestMethod]

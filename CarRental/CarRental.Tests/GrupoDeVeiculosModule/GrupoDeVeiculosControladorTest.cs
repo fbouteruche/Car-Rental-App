@@ -10,6 +10,7 @@ using System.Collections.Generic;
 namespace CarRental.Tests.GrupoDeVeiculosModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class GrupoDeVeiculosControladorTest
     {
         ControladorGrupoDeVeiculos controlador = null;

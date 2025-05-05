@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 namespace CarRental.Tests.CupomModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class CupomControladorTest
     {
         ControladorCupom controlador = null;

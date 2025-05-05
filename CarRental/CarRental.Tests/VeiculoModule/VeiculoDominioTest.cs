@@ -5,6 +5,7 @@ using CarRental.Domain.VehicleModule;
 namespace CarRental.Tests.VeiculoModule
 {
     [TestClass]
+    [TestCategory("Domain")]
     public class VeiculoTest
     {
 

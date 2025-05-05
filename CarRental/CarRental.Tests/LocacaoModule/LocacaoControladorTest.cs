@@ -20,6 +20,7 @@ using System.Collections.Generic;
 namespace CarRental.Tests.LocacaoModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class LocacaoControladorTest
     {
         ControladorLocacao controlador = null;

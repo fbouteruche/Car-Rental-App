@@ -9,6 +9,7 @@ using System.Collections.Generic;
 namespace CarRental.Tests.SevicoModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class ServicosControladorTest
     {
         ControladorServico controlador = null;

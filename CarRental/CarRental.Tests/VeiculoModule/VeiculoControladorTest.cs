@@ -12,6 +12,7 @@ using CarRental.Tests.Shared;
 namespace CarRental.Tests.VeiculoModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class VeiculoControladorTest
     {
         ControladorVeiculo controlador = null;

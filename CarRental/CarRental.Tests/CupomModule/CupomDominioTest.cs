@@ -7,7 +7,7 @@ using System;
 namespace CarRental.Tests.CupomModule
 {
     [TestClass]
-    [TestCategory("Domínio")]
+    [TestCategory("Domain")]
     public class CupomDominioTest
     {
         Partner parceiro = new Partner(1, "Partner teste");

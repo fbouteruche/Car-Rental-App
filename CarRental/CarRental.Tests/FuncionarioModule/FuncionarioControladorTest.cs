@@ -8,6 +8,7 @@ using CarRental.Tests.Shared;
 namespace CarRental.Tests.FuncionarioModule
 {
     [TestClass]
+    [TestCategory("Controllers")]
     public class FuncionarioControladorTest
     {
         Employee funcionario;

@@ -5,7 +5,7 @@ using CarRental.Domain.CustomerModule;
 namespace CarRental.Tests.ClienteModule
 {
     [TestClass]
-    [TestCategory("Domínio")]
+    [TestCategory("Domain")]
     public class ClienteDominioTest
     {
         Customer cliente;
