@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using CarRental.Controllers.CouponModule;
-using CarRental.Controllers.ParceiroModule;
+using CarRental.Controllers.PartnerModule;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.CouponModule;
 using CarRental.Domain.PartnerModule;
@@ -19,13 +19,13 @@ namespace CarRental.Tests.CouponModule
     public class CouponControllerTest
     {
         CouponController controller = null;
-        ControladorParceiro partnerController = null;
+        PartnerController partnerController = null;
         Coupon coupon;
         Partner partner;
         public CouponControllerTest()
         {
             controller = new CouponController();
-            partnerController = new ControladorParceiro();
+            partnerController = new PartnerController();
             ResetarBanco.ResetarTabelas();            
         }
 

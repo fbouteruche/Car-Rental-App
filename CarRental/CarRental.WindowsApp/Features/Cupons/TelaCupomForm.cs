@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ParceiroModule;
+﻿using CarRental.Controllers.PartnerModule;
 using CarRental.Domain.CouponModule;
 using CarRental.Domain.PartnerModule;
 using System;
@@ -11,10 +11,10 @@ namespace CarRental.WindowsApp.Features.Cupons
     public partial class TelaCupomForm : Form
     {
         Coupon cupom;
-        ControladorParceiro controladorParceiro;
+        PartnerController controladorParceiro;
         public TelaCupomForm(string titulo)
         {
-            controladorParceiro = new ControladorParceiro();
+            controladorParceiro = new PartnerController();
             InitializeComponent();
             rBtnValorFixo.Checked = true;
             labelTitulo.Text = titulo;

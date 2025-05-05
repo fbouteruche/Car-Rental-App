@@ -27,7 +27,7 @@ using CarRental.Controllers.LocacaoModule;
 using CarRental.WindowsApp.Features.Devolucoes;
 using CarRental.WindowsApp.Features.Dashboards;
 using CarRental.WindowsApp.Features.Parceiros;
-using CarRental.Controllers.ParceiroModule;
+using CarRental.Controllers.PartnerModule;
 using CarRental.WindowsApp.Features.Cupons;
 using CarRental.Controllers.CouponModule;
 
@@ -165,7 +165,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesParceiro(new ControladorParceiro());
+            operacoes = new OperacoesParceiro(new PartnerController());
 
             ConfigurarPainelRegistros();
         }

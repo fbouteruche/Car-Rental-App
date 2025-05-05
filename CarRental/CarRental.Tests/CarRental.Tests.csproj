@@ -83,7 +83,7 @@
     <Compile Include="EmployeeModule\FuncionarioControladorTest.cs" />
     <Compile Include="RentalModule\RentalTest.cs" />
     <Compile Include="RentalModule\LocacaoControladorTest.cs" />
-    <Compile Include="PartnerModule\ParceiroControladorTest.cs" />
+    <Compile Include="PartnerModule\PartnerControllerTest.cs" />
     <Compile Include="PartnerModule\PartnerTest.cs" />
     <Compile Include="ServiceModule\ServicosControladorTest.cs" />
     <Compile Include="VehicleGroupModule\VehicleGroupTest.cs" />

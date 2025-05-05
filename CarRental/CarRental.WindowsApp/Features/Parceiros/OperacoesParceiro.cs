@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.ParceiroModule;
+﻿using CarRental.Controllers.PartnerModule;
 using CarRental.Domain.PartnerModule;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -9,10 +9,10 @@ namespace CarRental.WindowsApp.Features.Parceiros
 {
     public class OperacoesParceiro : ICadastravel
     {
-        private readonly ControladorParceiro controlador;
+        private readonly PartnerController controlador;
         private readonly TabelaParceiroControl tabela;
 
-        public OperacoesParceiro(ControladorParceiro controladorParceiro)
+        public OperacoesParceiro(PartnerController controladorParceiro)
         {
             controlador = controladorParceiro;
             tabela = new TabelaParceiroControl();
