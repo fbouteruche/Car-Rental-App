@@ -31,25 +31,25 @@ namespace CarRental.Tests.GrupoDeVeiculosModule
         }
 
         [TestMethod]
-        public void DeveApresentarErro_SomenteNomeCorreto()
+        public void ShouldShowError_OnlyNameCorrect()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"nome", 0f, 0f, 0f, 0, 0f, 0f);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "nome", 0f, 0f, 0f, 0, 0f, 0f);
 
-            string resultado = grupoDeVeiculos.Validate();
-            //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o model.
-            Assert.AreEqual("A taxa diaria do Plano Diário não pode ser nula\nA taxa por KM do Plano Diário não pode ser nula\nA taxa diária do Plano Controlado não pode ser nula\nO limite de KM do plano Controlado não pode ser nulo\nA taxa de KM Excedido do plano Controlado não pode ser nulo\nA taxa diária do do Plano Livre não pode ser nula\n",
-                            resultado);
+            string result = vehicleGroup.Validate();
+            //Tests with all invalid messages are complicated to maintain. Maybe we should change the model.
+            Assert.AreEqual("The daily rate for the Daily Plan cannot be null\nThe per KM rate for the Daily Plan cannot be null\nThe daily rate for the Controlled Plan cannot be null\nThe KM limit for the Controlled Plan cannot be null\nThe exceeded KM rate for the Controlled Plan cannot be null\nThe daily rate for the Unlimited Plan cannot be null\n",
+                            result);
         }
 
         [TestMethod]
-        public void DeveApresentarErro_SomenteNomeIncorreto()
+        public void ShouldShowError_OnlyNameIncorrect()
         {
-            VehicleGroup grupoDeVeiculos = new VehicleGroup(0,"", 10f, 10f, 10f, 10, 10f, 10f);
+            VehicleGroup vehicleGroup = new VehicleGroup(0, "", 10f, 10f, 10f, 10, 10f, 10f);
 
-            string resultado = grupoDeVeiculos.Validate();
+            string result = vehicleGroup.Validate();
 
-            Assert.AreEqual("O nome não pode ser nulo\n",
-                            resultado);
+            Assert.AreEqual("The name cannot be null\n",
+                            result);
         }
     }
 }
