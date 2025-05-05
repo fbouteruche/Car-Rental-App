@@ -15,7 +15,7 @@ namespace CarRental.Tests.VeiculoModule
     [TestCategory("Controllers")]
     public class VeiculoControladorTest
     {
-        VehiculeController controlador = null;
+        VehicleController controlador = null;
         ControladorGrupoDeVeiculos controladorGrupoDeVeiculos = null;        
         Vehicle novoVeiculo;
         VehicleGroup grupoVeiculos;
@@ -23,7 +23,7 @@ namespace CarRental.Tests.VeiculoModule
 
         public VeiculoControladorTest()
         {
-            controlador = new VehiculeController();
+            controlador = new VehicleController();
             controladorGrupoDeVeiculos = new ControladorGrupoDeVeiculos();
 
             ResetarBanco.ResetarTabelas();

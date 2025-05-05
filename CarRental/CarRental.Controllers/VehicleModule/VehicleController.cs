@@ -10,7 +10,7 @@ using System.Drawing;
 
 namespace CarRental.Controllers.VehicleModule
 {
-    public class VehiculeController : Controller<Vehicle>
+    public class VehicleController : Controller<Vehicle>
     {
         private VehicleImageController imageController = new VehicleImageController();
         #region queries
@@ -160,55 +160,55 @@ namespace CarRental.Controllers.VehicleModule
         private const string sqlVehicleTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
-        public override string InsertNew(Vehicle registro)
+        public override string InsertNew(Vehicle record)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = record.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (validationResult == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(registro));
-                if (registro.images != null)
+                record.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(record));
+                if (record.images != null)
                 {
-                    foreach (VehicleImage imagemVeiculo in registro.images)
+                    foreach (VehicleImage vehicleImage in record.images)
                     {
-                        imagemVeiculo.VehicleId = registro.Id;
-                        imageController.InsertNew(imagemVeiculo);
+                        vehicleImage.VehicleId = record.Id;
+                        imageController.InsertNew(vehicleImage);
                     }
                 }
             }
-            return resultadoValidacao;
+            return validationResult;
         }
         public override List<Vehicle> SelectAll()
         {
-            List<Vehicle>veiculos = Db.GetAll(sqlSelectAllVehicles, ConvertToVehicle);
+            List<Vehicle> vehicles = Db.GetAll(sqlSelectAllVehicles, ConvertToVehicle);
 
-            foreach (Vehicle veiculo in veiculos)
+            foreach (Vehicle vehicle in vehicles)
             {
-                veiculo.images = imageController.SelectAllImagesOfVehicle(veiculo.Id);
+                vehicle.images = imageController.SelectAllImagesOfVehicle(vehicle.Id);
             }
 
-            return veiculos;
+            return vehicles;
         }
         public override Vehicle SelectById(int id)
         {
-            Vehicle veiculo = Db.Get(sqlSelectVehicleById, ConvertToVehicle, AddParameter("ID", id));
-            veiculo.images = imageController.SelectAllImagesOfVehicle(id);
-            return veiculo;
+            Vehicle vehicle = Db.Get(sqlSelectVehicleById, ConvertToVehicle, AddParameter("ID", id));
+            vehicle.images = imageController.SelectAllImagesOfVehicle(id);
+            return vehicle;
         }
-        public override string Edit(int id, Vehicle registro)
+        public override string Edit(int id, Vehicle record)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = record.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (validationResult == "VALIDO")
             {
-                registro.Id = id;
-                Db.Update(sqlEditVehicle, GetVehicleParameters(registro));
-                foreach (VehicleImage imagem in registro.images)
-                    imagem.VehicleId = registro.Id;
-                imageController.EditList(registro.images);
+                record.Id = id;
+                Db.Update(sqlEditVehicle, GetVehicleParameters(record));
+                foreach (VehicleImage image in record.images)
+                    image.VehicleId = record.Id;
+                imageController.EditList(record.images);
             }
 
-            return resultadoValidacao;
+            return validationResult;
         }
         public override bool Delete(int id)
         {
@@ -229,68 +229,68 @@ namespace CarRental.Controllers.VehicleModule
             return Db.Exists(sqlVehicleExists, AddParameter("ID", id));
         }
 
-        private Dictionary<string, object> GetVehicleParameters(Vehicle veiculo)
+        private Dictionary<string, object> GetVehicleParameters(Vehicle vehicle)
         {
-            var parametros = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>();
 
-            parametros.Add("ID", veiculo.Id);
-            parametros.Add("MODELO", veiculo.model);
-            parametros.Add("ID_GRUPOVEICULO", veiculo.vehicleGroup.Id);
-            parametros.Add("PLACA", veiculo.licensePlate);
-            parametros.Add("CHASSI", veiculo.chassis);
-            parametros.Add("MARCA", veiculo.brand);
-            parametros.Add("COR", veiculo.color);
-            parametros.Add("TIPOCOMBUSTIVEL", veiculo.fuelType);
-            parametros.Add("CAPACIDADETANQUE", veiculo.tankCapacity);
-            parametros.Add("ANO", veiculo.year);
-            parametros.Add("KILOMETRAGEM", veiculo.mileage);
-            parametros.Add("NUMEROPORTAS", veiculo.numberOfDoors);
-            parametros.Add("CAPACIDADEPESSOAS", veiculo.passengerCapacity);
-            parametros.Add("TAMANHOPORTAMALA", veiculo.trunkSize);
-            parametros.Add("TEMARCONDICIONADO", veiculo.hasAirConditioning);
-            parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.hasPowerSteering);
-            parametros.Add("TEMFREIOSABS", veiculo.hasAbsBrakes);
-            parametros.Add("ESTAALUGADO", veiculo.isRented);
+            parameters.Add("ID", vehicle.Id);
+            parameters.Add("MODELO", vehicle.model);
+            parameters.Add("ID_GRUPOVEICULO", vehicle.vehicleGroup.Id);
+            parameters.Add("PLACA", vehicle.licensePlate);
+            parameters.Add("CHASSI", vehicle.chassis);
+            parameters.Add("MARCA", vehicle.brand);
+            parameters.Add("COR", vehicle.color);
+            parameters.Add("TIPOCOMBUSTIVEL", vehicle.fuelType);
+            parameters.Add("CAPACIDADETANQUE", vehicle.tankCapacity);
+            parameters.Add("ANO", vehicle.year);
+            parameters.Add("KILOMETRAGEM", vehicle.mileage);
+            parameters.Add("NUMEROPORTAS", vehicle.numberOfDoors);
+            parameters.Add("CAPACIDADEPESSOAS", vehicle.passengerCapacity);
+            parameters.Add("TAMANHOPORTAMALA", vehicle.trunkSize);
+            parameters.Add("TEMARCONDICIONADO", vehicle.hasAirConditioning);
+            parameters.Add("TEMDIRECAOHIDRAULICA", vehicle.hasPowerSteering);
+            parameters.Add("TEMFREIOSABS", vehicle.hasAbsBrakes);
+            parameters.Add("ESTAALUGADO", vehicle.isRented);
 
-            return parametros;
+            return parameters;
         }
 
         private Vehicle ConvertToVehicle(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
-            var modelo = Convert.ToString(reader["MODELO"]);
-            var id_grupoveiculo = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
-            var placa = Convert.ToString(reader["PLACA"]);
-            var chassi = Convert.ToString(reader["CHASSI"]);
-            var marca = Convert.ToString(reader["MARCA"]);
-            var cor = Convert.ToString(reader["COR"]);
-            var tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
-            var capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
-            var ano = Convert.ToInt32(reader["ANO"]);
-            var quilometragem = Convert.ToDouble(reader["KILOMETRAGEM"]);
-            var numeroPortas = Convert.ToInt32(reader["NUMEROPORTAS"]);
-            var capacidadePessoas = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
-            var tamanhoPortaMala = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
-            var temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
-            var temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
-            var temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
-            var estaAlugado = Convert.ToBoolean(reader["ESTAALUGADO"]);
+            var model = Convert.ToString(reader["MODELO"]);
+            var vehicleGroupId = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
+            var licensePlate = Convert.ToString(reader["PLACA"]);
+            var chassis = Convert.ToString(reader["CHASSI"]);
+            var brand = Convert.ToString(reader["MARCA"]);
+            var color = Convert.ToString(reader["COR"]);
+            var fuelType = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
+            var tankCapacity = Convert.ToDouble(reader["capacidadeTanque"]);
+            var year = Convert.ToInt32(reader["ANO"]);
+            var mileage = Convert.ToDouble(reader["KILOMETRAGEM"]);
+            var numberOfDoors = Convert.ToInt32(reader["NUMEROPORTAS"]);
+            var passengerCapacity = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
+            var trunkSize = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
+            var hasAirConditioning = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
+            var hasPowerSteering = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
+            var hasAbsBrakes = Convert.ToBoolean(reader["TEMFREIOSABS"]);
+            var isRented = Convert.ToBoolean(reader["ESTAALUGADO"]);
 
-            string nome = Convert.ToString(reader["NOME"]); ;
-            double taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            double taxaPorKmDiario = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
-            double taxaPlanoControlado = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
-            int limiteKmControlado = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
-            double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
-            double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
+            string name = Convert.ToString(reader["NOME"]);
+            double dailyPlanRate = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            double dailyPerKmRate = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
+            double controlledPlanRate = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
+            int controlledKmLimit = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
+            double controlledExceededKmRate = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
+            double unlimitedPlanRate = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            VehicleGroup grupo = new VehicleGroup(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
+            VehicleGroup group = new VehicleGroup(vehicleGroupId, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate, controlledKmLimit, controlledExceededKmRate, unlimitedPlanRate);
 
-            Vehicle veiculo = new Vehicle(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
+            Vehicle vehicle = new Vehicle(id, model, group, licensePlate, chassis, brand, color, fuelType, tankCapacity, year, mileage, numberOfDoors, passengerCapacity, trunkSize, hasAirConditioning, hasPowerSteering, hasAbsBrakes, isRented, null);
 
-            veiculo.Id = id;
+            vehicle.Id = id;
 
-            return veiculo;
+            return vehicle;
         }
         private int ConvertData(IDataReader reader)
         {

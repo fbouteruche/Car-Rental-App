@@ -54,7 +54,7 @@
     <Compile Include="VehicleGroupModule\ControladorGrupoDeVeiculos.cs" />
     <Compile Include="Shared\Controller.cs" />
     <Compile Include="Shared\Db.cs" />
-    <Compile Include="VehicleModule\VehiculeController.cs" />
+    <Compile Include="VehicleModule\VehicleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

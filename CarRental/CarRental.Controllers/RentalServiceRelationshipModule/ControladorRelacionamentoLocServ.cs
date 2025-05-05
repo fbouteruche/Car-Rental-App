@@ -21,7 +21,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
     {
         private int id = 0;
         ControladorServico controladorServico = new ControladorServico();
-        RentalController controladorLocacao = new RentalController(new VehiculeController(), new ControladorFuncionario(), new CustomerController(), new ControladorServico(), new CouponController());
+        RentalController controladorLocacao = new RentalController(new VehicleController(), new ControladorFuncionario(), new CustomerController(), new ControladorServico(), new CouponController());
         #region queries Relacionamento
         private const string sqlInserirRelacao =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]

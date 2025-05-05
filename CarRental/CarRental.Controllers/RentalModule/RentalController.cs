@@ -21,13 +21,13 @@ namespace CarRental.Controllers.RentalModule
 {
     public class RentalController : Controller<Rental>
     {
-        private VehiculeController controladorVeiculo = null;
+        private VehicleController controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
         private CustomerController controladorCliente = null;
         private ControladorServico controladorServico = null;
         private CouponController controladorCupom = new CouponController();
 
-        public RentalController(VehiculeController controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ControladorServico controladorServico, CouponController controladorCupom)
+        public RentalController(VehicleController controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ControladorServico controladorServico, CouponController controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;
