@@ -89,7 +89,7 @@ namespace CarRental.WindowsApp.ClientesModule
             string resultadoValidacao = cliente.Validate();
 
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string erro = new StringReader(resultadoValidacao).ReadLine();
 

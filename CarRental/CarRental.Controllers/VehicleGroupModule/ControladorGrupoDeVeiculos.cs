@@ -70,7 +70,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
             }
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
             {
                 registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
             }
@@ -89,7 +89,7 @@ namespace CarRental.Controllers.GrupoDeVeiculosModule
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
             }
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));

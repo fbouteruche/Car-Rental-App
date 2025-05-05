@@ -70,7 +70,7 @@ namespace CarRental.WindowsApp.GrupoDeVeiculos
 
             string resultadoValidacao = grupoDeVeiculos.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string erro = new StringReader(resultadoValidacao).ReadLine();
 

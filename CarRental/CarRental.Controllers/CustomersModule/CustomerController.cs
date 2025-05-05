@@ -81,7 +81,7 @@ namespace CarRental.Controllers.CustomersModule
         {
             string validationResult = record.Validate();
 
-            if (validationResult == "VALIDO")
+            if (validationResult == "VALID")
             {
                 record.Id = id;
                 Db.Update(sqlEditCustomers, GetCustomerParameters(record));

@@ -90,7 +90,7 @@
     <Compile Include="VehicleGroupModule\GrupoDeVeiculosControladorTest.cs" />
     <Compile Include="ServiceModule\Service.cs" />
     <Compile Include="Shared\ResetarBanco.cs" />
-    <Compile Include="VehicleModule\VeiculoControladorTest.cs" />
+    <Compile Include="VehicleModule\VehicleControllerTest.cs" />
     <Compile Include="VehicleModule\VehicleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

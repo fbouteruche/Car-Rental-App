@@ -122,7 +122,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             controladorVeiculo.Edit(locacao.Vehicle.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);

@@ -97,7 +97,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             string resultadoValidacao = cupom.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 

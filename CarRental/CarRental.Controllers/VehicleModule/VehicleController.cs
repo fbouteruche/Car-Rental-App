@@ -164,7 +164,7 @@ namespace CarRental.Controllers.VehicleModule
         {
             string validationResult = vehicle.Validate();
 
-            if (validationResult == "VALIDO")
+            if (validationResult == "VALID")
             {
                 vehicle.Id = Db.Insert(sqlInsertVehicle, GetVehicleParameters(vehicle));
                 if (vehicle.images != null)
@@ -199,7 +199,7 @@ namespace CarRental.Controllers.VehicleModule
         {
             string validationResult = vehicle.Validate();
 
-            if (validationResult == "VALIDO")
+            if (validationResult == "VALID")
             {
                 vehicle.Id = id;
                 Db.Update(sqlEditVehicle, GetVehicleParameters(vehicle));

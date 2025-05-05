@@ -84,7 +84,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 foreach (Service servico in registro.Services)
                 {
                     id = servico.Id;

@@ -82,7 +82,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                 controladorVeiculo.Edit(devolucao.Vehicle.Id, veiculoAtualizado);
 
 
-                if (resultadoValidacao != "VALIDO")
+                if (resultadoValidacao != "VALID")
                 {
                     string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);

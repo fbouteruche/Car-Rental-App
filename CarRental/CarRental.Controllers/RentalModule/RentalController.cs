@@ -110,7 +110,7 @@ namespace CarRental.Controllers.RentalModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
 
             return resultadoValidacao;
@@ -139,7 +139,7 @@ namespace CarRental.Controllers.RentalModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));

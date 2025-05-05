@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Funcionarios
 
             string resultadoValidacao = funcionario.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);

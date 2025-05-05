@@ -38,7 +38,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             {
                 string resultadoLocacao = controlador.InsertNew(tela.Locacao);
 
-                if (resultadoLocacao == "VALIDO")
+                if (resultadoLocacao == "VALID")
                 {
                     relacionamento = new RentalServiceRelationship(0, tela.Locacao, tela.Servicos);
                     controladorRelacionamento.InsertNew(relacionamento);

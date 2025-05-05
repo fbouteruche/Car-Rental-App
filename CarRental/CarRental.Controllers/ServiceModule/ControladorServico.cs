@@ -69,7 +69,7 @@ namespace CarRental.Controllers.ServicoModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 registro.Id = Db.Insert(sqlInserirServico, ObtemParametrosServico(registro));
 
             return resultadoValidacao;
@@ -86,7 +86,7 @@ namespace CarRental.Controllers.ServicoModule
         {
             string resultadoValidacao = registro.Validate();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarServico, ObtemParametrosServico(registro));

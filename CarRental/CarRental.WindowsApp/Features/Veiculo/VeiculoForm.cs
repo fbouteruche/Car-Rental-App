@@ -100,7 +100,7 @@ namespace CarRental.WindowsApp.Veiculos
 
             string resultadoValidacao = veiculo.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 

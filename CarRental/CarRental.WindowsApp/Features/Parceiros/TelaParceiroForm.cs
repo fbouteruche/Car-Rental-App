@@ -36,7 +36,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             string resultadoValidacao = parceiro.Validate();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
