@@ -17,9 +17,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controllers.LocacaoModule
+namespace CarRental.Controllers.RentalModule
 {
-    public class ControladorLocacao : Controller<Rental>
+    public class RentalController : Controller<Rental>
     {
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
@@ -27,7 +27,7 @@ namespace CarRental.Controllers.LocacaoModule
         private ControladorServico controladorServico = null;
         private CouponController controladorCupom = new CouponController();
 
-        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ControladorServico controladorServico, CouponController controladorCupom)
+        public RentalController(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ControladorServico controladorServico, CouponController controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;

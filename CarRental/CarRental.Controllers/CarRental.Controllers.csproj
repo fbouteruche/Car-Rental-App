@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="CupomModule\CouponController.cs" />
     <Compile Include="EmployeeModule\ControladorFuncionario.cs" />
-    <Compile Include="VehicleImageModule\ControladorImagemVeiculo.cs" />
-    <Compile Include="RentalModule\ControladorLocacao.cs" />
+    <Compile Include="VehicleImageModule\VehicleImageController.cs" />
+    <Compile Include="RentalModule\RentalController.cs" />
     <Compile Include="PartnerModule\PartnerController.cs" />
     <Compile Include="RentalServiceRelationshipModule\ControladorRelacionamentoLocServ.cs" />
     <Compile Include="ServiceModule\ControladorServico.cs" />

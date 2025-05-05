@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.LocacaoModule;
+﻿using CarRental.Controllers.RentalModule;
 using CarRental.Domain.RentalModule;
 using CarRental.WindowsApp.Shared;
 using System;
@@ -9,9 +9,9 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 {
     public class OperacoesDevolucao : ICadastravel
     {
-        private readonly ControladorLocacao controlador = null;
+        private readonly RentalController controlador = null;
         private readonly TabelaDevolucaoControl tabelaDevolucao = null;
-        public OperacoesDevolucao(ControladorLocacao ctrlDevolucao)
+        public OperacoesDevolucao(RentalController ctrlDevolucao)
         {
             controlador = ctrlDevolucao;
             tabelaDevolucao = new TabelaDevolucaoControl();

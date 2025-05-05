@@ -1,7 +1,7 @@
 ﻿using CarRental.Controllers.Shared;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.VehicleImageModule;
-using CarRental.Controllers.ImagemVeiculoModule;
+using CarRental.Controllers.VehicleImageModule;
 using CarRental.Domain.VehicleModule;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace CarRental.Controllers.VeiculoModule
 {
     public class ControladorVeiculo : Controller<Vehicle>
     {
-        private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
+        private VehicleImageController controladorImagem = new VehicleImageController();
         #region queries
         private const string sqlInserirVeiculo =
             @"INSERT INTO TBVEICULO
@@ -184,7 +184,7 @@ namespace CarRental.Controllers.VeiculoModule
 
             foreach (Vehicle veiculo in veiculos)
             {
-                veiculo.images = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+                veiculo.images = controladorImagem.SelectAllImagesOfVehicle(veiculo.Id);
             }
 
             return veiculos;
@@ -192,7 +192,7 @@ namespace CarRental.Controllers.VeiculoModule
         public override Vehicle SelectById(int id)
         {
             Vehicle veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AddParameter("ID", id));
-            veiculo.images = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
+            veiculo.images = controladorImagem.SelectAllImagesOfVehicle(id);
             return veiculo;
         }
         public override string Edit(int id, Vehicle registro)
@@ -205,7 +205,7 @@ namespace CarRental.Controllers.VeiculoModule
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
                 foreach (VehicleImage imagem in registro.images)
                     imagem.VehicleId = registro.Id;
-                controladorImagem.EditarLista(registro.images);
+                controladorImagem.EditList(registro.images);
             }
 
             return resultadoValidacao;
