@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Domain.VehicleGroupModule;
-using CarRental.WindowsApp.GrupoDeVeiculos;
+using CarRental.WindowsApp.Features.VehicleGroups;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
