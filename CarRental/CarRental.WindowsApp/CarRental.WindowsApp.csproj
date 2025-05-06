@@ -49,19 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\Customers\ClientesForm.cs">
+    <Compile Include="Features\Customers\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Customers\ClientesForm.Designer.cs">
-      <DependentUpon>ClientesForm.cs</DependentUpon>
+    <Compile Include="Features\Customers\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Customers\ConfiguracaoClienteToolBox.cs" />
-    <Compile Include="Features\Customers\OperacoesClientes.cs" />
-    <Compile Include="Features\Customers\TabelaClientesControl.cs">
+    <Compile Include="Features\Customers\CustomerConfigurationToolBox.cs" />
+    <Compile Include="Features\Customers\CustomerOperation.cs" />
+    <Compile Include="Features\Customers\CustomerTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Customers\TabelaClientesControl.Designer.cs">
-      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    <Compile Include="Features\Customers\CustomerTableControl.Designer.cs">
+      <DependentUpon>CustomerTableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Coupons\CouponConfigurationToolBox.cs" />
     <Compile Include="Features\Coupons\CouponOperations.cs" />
@@ -224,11 +224,11 @@
     <Compile Include="Features\Vehicle\VeiculoForm.Designer.cs">
       <DependentUpon>VeiculoForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Features\Customers\ClientesForm.resx">
-      <DependentUpon>ClientesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Customers\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Customers\TabelaClientesControl.resx">
-      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Customers\CustomerTableControl.resx">
+      <DependentUpon>CustomerTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Coupons\CouponTableControl.resx">
       <DependentUpon>CouponTableControl.cs</DependentUpon>

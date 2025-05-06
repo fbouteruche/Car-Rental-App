@@ -1,4 +1,26 @@
-﻿using System;
+﻿using CarRental.Controllers.CouponModule;
+using CarRental.Controllers.CustomersModule;
+using CarRental.Controllers.EmployeeModule;
+using CarRental.Controllers.PartnerModule;
+using CarRental.Controllers.RentalModule;
+using CarRental.Controllers.ServiceModule;
+using CarRental.Controllers.VehicleGroupModule;
+using CarRental.Controllers.VehicleModule;
+using CarRental.Domain.EmployeeModule;
+using CarRental.WindowsApp.CustomerModule;
+using CarRental.WindowsApp.Features.Coupons;
+using CarRental.WindowsApp.Features.Customers;
+using CarRental.WindowsApp.Features.Dashboards;
+using CarRental.WindowsApp.Features.Devolucoes;
+using CarRental.WindowsApp.Features.Funcionarios;
+using CarRental.WindowsApp.Features.GrupoDeVeiculos;
+using CarRental.WindowsApp.Features.Locacoes;
+using CarRental.WindowsApp.Features.Parceiros;
+using CarRental.WindowsApp.Features.Servicos;
+using CarRental.WindowsApp.Features.Veiculos;
+using CarRental.WindowsApp.Funcionarios;
+using CarRental.WindowsApp.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,29 +29,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.WindowsApp.Clientes;
-using CarRental.WindowsApp.Funcionarios;
-using CarRental.WindowsApp.ClientesModule;
-using CarRental.Domain.EmployeeModule;
-using CarRental.Controllers.EmployeeModule;
-using CarRental.WindowsApp.Shared;
-using CarRental.WindowsApp.Features.Funcionarios;
-using CarRental.WindowsApp.Features.Servicos;
-using CarRental.Controllers.ServiceModule;
-using CarRental.WindowsApp.Features.Clientes;
-using CarRental.Controllers.CustomersModule;
-using CarRental.WindowsApp.Features.Veiculos;
-using CarRental.Controllers.VehicleModule;
-using CarRental.WindowsApp.Features.GrupoDeVeiculos;
-using CarRental.Controllers.VehicleGroupModule;
-using CarRental.WindowsApp.Features.Locacoes;
-using CarRental.Controllers.RentalModule;
-using CarRental.WindowsApp.Features.Devolucoes;
-using CarRental.WindowsApp.Features.Dashboards;
-using CarRental.WindowsApp.Features.Parceiros;
-using CarRental.Controllers.PartnerModule;
-using CarRental.WindowsApp.Features.Coupons;
-using CarRental.Controllers.CouponModule;
 
 namespace CarRental.WindowsApp
 {
@@ -76,14 +75,14 @@ namespace CarRental.WindowsApp
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
+            CustomerConfigurationToolBox configuracao = new CustomerConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesClientes(new CustomerController());
+            operacoes = new CustomerOperation(new CustomerController());
 
             ConfigurarPainelRegistros();
         }

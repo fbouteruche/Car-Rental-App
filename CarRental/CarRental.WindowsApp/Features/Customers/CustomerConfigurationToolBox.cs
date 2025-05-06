@@ -5,32 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.WindowsApp.Features.Clientes
+namespace CarRental.WindowsApp.CustomerModule
 {
-    public class ConfiguracaoClienteToolBox : IConfigurationToolBox
+    public class CustomerConfigurationToolBox : IConfigurationToolBox
     {
-
-
         public string RegistrationType
         {
-            get { return "Cadastro de Clientes"; }
+            get { return "Customer Registration"; }
         }
 
         public string AddToolTip
         {
-            get { return "Adicionar um novo Customer"; }
+            get { return "Add a new Customer"; }
         }
 
         public string EditToolTip
         {
-            get { return "Edit um Customer existente"; }
+            get { return "Edit an existing Customer"; }
         }
 
         public string DeleteToolTip
         {
-            get { return "Delete um Customer existente"; }
+            get { return "Delete an existing Customer"; }
         }
-
-
     }
 }
