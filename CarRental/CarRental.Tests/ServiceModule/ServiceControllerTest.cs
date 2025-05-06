@@ -17,7 +17,7 @@ namespace CarRental.Tests.ServiceModule
         public ServiceControllerTests()
         {
             controller = new ServiceController();
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
         [TestMethod]
         public void ShouldInsertAService()

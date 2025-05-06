@@ -46,7 +46,7 @@ namespace CarRental.Tests.LocacaoModule
             controladorServico = new ServiceController();
             controladorCupom = new CouponController();
             controlador = new RentalController(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
 
         [TestMethod]

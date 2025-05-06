@@ -21,7 +21,7 @@ namespace CarRental.Tests.PartnerModule
         public PartnerControllerTest()
         {
             controller = new PartnerController();
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
 
         [TestMethod]

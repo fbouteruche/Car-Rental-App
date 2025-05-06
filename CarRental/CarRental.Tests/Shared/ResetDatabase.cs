@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CarRental.Tests.Shared
 {
-    public static class ResetarBanco
+    public static class ResetDatabase
     {    
-        public static void ResetarTabelas()
+        public static void ResetAllTables()
         {
             Db.Update("DELETE [TBSERVICO_LOCACAO]");
             Db.Update("DELETE [TBLOCACAO]");

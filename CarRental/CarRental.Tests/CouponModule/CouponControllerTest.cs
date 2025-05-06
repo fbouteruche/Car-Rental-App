@@ -26,7 +26,7 @@ namespace CarRental.Tests.CouponModule
         {
             controller = new CouponController();
             partnerController = new PartnerController();
-            ResetarBanco.ResetarTabelas();            
+            ResetDatabase.ResetAllTables();            
         }
 
         [TestMethod]

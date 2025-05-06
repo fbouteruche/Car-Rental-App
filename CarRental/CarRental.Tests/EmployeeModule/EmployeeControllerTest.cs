@@ -18,7 +18,7 @@ namespace CarRental.Tests.EmployeeModule
         public EmployeeControllerTest()
         {
             controller = new EmployeeController();
-            ResetarBanco.ResetarTabelas(); // Consider renaming ResetarBanco to ResetDatabase in the shared test utilities
+            ResetDatabase.ResetAllTables(); // Consider renaming ResetarBanco to ResetDatabase in the shared test utilities
         }
 
         [TestMethod]

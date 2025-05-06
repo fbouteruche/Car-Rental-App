@@ -18,7 +18,7 @@ namespace CarRental.Tests.VehicleGroupModule
         public VehicleGroupControllerTests()
         {
             controller = new VehicleGroupController();
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
 
         [TestMethod]

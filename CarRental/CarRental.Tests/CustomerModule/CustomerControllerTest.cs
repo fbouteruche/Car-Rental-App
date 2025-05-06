@@ -17,7 +17,7 @@ namespace CarRental.Tests.CustomerModule
         public CustomerControllerTest()
         {
             controller = new CustomerController();
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
         [TestMethod]
         public void ShouldInsert_NewCustomer()
@@ -78,7 +78,7 @@ namespace CarRental.Tests.CustomerModule
             customers.Should().HaveCount(2);
             customers[0].Name.Should().Be("Test Name");
             customers[1].Name.Should().Be("Test Name");
-            ResetarBanco.ResetarTabelas();
+            ResetDatabase.ResetAllTables();
         }
 
         [TestMethod]
