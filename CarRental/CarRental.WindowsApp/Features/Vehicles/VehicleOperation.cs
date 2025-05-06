@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.VehicleModule;
 using CarRental.WindowsApp.Shared;
-using CarRental.WindowsApp.Vehicles;
+using CarRental.WindowsApp.Features.Vehicles;
 using CarRental.Domain.VehicleModule;
 using CarRental.Domain.VehicleImageModule;
 using System.Collections.Generic;

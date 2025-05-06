@@ -1,4 +1,4 @@
-﻿namespace CarRental.WindowsApp.Vehicles
+﻿namespace CarRental.WindowsApp.Features.Vehicles
 {
     partial class VehicleForm
     {

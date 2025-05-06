@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.WindowsApp.Vehicles;
+using CarRental.WindowsApp.Features.Vehicles;
 using CarRental.Domain.VehicleImageModule;
 
-namespace CarRental.WindowsApp.Features.VehicleImage
+namespace CarRental.WindowsApp.Features.VehicleImages
 {
     public partial class VehicleImageForm : Form
     {

@@ -120,24 +120,24 @@
     <Compile Include="Features\Employees\EmployeeTableControl.Designer.cs">
       <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleGroup\VehicleGroupConfigurationToolBox.cs" />
-    <Compile Include="Features\VehicleGroup\VehicleGroupOperation.cs" />
-    <Compile Include="Features\VehicleGroup\VehicleGroupForm.cs">
+    <Compile Include="Features\VehicleGroups\VehicleGroupConfigurationToolBox.cs" />
+    <Compile Include="Features\VehicleGroups\VehicleGroupOperation.cs" />
+    <Compile Include="Features\VehicleGroups\VehicleGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\VehicleGroup\VehicleGroupForm.Designer.cs">
+    <Compile Include="Features\VehicleGroups\VehicleGroupForm.Designer.cs">
       <DependentUpon>VehicleGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleGroup\VehicleGroupTableControl.cs">
+    <Compile Include="Features\VehicleGroups\VehicleGroupTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\VehicleGroup\VehicleGroupTableControl.Designer.cs">
+    <Compile Include="Features\VehicleGroups\VehicleGroupTableControl.Designer.cs">
       <DependentUpon>VehicleGroupTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleImage\VehicleImageForm.cs">
+    <Compile Include="Features\VehicleImages\VehicleImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\VehicleImage\VehicleImageForm.Designer.cs">
+    <Compile Include="Features\VehicleImages\VehicleImageForm.Designer.cs">
       <DependentUpon>VehicleImageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Rental\RentalConfigurationToolBox.cs" />
@@ -194,12 +194,12 @@
     <Compile Include="Features\Services\ServiceSelectionForm.Designer.cs">
       <DependentUpon>ServiceSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Vehicle\VehicleConfigurationToolBox.cs" />
-    <Compile Include="Features\Vehicle\VehicleOperation.cs" />
-    <Compile Include="Features\Vehicle\VehicleTableControl.cs">
+    <Compile Include="Features\Vehicles\VehicleConfigurationToolBox.cs" />
+    <Compile Include="Features\Vehicles\VehicleOperation.cs" />
+    <Compile Include="Features\Vehicles\VehicleTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Vehicle\VehicleTableControl.Designer.cs">
+    <Compile Include="Features\Vehicles\VehicleTableControl.Designer.cs">
       <DependentUpon>VehicleTableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -218,10 +218,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Features\Vehicle\VehicleForm.cs">
+    <Compile Include="Features\Vehicles\VehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Vehicle\VehicleForm.Designer.cs">
+    <Compile Include="Features\Vehicles\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Features\Customers\CustomerForm.resx">
@@ -257,13 +257,13 @@
     <EmbeddedResource Include="Features\Employees\EmployeeTableControl.resx">
       <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleGroup\VehicleGroupForm.resx">
+    <EmbeddedResource Include="Features\VehicleGroups\VehicleGroupForm.resx">
       <DependentUpon>VehicleGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleGroup\VehicleGroupTableControl.resx">
+    <EmbeddedResource Include="Features\VehicleGroups\VehicleGroupTableControl.resx">
       <DependentUpon>VehicleGroupTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleImage\VehicleImageForm.resx">
+    <EmbeddedResource Include="Features\VehicleImages\VehicleImageForm.resx">
       <DependentUpon>VehicleImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Rental\RentalTableControl.resx">
@@ -293,7 +293,7 @@
       <DependentUpon>ServiceForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Vehicle\VehicleTableControl.resx">
+    <EmbeddedResource Include="Features\Vehicles\VehicleTableControl.resx">
       <DependentUpon>VehicleTableControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -310,7 +310,7 @@
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Vehicle\VehicleForm.resx">
+    <EmbeddedResource Include="Features\Vehicles\VehicleForm.resx">
       <DependentUpon>VehicleForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

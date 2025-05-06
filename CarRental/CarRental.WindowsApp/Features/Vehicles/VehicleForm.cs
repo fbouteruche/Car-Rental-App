@@ -5,11 +5,11 @@ using System.Windows.Forms;
 using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.VehicleImageModule;
-using CarRental.WindowsApp.Features.VehicleImage;
+using CarRental.WindowsApp.Features.VehicleImages;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace CarRental.WindowsApp.Vehicles
+namespace CarRental.WindowsApp.Features.Vehicles
 {
     public partial class VehicleForm : Form
     {

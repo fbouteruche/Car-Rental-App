@@ -1,5 +1,5 @@
 ﻿
-namespace CarRental.WindowsApp.Features.VehicleImage
+namespace CarRental.WindowsApp.Features.VehicleImages
 {
     partial class VehicleImageForm
     {
