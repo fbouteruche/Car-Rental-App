@@ -11,11 +11,11 @@ namespace CarRental.WindowsApp.Features.Dashboards
     {
         public string AddToolTip
         {
-            get { return "Adicionar"; }
+            get { return "Add"; }
         }
         public string RegistrationType
         {
-            get { return "DashBoard"; }
+            get { return "Dashboard"; }
         }
 
         public string EditToolTip

@@ -1,7 +1,6 @@
-﻿
-namespace CarRental.WindowsApp.Features.Dashboards
+﻿namespace CarRental.WindowsApp.Features.Dashboards
 {
-    partial class DashControl
+    partial class DashboardControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -30,55 +29,55 @@ namespace CarRental.WindowsApp.Features.Dashboards
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lbServicos = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbCarTotal = new System.Windows.Forms.Label();
-            this.lbCarDisp = new System.Windows.Forms.Label();
-            this.lbCarInd = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbCarrosAlugados = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lbRetornam7 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.lbRetornoHJ = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lbClientesTotal = new System.Windows.Forms.Label();
-            this.lbClientesPF = new System.Windows.Forms.Label();
-            this.lbClientesPJ = new System.Windows.Forms.Label();
+            this.groupBoxServices = new System.Windows.Forms.GroupBox();
+            this.pictureBoxServices = new System.Windows.Forms.PictureBox();
+            this.lblTotalServicesText = new System.Windows.Forms.Label();
+            this.lblTotalServices = new System.Windows.Forms.Label();
+            this.groupBoxVehicles = new System.Windows.Forms.GroupBox();
+            this.pictureBoxCarKey = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCar2 = new System.Windows.Forms.PictureBox();
+            this.lblUnavailableCarsText = new System.Windows.Forms.Label();
+            this.lblTotalCars = new System.Windows.Forms.Label();
+            this.lblAvailableCars = new System.Windows.Forms.Label();
+            this.lblUnavailableCars = new System.Windows.Forms.Label();
+            this.lblAvailableCarsText = new System.Windows.Forms.Label();
+            this.lblTotalCarsText = new System.Windows.Forms.Label();
+            this.pictureBoxCar = new System.Windows.Forms.PictureBox();
+            this.groupBoxRentals = new System.Windows.Forms.GroupBox();
+            this.lblRentedCars = new System.Windows.Forms.Label();
+            this.lblReturnsIn7DaysText = new System.Windows.Forms.Label();
+            this.lblReturnsIn7Days = new System.Windows.Forms.Label();
+            this.pictureBoxCalendar = new System.Windows.Forms.PictureBox();
+            this.lblReturnsTodayText = new System.Windows.Forms.Label();
+            this.pictureBoxRental = new System.Windows.Forms.PictureBox();
+            this.lblReturnsToday = new System.Windows.Forms.Label();
+            this.lblRentedCarsText = new System.Windows.Forms.Label();
+            this.pictureBoxToday = new System.Windows.Forms.PictureBox();
+            this.groupBoxCustomers = new System.Windows.Forms.GroupBox();
+            this.pictureBoxCompany = new System.Windows.Forms.PictureBox();
+            this.pictureBoxConference = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCustomer = new System.Windows.Forms.PictureBox();
+            this.lblTotalCustomersText = new System.Windows.Forms.Label();
+            this.lblCompanyCustomersText = new System.Windows.Forms.Label();
+            this.lblIndividualCustomersText = new System.Windows.Forms.Label();
+            this.lblTotalCustomers = new System.Windows.Forms.Label();
+            this.lblIndividualCustomers = new System.Windows.Forms.Label();
+            this.lblCompanyCustomers = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBoxServices.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxServices)).BeginInit();
+            this.groupBoxVehicles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCarKey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).BeginInit();
+            this.groupBoxRentals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCalendar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRental)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxToday)).BeginInit();
+            this.groupBoxCustomers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConference)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,10 +85,10 @@ namespace CarRental.WindowsApp.Features.Dashboards
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxCustomers, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxRentals, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxVehicles, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxServices, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -99,440 +98,440 @@ namespace CarRental.WindowsApp.Features.Dashboards
             this.tableLayoutPanel1.Size = new System.Drawing.Size(774, 474);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.Color.White;
-            this.groupBox4.Controls.Add(this.lbServicos);
-            this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.pictureBox10);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(390, 240);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(381, 231);
-            this.groupBox4.TabIndex = 25;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Serviços";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox10.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_serviços_100;
-            this.pictureBox10.Location = new System.Drawing.Point(149, 88);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 24;
-            this.pictureBox10.TabStop = false;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(134, 72);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(103, 13);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "Serviços no total";
-            // 
-            // lbServicos
-            // 
-            this.lbServicos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbServicos.AutoSize = true;
-            this.lbServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbServicos.Location = new System.Drawing.Point(176, 163);
-            this.lbServicos.Name = "lbServicos";
-            this.lbServicos.Size = new System.Drawing.Size(14, 13);
-            this.lbServicos.TabIndex = 26;
-            this.lbServicos.Text = "0";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.lbCarInd);
-            this.groupBox1.Controls.Add(this.lbCarDisp);
-            this.groupBox1.Controls.Add(this.lbCarTotal);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 231);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Veículos";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::CarRental.WindowsApp.Properties.Resources.carKey;
-            this.pictureBox1.Location = new System.Drawing.Point(277, 86);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Image = global::CarRental.WindowsApp.Properties.Resources.car2;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(252, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Carros indisponíveis";
-            // 
-            // lbCarTotal
-            // 
-            this.lbCarTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCarTotal.AutoSize = true;
-            this.lbCarTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarTotal.Location = new System.Drawing.Point(183, 161);
-            this.lbCarTotal.Name = "lbCarTotal";
-            this.lbCarTotal.Size = new System.Drawing.Size(18, 13);
-            this.lbCarTotal.TabIndex = 11;
-            this.lbCarTotal.Text = "0 ";
-            // 
-            // lbCarDisp
-            // 
-            this.lbCarDisp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCarDisp.AutoSize = true;
-            this.lbCarDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarDisp.Location = new System.Drawing.Point(46, 161);
-            this.lbCarDisp.Name = "lbCarDisp";
-            this.lbCarDisp.Size = new System.Drawing.Size(14, 13);
-            this.lbCarDisp.TabIndex = 14;
-            this.lbCarDisp.Text = "0";
-            // 
-            // lbCarInd
-            // 
-            this.lbCarInd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCarInd.AutoSize = true;
-            this.lbCarInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarInd.Location = new System.Drawing.Point(306, 161);
-            this.lbCarInd.Name = "lbCarInd";
-            this.lbCarInd.Size = new System.Drawing.Size(14, 13);
-            this.lbCarInd.TabIndex = 12;
-            this.lbCarInd.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Carros disponíveis";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(147, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Carros no total";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = global::CarRental.WindowsApp.Properties.Resources.car;
-            this.pictureBox2.Location = new System.Drawing.Point(156, 86);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.pictureBox8);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.lbRetornoHJ);
-            this.groupBox3.Controls.Add(this.pictureBox7);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.pictureBox9);
-            this.groupBox3.Controls.Add(this.lbRetornam7);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.lbCarrosAlugados);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 240);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(381, 231);
-            this.groupBox3.TabIndex = 24;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Locação";
-            // 
-            // lbCarrosAlugados
-            // 
-            this.lbCarrosAlugados.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCarrosAlugados.AutoSize = true;
-            this.lbCarrosAlugados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarrosAlugados.Location = new System.Drawing.Point(183, 161);
-            this.lbCarrosAlugados.Name = "lbCarrosAlugados";
-            this.lbCarrosAlugados.Size = new System.Drawing.Size(14, 13);
-            this.lbCarrosAlugados.TabIndex = 30;
-            this.lbCarrosAlugados.Text = "0";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(260, 72);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(119, 13);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "Retornam em 7 dias";
-            // 
-            // lbRetornam7
-            // 
-            this.lbRetornam7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbRetornam7.AutoSize = true;
-            this.lbRetornam7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRetornam7.Location = new System.Drawing.Point(310, 163);
-            this.lbRetornam7.Name = "lbRetornam7";
-            this.lbRetornam7.Size = new System.Drawing.Size(14, 13);
-            this.lbRetornam7.TabIndex = 31;
-            this.lbRetornam7.Text = "0";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox9.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_calendário_100;
-            this.pictureBox9.Location = new System.Drawing.Point(283, 88);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 27;
-            this.pictureBox9.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(20, 72);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 13);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "Retornam hoje";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96;
-            this.pictureBox7.Location = new System.Drawing.Point(156, 88);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 26;
-            this.pictureBox7.TabStop = false;
-            // 
-            // lbRetornoHJ
-            // 
-            this.lbRetornoHJ.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbRetornoHJ.AutoSize = true;
-            this.lbRetornoHJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRetornoHJ.Location = new System.Drawing.Point(55, 163);
-            this.lbRetornoHJ.Name = "lbRetornoHJ";
-            this.lbRetornoHJ.Size = new System.Drawing.Size(14, 13);
-            this.lbRetornoHJ.TabIndex = 34;
-            this.lbRetornoHJ.Text = "0";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(143, 72);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Carros alugados";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox8.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_hoje_100;
-            this.pictureBox8.Location = new System.Drawing.Point(28, 88);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 32;
-            this.pictureBox8.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.lbClientesPJ);
-            this.groupBox2.Controls.Add(this.lbClientesPF);
-            this.groupBox2.Controls.Add(this.lbClientesTotal);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.pictureBox6);
-            this.groupBox2.Controls.Add(this.pictureBox5);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(390, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(381, 231);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Clientes";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_empresa_cliente_100;
-            this.pictureBox5.Location = new System.Drawing.Point(288, 86);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 15;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_chamada_em_conferência_100;
-            this.pictureBox6.Location = new System.Drawing.Point(149, 86);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 16;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_usuário_1001;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 86);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(72, 72);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 17;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(136, 70);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Clientes no total";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(270, 70);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Clientes Jurídicos";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 70);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Clientes Fisícos";
-            // 
-            // lbClientesTotal
-            // 
-            this.lbClientesTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbClientesTotal.AutoSize = true;
-            this.lbClientesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientesTotal.Location = new System.Drawing.Point(178, 161);
-            this.lbClientesTotal.Name = "lbClientesTotal";
-            this.lbClientesTotal.Size = new System.Drawing.Size(14, 13);
-            this.lbClientesTotal.TabIndex = 21;
-            this.lbClientesTotal.Text = "0";
-            // 
-            // lbClientesPF
-            // 
-            this.lbClientesPF.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbClientesPF.AutoSize = true;
-            this.lbClientesPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientesPF.Location = new System.Drawing.Point(45, 161);
-            this.lbClientesPF.Name = "lbClientesPF";
-            this.lbClientesPF.Size = new System.Drawing.Size(14, 13);
-            this.lbClientesPF.TabIndex = 22;
-            this.lbClientesPF.Text = "0";
-            // 
-            // lbClientesPJ
-            // 
-            this.lbClientesPJ.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbClientesPJ.AutoSize = true;
-            this.lbClientesPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientesPJ.Location = new System.Drawing.Point(317, 161);
-            this.lbClientesPJ.Name = "lbClientesPJ";
-            this.lbClientesPJ.Size = new System.Drawing.Size(14, 13);
-            this.lbClientesPJ.TabIndex = 23;
-            this.lbClientesPJ.Text = "0";
-            // 
-            // DashControl
+            // groupBoxServices
+            // 
+            this.groupBoxServices.BackColor = System.Drawing.Color.White;
+            this.groupBoxServices.Controls.Add(this.lblTotalServices);
+            this.groupBoxServices.Controls.Add(this.lblTotalServicesText);
+            this.groupBoxServices.Controls.Add(this.pictureBoxServices);
+            this.groupBoxServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxServices.Location = new System.Drawing.Point(390, 240);
+            this.groupBoxServices.Name = "groupBoxServices";
+            this.groupBoxServices.Size = new System.Drawing.Size(381, 231);
+            this.groupBoxServices.TabIndex = 25;
+            this.groupBoxServices.TabStop = false;
+            this.groupBoxServices.Text = "Services";
+            // 
+            // pictureBoxServices
+            // 
+            this.pictureBoxServices.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxServices.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_serviços_100;
+            this.pictureBoxServices.Location = new System.Drawing.Point(149, 88);
+            this.pictureBoxServices.Name = "pictureBoxServices";
+            this.pictureBoxServices.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxServices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxServices.TabIndex = 24;
+            this.pictureBoxServices.TabStop = false;
+            // 
+            // lblTotalServicesText
+            // 
+            this.lblTotalServicesText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalServicesText.AutoSize = true;
+            this.lblTotalServicesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalServicesText.Location = new System.Drawing.Point(134, 72);
+            this.lblTotalServicesText.Name = "lblTotalServicesText";
+            this.lblTotalServicesText.Size = new System.Drawing.Size(103, 13);
+            this.lblTotalServicesText.TabIndex = 25;
+            this.lblTotalServicesText.Text = "Total Services";
+            // 
+            // lblTotalServices
+            // 
+            this.lblTotalServices.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalServices.AutoSize = true;
+            this.lblTotalServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalServices.Location = new System.Drawing.Point(176, 163);
+            this.lblTotalServices.Name = "lblTotalServices";
+            this.lblTotalServices.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalServices.TabIndex = 26;
+            this.lblTotalServices.Text = "0";
+            // 
+            // groupBoxVehicles
+            // 
+            this.groupBoxVehicles.BackColor = System.Drawing.Color.White;
+            this.groupBoxVehicles.Controls.Add(this.pictureBoxCar);
+            this.groupBoxVehicles.Controls.Add(this.lblTotalCarsText);
+            this.groupBoxVehicles.Controls.Add(this.lblAvailableCarsText);
+            this.groupBoxVehicles.Controls.Add(this.lblUnavailableCars);
+            this.groupBoxVehicles.Controls.Add(this.lblAvailableCars);
+            this.groupBoxVehicles.Controls.Add(this.lblTotalCars);
+            this.groupBoxVehicles.Controls.Add(this.lblUnavailableCarsText);
+            this.groupBoxVehicles.Controls.Add(this.pictureBoxCar2);
+            this.groupBoxVehicles.Controls.Add(this.pictureBoxCarKey);
+            this.groupBoxVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxVehicles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxVehicles.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxVehicles.Name = "groupBoxVehicles";
+            this.groupBoxVehicles.Size = new System.Drawing.Size(381, 231);
+            this.groupBoxVehicles.TabIndex = 22;
+            this.groupBoxVehicles.TabStop = false;
+            this.groupBoxVehicles.Text = "Vehicles";
+            // 
+            // pictureBoxCarKey
+            // 
+            this.pictureBoxCarKey.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCarKey.Image = global::CarRental.WindowsApp.Properties.Resources.carKey;
+            this.pictureBoxCarKey.Location = new System.Drawing.Point(277, 86);
+            this.pictureBoxCarKey.Name = "pictureBoxCarKey";
+            this.pictureBoxCarKey.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCarKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCarKey.TabIndex = 9;
+            this.pictureBoxCarKey.TabStop = false;
+            // 
+            // pictureBoxCar2
+            // 
+            this.pictureBoxCar2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCar2.Image = global::CarRental.WindowsApp.Properties.Resources.car2;
+            this.pictureBoxCar2.Location = new System.Drawing.Point(22, 86);
+            this.pictureBoxCar2.Name = "pictureBoxCar2";
+            this.pictureBoxCar2.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCar2.TabIndex = 13;
+            this.pictureBoxCar2.TabStop = false;
+            // 
+            // lblUnavailableCarsText
+            // 
+            this.lblUnavailableCarsText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUnavailableCarsText.AutoSize = true;
+            this.lblUnavailableCarsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnavailableCarsText.Location = new System.Drawing.Point(252, 70);
+            this.lblUnavailableCarsText.Name = "lblUnavailableCarsText";
+            this.lblUnavailableCarsText.Size = new System.Drawing.Size(122, 13);
+            this.lblUnavailableCarsText.TabIndex = 16;
+            this.lblUnavailableCarsText.Text = "Unavailable Cars";
+            // 
+            // lblTotalCars
+            // 
+            this.lblTotalCars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalCars.AutoSize = true;
+            this.lblTotalCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCars.Location = new System.Drawing.Point(183, 161);
+            this.lblTotalCars.Name = "lblTotalCars";
+            this.lblTotalCars.Size = new System.Drawing.Size(18, 13);
+            this.lblTotalCars.TabIndex = 11;
+            this.lblTotalCars.Text = "0 ";
+            // 
+            // lblAvailableCars
+            // 
+            this.lblAvailableCars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAvailableCars.AutoSize = true;
+            this.lblAvailableCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailableCars.Location = new System.Drawing.Point(46, 161);
+            this.lblAvailableCars.Name = "lblAvailableCars";
+            this.lblAvailableCars.Size = new System.Drawing.Size(14, 13);
+            this.lblAvailableCars.TabIndex = 14;
+            this.lblAvailableCars.Text = "0";
+            // 
+            // lblUnavailableCars
+            // 
+            this.lblUnavailableCars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUnavailableCars.AutoSize = true;
+            this.lblUnavailableCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnavailableCars.Location = new System.Drawing.Point(306, 161);
+            this.lblUnavailableCars.Name = "lblUnavailableCars";
+            this.lblUnavailableCars.Size = new System.Drawing.Size(14, 13);
+            this.lblUnavailableCars.TabIndex = 12;
+            this.lblUnavailableCars.Text = "0";
+            // 
+            // lblAvailableCarsText
+            // 
+            this.lblAvailableCarsText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAvailableCarsText.AutoSize = true;
+            this.lblAvailableCarsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailableCarsText.Location = new System.Drawing.Point(2, 70);
+            this.lblAvailableCarsText.Name = "lblAvailableCarsText";
+            this.lblAvailableCarsText.Size = new System.Drawing.Size(112, 13);
+            this.lblAvailableCarsText.TabIndex = 17;
+            this.lblAvailableCarsText.Text = "Available Cars";
+            // 
+            // lblTotalCarsText
+            // 
+            this.lblTotalCarsText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalCarsText.AutoSize = true;
+            this.lblTotalCarsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCarsText.Location = new System.Drawing.Point(147, 70);
+            this.lblTotalCarsText.Name = "lblTotalCarsText";
+            this.lblTotalCarsText.Size = new System.Drawing.Size(90, 13);
+            this.lblTotalCarsText.TabIndex = 15;
+            this.lblTotalCarsText.Text = "Total Cars";
+            // 
+            // pictureBoxCar
+            // 
+            this.pictureBoxCar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCar.Image = global::CarRental.WindowsApp.Properties.Resources.car;
+            this.pictureBoxCar.Location = new System.Drawing.Point(156, 86);
+            this.pictureBoxCar.Name = "pictureBoxCar";
+            this.pictureBoxCar.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCar.TabIndex = 10;
+            this.pictureBoxCar.TabStop = false;
+            // 
+            // groupBoxRentals
+            // 
+            this.groupBoxRentals.BackColor = System.Drawing.Color.White;
+            this.groupBoxRentals.Controls.Add(this.pictureBoxToday);
+            this.groupBoxRentals.Controls.Add(this.lblRentedCarsText);
+            this.groupBoxRentals.Controls.Add(this.lblReturnsToday);
+            this.groupBoxRentals.Controls.Add(this.pictureBoxRental);
+            this.groupBoxRentals.Controls.Add(this.lblReturnsTodayText);
+            this.groupBoxRentals.Controls.Add(this.pictureBoxCalendar);
+            this.groupBoxRentals.Controls.Add(this.lblReturnsIn7Days);
+            this.groupBoxRentals.Controls.Add(this.lblReturnsIn7DaysText);
+            this.groupBoxRentals.Controls.Add(this.lblRentedCars);
+            this.groupBoxRentals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxRentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxRentals.Location = new System.Drawing.Point(3, 240);
+            this.groupBoxRentals.Name = "groupBoxRentals";
+            this.groupBoxRentals.Size = new System.Drawing.Size(381, 231);
+            this.groupBoxRentals.TabIndex = 24;
+            this.groupBoxRentals.TabStop = false;
+            this.groupBoxRentals.Text = "Rentals";
+            // 
+            // lblRentedCars
+            // 
+            this.lblRentedCars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRentedCars.AutoSize = true;
+            this.lblRentedCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRentedCars.Location = new System.Drawing.Point(183, 161);
+            this.lblRentedCars.Name = "lblRentedCars";
+            this.lblRentedCars.Size = new System.Drawing.Size(14, 13);
+            this.lblRentedCars.TabIndex = 30;
+            this.lblRentedCars.Text = "0";
+            // 
+            // lblReturnsIn7DaysText
+            // 
+            this.lblReturnsIn7DaysText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblReturnsIn7DaysText.AutoSize = true;
+            this.lblReturnsIn7DaysText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnsIn7DaysText.Location = new System.Drawing.Point(260, 72);
+            this.lblReturnsIn7DaysText.Name = "lblReturnsIn7DaysText";
+            this.lblReturnsIn7DaysText.Size = new System.Drawing.Size(119, 13);
+            this.lblReturnsIn7DaysText.TabIndex = 29;
+            this.lblReturnsIn7DaysText.Text = "Returns in 7 Days";
+            // 
+            // lblReturnsIn7Days
+            // 
+            this.lblReturnsIn7Days.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblReturnsIn7Days.AutoSize = true;
+            this.lblReturnsIn7Days.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnsIn7Days.Location = new System.Drawing.Point(310, 163);
+            this.lblReturnsIn7Days.Name = "lblReturnsIn7Days";
+            this.lblReturnsIn7Days.Size = new System.Drawing.Size(14, 13);
+            this.lblReturnsIn7Days.TabIndex = 31;
+            this.lblReturnsIn7Days.Text = "0";
+            // 
+            // pictureBoxCalendar
+            // 
+            this.pictureBoxCalendar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCalendar.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_calendário_100;
+            this.pictureBoxCalendar.Location = new System.Drawing.Point(283, 88);
+            this.pictureBoxCalendar.Name = "pictureBoxCalendar";
+            this.pictureBoxCalendar.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCalendar.TabIndex = 27;
+            this.pictureBoxCalendar.TabStop = false;
+            // 
+            // lblReturnsTodayText
+            // 
+            this.lblReturnsTodayText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblReturnsTodayText.AutoSize = true;
+            this.lblReturnsTodayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnsTodayText.Location = new System.Drawing.Point(20, 72);
+            this.lblReturnsTodayText.Name = "lblReturnsTodayText";
+            this.lblReturnsTodayText.Size = new System.Drawing.Size(89, 13);
+            this.lblReturnsTodayText.TabIndex = 33;
+            this.lblReturnsTodayText.Text = "Returns Today";
+            // 
+            // pictureBoxRental
+            // 
+            this.pictureBoxRental.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxRental.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96;
+            this.pictureBoxRental.Location = new System.Drawing.Point(156, 88);
+            this.pictureBoxRental.Name = "pictureBoxRental";
+            this.pictureBoxRental.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxRental.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxRental.TabIndex = 26;
+            this.pictureBoxRental.TabStop = false;
+            // 
+            // lblReturnsToday
+            // 
+            this.lblReturnsToday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblReturnsToday.AutoSize = true;
+            this.lblReturnsToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnsToday.Location = new System.Drawing.Point(55, 163);
+            this.lblReturnsToday.Name = "lblReturnsToday";
+            this.lblReturnsToday.Size = new System.Drawing.Size(14, 13);
+            this.lblReturnsToday.TabIndex = 34;
+            this.lblReturnsToday.Text = "0";
+            // 
+            // lblRentedCarsText
+            // 
+            this.lblRentedCarsText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRentedCarsText.AutoSize = true;
+            this.lblRentedCarsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRentedCarsText.Location = new System.Drawing.Point(143, 72);
+            this.lblRentedCarsText.Name = "lblRentedCarsText";
+            this.lblRentedCarsText.Size = new System.Drawing.Size(98, 13);
+            this.lblRentedCarsText.TabIndex = 28;
+            this.lblRentedCarsText.Text = "Rented Cars";
+            // 
+            // pictureBoxToday
+            // 
+            this.pictureBoxToday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxToday.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_hoje_100;
+            this.pictureBoxToday.Location = new System.Drawing.Point(28, 88);
+            this.pictureBoxToday.Name = "pictureBoxToday";
+            this.pictureBoxToday.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxToday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxToday.TabIndex = 32;
+            this.pictureBoxToday.TabStop = false;
+            // 
+            // groupBoxCustomers
+            // 
+            this.groupBoxCustomers.BackColor = System.Drawing.Color.White;
+            this.groupBoxCustomers.Controls.Add(this.lblCompanyCustomers);
+            this.groupBoxCustomers.Controls.Add(this.lblIndividualCustomers);
+            this.groupBoxCustomers.Controls.Add(this.lblTotalCustomers);
+            this.groupBoxCustomers.Controls.Add(this.lblIndividualCustomersText);
+            this.groupBoxCustomers.Controls.Add(this.lblCompanyCustomersText);
+            this.groupBoxCustomers.Controls.Add(this.lblTotalCustomersText);
+            this.groupBoxCustomers.Controls.Add(this.pictureBoxCustomer);
+            this.groupBoxCustomers.Controls.Add(this.pictureBoxConference);
+            this.groupBoxCustomers.Controls.Add(this.pictureBoxCompany);
+            this.groupBoxCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxCustomers.Location = new System.Drawing.Point(390, 3);
+            this.groupBoxCustomers.Name = "groupBoxCustomers";
+            this.groupBoxCustomers.Size = new System.Drawing.Size(381, 231);
+            this.groupBoxCustomers.TabIndex = 23;
+            this.groupBoxCustomers.TabStop = false;
+            this.groupBoxCustomers.Text = "Customers";
+            // 
+            // pictureBoxCompany
+            // 
+            this.pictureBoxCompany.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCompany.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_empresa_cliente_100;
+            this.pictureBoxCompany.Location = new System.Drawing.Point(288, 86);
+            this.pictureBoxCompany.Name = "pictureBoxCompany";
+            this.pictureBoxCompany.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCompany.TabIndex = 15;
+            this.pictureBoxCompany.TabStop = false;
+            // 
+            // pictureBoxConference
+            // 
+            this.pictureBoxConference.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxConference.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_chamada_em_conferência_100;
+            this.pictureBoxConference.Location = new System.Drawing.Point(149, 86);
+            this.pictureBoxConference.Name = "pictureBoxConference";
+            this.pictureBoxConference.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxConference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxConference.TabIndex = 16;
+            this.pictureBoxConference.TabStop = false;
+            // 
+            // pictureBoxCustomer
+            // 
+            this.pictureBoxCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxCustomer.Image = global::CarRental.WindowsApp.Properties.Resources.icons8_usuário_1001;
+            this.pictureBoxCustomer.Location = new System.Drawing.Point(16, 86);
+            this.pictureBoxCustomer.Name = "pictureBoxCustomer";
+            this.pictureBoxCustomer.Size = new System.Drawing.Size(72, 72);
+            this.pictureBoxCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCustomer.TabIndex = 17;
+            this.pictureBoxCustomer.TabStop = false;
+            // 
+            // lblTotalCustomersText
+            // 
+            this.lblTotalCustomersText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalCustomersText.AutoSize = true;
+            this.lblTotalCustomersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCustomersText.Location = new System.Drawing.Point(136, 70);
+            this.lblTotalCustomersText.Name = "lblTotalCustomersText";
+            this.lblTotalCustomersText.Size = new System.Drawing.Size(99, 13);
+            this.lblTotalCustomersText.TabIndex = 18;
+            this.lblTotalCustomersText.Text = "Total Customers";
+            // 
+            // lblCompanyCustomersText
+            // 
+            this.lblCompanyCustomersText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCompanyCustomersText.AutoSize = true;
+            this.lblCompanyCustomersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompanyCustomersText.Location = new System.Drawing.Point(270, 70);
+            this.lblCompanyCustomersText.Name = "lblCompanyCustomersText";
+            this.lblCompanyCustomersText.Size = new System.Drawing.Size(108, 13);
+            this.lblCompanyCustomersText.TabIndex = 19;
+            this.lblCompanyCustomersText.Text = "Company Customers";
+            // 
+            // lblIndividualCustomersText
+            // 
+            this.lblIndividualCustomersText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIndividualCustomersText.AutoSize = true;
+            this.lblIndividualCustomersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIndividualCustomersText.Location = new System.Drawing.Point(4, 70);
+            this.lblIndividualCustomersText.Name = "lblIndividualCustomersText";
+            this.lblIndividualCustomersText.Size = new System.Drawing.Size(97, 13);
+            this.lblIndividualCustomersText.TabIndex = 20;
+            this.lblIndividualCustomersText.Text = "Individual Customers";
+            // 
+            // lblTotalCustomers
+            // 
+            this.lblTotalCustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalCustomers.AutoSize = true;
+            this.lblTotalCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCustomers.Location = new System.Drawing.Point(178, 161);
+            this.lblTotalCustomers.Name = "lblTotalCustomers";
+            this.lblTotalCustomers.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalCustomers.TabIndex = 21;
+            this.lblTotalCustomers.Text = "0";
+            // 
+            // lblIndividualCustomers
+            // 
+            this.lblIndividualCustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIndividualCustomers.AutoSize = true;
+            this.lblIndividualCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIndividualCustomers.Location = new System.Drawing.Point(45, 161);
+            this.lblIndividualCustomers.Name = "lblIndividualCustomers";
+            this.lblIndividualCustomers.Size = new System.Drawing.Size(14, 13);
+            this.lblIndividualCustomers.TabIndex = 22;
+            this.lblIndividualCustomers.Text = "0";
+            // 
+            // lblCompanyCustomers
+            // 
+            this.lblCompanyCustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCompanyCustomers.AutoSize = true;
+            this.lblCompanyCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompanyCustomers.Location = new System.Drawing.Point(317, 161);
+            this.lblCompanyCustomers.Name = "lblCompanyCustomers";
+            this.lblCompanyCustomers.Size = new System.Drawing.Size(14, 13);
+            this.lblCompanyCustomers.TabIndex = 23;
+            this.lblCompanyCustomers.Text = "0";
+            // 
+            // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "DashControl";
+            this.Name = "DashboardControl";
             this.Size = new System.Drawing.Size(774, 474);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBoxServices.ResumeLayout(false);
+            this.groupBoxServices.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxServices)).EndInit();
+            this.groupBoxVehicles.ResumeLayout(false);
+            this.groupBoxVehicles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCarKey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).EndInit();
+            this.groupBoxRentals.ResumeLayout(false);
+            this.groupBoxRentals.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCalendar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRental)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxToday)).EndInit();
+            this.groupBoxCustomers.ResumeLayout(false);
+            this.groupBoxCustomers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConference)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,39 +539,39 @@ namespace CarRental.WindowsApp.Features.Dashboards
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbClientesPJ;
-        private System.Windows.Forms.Label lbClientesPF;
-        private System.Windows.Forms.Label lbClientesTotal;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lbRetornoHJ;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Label lbRetornam7;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lbCarrosAlugados;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbCarInd;
-        private System.Windows.Forms.Label lbCarDisp;
-        private System.Windows.Forms.Label lbCarTotal;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label lbServicos;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.GroupBox groupBoxCustomers;
+        private System.Windows.Forms.Label lblCompanyCustomers;
+        private System.Windows.Forms.Label lblIndividualCustomers;
+        private System.Windows.Forms.Label lblTotalCustomers;
+        private System.Windows.Forms.Label lblIndividualCustomersText;
+        private System.Windows.Forms.Label lblCompanyCustomersText;
+        private System.Windows.Forms.Label lblTotalCustomersText;
+        private System.Windows.Forms.PictureBox pictureBoxCustomer;
+        private System.Windows.Forms.PictureBox pictureBoxConference;
+        private System.Windows.Forms.PictureBox pictureBoxCompany;
+        private System.Windows.Forms.GroupBox groupBoxRentals;
+        private System.Windows.Forms.PictureBox pictureBoxToday;
+        private System.Windows.Forms.Label lblRentedCarsText;
+        private System.Windows.Forms.Label lblReturnsToday;
+        private System.Windows.Forms.PictureBox pictureBoxRental;
+        private System.Windows.Forms.Label lblReturnsTodayText;
+        private System.Windows.Forms.PictureBox pictureBoxCalendar;
+        private System.Windows.Forms.Label lblReturnsIn7Days;
+        private System.Windows.Forms.Label lblReturnsIn7DaysText;
+        private System.Windows.Forms.Label lblRentedCars;
+        private System.Windows.Forms.GroupBox groupBoxVehicles;
+        private System.Windows.Forms.PictureBox pictureBoxCar;
+        private System.Windows.Forms.Label lblTotalCarsText;
+        private System.Windows.Forms.Label lblAvailableCarsText;
+        private System.Windows.Forms.Label lblUnavailableCars;
+        private System.Windows.Forms.Label lblAvailableCars;
+        private System.Windows.Forms.Label lblTotalCars;
+        private System.Windows.Forms.Label lblUnavailableCarsText;
+        private System.Windows.Forms.PictureBox pictureBoxCar2;
+        private System.Windows.Forms.PictureBox pictureBoxCarKey;
+        private System.Windows.Forms.GroupBox groupBoxServices;
+        private System.Windows.Forms.Label lblTotalServices;
+        private System.Windows.Forms.Label lblTotalServicesText;
+        private System.Windows.Forms.PictureBox pictureBoxServices;
     }
 }

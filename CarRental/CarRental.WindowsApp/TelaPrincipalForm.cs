@@ -206,7 +206,7 @@ namespace CarRental.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new DashControl();
+            UserControl tabela = new DashboardControl();
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);

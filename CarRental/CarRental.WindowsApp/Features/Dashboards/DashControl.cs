@@ -20,116 +20,116 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Dashboards
 {
-    public partial class DashControl : UserControl
+    public partial class DashboardControl : UserControl
     {
-        VehicleController controladorVeiculo;
-        CustomerController controladorCliente;
-        ServiceController controladorServicos;
-        RentalController controladorLocacao;
-        EmployeeController controladorFuncionario;
-        CouponController controladorCupom;
-        public DashControl()
+        VehicleController vehicleController;
+        CustomerController customerController;
+        ServiceController serviceController;
+        RentalController rentalController;
+        EmployeeController employeeController;
+        CouponController couponController;
+        public DashboardControl()
         {
             InitializeComponent();
-            controladorVeiculo = new VehicleController();
-            controladorCliente = new CustomerController();
-            controladorServicos = new ServiceController();
-            controladorFuncionario = new EmployeeController();
-            controladorLocacao = new RentalController(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos, controladorCupom);
-            MudaLabels();
+            vehicleController = new VehicleController();
+            customerController = new CustomerController();
+            serviceController = new ServiceController();
+            employeeController = new EmployeeController();
+            rentalController = new RentalController(vehicleController, employeeController, customerController, serviceController, couponController);
+            UpdateLabels();
         }
 
-        private void MudaLabels()
+        private void UpdateLabels()
         {
-            CarregaDashBoardVeiculo();
-            CarregaDashBoardCliente();
-            CarregarDashBoardServicos();
-            CarregarDashBoardLocacao();
+            LoadVehicleDashboard();
+            LoadCustomerDashboard();
+            LoadServiceDashboard();
+            LoadRentalDashboard();
         }
 
-        private void CarregarDashBoardLocacao()
+        private void LoadRentalDashboard()
         {
-            List<Rental> todasLocacao = controladorLocacao.SelectAll();
-            List<Rental> locacoesAbertas = new List<Rental>();
-            foreach (Rental locacao in todasLocacao)
-                if (locacao.IsOpen)
-                    locacoesAbertas.Add(locacao);
+            List<Rental> allRentals = rentalController.SelectAll();
+            List<Rental> openRentals = new List<Rental>();
+            foreach (Rental rental in allRentals)
+                if (rental.IsOpen)
+                    openRentals.Add(rental);
 
-            int retornamHJ = 0;
-            int retornam7dias = 0;
+            int returnsToday = 0;
+            int returnsIn7Days = 0;
             
 
-            foreach (Rental locacao in locacoesAbertas)
+            foreach (Rental rental in openRentals)
             {
-                if (locacao.ReturnDate.Date == DateTime.Today )
+                if (rental.ReturnDate.Date == DateTime.Today )
                 {
-                    retornamHJ++;
+                    returnsToday++;
                 }
-                else if (locacao.ReturnDate.Date <= DateTime.Today.AddDays(7))
+                else if (rental.ReturnDate.Date <= DateTime.Today.AddDays(7))
                 {
-                    retornam7dias++;
+                    returnsIn7Days++;
                 }
             }
-            lbRetornoHJ.Text = retornamHJ.ToString();
-            lbCarrosAlugados.Text = locacoesAbertas.Count.ToString();
-            lbRetornam7.Text = retornam7dias.ToString();
+            lblReturnsToday.Text = returnsToday.ToString();
+            lblRentedCars.Text = openRentals.Count.ToString();
+            lblReturnsIn7Days.Text = returnsIn7Days.ToString();
            
         }
 
-        private void CarregarDashBoardServicos()
+        private void LoadServiceDashboard()
         {
-            List<Service> todosServicos = controladorServicos.SelectAll();
-            int servicosTotal = todosServicos.Count;
+            List<Service> allServices = serviceController.SelectAll();
+            int totalServices = allServices.Count;
 
-            lbServicos.Text = servicosTotal.ToString();
+            lblTotalServices.Text = totalServices.ToString();
         }
 
-        private void CarregaDashBoardCliente()
+        private void LoadCustomerDashboard()
         {
-            List<Customer> todosClientes = controladorCliente.SelectAll();
-            int clientesTotal = todosClientes.Count;
-            int clientesPF = 0;
-            int clientesPJ = 0;
+            List<Customer> allCustomers = customerController.SelectAll();
+            int totalCustomers = allCustomers.Count;
+            int individualCustomers = 0;
+            int companyCustomers = 0;
 
-            foreach (Customer cliente in todosClientes)
+            foreach (Customer customer in allCustomers)
             {
-                if (cliente.IsPhysicalPerson)
+                if (customer.IsPhysicalPerson)
                 {
-                    clientesPF++;
+                    individualCustomers++;
                 }
                 else
                 {
-                    clientesPJ++;
+                    companyCustomers++;
                 }
             }
-            lbClientesPJ.Text = clientesPJ.ToString();
-            lbClientesPF.Text = clientesPF.ToString();
-            lbClientesTotal.Text = clientesTotal.ToString();
+            lblCompanyCustomers.Text = companyCustomers.ToString();
+            lblIndividualCustomers.Text = individualCustomers.ToString();
+            lblTotalCustomers.Text = totalCustomers.ToString();
           
         }
 
-        private void CarregaDashBoardVeiculo()
+        private void LoadVehicleDashboard()
         {
-            List<Vehicle> TodosVeiculos = controladorVeiculo.SelectAll();
-            int carrosNoTotal = TodosVeiculos.Count;
-            int carrosAlugados = 0;
-            int carrosDisponiveis = 0;
+            List<Vehicle> allVehicles = vehicleController.SelectAll();
+            int totalCars = allVehicles.Count;
+            int rentedCars = 0;
+            int availableCars = 0;
 
 
-            foreach (Vehicle veiculo in TodosVeiculos)
+            foreach (Vehicle vehicle in allVehicles)
             {
-                if (veiculo.isRented)
+                if (vehicle.isRented)
                 {
-                    carrosAlugados++;
+                    rentedCars++;
                 }
                 else
                 {
-                    carrosDisponiveis++;
+                    availableCars++;
                 }
             }
-            lbCarDisp.Text = carrosDisponiveis.ToString();
-            lbCarInd.Text = carrosAlugados.ToString();
-            lbCarTotal.Text = carrosNoTotal.ToString();
+            lblAvailableCars.Text = availableCars.ToString();
+            lblUnavailableCars.Text = rentedCars.ToString();
+            lblTotalCars.Text = totalCars.ToString();
         }
 
 
