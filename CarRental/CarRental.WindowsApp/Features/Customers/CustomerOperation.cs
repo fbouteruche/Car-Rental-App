@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Customers
 {
-    public class CustomerOperation : ICadastravel
+    public class CustomerOperation : IRecordable
     {
         private readonly CustomerController controller = null;
         private readonly CustomerTableControl customerTable = null;

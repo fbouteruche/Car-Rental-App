@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Vehicles
 {
-    public class VehicleOperation : ICadastravel
+    public class VehicleOperation : IRecordable
     {
         private readonly VehicleController controller = null;
         private readonly VehicleTableControl vehicleTable = null;

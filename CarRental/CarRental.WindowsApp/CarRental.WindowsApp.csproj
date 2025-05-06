@@ -208,7 +208,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
-    <Compile Include="Shared\ICadastravel.cs" />
+    <Compile Include="Shared\IRecordable.cs" />
     <Compile Include="Shared\IConfigurationToolBox.cs" />
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>

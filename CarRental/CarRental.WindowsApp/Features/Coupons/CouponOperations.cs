@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Coupons
 {
-    public class CouponOperations : ICadastravel
+    public class CouponOperations : IRecordable
     {
         private CouponController controller;
         private readonly CouponTableControl table;

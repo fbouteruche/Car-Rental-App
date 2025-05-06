@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.VehicleGroups
 {
-    public class VehicleGroupOperation : ICadastravel
+    public class VehicleGroupOperation : IRecordable
     {
         private readonly VehicleGroupController controller = null;
         private readonly VehicleGroupTableControl vehicleGroupTable = null;

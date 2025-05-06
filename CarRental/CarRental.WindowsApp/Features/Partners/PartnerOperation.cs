@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Partners
 {
-    public class PartnerOperation : ICadastravel
+    public class PartnerOperation : IRecordable
     {
         private readonly PartnerController controller;
         private readonly PartnerTableControl table;

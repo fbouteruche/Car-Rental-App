@@ -33,7 +33,7 @@ namespace CarRental.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
     {
-        private ICadastravel operacoes;
+        private IRecordable operacoes;
         public static TelaPrincipalForm Instancia;
         public TelaPrincipalForm()
         {

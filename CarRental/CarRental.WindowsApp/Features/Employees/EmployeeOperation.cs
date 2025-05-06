@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Employees
 {
-    public class EmployeeOperation : ICadastravel
+    public class EmployeeOperation : IRecordable
     {
         private readonly EmployeeController controller = null;
         private readonly EmployeeTableControl employeeTable = null;

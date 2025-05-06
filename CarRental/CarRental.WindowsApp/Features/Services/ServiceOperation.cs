@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Services
 {
-    class ServiceOperation : ICadastravel
+    class ServiceOperation : IRecordable
     {
         private readonly ServiceController controller = null;
         private readonly ServiceTableControl serviceTable = null;

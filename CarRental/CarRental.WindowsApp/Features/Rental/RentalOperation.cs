@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Rentals
 {
-    public class RentalOperation : ICadastravel
+    public class RentalOperation : IRecordable
     {
         private readonly RentalController controller = null;
         private readonly RentalServiceRelationshipController relationshipController = null;

@@ -4,7 +4,7 @@
 namespace CarRental.WindowsApp.Shared
 
 {
-    public interface ICadastravel
+    public interface IRecordable
     {
         void InsertNewRecord();
 

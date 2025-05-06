@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Returns
 {
-    public class ReturnOperation : ICadastravel
+    public class ReturnOperation : IRecordable
     {
         private readonly RentalController controller = null;
         private readonly ReturnTableControl returnTable = null;
