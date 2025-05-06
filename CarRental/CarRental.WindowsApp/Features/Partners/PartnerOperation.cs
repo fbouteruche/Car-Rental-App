@@ -7,20 +7,20 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    public class OperacoesParceiro : ICadastravel
+    public class PartnerOperation : ICadastravel
     {
         private readonly PartnerController controlador;
-        private readonly TabelaParceiroControl tabela;
+        private readonly PartnerTableControl tabela;
 
-        public OperacoesParceiro(PartnerController controladorParceiro)
+        public PartnerOperation(PartnerController controladorParceiro)
         {
             controlador = controladorParceiro;
-            tabela = new TabelaParceiroControl();
+            tabela = new PartnerTableControl();
         }
 
         public void InsertNewRecord()
         {
-            TelaParceiroForm tela = new TelaParceiroForm("Cadastro de Partner");
+            PartnerForm tela = new PartnerForm("Cadastro de Partner");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -45,7 +45,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             }
 
             Partner parceiroSelecionado = controlador.SelectById(id);
-            TelaParceiroForm tela = new TelaParceiroForm("Edição de Partner");
+            PartnerForm tela = new PartnerForm("Edição de Partner");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)

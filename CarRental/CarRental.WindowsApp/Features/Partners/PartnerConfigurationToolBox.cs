@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    public class ConfiguracaoParceiroToolBox : IConfigurationToolBox
+    public class PartnerConfigurationToolBox : IConfigurationToolBox
     {
         public string AddToolTip
         {

@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    partial class TabelaParceiroControl
+    partial class PartnerTableControl
     {
         /// <summary> 
         /// Required designer variable.

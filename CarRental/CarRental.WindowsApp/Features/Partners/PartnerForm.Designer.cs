@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    partial class TelaParceiroForm
+    partial class PartnerForm
     {
         /// <summary>
         /// Required designer variable.

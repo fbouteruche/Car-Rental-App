@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    public partial class TabelaParceiroControl : UserControl
+    public partial class PartnerTableControl : UserControl
     {
-        public TabelaParceiroControl()
+        public PartnerTableControl()
         {
             InitializeComponent();
             gridParceiros.ConfigureZebraGrid();

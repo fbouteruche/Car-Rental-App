@@ -160,19 +160,19 @@
     <Compile Include="Features\Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Partners\ConfiguracaoParceiroToolBox.cs" />
-    <Compile Include="Features\Partners\OperacoesParceiro.cs" />
-    <Compile Include="Features\Partners\TabelaParceiroControl.cs">
+    <Compile Include="Features\Partners\PartnerConfigurationToolBox.cs" />
+    <Compile Include="Features\Partners\PartnerOperation.cs" />
+    <Compile Include="Features\Partners\PartnerTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Partners\TabelaParceiroControl.Designer.cs">
-      <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    <Compile Include="Features\Partners\PartnerTableControl.Designer.cs">
+      <DependentUpon>PartnerTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Partners\TelaParceiroForm.cs">
+    <Compile Include="Features\Partners\PartnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Partners\TelaParceiroForm.Designer.cs">
-      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    <Compile Include="Features\Partners\PartnerForm.Designer.cs">
+      <DependentUpon>PartnerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Services\ConfiguracaoServicoToolBox.cs" />
     <Compile Include="Features\Services\OperacoesServico.cs" />
@@ -272,11 +272,11 @@
     <EmbeddedResource Include="Features\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Partners\TabelaParceiroControl.resx">
-      <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Partners\PartnerTableControl.resx">
+      <DependentUpon>PartnerTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Partners\TelaParceiroForm.resx">
-      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Partners\PartnerForm.resx">
+      <DependentUpon>PartnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Services\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>

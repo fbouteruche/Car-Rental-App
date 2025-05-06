@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    public partial class TelaParceiroForm : Form
+    public partial class PartnerForm : Form
     {
         Partner parceiro;
-        public TelaParceiroForm(string titulo)
+        public PartnerForm(string titulo)
         {
             InitializeComponent();
             labelTitulo.Text = titulo;

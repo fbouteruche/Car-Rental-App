@@ -156,14 +156,14 @@ namespace CarRental.WindowsApp
 
         private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
+            PartnerConfigurationToolBox configuracao = new PartnerConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesParceiro(new PartnerController());
+            operacoes = new PartnerOperation(new PartnerController());
 
             ConfigurarPainelRegistros();
         }
