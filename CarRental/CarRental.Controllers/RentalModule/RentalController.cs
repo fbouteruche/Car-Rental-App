@@ -38,12 +38,12 @@ namespace CarRental.Controllers.RentalModule
 
         #region queries
         private const string sqlInsertRental =
-                @"INSERT INTO[DBO].[Rental]
+                @"INSERT INTO [Rental]
                 (
                     [VehicleId],
                     [EmployeeId],
-                    [ContractingCustomerId],
-                    [DriverCustomerId],
+                    [ContractingClientId],
+                    [DriverClientId],
                     [CouponId],
                     [DepartureDate],
                     [ExpectedReturnDate],
@@ -58,8 +58,8 @@ namespace CarRental.Controllers.RentalModule
                 (
                     @VehicleId,
                     @EmployeeId,
-                    @ContractingCustomerId,
-                    @DriverCustomerId,
+                    @ContractingClientId,
+                    @DriverClientId,
                     @CouponId,
                     @DepartureDate,
                     @ExpectedReturnDate,
@@ -72,12 +72,12 @@ namespace CarRental.Controllers.RentalModule
                 );";
 
         private const string sqlUpdateRental =
-        @"UPDATE [DBO].[Rental] 
+        @"UPDATE [Rental] 
                 SET
                     [VehicleId] = @VehicleId,
                     [EmployeeId] = @EmployeeId,
-                    [ContractingCustomerId] = @ContractingCustomerId,
-                    [DriverCustomerId] = @DriverCustomerId,
+                    [ContractingClientId] = @ContractingClientId,
+                    [DriverClientId] = @DriverClientId,
                     [CouponId] = @CouponId,
                     [DepartureDate] = @DepartureDate,
                     [ExpectedReturnDate] = @ExpectedReturnDate,
@@ -91,16 +91,16 @@ namespace CarRental.Controllers.RentalModule
                     [Id] = @Id;";
 
         private const string sqlSelectAllRentals =
-            @"SELECT * FROM [DBO].[Rental];";
+            @"SELECT * FROM [Rental];";
 
         private const string sqlSelectRentalById =
-            @"SELECT * FROM [DBO].[Rental] WHERE [Id] = @Id;";
+            @"SELECT * FROM [Rental] WHERE [Id] = @Id;";
 
         private const string sqlDeleteRental =
-                @"DELETE FROM [DBO].[Rental] WHERE [Id] = @Id;";
+                @"DELETE FROM [Rental] WHERE [Id] = @Id;";
 
         private string sqlSelectServiceIdByRentalId =
-            @"SELECT [ServiceId] FROM [RentalService]
+            @"SELECT [ServiceId] FROM [Service_Rental]
                WHERE [RentalId] = @RentalId";
         #endregion
 
@@ -171,8 +171,8 @@ namespace CarRental.Controllers.RentalModule
             parameters.Add("Id", rental.Id);
             parameters.Add("VehicleId", rental.Vehicle.Id);
             parameters.Add("EmployeeId", rental.RentingEmployee.Id);
-            parameters.Add("ContractingCustomerId", rental.ContractingCustomer.Id);
-            parameters.Add("DriverCustomerId", rental.DriverCustomer.Id);
+            parameters.Add("ContractingClientId", rental.ContractingCustomer.Id);
+            parameters.Add("DriverClientId", rental.DriverCustomer.Id);
             if (rental.Coupon != null)
                 parameters.Add("CouponId", rental.Coupon.Id);
             else
@@ -198,14 +198,11 @@ namespace CarRental.Controllers.RentalModule
             var id = Convert.ToInt32(reader["Id"]);
             var vehicleId = Convert.ToInt32(reader["VehicleId"]);
             var employeeId = Convert.ToInt32(reader["EmployeeId"]);
-            var contractingCustomerId = Convert.ToInt32(reader["ContractingCustomerId"]);
-            var driverCustomerId = Convert.ToInt32(reader["DriverCustomerId"]);
+            var contractingClientId = Convert.ToInt32(reader["ContractingClientId"]);
+            var driverClientId = Convert.ToInt32(reader["DriverClientId"]);
             var couponId = 0;
             if (reader["CouponId"] != DBNull.Value)
                 couponId = Convert.ToInt32(reader["CouponId"]);
-            // There may be problems with null return. If it happens, do something like:
-            // if (!int.TryParse(reader["DriverCustomerId"].ToString(), out int driverCustomerId))
-            //     driverCustomerId = -1;
             var departureDate = Convert.ToDateTime(reader["DepartureDate"]);
             var expectedReturnDate = Convert.ToDateTime(reader["ExpectedReturnDate"]);
             var returnDate = Convert.ToDateTime(reader["ReturnDate"]);
@@ -216,17 +213,11 @@ namespace CarRental.Controllers.RentalModule
             var isOpen = Convert.ToBoolean(reader["IsOpen"]);
 
             List<Service> rentalServices = SelectServicesByRentalId(id);
-            //foreach (Service service in serviceController.SelectAll())
-            //{
-            //    List<int> serviceIds = SelectServicesByRentalId(id);
-            //    if (serviceIds.Contains(service.Id))
-            //        rentalServices.Add(service);
-            //}
 
             Vehicle vehicle = vehicleController.SelectById(vehicleId);
             Employee rentingEmployee = employeeController.SelectById(employeeId);
-            Customer contractingCustomer = customerController.SelectById(contractingCustomerId);
-            Customer driverCustomer = customerController.SelectById(driverCustomerId);
+            Customer contractingCustomer = customerController.SelectById(contractingClientId);
+            Customer driverCustomer = customerController.SelectById(driverClientId);
             Coupon coupon;
             if (couponId != 0)
                 coupon = couponController.SelectById(couponId);

@@ -13,7 +13,7 @@ namespace CarRental.Controllers.VehicleImageModule
     public class VehicleImageController : Controller<VehicleImage>
     {
         #region Queries
-        private const string insertCommand = @"INSERT INTO [VehicleImage] 
+        private const string insertCommand = @"INSERT INTO [Vehicle_Image] 
                                                 (
                                                  [VehicleId],
                                                  [Image]
@@ -22,12 +22,12 @@ namespace CarRental.Controllers.VehicleImageModule
                                                 @VehicleId,
                                                 @Image
                                                 );";
-        private const string deleteCommand = "DELETE FROM [VehicleImage] WHERE [Id] = @Id";
-        private const string deleteAllByVehicleIdCommand = "DELETE FROM [VehicleImage] WHERE [VehicleId] = @VehicleId";
-        private const string selectAllByVehicleIdCommand = "SELECT * FROM [VehicleImage] WHERE [VehicleId] = @VehicleId;";
-        private const string selectByIdCommand = "SELECT * FROM [VehicleImage] WHERE [Id] = @Id";
-        private const string selectByVehicleIdCommand = "SELECT * FROM [VehicleImage] WHERE [VehicleId] = @VehicleId";
-        private const string selectAllCommand = "SELECT * FROM [VehicleImage]";
+        private const string deleteCommand = "DELETE FROM [Vehicle_Image] WHERE [Id] = @Id";
+        private const string deleteAllByVehicleIdCommand = "DELETE FROM [Vehicle_Image] WHERE [VehicleId] = @VehicleId";
+        private const string selectAllByVehicleIdCommand = "SELECT * FROM [Vehicle_Image] WHERE [VehicleId] = @VehicleId;";
+        private const string selectByIdCommand = "SELECT * FROM [Vehicle_Image] WHERE [Id] = @Id";
+        private const string selectByVehicleIdCommand = "SELECT * FROM [Vehicle_Image] WHERE [VehicleId] = @VehicleId";
+        private const string selectAllCommand = "SELECT * FROM [Vehicle_Image]";
         #endregion
         public override string Edit(int id, VehicleImage record)
         {

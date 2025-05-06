@@ -11,50 +11,50 @@ namespace CarRental.Controllers.EmployeeModule
 
         #region Queries
         private const string insertCommand = @"INSERT INTO Employee
-                                        (
-                                            [Name],
-                                            [UniqueRegister],
-                                            [Address],
-                                            [Phone],
-                                            [Email],
-                                            [IsIndividual],
-                                            [InternalRegister],
-                                            [AccessUser],
-                                            [Password],
-                                            [Role],
-                                            [Salary],
-                                            [AdmissionDate]
-                                        )
-                                        VALUES
-                                        (
-                                            @Name,
-                                            @UniqueRegister,
-                                            @Address,
-                                            @Phone,
-                                            @Email,
-                                            @IsIndividual,
-                                            @InternalRegister,
-                                            @AccessUser,
-                                            @Password,
-                                            @Role,
-                                            @Salary,
-                                            @AdmissionDate
-                                        );";
+                                (
+                                    [Name],
+                                    [UniqueRegister],
+                                    [Address],
+                                    [Phone],
+                                    [Email],
+                                    [IsIndividual],
+                                    [InternalRegister],
+                                    [AccessUser],
+                                    [Password],
+                                    [Role],
+                                    [Salary],
+                                    [AdmissionDate]
+                                )
+                                VALUES
+                                (
+                                    @Name,
+                                    @UniqueRegister,
+                                    @Address,
+                                    @Phone,
+                                    @Email,
+                                    @IsIndividual,
+                                    @InternalRegister,
+                                    @AccessUser,
+                                    @Password,
+                                    @Role,
+                                    @Salary,
+                                    @AdmissionDate
+                                );";
         private const string updateCommand = @"UPDATE Employee 
-                                        SET
-                                            [Name] = @Name,
-                                            [UniqueRegister] = @UniqueRegister,
-                                            [Address] = @Address,
-                                            [Phone] = @Phone,
-                                            [Email] = @Email,
-                                            [IsIndividual] = @IsIndividual,
-                                            [InternalRegister] = @InternalRegister,
-                                            [AccessUser] = @AccessUser,
-                                            [Password] = @Password,
-                                            [Role] = @Role,
-                                            [Salary] = @Salary,
-                                            [AdmissionDate] = @AdmissionDate
-                                        WHERE [Id] = @Id;";
+                                SET
+                                    [Name] = @Name,
+                                    [UniqueRegister] = @UniqueRegister,
+                                    [Address] = @Address,
+                                    [Phone] = @Phone,
+                                    [Email] = @Email,
+                                    [IsIndividual] = @IsIndividual,
+                                    [InternalRegister] = @InternalRegister,
+                                    [AccessUser] = @AccessUser,
+                                    [Password] = @Password,
+                                    [Role] = @Role,
+                                    [Salary] = @Salary,
+                                    [AdmissionDate] = @AdmissionDate
+                                WHERE [Id] = @Id;";
         private const string deleteCommand = @"DELETE FROM Employee WHERE [Id] = @Id;";
         private const string selectAllCommand = "SELECT * FROM Employee;";
         private const string selectByIdCommand = "SELECT * FROM Employee WHERE [Id] = @Id;";

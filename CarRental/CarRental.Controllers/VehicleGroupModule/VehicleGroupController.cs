@@ -9,14 +9,14 @@ namespace CarRental.Controllers.VehicleGroupModule
     public class VehicleGroupController : Controller<VehicleGroup>
     {
         private const string sqlInsertVehicleGroup =
-                @"INSERT INTO VehicleGroup
+                @"INSERT INTO Vehicle_Group
                 (
                     [Name],
                     [DailyPlanRate],
                     [DailyKmRate],
                     [ControlledPlanRate],
                     [ControlledKmLimit],
-                    [ControlledExcessKmRate],
+                    [ControlledExceededKmRate],
                     [FreePlanRate]
                 )
                 VALUES
@@ -26,36 +26,36 @@ namespace CarRental.Controllers.VehicleGroupModule
                     @DailyKmRate,
                     @ControlledPlanRate,
                     @ControlledKmLimit,
-                    @ControlledExcessKmRate,
+                    @ControlledExceededKmRate,
                     @FreePlanRate
                 );";
 
         private const string sqlUpdateVehicleGroup =
-                @"UPDATE VehicleGroup 
+                @"UPDATE Vehicle_Group 
                 SET
                     [Name] = @Name,
                     [DailyPlanRate] = @DailyPlanRate,
                     [DailyKmRate] = @DailyKmRate,
                     [ControlledPlanRate] = @ControlledPlanRate,
                     [ControlledKmLimit] = @ControlledKmLimit,
-                    [ControlledExcessKmRate] = @ControlledExcessKmRate,
+                    [ControlledExceededKmRate] = @ControlledExceededKmRate,
                     [FreePlanRate] = @FreePlanRate
                 WHERE [Id] = @Id;";
 
         private const string sqlDeleteVehicleGroup =
-                @"DELETE FROM VehicleGroup  WHERE [Id] = @Id;";
+                @"DELETE FROM Vehicle_Group  WHERE [Id] = @Id;";
 
         private const string sqlSelectVehicleGroupById =
-                @"SELECT * FROM VehicleGroup WHERE [Id] = @Id;";
+                @"SELECT * FROM Vehicle_Group WHERE [Id] = @Id;";
 
         private const string sqlSelectAllVehicleGroups =
-                @"SELECT * FROM VehicleGroup;";
+                @"SELECT * FROM Vehicle_Group;";
 
         private const string sqlVehicleGroupExists =
                 @"SELECT 
                     COUNT(*) 
                 FROM 
-                    [VehicleGroup]
+                    [Vehicle_Group]
                 WHERE 
                     [Id] = @Id";
 
@@ -137,7 +137,7 @@ namespace CarRental.Controllers.VehicleGroupModule
             parameters.Add("DailyKmRate", vehicleGroup.DailyPerKmRate);
             parameters.Add("ControlledPlanRate", vehicleGroup.ControlledPlanRate);
             parameters.Add("ControlledKmLimit", vehicleGroup.ControlledKmLimit);
-            parameters.Add("ControlledExcessKmRate", vehicleGroup.ControlledExceededKmRate);
+            parameters.Add("ControlledExceededKmRate", vehicleGroup.ControlledExceededKmRate);
             parameters.Add("FreePlanRate", vehicleGroup.UnlimitedPlanRate);
 
             return parameters;
@@ -151,7 +151,7 @@ namespace CarRental.Controllers.VehicleGroupModule
             double dailyPerKmRate = Convert.ToDouble(reader["DailyKmRate"]);
             double controlledPlanRate = Convert.ToDouble(reader["ControlledPlanRate"]);
             int controlledKmLimit = Convert.ToInt32(reader["ControlledKmLimit"]);
-            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExcessKmRate"]);
+            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExceededKmRate"]);
             double unlimitedPlanRate = Convert.ToDouble(reader["FreePlanRate"]);
 
             VehicleGroup vehicleGroup = new VehicleGroup(id, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate,

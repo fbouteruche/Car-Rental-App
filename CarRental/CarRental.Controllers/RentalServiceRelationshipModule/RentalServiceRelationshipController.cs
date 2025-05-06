@@ -24,7 +24,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         RentalController rentalController = new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController());
         #region relationship queries
         private const string sqlInsertRelationship =
-                @"INSERT INTO[DBO].[RentalService]
+                @"INSERT INTO [Service_Rental]
                 (
                     [RentalId],
                     [ServiceId]
@@ -36,7 +36,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
                 );";
 
         private const string sqlEditRelationship =
-        @"UPDATE [DBO].[RentalService] 
+        @"UPDATE [Service_Rental] 
                 SET
                     [RentalId] = @RentalId,
                     [ServiceId] = @ServiceId
@@ -44,16 +44,16 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
                     [Id] = @Id;";
 
         private const string sqlSelectAllRelationships =
-            @"SELECT * FROM [DBO].[RentalService];";
+            @"SELECT * FROM [Service_Rental];";
 
         private const string sqlSelectRelationshipById =
-            @"SELECT * FROM [DBO].[RentalService] WHERE [Id] = @Id;";
+            @"SELECT * FROM [Service_Rental] WHERE [Id] = @Id;";
 
         private const string sqlSelectRelationshipByRental =
-            @"SELECT * FROM [DBO].[RentalService] WHERE [RentalId] = @RentalId;";
+            @"SELECT * FROM [Service_Rental] WHERE [RentalId] = @RentalId;";
 
         private const string sqlDeleteRelationship =
-            @"DELETE FROM [DBO].[RentalService] WHERE [Id] = @Id;";
+            @"DELETE FROM [Service_Rental] WHERE [Id] = @Id;";
 
         #endregion
         public override string Edit(int id, RentalServiceRelationship record)

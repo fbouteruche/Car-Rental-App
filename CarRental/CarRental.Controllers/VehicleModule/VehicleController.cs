@@ -28,7 +28,7 @@ namespace CarRental.Controllers.VehicleModule
                 [Year],
                 [Mileage],
                 [NumberOfDoors],
-                [SeatingCapacity],
+                [PeopleCapacity],
                 [TrunkSize],
                 [HasAirConditioning],
                 [HasPowerSteering],
@@ -48,7 +48,7 @@ namespace CarRental.Controllers.VehicleModule
                 @Year,
                 @Mileage,
                 @NumberOfDoors,
-                @SeatingCapacity,
+                @PeopleCapacity,
                 @TrunkSize,
                 @HasAirConditioning,
                 @HasPowerSteering,
@@ -69,7 +69,7 @@ namespace CarRental.Controllers.VehicleModule
                 CV.[Year],
                 CV.[Mileage],
                 CV.[NumberOfDoors],
-                CV.[SeatingCapacity],
+                CV.[PeopleCapacity],
                 CV.[TrunkSize],
                 CV.[HasAirConditioning],
                 CV.[HasPowerSteering],
@@ -80,11 +80,11 @@ namespace CarRental.Controllers.VehicleModule
                 CG.[DailyKmRate],
                 CG.[ControlledPlanRate],
                 CG.[ControlledKmLimit],
-                CG.[ControlledExcessKmRate],
+                CG.[ControlledExceededKmRate],
                 CG.[FreePlanRate]
             FROM 
                 [Vehicle] AS CV LEFT JOIN 
-                [VehicleGroup] AS CG
+                [Vehicle_Group] AS CG
             ON
                 CG.Id = CV.VehicleGroupId";
         private const string sqlSelectVehicleById =
@@ -101,7 +101,7 @@ namespace CarRental.Controllers.VehicleModule
                 CV.[Year],
                 CV.[Mileage],
                 CV.[NumberOfDoors],
-                CV.[SeatingCapacity],
+                CV.[PeopleCapacity],
                 CV.[TrunkSize],
                 CV.[HasAirConditioning],
                 CV.[HasPowerSteering],
@@ -112,11 +112,11 @@ namespace CarRental.Controllers.VehicleModule
                 CG.[DailyKmRate],
                 CG.[ControlledPlanRate],
                 CG.[ControlledKmLimit],
-                CG.[ControlledExcessKmRate],
+                CG.[ControlledExceededKmRate],
                 CG.[FreePlanRate]
             FROM 
                 [Vehicle] AS CV LEFT JOIN 
-                [VehicleGroup] AS CG
+                [Vehicle_Group] AS CG
             ON
                 CG.Id = CV.VehicleGroupId
             WHERE 
@@ -134,7 +134,7 @@ namespace CarRental.Controllers.VehicleModule
                 [Year] = @Year,
                 [Mileage] = @Mileage,
                 [NumberOfDoors] = @NumberOfDoors,
-                [SeatingCapacity] = @SeatingCapacity,
+                [PeopleCapacity] = @PeopleCapacity,
                 [TrunkSize] = @TrunkSize,
                 [HasAirConditioning] = @HasAirConditioning,
                 [HasPowerSteering] = @HasPowerSteering,
@@ -245,7 +245,7 @@ namespace CarRental.Controllers.VehicleModule
             parameters.Add("Year", vehicle.year);
             parameters.Add("Mileage", vehicle.mileage);
             parameters.Add("NumberOfDoors", vehicle.numberOfDoors);
-            parameters.Add("SeatingCapacity", vehicle.passengerCapacity);
+            parameters.Add("PeopleCapacity", vehicle.passengerCapacity);
             parameters.Add("TrunkSize", vehicle.trunkSize);
             parameters.Add("HasAirConditioning", vehicle.hasAirConditioning);
             parameters.Add("HasPowerSteering", vehicle.hasPowerSteering);
@@ -269,7 +269,7 @@ namespace CarRental.Controllers.VehicleModule
             var year = Convert.ToInt32(reader["Year"]);
             var mileage = Convert.ToDouble(reader["Mileage"]);
             var numberOfDoors = Convert.ToInt32(reader["NumberOfDoors"]);
-            var passengerCapacity = Convert.ToInt32(reader["SeatingCapacity"]);
+            var passengerCapacity = Convert.ToInt32(reader["PeopleCapacity"]);
             var trunkSize = Convert.ToChar(reader["TrunkSize"]);
             var hasAirConditioning = Convert.ToBoolean(reader["HasAirConditioning"]);
             var hasPowerSteering = Convert.ToBoolean(reader["HasPowerSteering"]);
@@ -281,7 +281,7 @@ namespace CarRental.Controllers.VehicleModule
             double dailyPerKmRate = Convert.ToDouble(reader["DailyKmRate"]);
             double controlledPlanRate = Convert.ToDouble(reader["ControlledPlanRate"]);
             int controlledKmLimit = Convert.ToInt32(reader["ControlledKmLimit"]);
-            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExcessKmRate"]);
+            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExceededKmRate"]);
             double unlimitedPlanRate = Convert.ToDouble(reader["FreePlanRate"]);
 
             VehicleGroup group = new VehicleGroup(vehicleGroupId, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate, controlledKmLimit, controlledExceededKmRate, unlimitedPlanRate);

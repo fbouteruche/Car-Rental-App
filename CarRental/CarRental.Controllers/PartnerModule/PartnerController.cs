@@ -60,6 +60,7 @@ namespace CarRental.Controllers.PartnerModule
                 WHERE 
                     [Id] = @Id";
         #endregion
+
         public override string InsertNew(Partner partner)
         {
             string validationResult = partner.Validate();

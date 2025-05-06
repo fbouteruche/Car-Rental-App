@@ -65,6 +65,7 @@ namespace CarRental.Controllers.ServiceModule
             WHERE 
                 [Id] = @Id";
         #endregion
+
         public override string InsertNew(Service registro)
         {
             string resultadoValidacao = registro.Validate();

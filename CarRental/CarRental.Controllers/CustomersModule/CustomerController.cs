@@ -23,7 +23,7 @@ namespace CarRental.Controllers.CustomersModule
             [Phone],
             [IsIndividual],
             [DriverLicense],
-            [LicenseExpiry]
+            [DriverLicenseValidity]
         )
         VALUES
         (
@@ -34,7 +34,7 @@ namespace CarRental.Controllers.CustomersModule
             @Phone,
             @IsIndividual,
             @DriverLicense,
-            @LicenseExpiry
+            @DriverLicenseValidity
         )";
 
         private const string sqlEditCustomers =
@@ -48,7 +48,7 @@ namespace CarRental.Controllers.CustomersModule
                     [Email] = @Email,
                     [IsIndividual] = @IsIndividual,
                     [DriverLicense] = @DriverLicense,
-                    [LicenseExpiry] = @LicenseExpiry
+                    [DriverLicenseValidity] = @DriverLicenseValidity
                 WHERE [Id] = @Id;
             ";
 
@@ -132,7 +132,7 @@ namespace CarRental.Controllers.CustomersModule
 
         private Customer ConvertToCustomer(IDataReader reader)
         {
-            DateTime? licenseExpiryDate = null;
+            DateTime? driverLicenseValidity = null;
             int id = Convert.ToInt32(reader["Id"]);
             string name = Convert.ToString(reader["Name"]);
             string uniqueRegister = Convert.ToString(reader["UniqueRegister"]);
@@ -140,11 +140,11 @@ namespace CarRental.Controllers.CustomersModule
             string phone = Convert.ToString(reader["Phone"]);
             string email = Convert.ToString(reader["Email"]);
             string driverLicense = Convert.ToString(reader["DriverLicense"]);
-            if(reader["LicenseExpiry"] != DBNull.Value)
-                licenseExpiryDate = Convert.ToDateTime(reader["LicenseExpiry"]);
+            if(reader["DriverLicenseValidity"] != DBNull.Value)
+                driverLicenseValidity = Convert.ToDateTime(reader["DriverLicenseValidity"]);
             bool isIndividual = Convert.ToBoolean(reader["IsIndividual"]);
 
-            Customer customer = new Customer(id, name, uniqueRegister, address, phone, email, driverLicense, licenseExpiryDate, isIndividual);
+            Customer customer = new Customer(id, name, uniqueRegister, address, phone, email, driverLicense, driverLicenseValidity, isIndividual);
             customer.Id = id;
             return customer;
         }
@@ -160,7 +160,7 @@ namespace CarRental.Controllers.CustomersModule
             parameters.Add("Phone", customer.Phone);
             parameters.Add("Email", customer.Email);
             parameters.Add("DriverLicense", customer.DriverLicense);
-            parameters.Add("LicenseExpiry", customer.LicenseExpiryDate);
+            parameters.Add("DriverLicenseValidity", customer.LicenseExpiryDate);
             parameters.Add("IsIndividual", customer.IsPhysicalPerson);
 
             return parameters;

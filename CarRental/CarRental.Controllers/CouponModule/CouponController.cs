@@ -14,7 +14,7 @@ namespace CarRental.Controllers.CouponModule
     {
         #region queries
         private const string sqlInsertCoupon =
-           @"INSERT INTO [DiscountCoupon]
+           @"INSERT INTO [Coupon]
                 (
                     [CouponName],
                     [Code],      
@@ -36,7 +36,7 @@ namespace CarRental.Controllers.CouponModule
                 )";
 
         private const string sqlEditCoupon =
-            @" UPDATE [DiscountCoupon]
+            @" UPDATE [Coupon]
                 SET 
                     [CouponName] = @CouponName, 
                     [Code] = @Code, 
@@ -48,7 +48,7 @@ namespace CarRental.Controllers.CouponModule
                 WHERE [Id] = @Id";
 
         private const string sqlDeleteCoupon =
-            @"DELETE FROM [DiscountCoupon] 
+            @"DELETE FROM [Coupon] 
                 WHERE [Id] = @Id";
 
         private const string sqlSelectAllCoupons =
@@ -64,7 +64,7 @@ namespace CarRental.Controllers.CouponModule
                     P.[Id] AS PartnerId,
                     P.[PartnerName]
             FROM
-                [DiscountCoupon] AS D INNER JOIN
+                [Coupon] AS D INNER JOIN
                 [Partner] AS P
             ON
                 D.PartnerId = P.Id";
@@ -81,7 +81,7 @@ namespace CarRental.Controllers.CouponModule
                     P.[Id] AS PartnerId,
                     P.[PartnerName]
             FROM
-                [DiscountCoupon] AS D INNER JOIN
+                [Coupon] AS D INNER JOIN
                 [Partner] AS P
             ON
                 D.PartnerId = P.Id
@@ -101,7 +101,7 @@ namespace CarRental.Controllers.CouponModule
                     P.[Id] AS PartnerId,
                     P.[PartnerName]
             FROM
-                [DiscountCoupon] AS D INNER JOIN
+                [Coupon] AS D INNER JOIN
                 [Partner] AS P
             ON
                 D.PartnerId = P.Id
@@ -112,7 +112,7 @@ namespace CarRental.Controllers.CouponModule
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [DiscountCoupon]
+                [Coupon]
             WHERE 
                 [Id] = @Id";
 
@@ -120,7 +120,7 @@ namespace CarRental.Controllers.CouponModule
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [DiscountCoupon]
+                [Coupon]
             WHERE 
                 [Code] = @Code";
         #endregion
