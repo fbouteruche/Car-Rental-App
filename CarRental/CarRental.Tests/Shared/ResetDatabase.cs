@@ -11,27 +11,27 @@ namespace CarRental.Tests.Shared
     {    
         public static void ResetAllTables()
         {
-            Db.Update("DELETE [TBSERVICO_LOCACAO]");
-            Db.Update("DELETE [TBLOCACAO]");
-            Db.Update("DELETE [TBGRUPOVEICULO]");
-            Db.Update("DELETE [TBIMAGEMVEICULO]");
-            Db.Update("DELETE [TBVEICULO]");            
-            Db.Update("DELETE [TBFUNCIONARIO]");
-            Db.Update("DELETE [TBSERVICO]");            
-            Db.Update("DELETE [TBCLIENTE]");
-            Db.Update("DELETE FROM [TBCUPOM_DESCONTO]");
-            Db.Update("DELETE FROM [TBPARCEIRO]");            
+            Db.Update("DELETE FROM [Service_Rental]");
+            Db.Update("DELETE FROM [Rental]");
+            Db.Update("DELETE FROM [Vehicle_Group]");
+            Db.Update("DELETE FROM [Vehicle_Image]");
+            Db.Update("DELETE FROM [Vehicle]");            
+            Db.Update("DELETE FROM [Employee]");
+            Db.Update("DELETE FROM [Service]");            
+            Db.Update("DELETE FROM [Customer]");
+            Db.Update("DELETE FROM [Coupon]");
+            Db.Update("DELETE FROM [Partner]");            
 
-            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBGRUPOVEICULO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBIMAGEMVEICULO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBVEICULO', RESEED, 0)");            
-            Db.Update("DBCC CHECKIDENT('TBFUNCIONARIO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBSERVICO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBCLIENTE', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBCUPOM_DESCONTO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBPARCEIRO', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Service_Rental', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Rental', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Vehicle_Group', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Vehicle_Image', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Vehicle', RESEED, 0)");            
+            Db.Update("DBCC CHECKIDENT('Employee', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Service', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Customer', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Coupon', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('Partner', RESEED, 0)");
         }
     }
 }
