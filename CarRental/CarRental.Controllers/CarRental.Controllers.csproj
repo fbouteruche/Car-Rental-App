@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CupomModule\CouponController.cs" />
+    <Compile Include="CouponModule\CouponController.cs" />
     <Compile Include="EmployeeModule\EmployeeController.cs" />
     <Compile Include="VehicleImageModule\VehicleImageController.cs" />
     <Compile Include="RentalModule\RentalController.cs" />
