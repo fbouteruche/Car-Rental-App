@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Partners
+﻿namespace CarRental.WindowsApp.Features.Partners
 {
     partial class PartnerTableControl
     {
@@ -29,32 +28,32 @@ namespace CarRental.WindowsApp.Features.Partners
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridParceiros = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridParceiros)).BeginInit();
+            this.partnerGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridParceiros
+            // partnerGrid
             // 
-            this.gridParceiros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridParceiros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridParceiros.Location = new System.Drawing.Point(0, 0);
-            this.gridParceiros.Name = "gridParceiros";
-            this.gridParceiros.Size = new System.Drawing.Size(150, 150);
-            this.gridParceiros.TabIndex = 0;
+            this.partnerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partnerGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.partnerGrid.Location = new System.Drawing.Point(0, 0);
+            this.partnerGrid.Name = "partnerGrid";
+            this.partnerGrid.Size = new System.Drawing.Size(150, 150);
+            this.partnerGrid.TabIndex = 0;
             // 
-            // TabelaParceiroControl
+            // PartnerTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridParceiros);
-            this.Name = "TabelaParceiroControl";
-            ((System.ComponentModel.ISupportInitialize)(this.gridParceiros)).EndInit();
+            this.Controls.Add(this.partnerGrid);
+            this.Name = "PartnerTableControl";
+            ((System.ComponentModel.ISupportInitialize)(this.partnerGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridParceiros;
+        private System.Windows.Forms.DataGridView partnerGrid;
     }
 }

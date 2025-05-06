@@ -2,7 +2,7 @@
 
 namespace CarRental.WindowsApp.Features.Locacoes
 {
-    public class ConfiguracaoLocacaoToolBox : IConfigurationToolBox
+    public class RentalConfigurationToolBox : IConfigurationToolBox
     {
         public string RegistrationType
         {

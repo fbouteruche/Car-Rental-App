@@ -9,72 +9,72 @@ namespace CarRental.WindowsApp.Features.Partners
 {
     public class PartnerOperation : ICadastravel
     {
-        private readonly PartnerController controlador;
-        private readonly PartnerTableControl tabela;
+        private readonly PartnerController controller;
+        private readonly PartnerTableControl table;
 
-        public PartnerOperation(PartnerController controladorParceiro)
+        public PartnerOperation(PartnerController partnerController)
         {
-            controlador = controladorParceiro;
-            tabela = new PartnerTableControl();
+            controller = partnerController;
+            table = new PartnerTableControl();
         }
 
         public void InsertNewRecord()
         {
-            PartnerForm tela = new PartnerForm("Cadastro de Partner");
+            PartnerForm form = new PartnerForm("Partner Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.InsertNew(tela.Parceiro);
+                controller.InsertNew(form.Partner);
 
-                List<Partner> parceiros = controlador.SelectAll();
+                List<Partner> partners = controller.SelectAll();
 
-                tabela.AtualizarRegistros(parceiros);
+                table.UpdateRecords(partners);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{tela.Parceiro.Name}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{form.Partner.Name}] successfully added");
             }
         }        
 
         public void EditRecord()
         {
-            int id = tabela.ObtemIdSelecionado();
+            int id = table.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Partner para poder Edit!", "Edição de Partners", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a Partner to edit!", "Edit Partner", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Partner parceiroSelecionado = controlador.SelectById(id);
-            PartnerForm tela = new PartnerForm("Edição de Partner");
-            tela.Parceiro = parceiroSelecionado;
+            Partner selectedPartner = controller.SelectById(id);
+            PartnerForm form = new PartnerForm("Edit Partner");
+            form.Partner = selectedPartner;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Parceiro);
-                List<Partner> parceiros = controlador.SelectAll();
-                tabela.AtualizarRegistros(parceiros);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{parceiroSelecionado.Name}] editado com sucesso");
+                controller.Edit(id, form.Partner);
+                List<Partner> partners = controller.SelectAll();
+                table.UpdateRecords(partners);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{selectedPartner.Name}] successfully edited");
             }
         }
 
         public void DeleteRecord()
         {
-            int id = tabela.ObtemIdSelecionado();
+            int id = table.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Partner para excluir", "Exclusão de Partner", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a Partner to delete", "Delete Partner", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Partner parceiroSelecionado = controlador.SelectById(id);
+            Partner selectedPartner = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Partner: [{parceiroSelecionado.Name}] ?", "Exclusão de Partners", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the Partner: [{selectedPartner.Name}]?", "Delete Partner", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Delete(id);
-                List<Partner> parceiros = controlador.SelectAll();
-                tabela.AtualizarRegistros(parceiros);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{parceiroSelecionado.Name}] removido com sucesso");
+                controller.Delete(id);
+                List<Partner> partners = controller.SelectAll();
+                table.UpdateRecords(partners);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{selectedPartner.Name}] successfully removed");
             }
         }
         public void GroupRecords()
@@ -88,9 +88,9 @@ namespace CarRental.WindowsApp.Features.Partners
         }
         public UserControl GetTable()
         {
-            List<Partner> cupons = controlador.SelectAll();
-            tabela.AtualizarRegistros(cupons);
-            return tabela;
+            List<Partner> partners = controller.SelectAll();
+            table.UpdateRecords(partners);
+            return table;
         }
     }
 }

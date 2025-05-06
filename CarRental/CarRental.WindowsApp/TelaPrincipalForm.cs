@@ -115,14 +115,14 @@ namespace CarRental.WindowsApp
         }
         private void locarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
+            RentalConfigurationToolBox configuracao = new RentalConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesLocacao(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
+            operacoes = new RentalOperation(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
 
             ConfigurarPainelRegistros();
         }

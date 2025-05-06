@@ -7,40 +7,40 @@ namespace CarRental.WindowsApp.Features.Partners
 {
     public partial class PartnerForm : Form
     {
-        Partner parceiro;
-        public PartnerForm(string titulo)
+        Partner partner;
+        public PartnerForm(string title)
         {
             InitializeComponent();
-            labelTitulo.Text = titulo;
+            labelTitle.Text = title;
         }
-        public Partner Parceiro
+        public Partner Partner
         {
-            get { return parceiro; }
+            get { return partner; }
 
             set
             {
-                parceiro = value;
+                partner = value;
 
-                txtId.Text = parceiro.Id.ToString();
-                txtNome.Text = parceiro.Name;
+                txtId.Text = partner.Id.ToString();
+                txtName.Text = partner.Name;
             }
         }
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
             int id = 0;
-            string nome = txtNome.Text;
+            string name = txtName.Text;
             if (txtId.Text.Length > 0)
                 id = Convert.ToInt32(txtId.Text);
 
-            parceiro = new Partner(id, nome);
+            partner = new Partner(id, name);
 
-            string resultadoValidacao = parceiro.Validate();
+            string validationResult = partner.Validate();
 
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                string firstError = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
 
                 DialogResult = DialogResult.None;
             }

@@ -17,34 +17,34 @@ namespace CarRental.WindowsApp.Features.Partners
         public PartnerTableControl()
         {
             InitializeComponent();
-            gridParceiros.ConfigureZebraGrid();
-            gridParceiros.ConfigureReadOnlyGrid();
-            gridParceiros.Columns.AddRange(ObterColunas());
+            partnerGrid.ConfigureZebraGrid();
+            partnerGrid.ConfigureReadOnlyGrid();
+            partnerGrid.Columns.AddRange(GetColumns());
         }
 
-        private DataGridViewColumn[] ObterColunas()
+        private DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "nome", HeaderText = "Name"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"}
            };
 
-            return colunas;
+            return columns;
         }
 
-        internal void AtualizarRegistros(List<Partner> parceiros)
+        internal void UpdateRecords(List<Partner> partners)
         {
-            gridParceiros.Rows.Clear();
+            partnerGrid.Rows.Clear();
 
-            foreach (Partner parceiro in parceiros)
-                gridParceiros.Rows.Add(parceiro.Id, parceiro.Name);
+            foreach (Partner partner in partners)
+                partnerGrid.Rows.Add(partner.Id, partner.Name);
 
         }
 
-        internal int ObtemIdSelecionado()
+        internal int GetSelectedId()
         {
-            return gridParceiros.SelecionarId<int>();
+            return partnerGrid.SelecionarId<int>();
         }
     }
 }

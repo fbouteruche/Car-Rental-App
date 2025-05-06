@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Partners
+﻿namespace CarRental.WindowsApp.Features.Partners
 {
     partial class PartnerForm
     {
@@ -29,55 +28,55 @@ namespace CarRental.WindowsApp.Features.Partners
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.lbPlaca = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblTitle
+            // labelTitle
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(91, 33);
-            this.labelTitulo.Name = "lblTitle";
-            this.labelTitulo.Size = new System.Drawing.Size(187, 20);
-            this.labelTitulo.TabIndex = 65;
-            this.labelTitulo.Text = "Cadastro de Partners";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.Location = new System.Drawing.Point(91, 33);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(164, 20);
+            this.labelTitle.TabIndex = 65;
+            this.labelTitle.Text = "Partner Registration";
             // 
-            // lbPlaca
+            // lblName
             // 
-            this.lbPlaca.AutoSize = true;
-            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbPlaca.ForeColor = System.Drawing.Color.Black;
-            this.lbPlaca.Location = new System.Drawing.Point(62, 116);
-            this.lbPlaca.Name = "lbPlaca";
-            this.lbPlaca.Size = new System.Drawing.Size(35, 13);
-            this.lbPlaca.TabIndex = 76;
-            this.lbPlaca.Text = "Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblName.ForeColor = System.Drawing.Color.Black;
+            this.lblName.Location = new System.Drawing.Point(62, 116);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 76;
+            this.lblName.Text = "Name";
             // 
-            // lbNome
+            // lblId
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(81, 90);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(16, 13);
-            this.lbNome.TabIndex = 75;
-            this.lbNome.Text = "Id";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblId.ForeColor = System.Drawing.Color.Black;
+            this.lblId.Location = new System.Drawing.Point(81, 90);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.TabIndex = 75;
+            this.lblId.Text = "Id";
             // 
-            // txtNome
+            // txtName
             // 
-            this.txtNome.Location = new System.Drawing.Point(102, 113);
-            this.txtNome.MaxLength = 7;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(217, 20);
-            this.txtNome.TabIndex = 1;
+            this.txtName.Location = new System.Drawing.Point(102, 113);
+            this.txtName.MaxLength = 50;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(217, 20);
+            this.txtName.TabIndex = 1;
             // 
             // txtId
             // 
@@ -89,49 +88,49 @@ namespace CarRental.WindowsApp.Features.Partners
             this.txtId.Size = new System.Drawing.Size(96, 20);
             this.txtId.TabIndex = 77;
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(282, 159);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 79;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancel.Location = new System.Drawing.Point(282, 159);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 79;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnConfirmar
+            // btnConfirm
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(201, 159);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 78;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirm.Location = new System.Drawing.Point(201, 159);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 78;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // TelaParceiroForm
+            // PartnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 194);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.lbPlaca);
-            this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TelaParceiroForm";
+            this.Name = "PartnerForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Vehicle";
+            this.Text = "Car Rental";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,12 +138,12 @@ namespace CarRental.WindowsApp.Features.Partners
 
         #endregion
 
-        private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.Label lbPlaca;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

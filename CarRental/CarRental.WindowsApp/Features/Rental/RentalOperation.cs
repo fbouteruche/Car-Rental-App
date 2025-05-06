@@ -15,14 +15,14 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Locacoes
 {
-    public class OperacoesLocacao : ICadastravel
+    public class RentalOperation : ICadastravel
     {
         private readonly RentalController controlador = null;
         private readonly RentalServiceRelationshipController controladorRelacionamento = null;
         private RentalServiceRelationship relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
         PdfConverter conversorPdf;
-        public OperacoesLocacao(RentalController ctrlLocacao)
+        public RentalOperation(RentalController ctrlLocacao)
         {
             conversorPdf = new PdfConverter(10, 18);
             controlador = ctrlLocacao;
