@@ -17,7 +17,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
             controlador = ctrlVeiculo;
             tabelaVeiculo = new TabelaVeiculoControl();
         }
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             VeiculoForm tela = new VeiculoForm("Cadastro de Veiculos");
 
@@ -36,7 +36,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] inserido com sucesso");
             }
         }
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
@@ -63,7 +63,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] editado com sucesso");
             }
         }
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
@@ -88,11 +88,11 @@ namespace CarRental.WindowsApp.Features.Veiculos
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tarefaSelecionada.model}] removido com sucesso");
             }
         }
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new System.NotImplementedException();
         }
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Vehicle> veiculos = controlador.SelectAll();
 
@@ -100,7 +100,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
             return tabelaVeiculo;
         }
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new System.NotImplementedException();
         }

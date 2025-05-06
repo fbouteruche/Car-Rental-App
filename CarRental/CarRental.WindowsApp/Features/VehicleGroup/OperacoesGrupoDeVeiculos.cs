@@ -21,12 +21,12 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             controlador = ctrlGrupoDeVeiculos;
             tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();
         }
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
 
@@ -55,7 +55,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             }
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
             if (id == 0)
@@ -78,12 +78,12 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             }
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Veiculos");
 
@@ -99,7 +99,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
             }
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
             tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);

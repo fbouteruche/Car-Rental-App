@@ -22,7 +22,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             tabelaServicos = new TabelaServicoControl();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             TelaServicoForm tela = new TelaServicoForm("Cadastro de Serviços");
 
@@ -38,7 +38,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             }
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaServicos.ObtemIdSelecionado();
 
@@ -67,7 +67,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             }
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaServicos.ObtemIdSelecionado();
 
@@ -93,7 +93,7 @@ namespace CarRental.WindowsApp.Features.Servicos
             }
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Service> servicos = controlador.SelectAll();
 
@@ -102,12 +102,12 @@ namespace CarRental.WindowsApp.Features.Servicos
             return tabelaServicos;
         }
 
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }

@@ -151,7 +151,7 @@ namespace CarRental.WindowsApp
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesCupom(new CouponController());
+            operacoes = new CouponOperations(new CouponController());
 
             ConfigurarPainelRegistros();
         }
@@ -174,29 +174,29 @@ namespace CarRental.WindowsApp
         #region Ações dos botões
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            operacoes.InserirNovoRegistro();
+            operacoes.InsertNewRecord();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            operacoes.EditarRegistro();
+            operacoes.EditRecord();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            operacoes.ExcluirRegistro();
+            operacoes.DeleteRecord();
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            operacoes.FiltrarRegistros();
+            operacoes.FilterRecords();
         }
         #endregion
 
         #region Métodos privados
         private void ConfigurarPainelRegistros()
         {
-            UserControl tabela = operacoes.ObterTabela();
+            UserControl tabela = operacoes.GetTable();
 
             tabela.Dock = DockStyle.Fill;
 

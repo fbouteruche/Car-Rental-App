@@ -30,7 +30,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             tabelaLocacao = new TabelaLocacaoControl();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             TelaLocacaoForm tela = new TelaLocacaoForm("Locação de Veiculos");
 
@@ -62,7 +62,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             }
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaLocacao.ObtemIdSelecionado();
 
@@ -90,7 +90,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             }
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaLocacao.ObtemIdSelecionado();
 
@@ -115,16 +115,16 @@ namespace CarRental.WindowsApp.Features.Locacoes
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ContractingCustomer}] removida com sucesso");
             }
         }
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Rental> locacoes = controlador.SelectAll();
             tabelaLocacao.AtualizarRegistros(locacoes);

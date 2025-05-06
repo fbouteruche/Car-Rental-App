@@ -25,12 +25,12 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             tabelaFuncionarios = new TabelaFuncionarioControl();
         }
 
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
@@ -54,7 +54,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
@@ -75,12 +75,12 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             }
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             FuncionarioForm tela = new FuncionarioForm("Cadastro de Funcionário");           
 
@@ -93,7 +93,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             }
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Employee> funcionarios = controlador.SelectAll();
             tabelaFuncionarios.AtualizarRegistros(funcionarios);

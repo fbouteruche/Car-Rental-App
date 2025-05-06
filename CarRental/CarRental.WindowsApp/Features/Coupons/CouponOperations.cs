@@ -10,36 +10,36 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Coupons
 {
-    public class OperacoesCupom : ICadastravel
+    public class CouponOperations : ICadastravel
     {
-        private CouponController controlador;
-        private readonly TabelaCupomControl tabela;
+        private CouponController controller;
+        private readonly TabelaCupomControl table;
 
-        public OperacoesCupom(CouponController controladorCupom)
+        public CouponOperations(CouponController couponController)
         {
-            controlador = controladorCupom;
-            tabela = new TabelaCupomControl();
+            controller = couponController;
+            table = new TabelaCupomControl();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             TelaCupomForm tela = new TelaCupomForm("Cadastro de CouponModule");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InsertNew(tela.Cupom);
+                controller.InsertNew(tela.Cupom);
 
-                List<Coupon> cupons = controlador.SelectAll();
+                List<Coupon> cupons = controller.SelectAll();
 
-                tabela.AtualizarRegistros(cupons);
+                table.AtualizarRegistros(cupons);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{tela.Cupom.Name}] inserido com sucesso");
             }
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
-            int id = tabela.ObtemIdSelecionado();
+            int id = table.ObtemIdSelecionado();
 
             if (id == 0)
             {
@@ -47,22 +47,22 @@ namespace CarRental.WindowsApp.Features.Coupons
                 return;
             }
 
-            Coupon cupomSelecionado = controlador.SelectById(id);
+            Coupon cupomSelecionado = controller.SelectById(id);
             TelaCupomForm tela = new TelaCupomForm("Edição de CouponModule");
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Cupom);
-                List<Coupon> funcionarios = controlador.SelectAll();
-                tabela.AtualizarRegistros(funcionarios);
+                controller.Edit(id, tela.Cupom);
+                List<Coupon> funcionarios = controller.SelectAll();
+                table.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{cupomSelecionado.Name}] editado com sucesso");
             }
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
-            int id = tabela.ObtemIdSelecionado();
+            int id = table.ObtemIdSelecionado();
 
             if (id == 0)
             {
@@ -70,30 +70,30 @@ namespace CarRental.WindowsApp.Features.Coupons
                 return;
             }
 
-            Coupon parceiroSelecionado = controlador.SelectById(id);
+            Coupon parceiroSelecionado = controller.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Coupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Delete(id);
-                List<Coupon> cupons = controlador.SelectAll();
-                tabela.AtualizarRegistros(cupons);
+                controller.Delete(id);
+                List<Coupon> cupons = controller.SelectAll();
+                table.AtualizarRegistros(cupons);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{parceiroSelecionado.Name}] removido com sucesso");
             }
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
-            List<Coupon> cupons = controlador.SelectAll();
-            tabela.AtualizarRegistros(cupons);
-            return tabela;
+            List<Coupon> cupons = controller.SelectAll();
+            table.AtualizarRegistros(cupons);
+            return table;
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }

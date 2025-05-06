@@ -16,7 +16,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             controlador = ctrlDevolucao;
             tabelaDevolucao = new TabelaDevolucaoControl();
         }
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             int id = tabelaDevolucao.ObtemIdSelecionado();
 
@@ -42,12 +42,12 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
         }
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             MessageBox.Show("Não é possivel editar uma devolução encerrada!! \nPara editar uma locação em aberta, vá ao menu Locação");
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaDevolucao.ObtemIdSelecionado();
 
@@ -73,7 +73,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             FiltroDevolucaoForm telaFiltro = new FiltroDevolucaoForm();
 
@@ -118,12 +118,12 @@ namespace CarRental.WindowsApp.Features.Devolucoes
             }
         }
 
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Rental> locacoes = controlador.SelectAll();
 

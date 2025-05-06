@@ -18,7 +18,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             tabela = new TabelaParceiroControl();
         }
 
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             TelaParceiroForm tela = new TelaParceiroForm("Cadastro de Partner");
 
@@ -34,7 +34,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             }
         }        
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabela.ObtemIdSelecionado();
 
@@ -57,7 +57,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             }
         }
 
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabela.ObtemIdSelecionado();
 
@@ -77,16 +77,16 @@ namespace CarRental.WindowsApp.Features.Parceiros
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{parceiroSelecionado.Name}] removido com sucesso");
             }
         }
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Partner> cupons = controlador.SelectAll();
             tabela.AtualizarRegistros(cupons);

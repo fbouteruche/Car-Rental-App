@@ -6,12 +6,12 @@ namespace CarRental.WindowsApp.Shared
 {
     public interface ICadastravel
     {
-        void InserirNovoRegistro();
+        void InsertNewRecord();
 
-        void EditarRegistro();
-        void ExcluirRegistro();
-        UserControl ObterTabela();
-       void FiltrarRegistros();
-       void AgruparRegistros();
+        void EditRecord();
+        void DeleteRecord();
+        UserControl GetTable();
+       void FilterRecords();
+       void GroupRecords();
     }
 }

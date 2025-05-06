@@ -23,7 +23,7 @@ namespace CarRental.WindowsApp.Features.Clientes
         }
 
 
-        public void EditarRegistro()
+        public void EditRecord()
         {
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
@@ -48,7 +48,7 @@ namespace CarRental.WindowsApp.Features.Clientes
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{tela.Clientes.Name}] editado com sucesso");
             }
         }
-        public void ExcluirRegistro()
+        public void DeleteRecord()
         {
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
@@ -70,7 +70,7 @@ namespace CarRental.WindowsApp.Features.Clientes
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{clienteSelecionado.Name}] removido com sucesso");
             }
         }
-        public void InserirNovoRegistro()
+        public void InsertNewRecord()
         {
             ClientesForm tela = new ClientesForm("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
@@ -83,19 +83,19 @@ namespace CarRental.WindowsApp.Features.Clientes
             }
         }
 
-        public UserControl ObterTabela()
+        public UserControl GetTable()
         {
             List<Customer> contatos = controlador.SelectAll();
             tabelaCliente.AtualizarRegistros();
 
             return tabelaCliente;
         }
-        public void FiltrarRegistros()
+        public void FilterRecords()
         {
             throw new NotImplementedException();
         }
 
-        public void AgruparRegistros()
+        public void GroupRecords()
         {
             throw new NotImplementedException();
         }
