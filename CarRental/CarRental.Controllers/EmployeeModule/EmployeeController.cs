@@ -60,15 +60,15 @@ namespace CarRental.Controllers.EmployeeModule
         private const string selectByIdCommand = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
         #endregion
 
-        public override string Edit(int id, Employee record)
+        public override string Edit(int id, Employee employee)
         {
-            string resultadoValidacao = record.Validate();
-            if (resultadoValidacao == "VALID")
+            string validationResult = employee.Validate();
+            if (validationResult == "VALID")
             {
-                record.Id = id;
-                Db.Update(updateCommand, GetEmployeeParameters(record));
+                employee.Id = id;
+                Db.Update(updateCommand, GetEmployeeParameters(employee));
             }
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override bool Delete(int id)
@@ -89,13 +89,13 @@ namespace CarRental.Controllers.EmployeeModule
             return Db.Exists(selectByIdCommand, AddParameter("ID", id));
         }
 
-        public override string InsertNew(Employee record)
+        public override string InsertNew(Employee employee)
         {
-            string resultadoValidacao = record.Validate();
-            if (resultadoValidacao == "VALID")
-                record.Id = Db.Insert(insertCommand, GetEmployeeParameters(record));
+            string validationResult = employee.Validate();
+            if (validationResult == "VALID")
+                employee.Id = Db.Insert(insertCommand, GetEmployeeParameters(employee));
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override Employee SelectById(int id)
@@ -108,48 +108,48 @@ namespace CarRental.Controllers.EmployeeModule
             return Db.GetAll(selectAllCommand, ConvertToEmployee);
         }
 
-        private Dictionary<string, object> GetEmployeeParameters(Employee funcionario)
+        private Dictionary<string, object> GetEmployeeParameters(Employee employee)
         {
-            var parametros = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>();
 
-            parametros.Add("ID", funcionario.Id);
-            parametros.Add("NOME", funcionario.Name);
-            parametros.Add("REGISTROUNICO", funcionario.UniqueId);
-            parametros.Add("ENDERECO", funcionario.Address);
-            parametros.Add("TELEFONE", funcionario.Phone);
-            parametros.Add("EMAIL", funcionario.Email);
-            parametros.Add("MATRICULAINTERNA", funcionario.InternalRegistration);
-            parametros.Add("USUARIOACESSO", funcionario.LoginUsername);
-            parametros.Add("SENHA", funcionario.UserPassword);
-            parametros.Add("DATAADMISSAO", funcionario.HiringDate);
-            parametros.Add("CARGO", funcionario.JobTitle);
-            parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salary)));
-            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(funcionario.IsPhysicalPerson));
+            parameters.Add("ID", employee.Id);
+            parameters.Add("NOME", employee.Name);
+            parameters.Add("REGISTROUNICO", employee.UniqueId);
+            parameters.Add("ENDERECO", employee.Address);
+            parameters.Add("TELEFONE", employee.Phone);
+            parameters.Add("EMAIL", employee.Email);
+            parameters.Add("MATRICULAINTERNA", employee.InternalRegistration);
+            parameters.Add("USUARIOACESSO", employee.LoginUsername);
+            parameters.Add("SENHA", employee.UserPassword);
+            parameters.Add("DATAADMISSAO", employee.HiringDate);
+            parameters.Add("CARGO", employee.JobTitle);
+            parameters.Add("SALARIO", float.Parse(Convert.ToString(employee.Salary)));
+            parameters.Add("EHPESSOAFISICA", Convert.ToBoolean(employee.IsPhysicalPerson));
 
-            return parametros;
+            return parameters;
         }
 
         private Employee ConvertToEmployee(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOME"]);
-            string registroUnico = Convert.ToString(reader["REGISTROUNICO"]);
-            string endereco = Convert.ToString(reader["ENDERECO"]);
-            string telefone = Convert.ToString(reader["TELEFONE"]);
+            string name = Convert.ToString(reader["NOME"]);
+            string uniqueId = Convert.ToString(reader["REGISTROUNICO"]);
+            string address = Convert.ToString(reader["ENDERECO"]);
+            string phone = Convert.ToString(reader["TELEFONE"]);
             string email = Convert.ToString(reader["EMAIL"]);
-            int matriculaInterna = Convert.ToInt32(reader["MATRICULAINTERNA"]);
-            string usuarioAcesso = Convert.ToString(reader["USUARIOACESSO"]);
-            string senha = Convert.ToString(reader["SENHA"]);
-            DateTime dataAdmissao = Convert.ToDateTime(reader["DATAADMISSAO"]);
-            string cargo = Convert.ToString(reader["CARGO"]);
-            double salario = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
-            bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
+            int internalRegistration = Convert.ToInt32(reader["MATRICULAINTERNA"]);
+            string loginUsername = Convert.ToString(reader["USUARIOACESSO"]);
+            string userPassword = Convert.ToString(reader["SENHA"]);
+            DateTime hiringDate = Convert.ToDateTime(reader["DATAADMISSAO"]);
+            string jobTitle = Convert.ToString(reader["CARGO"]);
+            double salary = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
+            bool isPhysicalPerson = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
 
-            Employee funcionario = new Employee(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso,senha, dataAdmissao, cargo, salario, ehPessoaFisica);
+            Employee employee = new Employee(id, name, uniqueId, address, phone, email, internalRegistration, loginUsername, userPassword, hiringDate, jobTitle, salary, isPhysicalPerson);
 
-            funcionario.Id = id;
+            employee.Id = id;
 
-            return funcionario;
+            return employee;
         }
     }
 }
