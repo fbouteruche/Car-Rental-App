@@ -14,15 +14,15 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Funcionarios
 {
-    public class OperacoesFuncionario : ICadastravel
+    public class EmployeeOperation : ICadastravel
     {
         private readonly EmployeeController controlador = null;
-        private readonly TabelaFuncionarioControl tabelaFuncionarios = null;
+        private readonly EmployeeTableControl tabelaFuncionarios = null;
 
-        public OperacoesFuncionario(EmployeeController ctrlFuncionario)
+        public EmployeeOperation(EmployeeController ctrlFuncionario)
         {
             controlador = ctrlFuncionario;
-            tabelaFuncionarios = new TabelaFuncionarioControl();
+            tabelaFuncionarios = new EmployeeTableControl();
         }
 
         public void GroupRecords()
@@ -41,7 +41,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             }
 
             Employee funcionarioSelecionado = controlador.SelectById(id);
-            FuncionarioForm tela = new FuncionarioForm("Edição de Funcionário");
+            EmployeeForm tela = new EmployeeForm("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -82,7 +82,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
         public void InsertNewRecord()
         {
-            FuncionarioForm tela = new FuncionarioForm("Cadastro de Funcionário");           
+            EmployeeForm tela = new EmployeeForm("Cadastro de Funcionário");           
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

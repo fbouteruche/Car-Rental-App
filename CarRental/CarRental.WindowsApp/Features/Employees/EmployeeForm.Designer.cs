@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Funcionarios
 {
-    partial class FuncionarioForm
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.

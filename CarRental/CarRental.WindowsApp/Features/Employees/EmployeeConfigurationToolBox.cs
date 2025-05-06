@@ -7,7 +7,7 @@ using CarRental.WindowsApp.Shared;
 
 namespace CarRental.WindowsApp.Features.Funcionarios
 {
-    public class ConfiguracaoFuncionarioToolBox : IConfigurationToolBox
+    public class EmployeeConfigurationToolBox : IConfigurationToolBox
     {
         public string RegistrationType { get { return "Cadastro de Funcionários"; } }
 

@@ -13,11 +13,11 @@ using CarRental.WindowsApp.Funcionarios;
 
 namespace CarRental.WindowsApp.Funcionarios
 {
-    public partial class FuncionarioForm : Form
+    public partial class EmployeeForm : Form
     {
         private Employee funcionario;
 
-        public FuncionarioForm(string titulo)
+        public EmployeeForm(string titulo)
         {
             InitializeComponent();
             lbTituloCadastroDeFuncionarios.Text = titulo;

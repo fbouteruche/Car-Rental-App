@@ -106,19 +106,19 @@
     <Compile Include="Features\Returns\TelaDevolucaoForm.Designer.cs">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Employees\ConfiguracaoFuncionarioToolBox.cs" />
-    <Compile Include="Features\Employees\FuncionarioForm.cs">
+    <Compile Include="Features\Employees\EmployeeConfigurationToolBox.cs" />
+    <Compile Include="Features\Employees\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Employees\FuncionarioForm.Designer.cs">
-      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    <Compile Include="Features\Employees\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Employees\OperacoesFuncionario.cs" />
-    <Compile Include="Features\Employees\TabelaFuncionarioControl.cs">
+    <Compile Include="Features\Employees\EmployeeOperation.cs" />
+    <Compile Include="Features\Employees\EmployeeTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Employees\TabelaFuncionarioControl.Designer.cs">
-      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    <Compile Include="Features\Employees\EmployeeTableControl.Designer.cs">
+      <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\VehicleGroup\ConfiguracaoGrupoDeVeiculosToolBox.cs" />
     <Compile Include="Features\VehicleGroup\OperacoesGrupoDeVeiculos.cs" />
@@ -248,11 +248,11 @@
     <EmbeddedResource Include="Features\Returns\TelaDevolucaoForm.resx">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Employees\FuncionarioForm.resx">
-      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Employees\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Employees\TabelaFuncionarioControl.resx">
-      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Employees\EmployeeTableControl.resx">
+      <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\VehicleGroup\TelaGrupoDeVeiculosForm.resx">
       <DependentUpon>TelaGrupoDeVeiculosForm.cs</DependentUpon>

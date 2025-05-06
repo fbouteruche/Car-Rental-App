@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Features.Funcionarios
 {
-    partial class TabelaFuncionarioControl
+    partial class EmployeeTableControl
     {
         /// <summary> 
         /// Variável de designer necessária.

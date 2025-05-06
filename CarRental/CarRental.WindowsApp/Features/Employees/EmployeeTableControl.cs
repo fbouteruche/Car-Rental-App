@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.Funcionarios
 {
-    public partial class TabelaFuncionarioControl : UserControl
+    public partial class EmployeeTableControl : UserControl
     {
-        public TabelaFuncionarioControl()
+        public EmployeeTableControl()
         {
             InitializeComponent();
             gridFuncionarios.ConfigureZebraGrid();

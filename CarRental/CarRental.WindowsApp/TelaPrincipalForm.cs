@@ -47,14 +47,14 @@ namespace CarRental.WindowsApp
         #region Opções do menu strip
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
+            EmployeeConfigurationToolBox configuracao = new EmployeeConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesFuncionario(new EmployeeController());
+            operacoes = new EmployeeOperation(new EmployeeController());
 
             ConfigurarPainelRegistros();
         }
