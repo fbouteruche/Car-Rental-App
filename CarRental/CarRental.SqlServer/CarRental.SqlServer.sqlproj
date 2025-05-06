@@ -63,16 +63,16 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\TBSERVICO.sql" />
-    <Build Include="dbo\Tables\TBGRUPOVEICULO.sql" />
-    <Build Include="dbo\Tables\TBVEICULO.sql" />
-    <Build Include="dbo\Tables\TBCLIENTE.sql" />
-    <Build Include="dbo\Tables\TBFUNCIONARIO.sql" />
-    <Build Include="dbo\Tables\TBIMAGEMVEICULO.sql" />
-    <Build Include="dbo\Tables\TBLOCACAO.sql" />
-    <Build Include="dbo\Tables\TBSERVICO_LOCACAO.sql" />
-    <Build Include="dbo\Tables\TBPARCEIRO.sql" />
-    <Build Include="dbo\Tables\TBCUPOM_DESCONTO.sql" />
+    <Build Include="dbo\Tables\SERVICE.sql" />
+    <Build Include="dbo\Tables\VEHICLEGROUP.sql" />
+    <Build Include="dbo\Tables\VEHICLE.sql" />
+    <Build Include="dbo\Tables\CUSTOMER.sql" />
+    <Build Include="dbo\Tables\EMPLOYEE.sql" />
+    <Build Include="dbo\Tables\VEHICLEIMAGE.sql" />
+    <Build Include="dbo\Tables\RENTAL.sql" />
+    <Build Include="dbo\Tables\SERVICE_RENTAL.sql" />
+    <Build Include="dbo\Tables\PARTNER.sql" />
+    <Build Include="dbo\Tables\COUPON.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="CarRental.SqlServer.refactorlog" />
