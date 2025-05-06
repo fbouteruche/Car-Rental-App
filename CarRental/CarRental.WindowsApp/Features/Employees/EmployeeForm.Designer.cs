@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Employee
+﻿namespace CarRental.WindowsApp.Features.Employee
 {
     partial class EmployeeForm
     {
@@ -11,7 +10,7 @@ namespace CarRental.WindowsApp.Features.Employee
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -30,36 +29,36 @@ namespace CarRental.WindowsApp.Features.Employee
         private void InitializeComponent()
         {
             this.lbId = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbCPF = new System.Windows.Forms.Label();
-            this.lbEndereco = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbCpf = new System.Windows.Forms.Label();
+            this.lbAddress = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
-            this.lbTelefone = new System.Windows.Forms.Label();
-            this.lbTituloCadastroDeFuncionarios = new System.Windows.Forms.Label();
+            this.lbPhone = new System.Windows.Forms.Label();
+            this.lbEmployeeFormTitle = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
-            this.textEndereco = new System.Windows.Forms.TextBox();
-            this.lbCargo = new System.Windows.Forms.Label();
-            this.lbSalario = new System.Windows.Forms.Label();
-            this.lbUsuAcesso = new System.Windows.Forms.Label();
-            this.lbMatInt = new System.Windows.Forms.Label();
-            this.lbDataAdmissao = new System.Windows.Forms.Label();
-            this.textUsuarioAcesso = new System.Windows.Forms.TextBox();
-            this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.textAddress = new System.Windows.Forms.TextBox();
+            this.lbJobTitle = new System.Windows.Forms.Label();
+            this.lbSalary = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbInternalRegistration = new System.Windows.Forms.Label();
+            this.lbHiringDate = new System.Windows.Forms.Label();
+            this.textUsername = new System.Windows.Forms.TextBox();
+            this.mskTxtPhone = new System.Windows.Forms.MaskedTextBox();
             this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.textNome = new System.Windows.Forms.TextBox();
+            this.textName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textSenha = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.mskTxtDataAdmissao = new System.Windows.Forms.DateTimePicker();
-            this.textMatriculaInterna = new System.Windows.Forms.NumericUpDown();
-            this.textSalario = new System.Windows.Forms.NumericUpDown();
-            this.textCargo = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.textPassword = new System.Windows.Forms.TextBox();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.mskTxtHiringDate = new System.Windows.Forms.DateTimePicker();
+            this.textInternalRegistration = new System.Windows.Forms.NumericUpDown();
+            this.textSalary = new System.Windows.Forms.NumericUpDown();
+            this.textJobTitle = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textInternalRegistration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // lbId
@@ -74,41 +73,41 @@ namespace CarRental.WindowsApp.Features.Employee
             this.lbId.TabIndex = 23;
             this.lbId.Text = "Id";
             // 
-            // lbNome
+            // lbName
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(48, 50);
-            this.lbNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(45, 17);
-            this.lbNome.TabIndex = 24;
-            this.lbNome.Text = "Name";
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbName.ForeColor = System.Drawing.Color.Black;
+            this.lbName.Location = new System.Drawing.Point(48, 50);
+            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(45, 17);
+            this.lbName.TabIndex = 24;
+            this.lbName.Text = "Name";
             // 
-            // lbCPF
+            // lbCpf
             // 
-            this.lbCPF.AutoSize = true;
-            this.lbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbCPF.ForeColor = System.Drawing.Color.Black;
-            this.lbCPF.Location = new System.Drawing.Point(64, 82);
-            this.lbCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbCPF.Name = "lbCPF";
-            this.lbCPF.Size = new System.Drawing.Size(29, 17);
-            this.lbCPF.TabIndex = 25;
-            this.lbCPF.Text = "Cpf";
+            this.lbCpf.AutoSize = true;
+            this.lbCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbCpf.ForeColor = System.Drawing.Color.Black;
+            this.lbCpf.Location = new System.Drawing.Point(64, 82);
+            this.lbCpf.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbCpf.Name = "lbCpf";
+            this.lbCpf.Size = new System.Drawing.Size(29, 17);
+            this.lbCpf.TabIndex = 25;
+            this.lbCpf.Text = "CPF";
             // 
-            // lbEndereco
+            // lbAddress
             // 
-            this.lbEndereco.AutoSize = true;
-            this.lbEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbEndereco.ForeColor = System.Drawing.Color.Black;
-            this.lbEndereco.Location = new System.Drawing.Point(24, 114);
-            this.lbEndereco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbEndereco.Name = "lbEndereco";
-            this.lbEndereco.Size = new System.Drawing.Size(69, 17);
-            this.lbEndereco.TabIndex = 26;
-            this.lbEndereco.Text = "Endereço";
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbAddress.ForeColor = System.Drawing.Color.Black;
+            this.lbAddress.Location = new System.Drawing.Point(24, 114);
+            this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(69, 17);
+            this.lbAddress.TabIndex = 26;
+            this.lbAddress.Text = "Address";
             // 
             // lbEmail
             // 
@@ -122,29 +121,29 @@ namespace CarRental.WindowsApp.Features.Employee
             this.lbEmail.TabIndex = 28;
             this.lbEmail.Text = "E-mail";
             // 
-            // lbTelefone
+            // lbPhone
             // 
-            this.lbTelefone.AutoSize = true;
-            this.lbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTelefone.ForeColor = System.Drawing.Color.Black;
-            this.lbTelefone.Location = new System.Drawing.Point(29, 146);
-            this.lbTelefone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTelefone.Name = "lbTelefone";
-            this.lbTelefone.Size = new System.Drawing.Size(64, 17);
-            this.lbTelefone.TabIndex = 27;
-            this.lbTelefone.Text = "Phone";
+            this.lbPhone.AutoSize = true;
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbPhone.ForeColor = System.Drawing.Color.Black;
+            this.lbPhone.Location = new System.Drawing.Point(29, 146);
+            this.lbPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPhone.Name = "lbPhone";
+            this.lbPhone.Size = new System.Drawing.Size(64, 17);
+            this.lbPhone.TabIndex = 27;
+            this.lbPhone.Text = "Phone";
             // 
-            // lbTituloCadastroDeFuncionarios
+            // lbEmployeeFormTitle
             // 
-            this.lbTituloCadastroDeFuncionarios.AutoSize = true;
-            this.lbTituloCadastroDeFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTituloCadastroDeFuncionarios.ForeColor = System.Drawing.Color.Black;
-            this.lbTituloCadastroDeFuncionarios.Location = new System.Drawing.Point(152, 43);
-            this.lbTituloCadastroDeFuncionarios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTituloCadastroDeFuncionarios.Name = "lbTituloCadastroDeFuncionarios";
-            this.lbTituloCadastroDeFuncionarios.Size = new System.Drawing.Size(260, 25);
-            this.lbTituloCadastroDeFuncionarios.TabIndex = 29;
-            this.lbTituloCadastroDeFuncionarios.Text = "Cadastro de Funcionários";
+            this.lbEmployeeFormTitle.AutoSize = true;
+            this.lbEmployeeFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmployeeFormTitle.ForeColor = System.Drawing.Color.Black;
+            this.lbEmployeeFormTitle.Location = new System.Drawing.Point(152, 43);
+            this.lbEmployeeFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbEmployeeFormTitle.Name = "lbEmployeeFormTitle";
+            this.lbEmployeeFormTitle.Size = new System.Drawing.Size(260, 25);
+            this.lbEmployeeFormTitle.TabIndex = 29;
+            this.lbEmployeeFormTitle.Text = "Employee Registration";
             // 
             // textId
             // 
@@ -167,90 +166,90 @@ namespace CarRental.WindowsApp.Features.Employee
             this.textEmail.Size = new System.Drawing.Size(132, 23);
             this.textEmail.TabIndex = 5;
             // 
-            // textEndereco
+            // textAddress
             // 
-            this.textEndereco.Location = new System.Drawing.Point(103, 111);
-            this.textEndereco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textEndereco.Name = "textEndereco";
-            this.textEndereco.Size = new System.Drawing.Size(132, 23);
-            this.textEndereco.TabIndex = 3;
+            this.textAddress.Location = new System.Drawing.Point(103, 111);
+            this.textAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAddress.Name = "textAddress";
+            this.textAddress.Size = new System.Drawing.Size(132, 23);
+            this.textAddress.TabIndex = 3;
             // 
-            // lbCargo
+            // lbJobTitle
             // 
-            this.lbCargo.AutoSize = true;
-            this.lbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbCargo.ForeColor = System.Drawing.Color.Black;
-            this.lbCargo.Location = new System.Drawing.Point(342, 146);
-            this.lbCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbCargo.Name = "lbCargo";
-            this.lbCargo.Size = new System.Drawing.Size(46, 17);
-            this.lbCargo.TabIndex = 44;
-            this.lbCargo.Text = "JobTitle";
+            this.lbJobTitle.AutoSize = true;
+            this.lbJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbJobTitle.ForeColor = System.Drawing.Color.Black;
+            this.lbJobTitle.Location = new System.Drawing.Point(342, 146);
+            this.lbJobTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbJobTitle.Name = "lbJobTitle";
+            this.lbJobTitle.Size = new System.Drawing.Size(46, 17);
+            this.lbJobTitle.TabIndex = 44;
+            this.lbJobTitle.Text = "Job Title";
             // 
-            // lbSalario
+            // lbSalary
             // 
-            this.lbSalario.AutoSize = true;
-            this.lbSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbSalario.ForeColor = System.Drawing.Color.Black;
-            this.lbSalario.Location = new System.Drawing.Point(337, 177);
-            this.lbSalario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbSalario.Name = "lbSalario";
-            this.lbSalario.Size = new System.Drawing.Size(52, 17);
-            this.lbSalario.TabIndex = 43;
-            this.lbSalario.Text = "Salário";
+            this.lbSalary.AutoSize = true;
+            this.lbSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbSalary.ForeColor = System.Drawing.Color.Black;
+            this.lbSalary.Location = new System.Drawing.Point(337, 177);
+            this.lbSalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSalary.Name = "lbSalary";
+            this.lbSalary.Size = new System.Drawing.Size(52, 17);
+            this.lbSalary.TabIndex = 43;
+            this.lbSalary.Text = "Salary";
             // 
-            // lbUsuAcesso
+            // lbUsername
             // 
-            this.lbUsuAcesso.AutoSize = true;
-            this.lbUsuAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbUsuAcesso.ForeColor = System.Drawing.Color.Black;
-            this.lbUsuAcesso.Location = new System.Drawing.Point(262, 52);
-            this.lbUsuAcesso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbUsuAcesso.Name = "lbUsuAcesso";
-            this.lbUsuAcesso.Size = new System.Drawing.Size(127, 17);
-            this.lbUsuAcesso.TabIndex = 42;
-            this.lbUsuAcesso.Text = "Usuário de Acesso";
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbUsername.ForeColor = System.Drawing.Color.Black;
+            this.lbUsername.Location = new System.Drawing.Point(262, 52);
+            this.lbUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(127, 17);
+            this.lbUsername.TabIndex = 42;
+            this.lbUsername.Text = "Username";
             // 
-            // lbMatInt
+            // lbInternalRegistration
             // 
-            this.lbMatInt.AutoSize = true;
-            this.lbMatInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbMatInt.ForeColor = System.Drawing.Color.Black;
-            this.lbMatInt.Location = new System.Drawing.Point(323, 20);
-            this.lbMatInt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbMatInt.Name = "lbMatInt";
-            this.lbMatInt.Size = new System.Drawing.Size(65, 17);
-            this.lbMatInt.TabIndex = 41;
-            this.lbMatInt.Text = "Matricula";
+            this.lbInternalRegistration.AutoSize = true;
+            this.lbInternalRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbInternalRegistration.ForeColor = System.Drawing.Color.Black;
+            this.lbInternalRegistration.Location = new System.Drawing.Point(323, 20);
+            this.lbInternalRegistration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbInternalRegistration.Name = "lbInternalRegistration";
+            this.lbInternalRegistration.Size = new System.Drawing.Size(65, 17);
+            this.lbInternalRegistration.TabIndex = 41;
+            this.lbInternalRegistration.Text = "Internal Registration";
             // 
-            // lbDataAdmissao
+            // lbHiringDate
             // 
-            this.lbDataAdmissao.AutoSize = true;
-            this.lbDataAdmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbDataAdmissao.ForeColor = System.Drawing.Color.Black;
-            this.lbDataAdmissao.Location = new System.Drawing.Point(266, 116);
-            this.lbDataAdmissao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbDataAdmissao.Name = "lbDataAdmissao";
-            this.lbDataAdmissao.Size = new System.Drawing.Size(123, 17);
-            this.lbDataAdmissao.TabIndex = 45;
-            this.lbDataAdmissao.Text = "Data de Admissão";
+            this.lbHiringDate.AutoSize = true;
+            this.lbHiringDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbHiringDate.ForeColor = System.Drawing.Color.Black;
+            this.lbHiringDate.Location = new System.Drawing.Point(266, 116);
+            this.lbHiringDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHiringDate.Name = "lbHiringDate";
+            this.lbHiringDate.Size = new System.Drawing.Size(123, 17);
+            this.lbHiringDate.TabIndex = 45;
+            this.lbHiringDate.Text = "Hiring Date";
             // 
-            // textUsuarioAcesso
+            // textUsername
             // 
-            this.textUsuarioAcesso.Location = new System.Drawing.Point(396, 49);
-            this.textUsuarioAcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textUsuarioAcesso.Name = "textUsuarioAcesso";
-            this.textUsuarioAcesso.Size = new System.Drawing.Size(132, 23);
-            this.textUsuarioAcesso.TabIndex = 7;
+            this.textUsername.Location = new System.Drawing.Point(396, 49);
+            this.textUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUsername.Name = "textUsername";
+            this.textUsername.Size = new System.Drawing.Size(132, 23);
+            this.textUsername.TabIndex = 7;
             // 
-            // mskTxtTelefone
+            // mskTxtPhone
             // 
-            this.mskTxtTelefone.Location = new System.Drawing.Point(103, 143);
-            this.mskTxtTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.mskTxtTelefone.Mask = "(00) 00000-0000";
-            this.mskTxtTelefone.Name = "mskTxtTelefone";
-            this.mskTxtTelefone.Size = new System.Drawing.Size(132, 23);
-            this.mskTxtTelefone.TabIndex = 4;
+            this.mskTxtPhone.Location = new System.Drawing.Point(103, 143);
+            this.mskTxtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskTxtPhone.Mask = "(00) 00000-0000";
+            this.mskTxtPhone.Name = "mskTxtPhone";
+            this.mskTxtPhone.Size = new System.Drawing.Size(132, 23);
+            this.mskTxtPhone.TabIndex = 4;
             // 
             // mskTxtCpf
             // 
@@ -261,40 +260,40 @@ namespace CarRental.WindowsApp.Features.Employee
             this.mskTxtCpf.Size = new System.Drawing.Size(132, 23);
             this.mskTxtCpf.TabIndex = 2;
             // 
-            // textNome
+            // textName
             // 
-            this.textNome.Location = new System.Drawing.Point(103, 47);
-            this.textNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(132, 23);
-            this.textNome.TabIndex = 1;
+            this.textName.Location = new System.Drawing.Point(103, 47);
+            this.textName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(132, 23);
+            this.textName.TabIndex = 1;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.mskTxtTelefone);
-            this.groupBox2.Controls.Add(this.textSenha);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
+            this.groupBox2.Controls.Add(this.mskTxtPhone);
+            this.groupBox2.Controls.Add(this.textPassword);
+            this.groupBox2.Controls.Add(this.labelPassword);
+            this.groupBox2.Controls.Add(this.mskTxtHiringDate);
             this.groupBox2.Controls.Add(this.mskTxtCpf);
-            this.groupBox2.Controls.Add(this.textMatriculaInterna);
+            this.groupBox2.Controls.Add(this.textInternalRegistration);
             this.groupBox2.Controls.Add(this.lbId);
-            this.groupBox2.Controls.Add(this.textSalario);
-            this.groupBox2.Controls.Add(this.lbTelefone);
-            this.groupBox2.Controls.Add(this.lbDataAdmissao);
+            this.groupBox2.Controls.Add(this.textSalary);
+            this.groupBox2.Controls.Add(this.lbPhone);
+            this.groupBox2.Controls.Add(this.lbHiringDate);
             this.groupBox2.Controls.Add(this.lbEmail);
-            this.groupBox2.Controls.Add(this.lbMatInt);
-            this.groupBox2.Controls.Add(this.lbEndereco);
-            this.groupBox2.Controls.Add(this.textUsuarioAcesso);
-            this.groupBox2.Controls.Add(this.lbCPF);
-            this.groupBox2.Controls.Add(this.lbUsuAcesso);
-            this.groupBox2.Controls.Add(this.lbNome);
-            this.groupBox2.Controls.Add(this.lbSalario);
+            this.groupBox2.Controls.Add(this.lbInternalRegistration);
+            this.groupBox2.Controls.Add(this.lbAddress);
+            this.groupBox2.Controls.Add(this.textUsername);
+            this.groupBox2.Controls.Add(this.lbCpf);
+            this.groupBox2.Controls.Add(this.lbUsername);
+            this.groupBox2.Controls.Add(this.lbName);
+            this.groupBox2.Controls.Add(this.lbSalary);
             this.groupBox2.Controls.Add(this.textId);
             this.groupBox2.Controls.Add(this.textEmail);
-            this.groupBox2.Controls.Add(this.textCargo);
-            this.groupBox2.Controls.Add(this.textEndereco);
-            this.groupBox2.Controls.Add(this.lbCargo);
-            this.groupBox2.Controls.Add(this.textNome);
+            this.groupBox2.Controls.Add(this.textJobTitle);
+            this.groupBox2.Controls.Add(this.textAddress);
+            this.groupBox2.Controls.Add(this.lbJobTitle);
+            this.groupBox2.Controls.Add(this.textName);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.groupBox2.Location = new System.Drawing.Point(16, 97);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -304,114 +303,114 @@ namespace CarRental.WindowsApp.Features.Employee
             this.groupBox2.TabIndex = 52;
             this.groupBox2.TabStop = false;
             // 
-            // textSenha
+            // textPassword
             // 
-            this.textSenha.Location = new System.Drawing.Point(397, 80);
-            this.textSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textSenha.Name = "textSenha";
-            this.textSenha.PasswordChar = '*';
-            this.textSenha.Size = new System.Drawing.Size(132, 23);
-            this.textSenha.TabIndex = 47;
+            this.textPassword.Location = new System.Drawing.Point(397, 80);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
+            this.textPassword.Size = new System.Drawing.Size(132, 23);
+            this.textPassword.TabIndex = 47;
             // 
-            // label1
+            // labelPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(339, 83);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "UserPassword";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelPassword.ForeColor = System.Drawing.Color.Black;
+            this.labelPassword.Location = new System.Drawing.Point(339, 83);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(49, 17);
+            this.labelPassword.TabIndex = 46;
+            this.labelPassword.Text = "Password";
             // 
-            // mskTxtDataAdmissao
+            // mskTxtHiringDate
             // 
-            this.mskTxtDataAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(397, 111);
-            this.mskTxtDataAdmissao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
-            this.mskTxtDataAdmissao.Size = new System.Drawing.Size(131, 23);
-            this.mskTxtDataAdmissao.TabIndex = 8;
+            this.mskTxtHiringDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.mskTxtHiringDate.Location = new System.Drawing.Point(397, 111);
+            this.mskTxtHiringDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskTxtHiringDate.Name = "mskTxtHiringDate";
+            this.mskTxtHiringDate.Size = new System.Drawing.Size(131, 23);
+            this.mskTxtHiringDate.TabIndex = 8;
             // 
-            // textMatriculaInterna
+            // textInternalRegistration
             // 
-            this.textMatriculaInterna.Location = new System.Drawing.Point(396, 18);
-            this.textMatriculaInterna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textMatriculaInterna.Name = "textMatriculaInterna";
-            this.textMatriculaInterna.Size = new System.Drawing.Size(132, 23);
-            this.textMatriculaInterna.TabIndex = 6;
+            this.textInternalRegistration.Location = new System.Drawing.Point(396, 18);
+            this.textInternalRegistration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textInternalRegistration.Name = "textInternalRegistration";
+            this.textInternalRegistration.Size = new System.Drawing.Size(132, 23);
+            this.textInternalRegistration.TabIndex = 6;
             // 
-            // textSalario
+            // textSalary
             // 
-            this.textSalario.Location = new System.Drawing.Point(397, 175);
-            this.textSalario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textSalario.Maximum = new decimal(new int[] {
+            this.textSalary.Location = new System.Drawing.Point(397, 175);
+            this.textSalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSalary.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.textSalario.Name = "textSalario";
-            this.textSalario.Size = new System.Drawing.Size(133, 23);
-            this.textSalario.TabIndex = 10;
+            this.textSalary.Name = "textSalary";
+            this.textSalary.Size = new System.Drawing.Size(133, 23);
+            this.textSalary.TabIndex = 10;
             // 
-            // textCargo
+            // textJobTitle
             // 
-            this.textCargo.Location = new System.Drawing.Point(397, 143);
-            this.textCargo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textCargo.Name = "textCargo";
-            this.textCargo.Size = new System.Drawing.Size(132, 23);
-            this.textCargo.TabIndex = 9;
+            this.textJobTitle.Location = new System.Drawing.Point(397, 143);
+            this.textJobTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textJobTitle.Name = "textJobTitle";
+            this.textJobTitle.Size = new System.Drawing.Size(132, 23);
+            this.textJobTitle.TabIndex = 9;
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(475, 326);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancel.Location = new System.Drawing.Point(475, 326);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnConfirmar
+            // btnConfirm
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(367, 326);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(100, 28);
-            this.btnConfirmar.TabIndex = 11;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirm.Location = new System.Drawing.Point(367, 326);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(100, 28);
+            this.btnConfirm.TabIndex = 11;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // FuncionarioForm
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(591, 368);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.lbTituloCadastroDeFuncionarios);
+            this.Controls.Add(this.lbEmployeeFormTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FuncionarioForm";
+            this.Name = "EmployeeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veículo";
+            this.Text = "Car Rental";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textInternalRegistration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,32 +419,32 @@ namespace CarRental.WindowsApp.Features.Employee
         #endregion
 
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbCPF;
-        private System.Windows.Forms.Label lbEndereco;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label lbCpf;
+        private System.Windows.Forms.Label lbAddress;
         private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.Label lbTelefone;
-        private System.Windows.Forms.Label lbTituloCadastroDeFuncionarios;
+        private System.Windows.Forms.Label lbPhone;
+        private System.Windows.Forms.Label lbEmployeeFormTitle;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.TextBox textEndereco;
-        private System.Windows.Forms.Label lbCargo;
-        private System.Windows.Forms.Label lbSalario;
-        private System.Windows.Forms.Label lbUsuAcesso;
-        private System.Windows.Forms.Label lbMatInt;
-        private System.Windows.Forms.Label lbDataAdmissao;
-        private System.Windows.Forms.TextBox textUsuarioAcesso;
+        private System.Windows.Forms.TextBox textAddress;
+        private System.Windows.Forms.Label lbJobTitle;
+        private System.Windows.Forms.Label lbSalary;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbInternalRegistration;
+        private System.Windows.Forms.Label lbHiringDate;
+        private System.Windows.Forms.TextBox textUsername;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.MaskedTextBox mskTxtTelefone;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.MaskedTextBox mskTxtPhone;
         private System.Windows.Forms.MaskedTextBox mskTxtCpf;
-        private System.Windows.Forms.TextBox textNome;
-        private System.Windows.Forms.NumericUpDown textSalario;
-        private System.Windows.Forms.NumericUpDown textMatriculaInterna;
-        private System.Windows.Forms.DateTimePicker mskTxtDataAdmissao;
-        private System.Windows.Forms.TextBox textCargo;
-        private System.Windows.Forms.TextBox textSenha;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.NumericUpDown textSalary;
+        private System.Windows.Forms.NumericUpDown textInternalRegistration;
+        private System.Windows.Forms.DateTimePicker mskTxtHiringDate;
+        private System.Windows.Forms.TextBox textJobTitle;
+        private System.Windows.Forms.TextBox textPassword;
+        private System.Windows.Forms.Label labelPassword;
     }
 }

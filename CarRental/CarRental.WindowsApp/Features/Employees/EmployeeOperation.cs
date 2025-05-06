@@ -16,13 +16,13 @@ namespace CarRental.WindowsApp.Features.Employees
 {
     public class EmployeeOperation : ICadastravel
     {
-        private readonly EmployeeController controlador = null;
-        private readonly EmployeeTableControl tabelaFuncionarios = null;
+        private readonly EmployeeController controller = null;
+        private readonly EmployeeTableControl employeeTable = null;
 
-        public EmployeeOperation(EmployeeController ctrlFuncionario)
+        public EmployeeOperation(EmployeeController employeeController)
         {
-            controlador = ctrlFuncionario;
-            tabelaFuncionarios = new EmployeeTableControl();
+            controller = employeeController;
+            employeeTable = new EmployeeTableControl();
         }
 
         public void GroupRecords()
@@ -32,46 +32,45 @@ namespace CarRental.WindowsApp.Features.Employees
 
         public void EditRecord()
         {
-            int id = tabelaFuncionarios.ObtemIdSelecionado();
+            int id = employeeTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para poder Edit!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select an employee to edit!", "Employee Editing", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Domain.EmployeeModule.Employee funcionarioSelecionado = controlador.SelectById(id);
-            EmployeeForm tela = new EmployeeForm("Edição de Funcionário");
-            tela.Funcionario = funcionarioSelecionado;
+            Domain.EmployeeModule.Employee selectedEmployee = controller.SelectById(id);
+            EmployeeForm form = new EmployeeForm("Edit Employee");
+            form.Employee = selectedEmployee;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Funcionario);
-                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
-                tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] editado com sucesso");
+                controller.Edit(id, form.Employee);
+                List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
+                employeeTable.UpdateRecords(employees);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{selectedEmployee.Name}] successfully edited");
             }
-
         }
 
         public void DeleteRecord()
         {
-            int id = tabelaFuncionarios.ObtemIdSelecionado();
+            int id = employeeTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para excluir","Exclusão de Funcionários",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select an employee to delete", "Employee Deletion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Domain.EmployeeModule.Employee funcionarioSelecionado = controlador.SelectById(id);
+            Domain.EmployeeModule.Employee selectedEmployee = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Name}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the employee: [{selectedEmployee.Name}] ?", "Employee Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Delete(id);
-                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
-                tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] removido com sucesso");
+                controller.Delete(id);
+                List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
+                employeeTable.UpdateRecords(employees);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{selectedEmployee.Name}] successfully removed");
             }
         }
 
@@ -82,22 +81,22 @@ namespace CarRental.WindowsApp.Features.Employees
 
         public void InsertNewRecord()
         {
-            EmployeeForm tela = new EmployeeForm("Cadastro de Funcionário");           
+            EmployeeForm form = new EmployeeForm("Employee Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.InsertNew(tela.Funcionario);
-                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
-                tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Name}] inserido com sucesso");
+                controller.InsertNew(form.Employee);
+                List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
+                employeeTable.UpdateRecords(employees);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{form.Employee.Name}] successfully added");
             }
         }
 
         public UserControl GetTable()
         {
-            List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
-            tabelaFuncionarios.AtualizarRegistros(funcionarios);
-            return tabelaFuncionarios;
+            List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
+            employeeTable.UpdateRecords(employees);
+            return employeeTable;
         }
     }
 }

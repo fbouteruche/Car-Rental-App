@@ -1,17 +1,16 @@
-﻿
-namespace CarRental.WindowsApp.Features.Employees
+﻿namespace CarRental.WindowsApp.Features.Employees
 {
     partial class EmployeeTableControl
     {
         /// <summary> 
-        /// Variável de designer necessária.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Limpar os recursos que estão sendo usados.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,41 +20,41 @@ namespace CarRental.WindowsApp.Features.Employees
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Designer de Componentes
+        #region Windows Form Designer generated code
 
         /// <summary> 
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridFuncionarios = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFuncionarios)).BeginInit();
+            this.gridEmployees = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridFuncionarios
+            // gridEmployees
             // 
-            this.gridFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridFuncionarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridFuncionarios.Location = new System.Drawing.Point(0, 0);
-            this.gridFuncionarios.Name = "gridFuncionarios";
-            this.gridFuncionarios.Size = new System.Drawing.Size(312, 294);
-            this.gridFuncionarios.TabIndex = 0;
+            this.gridEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridEmployees.Location = new System.Drawing.Point(0, 0);
+            this.gridEmployees.Name = "gridEmployees";
+            this.gridEmployees.Size = new System.Drawing.Size(312, 294);
+            this.gridEmployees.TabIndex = 0;
             // 
-            // TabelaFuncionarioControl
+            // EmployeeTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridFuncionarios);
-            this.Name = "TabelaFuncionarioControl";
+            this.Controls.Add(this.gridEmployees);
+            this.Name = "EmployeeTableControl";
             this.Size = new System.Drawing.Size(312, 294);
-            ((System.ComponentModel.ISupportInitialize)(this.gridFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridFuncionarios;
+        private System.Windows.Forms.DataGridView gridEmployees;
     }
 }

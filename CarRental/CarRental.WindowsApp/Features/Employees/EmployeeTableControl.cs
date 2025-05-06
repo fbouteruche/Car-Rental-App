@@ -20,11 +20,11 @@ namespace CarRental.WindowsApp.Features.Employees
             InitializeComponent();
             gridFuncionarios.ConfigureZebraGrid();
             gridFuncionarios.ConfigureReadOnlyGrid();
-            gridFuncionarios.Columns.AddRange(ObterColunas());
+            gridFuncionarios.Columns.AddRange(GetColumns());
         }
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
@@ -32,40 +32,40 @@ namespace CarRental.WindowsApp.Features.Employees
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cpf", HeaderText = "CPF"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Address", HeaderText = "Endereço"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Address", HeaderText = "Address"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Phone", HeaderText = "Phone"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "E-mail"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "InternalRegistration", HeaderText = "Matricula"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "InternalRegistration", HeaderText = "Internal Registration"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "LoginUsername", HeaderText = "Usuário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "LoginUsername", HeaderText = "Username"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "JobTitle", HeaderText = "JobTitle"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "JobTitle", HeaderText = "Job Title"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Salary", HeaderText = "Salário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Salary", HeaderText = "Salary"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "HiringDate", HeaderText = "Data de admissão"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "HiringDate", HeaderText = "Hiring Date"}
            };
 
-            return colunas;
+            return columns;
         }
 
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
             return gridFuncionarios.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Domain.EmployeeModule.Employee> funcionarios)
+        public void UpdateRecords(List<Domain.EmployeeModule.Employee> employees)
         {
             gridFuncionarios.Rows.Clear();
 
-            foreach (Domain.EmployeeModule.Employee funcionario in funcionarios)
+            foreach (Domain.EmployeeModule.Employee employee in employees)
             {
-                gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Name, funcionario.UniqueId,
-                    funcionario.Address, funcionario.Phone, funcionario.Email, funcionario.InternalRegistration,
-                    funcionario.LoginUsername, funcionario.JobTitle, funcionario.Salary, funcionario.HiringDate);
+                gridFuncionarios.Rows.Add(employee.Id, employee.Name, employee.UniqueId,
+                    employee.Address, employee.Phone, employee.Email, employee.InternalRegistration,
+                    employee.LoginUsername, employee.JobTitle, employee.Salary, employee.HiringDate);
             }
         }
     }

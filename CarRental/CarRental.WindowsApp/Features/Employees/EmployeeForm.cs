@@ -15,71 +15,80 @@ namespace CarRental.WindowsApp.Features.Employee
 {
     public partial class EmployeeForm : Form
     {
-        private Domain.EmployeeModule.Employee funcionario;
+        private Domain.EmployeeModule.Employee employee;
 
-        public EmployeeForm(string titulo)
+        public EmployeeForm(string title)
         {
             InitializeComponent();
-            lbTituloCadastroDeFuncionarios.Text = titulo;
+            lbEmployeeFormTitle.Text = title;
         }
 
-        public Domain.EmployeeModule.Employee Funcionario
+        public Domain.EmployeeModule.Employee Employee
         {
-            get { return funcionario; }
+            get { return employee; }
 
             set
             {
-                funcionario = value;
+                employee = value;
 
-                textId.Text = funcionario.Id.ToString();
-                textNome.Text = funcionario.Name.ToString();
-                mskTxtCpf.Text = funcionario.UniqueId;
-                textEndereco.Text = funcionario.Address.ToString();
-                mskTxtTelefone.Text = funcionario.Phone.ToString();
-                textEmail.Text = funcionario.Email.ToString();
-                textMatriculaInterna.Text = funcionario.InternalRegistration.ToString();
-                textUsuarioAcesso.Text = funcionario.LoginUsername.ToString();
-                textSenha.Text = funcionario.UserPassword.ToString();
-                mskTxtDataAdmissao.Text = funcionario.HiringDate.ToString();
-                textCargo.Text = funcionario.JobTitle.ToString();
-                textSalario.Text = funcionario.Salary.ToString();
-                
+                textId.Text = employee.Id.ToString();
+                textName.Text = employee.Name.ToString();
+                mskTxtCpf.Text = employee.UniqueId;
+                textAddress.Text = employee.Address.ToString();
+                mskTxtPhone.Text = employee.Phone.ToString();
+                textEmail.Text = employee.Email.ToString();
+                textInternalRegistration.Text = employee.InternalRegistration.ToString();
+                textUsername.Text = employee.LoginUsername.ToString();
+                textPassword.Text = employee.UserPassword.ToString();
+                mskTxtHiringDate.Text = employee.HiringDate.ToString();
+                textJobTitle.Text = employee.JobTitle.ToString();
+                textSalary.Text = employee.Salary.ToString();
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            string nome = textNome.Text;
-            string registroUnico = mskTxtCpf.Text.Replace("-", "").Replace(".", "").Replace(" ", "");
-            string endereco = textEndereco.Text;
-            string telefone = mskTxtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+            string name = textName.Text;
+            string uniqueId = mskTxtCpf.Text.Replace("-", "").Replace(".", "").Replace(" ", "");
+            string address = textAddress.Text;
+            string phone = mskTxtPhone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
             string email = textEmail.Text;
-            int matriculaInterna = Convert.ToInt32(textMatriculaInterna.Text);
-            string usuarioAcesso = textUsuarioAcesso.Text;
-            string senha = textSenha.Text;
-            DateTime dataAdmissao;
-            if (mskTxtDataAdmissao.Text == null)
-                dataAdmissao = DateTime.Now;
+            int internalRegistration = Convert.ToInt32(textInternalRegistration.Text);
+            string loginUsername = textUsername.Text;
+            string password = textPassword.Text;
+            DateTime hiringDate;
+            if (mskTxtHiringDate.Text == null)
+                hiringDate = DateTime.Now;
             else
-                dataAdmissao = Convert.ToDateTime(mskTxtDataAdmissao.Text);
-            string cargo = textCargo.Text;
-            double salario = Convert.ToDouble(textSalario.Text);
+                hiringDate = Convert.ToDateTime(mskTxtHiringDate.Text);
+            string jobTitle = textJobTitle.Text;
+            double salary = Convert.ToDouble(textSalary.Text);
 
-            funcionario = new Domain.EmployeeModule.Employee(0, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, true);
+            employee = new Domain.EmployeeModule.Employee(0, name, uniqueId, address, phone, email, internalRegistration, loginUsername, password, hiringDate, jobTitle, salary, true);
 
-            string resultadoValidacao = funcionario.Validate();
+            string validationResult = employee.Validate();
 
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                string firstError = new StringReader(validationResult).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
                 DialogResult = DialogResult.None;
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            btnConfirm_Click(sender, e);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnCancel_Click(sender, e);
         }
     }
 }

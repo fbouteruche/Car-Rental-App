@@ -46,7 +46,7 @@ namespace CarRental.WindowsApp
         #region Opções do menu strip
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmployeeConfigurationToolBox configuracao = new EmployeeConfigurationToolBox();
+            EmployeeConfigurationToolbox configuracao = new EmployeeConfigurationToolbox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
