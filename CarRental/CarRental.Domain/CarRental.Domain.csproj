@@ -7,8 +7,8 @@
     <ProjectGuid>{7F169E59-39E2-4908-BE88-38206B8983F7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LocadoraDeVeiculos.Dominio</RootNamespace>
-    <AssemblyName>LocadoraDeVeiculos.Dominio</AssemblyName>
+    <RootNamespace>CarRental.Domain</RootNamespace>
+    <AssemblyName>CarRental.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

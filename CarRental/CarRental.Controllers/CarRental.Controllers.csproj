@@ -7,8 +7,8 @@
     <ProjectGuid>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LocadoraDeVeiculos.Controladores</RootNamespace>
-    <AssemblyName>LocadoraDeVeiculos.Controladores</AssemblyName>
+    <RootNamespace>CarRental.Controllers</RootNamespace>
+    <AssemblyName>CarRental.Controllers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
