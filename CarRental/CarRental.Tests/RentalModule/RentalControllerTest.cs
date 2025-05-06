@@ -54,7 +54,7 @@ namespace CarRental.Tests.RentalModule
         {
             vehicleGroup = new VehicleGroup(0, "name", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             vehicleGroupController.InsertNew(vehicleGroup);
-            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
             vehicleController.InsertNew(vehicle);
             employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 001, "user access", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
             employeeController.InsertNew(employee);
@@ -75,7 +75,7 @@ namespace CarRental.Tests.RentalModule
         {
             vehicleGroup = new VehicleGroup(0, "name", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             vehicleGroupController.InsertNew(vehicleGroup);
-            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
             vehicleController.InsertNew(vehicle);
             employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 001, "user access", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
             employeeController.InsertNew(employee);
@@ -98,7 +98,7 @@ namespace CarRental.Tests.RentalModule
         {
             vehicleGroup = new VehicleGroup(0, "name", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             vehicleGroupController.InsertNew(vehicleGroup);
-            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
             vehicleController.InsertNew(vehicle);
             employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 001, "user access", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
             employeeController.InsertNew(employee);
@@ -121,7 +121,7 @@ namespace CarRental.Tests.RentalModule
         {
             vehicleGroup = new VehicleGroup(0, "name", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             vehicleGroupController.InsertNew(vehicleGroup);
-            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            vehicle = new Vehicle(0, "Ecosport", vehicleGroup, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Silver", "Regular Gasoline", 60.5, 2018, 30000, 4, 5, 'L', true, true, true, true, null);
             vehicleController.InsertNew(vehicle);
             employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 001, "user access", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
             employeeController.InsertNew(employee);
