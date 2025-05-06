@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Dashboards
 {
-    public class ConfiguracaoDashboardToolBox : IConfigurationToolBox
+    public class ConfigurationDashboardToolBox : IConfigurationToolBox
     {
         public string AddToolTip
         {

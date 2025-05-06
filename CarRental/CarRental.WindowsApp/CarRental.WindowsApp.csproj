@@ -77,14 +77,14 @@
     <Compile Include="Features\Coupons\CouponForm.Designer.cs">
       <DependentUpon>CouponForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Dashboards\ConfiguracaoDashboardToolBox.cs" />
+    <Compile Include="Features\Dashboards\ConfigurationDashboardToolBox.cs" />
     <Compile Include="Features\Dashboards\DashControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\Dashboards\DashControl.Designer.cs">
       <DependentUpon>DashControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Dashboards\OperacoesDashboard.cs" />
+    <Compile Include="Features\Dashboards\OperationDashboard.cs" />
     <Compile Include="Features\Returns\ConfiguracaoDevolucaoToolBox.cs" />
     <Compile Include="Features\Returns\FiltroDevolucaoEnum.cs" />
     <Compile Include="Features\Returns\FiltroDevolucaoForm.cs">

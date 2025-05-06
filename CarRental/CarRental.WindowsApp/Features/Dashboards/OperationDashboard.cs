@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Dashboards
 {
-    public class OperacoesDashboard
+    public class OperationDashboard
     {
         private readonly VehicleController controladorVeiculo = null;
         //private readonly ControladorLocacao controladorLocacao = null;
         //private readonly DashboardControl dashboardControl = null;
 
-        public OperacoesDashboard(VehicleController controladorVeiculo) //ControladorLocacao controladorLocacao)
+        public OperationDashboard(VehicleController controladorVeiculo) //ControladorLocacao controladorLocacao)
         {
             //this.controladorLocacao = controladorLocacao;
             this.controladorVeiculo = controladorVeiculo;

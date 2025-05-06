@@ -233,7 +233,7 @@ namespace CarRental.WindowsApp
         }
         private void MostrarDashBoard()
         {
-            ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
+            ConfigurationDashboardToolBox configuracao = new ConfigurationDashboardToolBox();
             ConfigurarToolBox(configuracao, false);
             toolBoxAcoes.Enabled = false;
             AtualizarRodape(configuracao.RegistrationType);
