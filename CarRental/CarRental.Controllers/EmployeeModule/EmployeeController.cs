@@ -10,7 +10,7 @@ namespace CarRental.Controllers.EmployeeModule
     {
 
         #region Queries
-        private const string comandoInserir = @"INSERT INTO TBFUNCIONARIO
+        private const string insertCommand = @"INSERT INTO TBFUNCIONARIO
 										(
 											[NOME],
 											[REGISTROUNICO],
@@ -40,7 +40,7 @@ namespace CarRental.Controllers.EmployeeModule
 											@SALARIO,
                                             @DATAADMISSAO
 										);";
-        private const string comandoEditar = @"UPDATE TBFUNCIONARIO 
+        private const string updateCommand = @"UPDATE TBFUNCIONARIO 
 									    SET
 									    	[NOME] = @NOME,
 									    	[REGISTROUNICO] = @REGISTROUNICO,
@@ -55,18 +55,18 @@ namespace CarRental.Controllers.EmployeeModule
 									    	[SALARIO] = @SALARIO,
                                             [DATAADMISSAO] = @DATAADMISSAO
 									    WHERE [ID] = @ID;";
-        private const string comandoExcluir = @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
-        private const string comandoSelecionarTodos = "SELECT * FROM TBFUNCIONARIO;";
-        private const string comandoSelecionarPorId = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
+        private const string deleteCommand = @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
+        private const string selectAllCommand = "SELECT * FROM TBFUNCIONARIO;";
+        private const string selectByIdCommand = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
         #endregion
 
-        public override string Edit(int id, Employee registro)
+        public override string Edit(int id, Employee record)
         {
-            string resultadoValidacao = registro.Validate();
+            string resultadoValidacao = record.Validate();
             if (resultadoValidacao == "VALID")
             {
-                registro.Id = id;
-                Db.Update(comandoEditar, ObtemParametrosFuncionario(registro));
+                record.Id = id;
+                Db.Update(updateCommand, GetEmployeeParameters(record));
             }
             return resultadoValidacao;
         }
@@ -75,7 +75,7 @@ namespace CarRental.Controllers.EmployeeModule
         {
             try
             {
-                Db.Delete(comandoExcluir, AddParameter("ID", id));
+                Db.Delete(deleteCommand, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -86,29 +86,29 @@ namespace CarRental.Controllers.EmployeeModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(comandoSelecionarPorId, AddParameter("ID", id));
+            return Db.Exists(selectByIdCommand, AddParameter("ID", id));
         }
 
-        public override string InsertNew(Employee registro)
+        public override string InsertNew(Employee record)
         {
-            string resultadoValidacao = registro.Validate();
+            string resultadoValidacao = record.Validate();
             if (resultadoValidacao == "VALID")
-                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));
+                record.Id = Db.Insert(insertCommand, GetEmployeeParameters(record));
 
             return resultadoValidacao;
         }
 
         public override Employee SelectById(int id)
         {
-            return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AddParameter("ID", id));
+            return Db.Get(selectByIdCommand, ConvertToEmployee, AddParameter("ID", id));
         }
 
         public override List<Employee> SelectAll()
         {
-            return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
+            return Db.GetAll(selectAllCommand, ConvertToEmployee);
         }
 
-        private Dictionary<string, object> ObtemParametrosFuncionario(Employee funcionario)
+        private Dictionary<string, object> GetEmployeeParameters(Employee funcionario)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -129,7 +129,7 @@ namespace CarRental.Controllers.EmployeeModule
             return parametros;
         }
 
-        private Employee ConverterEmFuncionario(IDataReader reader)
+        private Employee ConvertToEmployee(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
