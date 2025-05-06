@@ -105,8 +105,8 @@ namespace CarRental.WindowsApp.Features.Rentals
             DateTime departureDate = dateTPDepartureDate.Value;
             DateTime expectedReturnDate = dateTPReturnDate.Value;
             string insuranceType = "None";
-            if (serviceForm.seguro.Length > 0)
-                insuranceType = serviceForm.seguro;
+            if (serviceForm.insurance.Length > 0)
+                insuranceType = serviceForm.insurance;
             Coupon coupon = null;
             bool exists = couponController.CodeExists(txtCoupon.Text);
             if (exists)
@@ -132,14 +132,14 @@ namespace CarRental.WindowsApp.Features.Rentals
         private void btnServices_Click(object sender, EventArgs e)
         {
             serviceForm = new ServiceSelectionForm();
-            serviceForm.InicializarCampos(Services, InsuranceType, true);
+            serviceForm.InitializeFields(Services, InsuranceType, true);
 
             if (serviceForm.ShowDialog() == DialogResult.OK)
             {
-                Services = serviceForm.servicosSelecionados;
-                InsuranceType = serviceForm.seguro;
+                Services = serviceForm.selectedServices;
+                InsuranceType = serviceForm.insurance;
                 double guaranteePrice = CalculateRental.CalculateGuarantee();
-                double insurancePrice = CalculateRental.CalculateInsurance(serviceForm.seguro);
+                double insurancePrice = CalculateRental.CalculateInsurance(serviceForm.insurance);
                 txtTotal.Text = Convert.ToString(guaranteePrice + insurancePrice);
             }
         }

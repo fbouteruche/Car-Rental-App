@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Servicos
+﻿namespace CarRental.WindowsApp.Servicos
 {
     partial class ServiceSelectionForm
     {
@@ -11,7 +10,7 @@ namespace CarRental.WindowsApp.Servicos
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -47,9 +46,9 @@ namespace CarRental.WindowsApp.Servicos
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(23, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 20);
+            this.label8.Size = new System.Drawing.Size(158, 20);
             this.label8.TabIndex = 63;
-            this.label8.Text = "Cadastro de Serviços";
+            this.label8.Text = "Service Registration";
             // 
             // groupBox1
             // 
@@ -68,17 +67,17 @@ namespace CarRental.WindowsApp.Servicos
             this.lblSeguro.AutoSize = true;
             this.lblSeguro.Location = new System.Drawing.Point(58, 212);
             this.lblSeguro.Name = "lblSeguro";
-            this.lblSeguro.Size = new System.Drawing.Size(41, 13);
+            this.lblSeguro.Size = new System.Drawing.Size(52, 13);
             this.lblSeguro.TabIndex = 69;
-            this.lblSeguro.Text = "Seguro";
+            this.lblSeguro.Text = "Insurance";
             // 
             // cBoxSeguro
             // 
             this.cBoxSeguro.FormattingEnabled = true;
             this.cBoxSeguro.Items.AddRange(new object[] {
-            "Nenhum",
-            "Seguro Customer",
-            "Seguro Terceiro"});
+            "None",
+            "Customer Insurance",
+            "Third Party Insurance"});
             this.cBoxSeguro.Location = new System.Drawing.Point(105, 209);
             this.cBoxSeguro.Name = "cBoxSeguro";
             this.cBoxSeguro.Size = new System.Drawing.Size(121, 21);
@@ -111,7 +110,7 @@ namespace CarRental.WindowsApp.Servicos
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 69;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
@@ -122,7 +121,7 @@ namespace CarRental.WindowsApp.Servicos
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 68;
-            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.Text = "Confirm";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -144,7 +143,7 @@ namespace CarRental.WindowsApp.Servicos
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veículo";
+            this.Text = "Car Rental";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

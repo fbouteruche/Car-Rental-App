@@ -13,93 +13,93 @@ namespace CarRental.WindowsApp.Features.Services
 {
     class ServiceOperation : ICadastravel
     {
-        private readonly ServiceController controlador = null;
-        private readonly ServiceTableControl tabelaServicos = null;
+        private readonly ServiceController controller = null;
+        private readonly ServiceTableControl serviceTable = null;
 
-        public ServiceOperation(ServiceController ctrlServico)
+        public ServiceOperation(ServiceController serviceController)
         {
-            controlador = ctrlServico;
-            tabelaServicos = new ServiceTableControl();
+            controller = serviceController;
+            serviceTable = new ServiceTableControl();
         }
 
         public void InsertNewRecord()
         {
-            ServiceForm tela = new ServiceForm("Cadastro de Serviços");
+            ServiceForm form = new ServiceForm("Service Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.InsertNew(tela.Servico);
+                controller.InsertNew(form.Service);
 
-                List<Service> servicos = controlador.SelectAll();
+                List<Service> services = controller.SelectAll();
 
-                tabelaServicos.AtualizarRegistros(servicos);
+                serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{tela.Servico.Name}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{form.Service.Name}] successfully added");
             }
         }
 
         public void EditRecord()
         {
-            int id = tabelaServicos.ObtemIdSelecionado();
+            int id = serviceTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um servico para poder editar!", "Edição de Services",
+                MessageBox.Show("Select a service to edit!", "Service Editing",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Service servicoSelecionada = controlador.SelectById(id);
+            Service selectedService = controller.SelectById(id);
 
-            ServiceForm tela = new ServiceForm("Edição de Serviços");
+            ServiceForm form = new ServiceForm("Service Editing");
 
-            tela.Servico = servicoSelecionada;
+            form.Service = selectedService;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Servico);
+                controller.Edit(id, form.Service);
 
-                List<Service> servicos = controlador.SelectAll();
+                List<Service> services = controller.SelectAll();
 
-                tabelaServicos.AtualizarRegistros(servicos);
+                serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{tela.Servico.Name}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{form.Service.Name}] successfully edited");
             }
         }
 
         public void DeleteRecord()
         {
-            int id = tabelaServicos.ObtemIdSelecionado();
+            int id = serviceTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma servico para poder excluir!", "Exclusão de Services",
+                MessageBox.Show("Select a service to delete!", "Service Deletion",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Service servicoSelecionada = controlador.SelectById(id);
+            Service selectedService = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Name}] ?",
-                "Exclusão de Services", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the service: [{selectedService.Name}] ?",
+                "Service Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Delete(id);
+                controller.Delete(id);
 
-                List<Service> servicos = controlador.SelectAll();
+                List<Service> services = controller.SelectAll();
 
-                tabelaServicos.AtualizarRegistros(servicos);
+                serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{servicoSelecionada.Name}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{selectedService.Name}] successfully removed");
             }
         }
 
         public UserControl GetTable()
         {
-            List<Service> servicos = controlador.SelectAll();
+            List<Service> services = controller.SelectAll();
 
-            tabelaServicos.AtualizarRegistros(servicos);
+            serviceTable.UpdateRecords(services);
 
-            return tabelaServicos;
+            return serviceTable;
         }
 
         public void GroupRecords()

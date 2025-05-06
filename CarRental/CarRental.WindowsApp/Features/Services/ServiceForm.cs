@@ -15,26 +15,26 @@ namespace CarRental.WindowsApp.Features.Services
 {
     public partial class ServiceForm : Form
     {
-        private Service servico;
+        private Service service;
 
-        public ServiceForm(string titulo)
+        public ServiceForm(string title)
         {
             InitializeComponent();
-            this.Text = titulo;
-            lblCadastroServico.Text = titulo;
+            this.Text = title;
+            lblCadastroServico.Text = title;
         }
 
-        public Service Servico
+        public Service Service
         {
-            get { return servico; }
+            get { return service; }
             set
             {
-                servico = value;
+                service = value;
 
-                txtId.Text = servico.Id.ToString();
-                txtNome.Text = servico.Name.ToString();
-                txtValor.Text = servico.Value.ToString();
-                if (servico.IsChargedDaily)
+                txtId.Text = service.Id.ToString();
+                txtNome.Text = service.Name.ToString();
+                txtValor.Text = service.Value.ToString();
+                if (service.IsChargedDaily)
                     rdbCalcDiaria.Checked = true;
                 else
                     rdbTaxaFixa.Checked = true;
@@ -44,20 +44,20 @@ namespace CarRental.WindowsApp.Features.Services
         private void btnConfirma_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtId.Text);
-            string nome = txtNome.Text;
-            if (!double.TryParse(txtValor.Text, out double valor))
-                valor = 0;
-            bool ehTaxadoDiario = rdbCalcDiaria.Checked;
+            string name = txtNome.Text;
+            if (!double.TryParse(txtValor.Text, out double value))
+                value = 0;
+            bool isChargedDaily = rdbCalcDiaria.Checked;
 
-            servico = new Service(id, nome, ehTaxadoDiario, valor);
+            service = new Service(id, name, isChargedDaily, value);
 
-            string resultadoValidacao = servico.Validate();
+            string validationResult = service.Validate();
 
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                string firstError = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
 
                 DialogResult = DialogResult.None;
             }

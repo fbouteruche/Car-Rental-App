@@ -16,57 +16,57 @@ namespace CarRental.WindowsApp.Servicos
 {
     public partial class ServiceSelectionForm : Form
     {
-        public List<Service> servicosSelecionados;
-        public string seguro = "Nenhum";
-        ServiceController controladorServico;
+        public List<Service> selectedServices;
+        public string insurance = "None";
+        ServiceController serviceController;
         public ServiceSelectionForm()
         {
-            controladorServico = new ServiceController();
-            servicosSelecionados = new List<Service>();
+            serviceController = new ServiceController();
+            selectedServices = new List<Service>();
             InitializeComponent();
-            AtualizarListCheckBox();
+            UpdateCheckedListBox();
             cBoxSeguro.SelectedIndex = 0; 
         }
 
-        public void InicializarCampos(List<Service> servicosIniciais, string seguroInicial, bool campoSeguroEhEditavel)
+        public void InitializeFields(List<Service> initialServices, string initialInsurance, bool insuranceFieldEditable)
         {
-            if (seguroInicial.Contains("Terceiro"))
+            if (initialInsurance.Contains("Third Party"))
                 cBoxSeguro.SelectedIndex = 2;
-            else if (seguroInicial.Contains("Customer"))
+            else if (initialInsurance.Contains("Customer"))
                 cBoxSeguro.SelectedIndex = 1;
 
-            if (servicosIniciais != null)
+            if (initialServices != null)
             {
                 for (int index = 0; index < cLBoxServicos.Items.Count; index++)
                 {
-                    cLBoxServicos.SetItemChecked(index, servicosIniciais.Contains(cLBoxServicos.Items[index]));
+                    cLBoxServicos.SetItemChecked(index, initialServices.Contains(cLBoxServicos.Items[index]));
                 }
             }
 
-            cBoxSeguro.Enabled = campoSeguroEhEditavel;
+            cBoxSeguro.Enabled = insuranceFieldEditable;
         }
 
-        private void AtualizarListCheckBox()
+        private void UpdateCheckedListBox()
         {
             cLBoxServicos.Items.Clear();
-            foreach (Service servico in controladorServico.SelectAll())
-                cLBoxServicos.Items.Add(servico);
+            foreach (Service service in serviceController.SelectAll())
+                cLBoxServicos.Items.Add(service);
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            seguro = cBoxSeguro.SelectedItem.ToString().Replace(" ", "");
-            foreach (Service servico in cLBoxServicos.CheckedItems)
-                servicosSelecionados.Add(servico);
+            insurance = cBoxSeguro.SelectedItem.ToString().Replace(" ", "");
+            foreach (Service service in cLBoxServicos.CheckedItems)
+                selectedServices.Add(service);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ServiceForm telaServicoForm = new ServiceForm("Cadastro de Serviços");
-            if (telaServicoForm.ShowDialog() == DialogResult.OK)
+            ServiceForm serviceForm = new ServiceForm("Service Registration");
+            if (serviceForm.ShowDialog() == DialogResult.OK)
             {
-                controladorServico.InsertNew(telaServicoForm.Servico);
-                AtualizarListCheckBox();                
+                serviceController.InsertNew(serviceForm.Service);
+                UpdateCheckedListBox();                
             }
         }
     }

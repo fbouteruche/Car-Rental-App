@@ -17,39 +17,39 @@ namespace CarRental.WindowsApp.Features.Services
         public ServiceTableControl()
         {
             InitializeComponent();
-            gridServicos.ConfigureZebraGrid();
-            gridServicos.ConfigureReadOnlyGrid();
-            gridServicos.Columns.AddRange(ObterColunas());
+            gridServices.ConfigureZebraGrid();
+            gridServices.ConfigureReadOnlyGrid();
+            gridServices.Columns.AddRange(GetColumns());
         }
 
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "IsChargedDaily", HeaderText = "É taxado diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "IsChargedDaily", HeaderText = "Charged Daily"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Value", HeaderText = "Value"},
             };
 
-            return colunas;
+            return columns;
         }
 
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
-            return gridServicos.SelecionarId<int>();
+            return gridServices.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Service> servicos)
+        public void UpdateRecords(List<Service> services)
         {
-            gridServicos.Rows.Clear();
+            gridServices.Rows.Clear();
 
-            foreach (Service servico in servicos)
+            foreach (Service service in services)
             {
-                gridServicos.Rows.Add(servico.Id, servico.Name, servico.IsChargedDaily, servico.Value);
+                gridServices.Rows.Add(service.Id, service.Name, service.IsChargedDaily, service.Value);
             }
         }
     }

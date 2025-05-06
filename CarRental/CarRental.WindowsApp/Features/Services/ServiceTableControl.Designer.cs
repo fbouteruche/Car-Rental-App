@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Services
+﻿namespace CarRental.WindowsApp.Features.Services
 {
     partial class ServiceTableControl
     {
@@ -29,34 +28,34 @@ namespace CarRental.WindowsApp.Features.Services
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridServicos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).BeginInit();
+            this.gridServices = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridServices)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridServicos
+            // gridServices
             // 
-            this.gridServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridServicos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridServicos.Location = new System.Drawing.Point(0, 0);
-            this.gridServicos.Name = "gridServicos";
-            this.gridServicos.RowHeadersWidth = 51;
-            this.gridServicos.RowTemplate.Height = 24;
-            this.gridServicos.Size = new System.Drawing.Size(150, 150);
-            this.gridServicos.TabIndex = 0;
+            this.gridServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridServices.Location = new System.Drawing.Point(0, 0);
+            this.gridServices.Name = "gridServices";
+            this.gridServices.RowHeadersWidth = 51;
+            this.gridServices.RowTemplate.Height = 24;
+            this.gridServices.Size = new System.Drawing.Size(150, 150);
+            this.gridServices.TabIndex = 0;
             // 
-            // TabelaServicoControl
+            // ServiceTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridServicos);
-            this.Name = "TabelaServicoControl";
-            ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
+            this.Controls.Add(this.gridServices);
+            this.Name = "ServiceTableControl";
+            ((System.ComponentModel.ISupportInitialize)(this.gridServices)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridServicos;
+        private System.Windows.Forms.DataGridView gridServices;
     }
 }

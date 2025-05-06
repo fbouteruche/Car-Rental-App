@@ -287,9 +287,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Services\ServiceTableControl.resx">
       <DependentUpon>ServiceTableControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Services\ServiceForm.resx">
       <DependentUpon>ServiceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Vehicle\VehicleTableControl.resx">
       <DependentUpon>VehicleTableControl.cs</DependentUpon>
@@ -301,6 +303,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Services\ServiceSelectionForm.resx">
       <DependentUpon>ServiceSelectionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>

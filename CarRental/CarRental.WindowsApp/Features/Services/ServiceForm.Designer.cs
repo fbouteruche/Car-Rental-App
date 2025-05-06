@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Services
+﻿namespace CarRental.WindowsApp.Features.Services
 {
     partial class ServiceForm
     {
@@ -65,7 +64,7 @@ namespace CarRental.WindowsApp.Features.Services
             this.labelValor.ForeColor = System.Drawing.Color.Black;
             this.labelValor.Location = new System.Drawing.Point(34, 74);
             this.labelValor.Name = "labelValor";
-            this.labelValor.Size = new System.Drawing.Size(31, 13);
+            this.labelValor.Size = new System.Drawing.Size(34, 13);
             this.labelValor.TabIndex = 1;
             this.labelValor.Text = "Value";
             // 
@@ -95,9 +94,9 @@ namespace CarRental.WindowsApp.Features.Services
             this.labelCalculoFixo.ForeColor = System.Drawing.Color.Black;
             this.labelCalculoFixo.Location = new System.Drawing.Point(91, 145);
             this.labelCalculoFixo.Name = "labelCalculoFixo";
-            this.labelCalculoFixo.Size = new System.Drawing.Size(64, 13);
+            this.labelCalculoFixo.Size = new System.Drawing.Size(61, 13);
             this.labelCalculoFixo.TabIndex = 5;
-            this.labelCalculoFixo.Text = "Cálculo Fixo";
+            this.labelCalculoFixo.Text = "Fixed Rate";
             // 
             // labelCalculoDiario
             // 
@@ -106,9 +105,9 @@ namespace CarRental.WindowsApp.Features.Services
             this.labelCalculoDiario.ForeColor = System.Drawing.Color.Black;
             this.labelCalculoDiario.Location = new System.Drawing.Point(91, 126);
             this.labelCalculoDiario.Name = "labelCalculoDiario";
-            this.labelCalculoDiario.Size = new System.Drawing.Size(72, 13);
+            this.labelCalculoDiario.Size = new System.Drawing.Size(66, 13);
             this.labelCalculoDiario.TabIndex = 4;
-            this.labelCalculoDiario.Text = "Cálculo Diário";
+            this.labelCalculoDiario.Text = "Daily Rate";
             // 
             // rdbTaxaFixa
             // 
@@ -141,7 +140,7 @@ namespace CarRental.WindowsApp.Features.Services
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirma
@@ -152,7 +151,7 @@ namespace CarRental.WindowsApp.Features.Services
             this.btnConfirma.Name = "btnConfirma";
             this.btnConfirma.Size = new System.Drawing.Size(75, 23);
             this.btnConfirma.TabIndex = 6;
-            this.btnConfirma.Text = "Confirmar";
+            this.btnConfirma.Text = "Confirm";
             this.btnConfirma.UseVisualStyleBackColor = true;
             this.btnConfirma.Click += new System.EventHandler(this.btnConfirma_Click);
             // 
@@ -206,9 +205,9 @@ namespace CarRental.WindowsApp.Features.Services
             this.lblTipoCalculo.ForeColor = System.Drawing.Color.Black;
             this.lblTipoCalculo.Location = new System.Drawing.Point(18, 107);
             this.lblTipoCalculo.Name = "lblTipoCalculo";
-            this.lblTipoCalculo.Size = new System.Drawing.Size(86, 13);
+            this.lblTipoCalculo.Size = new System.Drawing.Size(92, 13);
             this.lblTipoCalculo.TabIndex = 53;
-            this.lblTipoCalculo.Text = "Tipo de Taxa:";
+            this.lblTipoCalculo.Text = "Rate Type:";
             // 
             // lblCadastroServico
             // 
@@ -217,9 +216,9 @@ namespace CarRental.WindowsApp.Features.Services
             this.lblCadastroServico.ForeColor = System.Drawing.Color.Black;
             this.lblCadastroServico.Location = new System.Drawing.Point(30, 19);
             this.lblCadastroServico.Name = "lblCadastroServico";
-            this.lblCadastroServico.Size = new System.Drawing.Size(180, 20);
+            this.lblCadastroServico.Size = new System.Drawing.Size(158, 20);
             this.lblCadastroServico.TabIndex = 53;
-            this.lblCadastroServico.Text = "Cadastro de Serviços";
+            this.lblCadastroServico.Text = "Service Registration";
             // 
             // TelaServicoForm
             // 
@@ -238,7 +237,7 @@ namespace CarRental.WindowsApp.Features.Services
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veículo";
+            this.Text = "Car Rental";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServicoForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

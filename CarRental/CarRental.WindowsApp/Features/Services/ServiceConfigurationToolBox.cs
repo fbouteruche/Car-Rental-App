@@ -11,22 +11,22 @@ namespace CarRental.WindowsApp.Features.Services
     {
         public string AddToolTip
         {
-            get { return "Cadastro de Serviços"; }
+            get { return "Service Registration"; }
         }
 
         public string RegistrationType
         {
-            get { return "Adicionar um novo Serviço"; }
+            get { return "Add a new Service"; }
         }
 
         public string EditToolTip
         {
-            get { return "Edit um Serviço existente"; }
+            get { return "Edit an existing Service"; }
         }
 
         public string DeleteToolTip
         {
-            get { return "Delete um Serviço existente"; }
+            get { return "Delete an existing Service"; }
         }
     }
 }

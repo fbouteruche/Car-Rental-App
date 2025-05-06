@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Returns
                 txtReturnDate.Text = returnRental.ExpectedReturnDate.ToString();
                 dtpReturn.Value = returnRental.ExpectedReturnDate;
                 txtInitialValue.Text = returnRental.RentalPrice.ToString();
-                serviceForm.InicializarCampos(Return.Services, returnRental.InsuranceType, false);
+                serviceForm.InitializeFields(Return.Services, returnRental.InsuranceType, false);
                 UpdateListBox();
             }
         }
@@ -57,11 +57,11 @@ namespace CarRental.WindowsApp.Features.Returns
         #region Button Events
         private void btnSelectServices_Click(object sender, EventArgs e)
         {
-            serviceForm.InicializarCampos(Return.Services, returnRental.InsuranceType, false);
+            serviceForm.InitializeFields(Return.Services, returnRental.InsuranceType, false);
             Return.Services.Clear();
             if (serviceForm.ShowDialog() == DialogResult.OK)
             {
-                Return.Services = serviceForm.servicosSelecionados;
+                Return.Services = serviceForm.selectedServices;
                 UpdateListBox();
             }
         }
