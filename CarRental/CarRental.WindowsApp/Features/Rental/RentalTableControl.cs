@@ -32,7 +32,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
         public int GetSelectedId()
         {
-            return rentalGrid.SelecionarId<int>();
+            return rentalGrid.SelectId<int>();
         }
 
         public void UpdateRecords(List<Rental> rentals)

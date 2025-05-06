@@ -44,7 +44,7 @@ namespace CarRental.WindowsApp.Features.Partners
 
         internal int GetSelectedId()
         {
-            return partnerGrid.SelecionarId<int>();
+            return partnerGrid.SelectId<int>();
         }
     }
 }

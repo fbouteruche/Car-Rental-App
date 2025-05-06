@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Features.Coupons
 
         internal int GetSelectedId()
         {
-            return gridCoupons.SelecionarId<int>();
+            return gridCoupons.SelectId<int>();
         }
     }
 }

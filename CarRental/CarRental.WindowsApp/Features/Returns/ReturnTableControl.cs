@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Features.Returns
 
         public int GetSelectedId()
         {
-            return gridReturns.SelecionarId<int>();
+            return gridReturns.SelectId<int>();
         }
 
         public void UpdateRecords(List<Rental> returns)

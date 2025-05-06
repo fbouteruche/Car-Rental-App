@@ -43,7 +43,7 @@ namespace CarRental.WindowsApp.CustomerModule
         }
         public int GetSelectedId()
         {
-            return gridCustomers.SelecionarId<int>();
+            return gridCustomers.SelectId<int>();
         }
 
         public void UpdateRecords()

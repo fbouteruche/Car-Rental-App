@@ -47,7 +47,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
         }
         public int GetSelectedId()
         {
-            return gridVehicleGroups.SelecionarId<int>();
+            return gridVehicleGroups.SelectId<int>();
         }
 
         public void UpdateRecords(List<VehicleGroup> vehicleGroups)

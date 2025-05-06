@@ -10,7 +10,7 @@ namespace CarRental.WindowsApp.Shared
         {
             Font font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
-            DataGridViewCellStyle linhaEscura = new DataGridViewCellStyle
+            DataGridViewCellStyle darkRow = new DataGridViewCellStyle
             {
                 BackColor = Color.LightGray,
                 Font = font,
@@ -19,9 +19,9 @@ namespace CarRental.WindowsApp.Shared
                 SelectionForeColor = Color.Black
             };
 
-            grid.AlternatingRowsDefaultCellStyle = linhaEscura;
+            grid.AlternatingRowsDefaultCellStyle = darkRow;
 
-            DataGridViewCellStyle linhaClara = new DataGridViewCellStyle
+            DataGridViewCellStyle lightRow = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
                 Font = font,
@@ -29,7 +29,7 @@ namespace CarRental.WindowsApp.Shared
                 SelectionForeColor = Color.Black
             };
 
-            grid.RowsDefaultCellStyle = linhaClara;
+            grid.RowsDefaultCellStyle = lightRow;
         }
 
         public static void ConfigureReadOnlyGrid(this DataGridView grid)
@@ -60,7 +60,7 @@ namespace CarRental.WindowsApp.Shared
             };
         }
 
-        public static T SelecionarId<T>(this DataGridView grid)
+        public static T SelectId<T>(this DataGridView grid)
         {
             const int firstLine = 0, firstColumn = 0;
             if (grid.SelectedRows.Count == 0)

@@ -54,7 +54,7 @@ namespace CarRental.WindowsApp.Features.Employees
 
         public int GetSelectedId()
         {
-            return gridEmployees.SelecionarId<int>();
+            return gridEmployees.SelectId<int>();
         }
 
         public void UpdateRecords(List<Domain.EmployeeModule.Employee> employees)

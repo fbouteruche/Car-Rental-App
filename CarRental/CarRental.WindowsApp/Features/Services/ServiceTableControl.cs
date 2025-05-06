@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Features.Services
 
         public int GetSelectedId()
         {
-            return gridServices.SelecionarId<int>();
+            return gridServices.SelectId<int>();
         }
 
         public void UpdateRecords(List<Service> services)

@@ -35,7 +35,7 @@ namespace CarRental.WindowsApp.Features.Vehicles
         }
         public int GetSelectedId()
         {
-            return dataGridVehicles.SelecionarId<int>();
+            return dataGridVehicles.SelectId<int>();
         }
 
         public void UpdateRecords(List<Vehicle> vehicles)
