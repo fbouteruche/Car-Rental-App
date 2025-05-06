@@ -11,73 +11,73 @@ namespace CarRental.Tests.EmployeeModule
     [TestCategory("Controllers")]
     public class EmployeeControllerTest
     {
-        Employee funcionario;
-        Employee funcionario2;
-        EmployeeController ctr; 
+        Employee employee;
+        Employee employee2;
+        EmployeeController controller; 
 
         public EmployeeControllerTest()
         {
-            ctr = new EmployeeController();
-            ResetarBanco.ResetarTabelas();
+            controller = new EmployeeController();
+            ResetarBanco.ResetarTabelas(); // Consider renaming ResetarBanco to ResetDatabase in the shared test utilities
         }
 
         [TestMethod]
-        public void DeveInserirFuncionarioNoBanco()
+        public void ShouldInsertEmployeeInDatabase()
         {
-            //arrange
-            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            // arrange
+            employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 1, "access user", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
 
-            //action
-            ctr.InsertNew(funcionario);
+            // act
+            controller.InsertNew(employee);
 
-            //assert
-            Assert.AreEqual(funcionario,ctr.SelectById(funcionario.Id));
+            // assert
+            Assert.AreEqual(employee, controller.SelectById(employee.Id));
         }
 
         [TestMethod]
-        public void DeveExcluirFuncionarioNoBanco()
+        public void ShouldDeleteEmployeeFromDatabase()
         {
-            //arrange
-            funcionario = new Employee(0, "Name Teste removido", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            // arrange
+            employee = new Employee(0, "Test Name Removed", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 1, "access user", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
             
-            //action
-            ctr.InsertNew(funcionario);
-            ctr.Delete(funcionario.Id);
-            Employee funcionarioEncontrado = ctr.SelectById(funcionario.Id);
+            // act
+            controller.InsertNew(employee);
+            controller.Delete(employee.Id);
+            Employee foundEmployee = controller.SelectById(employee.Id);
 
-            //assert
-            Assert.IsNull(funcionarioEncontrado);
+            // assert
+            Assert.IsNull(foundEmployee);
         }
 
         [TestMethod]
-        public void DeveEditarFuncionarioNoBanco()
+        public void ShouldEditEmployeeInDatabase()
         {
-            //arrange
-            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            Employee funcionarioEditado = new Employee(0, "Name Teste2", "954.746.736-04", "Address Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", "12345", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
+            // arrange
+            employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 1, "access user", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
+            Employee editedEmployee = new Employee(0, "Test Name 2", "954.746.736-04", "Employee2 Address", "4932518000", "test2@email.com", 1, "access user2", "12345", new DateTime(2021, 01, 01), "Salesperson2", 1000f, true);
 
-            //action
-            ctr.InsertNew(funcionario);
-            ctr.Edit(funcionario.Id, funcionarioEditado);
+            // act
+            controller.InsertNew(employee);
+            controller.Edit(employee.Id, editedEmployee);
 
-            //acert
-            Assert.AreEqual(funcionarioEditado,ctr.SelectById(funcionario.Id));
+            // assert
+            Assert.AreEqual(editedEmployee, controller.SelectById(employee.Id));
         }
 
         [TestMethod]
-        public void DeveSelecionarTodosFuncionarioNoBanco()
+        public void ShouldSelectAllEmployeesFromDatabase()
         {
-            //arrange
-            funcionario = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            funcionario2 = new Employee(0, "Name Teste", "954.746.736-04", "Address Employee", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            // arrange
+            employee = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 1, "access user", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
+            employee2 = new Employee(0, "Test Name", "954.746.736-04", "Employee Address", "4932518000", "test@email.com", 1, "access user", "12345", new DateTime(2021, 01, 01), "Salesperson", 1000f, true);
 
-            //action
-            ctr.InsertNew(funcionario);
-            ctr.InsertNew(funcionario2);
-            var lista = ctr.SelectAll();
+            // act
+            controller.InsertNew(employee);
+            controller.InsertNew(employee2);
+            var list = controller.SelectAll();
 
-            //assert
-            Assert.IsNotNull(lista);
+            // assert
+            Assert.IsNotNull(list);
         }
     }
 }
