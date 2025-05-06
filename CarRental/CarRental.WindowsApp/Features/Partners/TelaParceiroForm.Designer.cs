@@ -38,13 +38,13 @@ namespace CarRental.WindowsApp.Features.Parceiros
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labelTitulo
+            // lblTitle
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.Color.Black;
             this.labelTitulo.Location = new System.Drawing.Point(91, 33);
-            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Name = "lblTitle";
             this.labelTitulo.Size = new System.Drawing.Size(187, 20);
             this.labelTitulo.TabIndex = 65;
             this.labelTitulo.Text = "Cadastro de Parceiros";

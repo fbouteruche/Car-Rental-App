@@ -60,14 +60,14 @@ namespace CarRental.WindowsApp
             this.statusStripRodape.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelTitulo
+            // lblTitle
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.Color.Black;
             this.labelTitulo.Location = new System.Drawing.Point(309, 3);
             this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Name = "lblTitle";
             this.labelTitulo.Size = new System.Drawing.Size(182, 20);
             this.labelTitulo.TabIndex = 3;
             this.labelTitulo.Text = "Locadora de Veículos";

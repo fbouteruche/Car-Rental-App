@@ -72,13 +72,13 @@ namespace CarRental.WindowsApp.Veiculos
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelTitulo
+            // lblTitle
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.Color.Black;
             this.labelTitulo.Location = new System.Drawing.Point(105, 26);
-            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Name = "lblTitle";
             this.labelTitulo.Size = new System.Drawing.Size(180, 20);
             this.labelTitulo.TabIndex = 64;
             this.labelTitulo.Text = "Cadastro de Veículos";

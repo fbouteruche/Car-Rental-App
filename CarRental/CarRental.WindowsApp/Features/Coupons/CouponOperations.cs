@@ -23,17 +23,17 @@ namespace CarRental.WindowsApp.Features.Coupons
 
         public void InsertNewRecord()
         {
-            TelaCupomForm form = new TelaCupomForm("Coupon Registration");
+            CouponForm form = new CouponForm("Coupon Registration");
 
             if (form.ShowDialog() == DialogResult.OK)
             {
-                controller.InsertNew(form.Cupom);
+                controller.InsertNew(form.Coupon);
 
                 List<Coupon> coupons = controller.SelectAll();
 
                 table.UpdateRecords(coupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{form.Cupom.Name}] successfully inserted");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{form.Coupon.Name}] successfully inserted");
             }
         }
 
@@ -48,12 +48,12 @@ namespace CarRental.WindowsApp.Features.Coupons
             }
 
             Coupon selectedCoupon = controller.SelectById(id);
-            TelaCupomForm form = new TelaCupomForm("Coupon Editing");
-            form.Cupom = selectedCoupon;
+            CouponForm form = new CouponForm("Coupon Editing");
+            form.Coupon = selectedCoupon;
 
             if (form.ShowDialog() == DialogResult.OK)
             {
-                controller.Edit(id, form.Cupom);
+                controller.Edit(id, form.Coupon);
                 List<Coupon> coupons = controller.SelectAll();
                 table.UpdateRecords(coupons);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{selectedCoupon.Name}] successfully edited");

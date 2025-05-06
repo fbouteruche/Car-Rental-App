@@ -43,7 +43,7 @@ namespace CarRental.WindowsApp.ClientesModule
                 maskTelefone.Text = cliente.Phone;
                 tetxtEmail.Text = cliente.Email;
                 maskedCNH.Text = cliente.DriverLicense;
-                //dtpValidade.Text = cliente.LicenseExpiryDate.ToShortDateString();
+                //dtpExpirationDate.Text = cliente.LicenseExpiryDate.ToShortDateString();
             }
         }
 

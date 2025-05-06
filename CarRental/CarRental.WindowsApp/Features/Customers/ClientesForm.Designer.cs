@@ -163,11 +163,11 @@ namespace CarRental.WindowsApp.ClientesModule
             this.maskTelefone.Size = new System.Drawing.Size(90, 20);
             this.maskTelefone.TabIndex = 5;
             // 
-            // dtpValidade
+            // dtpExpirationDate
             // 
             this.dtpValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpValidade.Location = new System.Drawing.Point(111, 199);
-            this.dtpValidade.Name = "dtpValidade";
+            this.dtpValidade.Name = "dtpExpirationDate";
             this.dtpValidade.Size = new System.Drawing.Size(90, 20);
             this.dtpValidade.TabIndex = 8;
             // 
