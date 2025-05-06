@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Partners
 {
     public class PartnerConfigurationToolBox : IConfigurationToolBox
     {
         public string AddToolTip
         {
-            get { return "Cadastro de Parceiros"; }
+            get { return "Cadastro de Partners"; }
         }
 
         public string RegistrationType

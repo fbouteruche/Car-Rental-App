@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Partners
 {
     public partial class PartnerTableControl : UserControl
     {

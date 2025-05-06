@@ -294,7 +294,7 @@ namespace CarRental.WindowsApp
             // 
             this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
             this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.parceirosToolStripMenuItem.Text = "Parceiros";
+            this.parceirosToolStripMenuItem.Text = "Partners";
             this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
             // 
             // TelaPrincipalForm

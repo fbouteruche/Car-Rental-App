@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Partners
 {
     public class PartnerOperation : ICadastravel
     {
@@ -40,7 +40,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Partner para poder Edit!", "Edição de Parceiros", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Partner para poder Edit!", "Edição de Partners", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
 
             Partner parceiroSelecionado = controlador.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Partner: [{parceiroSelecionado.Name}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Partner: [{parceiroSelecionado.Name}] ?", "Exclusão de Partners", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Delete(id);
                 List<Partner> parceiros = controlador.SelectAll();

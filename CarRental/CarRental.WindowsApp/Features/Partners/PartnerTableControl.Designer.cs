@@ -1,5 +1,5 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Partners
 {
     partial class PartnerTableControl
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Parceiros
+namespace CarRental.WindowsApp.Features.Partners
 {
     partial class PartnerForm
     {
@@ -47,7 +47,7 @@ namespace CarRental.WindowsApp.Features.Parceiros
             this.labelTitulo.Name = "lblTitle";
             this.labelTitulo.Size = new System.Drawing.Size(187, 20);
             this.labelTitulo.TabIndex = 65;
-            this.labelTitulo.Text = "Cadastro de Parceiros";
+            this.labelTitulo.Text = "Cadastro de Partners";
             // 
             // lbPlaca
             // 
