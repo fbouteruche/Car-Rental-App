@@ -22,7 +22,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         private int id = 0;
         ServiceController serviceController = new ServiceController();
         RentalController rentalController = new RentalController(new VehicleController(), new ControladorFuncionario(), new CustomerController(), new ServiceController(), new CouponController());
-        #region queries Relacionamento
+        #region relationship queries
         private const string sqlInsertRelationship =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
                 (
@@ -56,7 +56,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
             @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         #endregion
-        public override string Edit(int id, RentalServiceRelationship registro)
+        public override string Edit(int id, RentalServiceRelationship record)
         {
             throw new NotImplementedException();
         }
@@ -80,18 +80,18 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
             return Db.Exists(sqlSelectRelationshipById, AddParameter("ID", id));
         }
 
-        public override string InsertNew(RentalServiceRelationship registro)
+        public override string InsertNew(RentalServiceRelationship record)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = record.Validate();
 
-            if (resultadoValidacao == "VALID")
-                foreach (Service servico in registro.Services)
+            if (validationResult == "VALID")
+                foreach (Service service in record.Services)
                 {
-                    id = servico.Id;
-                    registro.Id = Db.Insert(sqlInsertRelationship, GetRelationshipParameters(registro));
+                    id = service.Id;
+                    record.Id = Db.Insert(sqlInsertRelationship, GetRelationshipParameters(record));
                 }
 
-            return resultadoValidacao;
+            return validationResult;
         }
 
         public override RentalServiceRelationship SelectById(int id)
@@ -99,9 +99,9 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
             return Db.Get(sqlSelectRelationshipById, ConvertToRelationship, AddParameter("ID", id));
         }
 
-        public object SelectByRental(int id)
+        public object SelectByRental(int rentalId)
         {
-            return Db.GetAll(sqlSelectRelationshipByRental, ConvertToRelationship, AddParameter("ID_LOCACAO", id));
+            return Db.GetAll(sqlSelectRelationshipByRental, ConvertToRelationship, AddParameter("ID_LOCACAO", rentalId));
         }
 
         public override List<RentalServiceRelationship> SelectAll()
@@ -110,26 +110,26 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         }
         private RentalServiceRelationship ConvertToRelationship(IDataReader reader)
         {
-            var id = Convert.ToInt32(reader["ID"]);
-            var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
-            var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
+            var relationshipId = Convert.ToInt32(reader["ID"]);
+            var rentalId = Convert.ToInt32(reader["ID_LOCACAO"]);
+            var serviceId = Convert.ToInt32(reader["ID_SERVICO"]);
 
-            List<Service> filtrado = new List<Service>();
+            List<Service> filteredServices = new List<Service>();
             foreach (Service item in serviceController.SelectAll())
-                if (item.Id == id_servico)
-                    filtrado.Add(item);
-            Rental locacao = rentalController.SelectById(id_locacao);
+                if (item.Id == serviceId)
+                    filteredServices.Add(item);
+            Rental rental = rentalController.SelectById(rentalId);
 
-            return new RentalServiceRelationship(id, locacao, filtrado);
+            return new RentalServiceRelationship(relationshipId, rental, filteredServices);
         }
-        private Dictionary<string, object> GetRelationshipParameters(RentalServiceRelationship relacionamento)
+        private Dictionary<string, object> GetRelationshipParameters(RentalServiceRelationship relationship)
         {
-            var parametros = new Dictionary<string, object>();
-            parametros.Add("ID", relacionamento.Id);
-            parametros.Add("ID_LOCACAO", relacionamento.Rental.Id);
-            parametros.Add("ID_SERVICO", id);
+            var parameters = new Dictionary<string, object>();
+            parameters.Add("ID", relationship.Id);
+            parameters.Add("ID_LOCACAO", relationship.Rental.Id);
+            parameters.Add("ID_SERVICO", id);
 
-            return parametros;
+            return parameters;
         }
     }
 }
