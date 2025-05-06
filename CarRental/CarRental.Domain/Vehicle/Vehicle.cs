@@ -109,8 +109,10 @@ namespace CarRental.Domain.VehicleModule
                    hasAirConditioning == vehicle.hasAirConditioning &&
                    hasPowerSteering == vehicle.hasPowerSteering &&
                    hasAbsBrakes == vehicle.hasAbsBrakes &&
-                   isRented == vehicle.isRented &&
-                   (images == vehicle.images || (images.Count == 0 && vehicle.images == null) || (images.Count == 0 && vehicle.images.Count == 0));
+                   isRented == vehicle.isRented
+                   // ToDo implemet deep Equals over the image collection &&
+                   //(images == vehicle.images || (images.Count == 0 && vehicle.images == null) || (images.Count == 0 && vehicle.images.Count == 0))
+                   ;
         }
 
         public override int GetHashCode()
