@@ -1,5 +1,5 @@
 ﻿using CarRental.Controllers.RentalModule;
-using CarRental.Controllers.RelacionamentoLocServModule;
+using CarRental.Controllers.RentalServiceRelationshipModule;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.RentalModule;
 using CarRental.Domain.RentalServiceRelationshipModule;
@@ -18,7 +18,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
     public class OperacoesLocacao : ICadastravel
     {
         private readonly RentalController controlador = null;
-        private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
+        private readonly RentalServiceRelationshipController controladorRelacionamento = null;
         private RentalServiceRelationship relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
         PdfConverter conversorPdf;
@@ -26,7 +26,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         {
             conversorPdf = new PdfConverter(10, 18);
             controlador = ctrlLocacao;
-            controladorRelacionamento = new ControladorRelacionamentoLocServ();
+            controladorRelacionamento = new RentalServiceRelationshipController();
             tabelaLocacao = new TabelaLocacaoControl();
         }
 

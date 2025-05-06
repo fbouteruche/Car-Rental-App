@@ -218,7 +218,7 @@ namespace CarRental.Controllers.RentalModule
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
             List <Service>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
-            //foreach (Service servico in controladorServico.SelectAll())
+            //foreach (Service servico in serviceController.SelectAll())
             //{
             //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
             //    if (idsDeServicos.Contains(servico.Id))

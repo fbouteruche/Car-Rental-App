@@ -15,15 +15,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Controllers.RelacionamentoLocServModule
+namespace CarRental.Controllers.RentalServiceRelationshipModule
 {
-    public class ControladorRelacionamentoLocServ : Controller<RentalServiceRelationship>
+    public class RentalServiceRelationshipController : Controller<RentalServiceRelationship>
     {
         private int id = 0;
-        ServiceController controladorServico = new ServiceController();
-        RentalController controladorLocacao = new RentalController(new VehicleController(), new ControladorFuncionario(), new CustomerController(), new ServiceController(), new CouponController());
+        ServiceController serviceController = new ServiceController();
+        RentalController rentalController = new RentalController(new VehicleController(), new ControladorFuncionario(), new CustomerController(), new ServiceController(), new CouponController());
         #region queries Relacionamento
-        private const string sqlInserirRelacao =
+        private const string sqlInsertRelationship =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
                 (
                     [ID_LOCACAO],
@@ -35,7 +35,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
                     @ID_SERVICO
                 );";
 
-        private const string sqlEditarRelacao =
+        private const string sqlEditRelationship =
         @"UPDATE [DBO].[TBSERVICO_LOCACAO] 
                 SET
                     [ID_LOCACAO] = @ID_LOCACAO,
@@ -43,16 +43,16 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
                 WHERE 
                     [ID] = @ID;";
 
-        private const string sqlSelecionarTodasRelacoes =
+        private const string sqlSelectAllRelationships =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO];";
 
-        private const string sqlSelecionarRelacaoPorId =
+        private const string sqlSelectRelationshipById =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
-        private const string sqlSelecionarRelacaoPorLocacao =
+        private const string sqlSelectRelationshipByRental =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID_LOCACAO] = @ID_LOCACAO;";
 
-        private const string sqlDeletarRelacao =
+        private const string sqlDeleteRelationship =
             @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         #endregion
@@ -65,7 +65,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
         {
             try
             {
-                Db.Delete(sqlDeletarRelacao, AddParameter("ID", id));
+                Db.Delete(sqlDeleteRelationship, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -77,7 +77,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelecionarRelacaoPorId, AddParameter("ID", id));
+            return Db.Exists(sqlSelectRelationshipById, AddParameter("ID", id));
         }
 
         public override string InsertNew(RentalServiceRelationship registro)
@@ -88,7 +88,7 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
                 foreach (Service servico in registro.Services)
                 {
                     id = servico.Id;
-                    registro.Id = Db.Insert(sqlInserirRelacao, ObtemParametrosRelacao(registro));
+                    registro.Id = Db.Insert(sqlInsertRelationship, GetRelationshipParameters(registro));
                 }
 
             return resultadoValidacao;
@@ -96,33 +96,33 @@ namespace CarRental.Controllers.RelacionamentoLocServModule
 
         public override RentalServiceRelationship SelectById(int id)
         {
-            return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AddParameter("ID", id));
+            return Db.Get(sqlSelectRelationshipById, ConvertToRelationship, AddParameter("ID", id));
         }
 
-        public object SelecionarPorLocacao(int id)
+        public object SelectByRental(int id)
         {
-            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AddParameter("ID_LOCACAO", id));
+            return Db.GetAll(sqlSelectRelationshipByRental, ConvertToRelationship, AddParameter("ID_LOCACAO", id));
         }
 
         public override List<RentalServiceRelationship> SelectAll()
         {
-            return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
+            return Db.GetAll(sqlSelectAllRelationships, ConvertToRelationship);
         }
-        private RentalServiceRelationship ConverterEmRelacionamento(IDataReader reader)
+        private RentalServiceRelationship ConvertToRelationship(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
             var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
 
             List<Service> filtrado = new List<Service>();
-            foreach (Service item in controladorServico.SelectAll())
+            foreach (Service item in serviceController.SelectAll())
                 if (item.Id == id_servico)
                     filtrado.Add(item);
-            Rental locacao = controladorLocacao.SelectById(id_locacao);
+            Rental locacao = rentalController.SelectById(id_locacao);
 
             return new RentalServiceRelationship(id, locacao, filtrado);
         }
-        private Dictionary<string, object> ObtemParametrosRelacao(RentalServiceRelationship relacionamento)
+        private Dictionary<string, object> GetRelationshipParameters(RentalServiceRelationship relacionamento)
         {
             var parametros = new Dictionary<string, object>();
             parametros.Add("ID", relacionamento.Id);

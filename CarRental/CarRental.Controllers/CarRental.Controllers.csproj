@@ -48,7 +48,7 @@
     <Compile Include="VehicleImageModule\VehicleImageController.cs" />
     <Compile Include="RentalModule\RentalController.cs" />
     <Compile Include="PartnerModule\PartnerController.cs" />
-    <Compile Include="RentalServiceRelationshipModule\ControladorRelacionamentoLocServ.cs" />
+    <Compile Include="RentalServiceRelationshipModule\RentalServiceRelationshipController.cs" />
     <Compile Include="ServiceModule\ServiceController.cs" />
     <Compile Include="CustomersModule\CustomerController.cs" />
     <Compile Include="VehicleGroupModule\VehicleGroupController.cs" />
