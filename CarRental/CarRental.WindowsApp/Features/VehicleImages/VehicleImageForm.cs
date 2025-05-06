@@ -15,82 +15,82 @@ namespace CarRental.WindowsApp.Features.VehicleImages
 {
     public partial class VehicleImageForm : Form
     {
-        private const long doisMB = 2097152;
-        private const int voltar = -1;
-        private const int avancar = 1;
-        private int imagemAtual = 0;
-        public List<Domain.VehicleImageModule.VehicleImage> imagens;
-        private readonly VehicleForm telaBase;
-        public VehicleImageForm(VehicleForm telaBase)
+        private const long twoMB = 2097152;
+        private const int back = -1;
+        private const int forward = 1;
+        private int currentImage = 0;
+        public List<Domain.VehicleImageModule.VehicleImage> images;
+        private readonly VehicleForm baseForm;
+        public VehicleImageForm(VehicleForm baseForm)
         {
-            this.telaBase = telaBase;
-            if (telaBase.vehicleImages == null)
-                imagens = new List<Domain.VehicleImageModule.VehicleImage>();
+            this.baseForm = baseForm;
+            if (baseForm.vehicleImages == null)
+                images = new List<Domain.VehicleImageModule.VehicleImage>();
             else
-                imagens = telaBase.vehicleImages;
+                images = baseForm.vehicleImages;
             InitializeComponent();
-            if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[0].Image;
+            if (images.Count != 0)
+                pctBoxImagem.Image = images[0].Image;
         }
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog()  == DialogResult.OK)
             {
-                var imagem = openFileDialog.FileName;
-                var tamanho = new FileInfo(imagem).Length;
-                if (tamanho <= doisMB)
+                var imagePath = openFileDialog.FileName;
+                var size = new FileInfo(imagePath).Length;
+                if (size <= twoMB)
                 {
-                    imagens.Add(new Domain.VehicleImageModule.VehicleImage(0, 0, (Bitmap)Image.FromFile(imagem)));
-                    if (imagens.Count == 1)
-                        AtualizarImagem();
+                    images.Add(new Domain.VehicleImageModule.VehicleImage(0, 0, (Bitmap)Image.FromFile(imagePath)));
+                    if (images.Count == 1)
+                        UpdateImage();
                     else
                     {
-                        MudarImagemAtual((imagens.Count() - 1));
+                        ChangeCurrentImage((images.Count() - 1));
                     }
                 }
                 else
-                    MessageBox.Show("A Image deve ser no máximo de 2MB!","Locadora de Veículos",
+                    MessageBox.Show("The image must be at most 2MB!","Car Rental",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        private void MudarImagemAtual(int indice)
+        private void ChangeCurrentImage(int index)
         {
-            if (imagemAtual == 0 && indice == voltar)
-                imagemAtual = imagens.Count() - 1;
-            else if (imagemAtual + 1 == imagens.Count() && indice == avancar)
-                imagemAtual = 0;
-            else if (indice != 1 && indice != -1)
-                imagemAtual = indice;
+            if (currentImage == 0 && index == back)
+                currentImage = images.Count() - 1;
+            else if (currentImage + 1 == images.Count() && index == forward)
+                currentImage = 0;
+            else if (index != 1 && index != -1)
+                currentImage = index;
             else
-                imagemAtual = imagemAtual + indice;
-            AtualizarImagem();
+                currentImage = currentImage + index;
+            UpdateImage();
         }
-        private void AtualizarImagem()
+        private void UpdateImage()
         {
-            if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[imagemAtual].Image;
+            if (images.Count != 0)
+                pctBoxImagem.Image = images[currentImage].Image;
             else
                 pctBoxImagem.Image = default;
         }
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            if (imagens.Count() != 0)
-                MudarImagemAtual(voltar);
+            if (images.Count() != 0)
+                ChangeCurrentImage(back);
         }
-        private void btnAvancar_Click(object sender, EventArgs e)
+        private void btnForward_Click(object sender, EventArgs e)
         {
-            if (imagens.Count() != 0)
-                MudarImagemAtual(avancar);
+            if (images.Count() != 0)
+                ChangeCurrentImage(forward);
         }
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja excluir a Image?", "Locadora de veículos",
+            if (MessageBox.Show("Are you sure you want to delete the image?", "Car Rental",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                if (imagens.Count() != 0)
+                if (images.Count() != 0)
                 {
-                    imagens.RemoveAt(imagemAtual);
-                    MudarImagemAtual(0);
+                    images.RemoveAt(currentImage);
+                    ChangeCurrentImage(0);
                 }
                 else
                 {
@@ -98,13 +98,13 @@ namespace CarRental.WindowsApp.Features.VehicleImages
                 }
             }
         }
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            telaBase.UpdateImageList(imagens);
+            baseForm.UpdateImageList(images);
             this.Close();
         }
     }
