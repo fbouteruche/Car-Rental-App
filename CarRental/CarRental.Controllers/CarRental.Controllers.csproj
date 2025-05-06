@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CupomModule\CouponController.cs" />
-    <Compile Include="EmployeeModule\ControladorFuncionario.cs" />
+    <Compile Include="EmployeeModule\EmployeeController.cs" />
     <Compile Include="VehicleImageModule\VehicleImageController.cs" />
     <Compile Include="RentalModule\RentalController.cs" />
     <Compile Include="PartnerModule\PartnerController.cs" />

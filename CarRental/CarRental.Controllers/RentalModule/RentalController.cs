@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CouponModule;
-using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.EmployeeModule;
 using CarRental.Controllers.ServiceModule;
 using CarRental.Controllers.Shared;
 using CarRental.Controllers.VehicleModule;
@@ -22,12 +22,12 @@ namespace CarRental.Controllers.RentalModule
     public class RentalController : Controller<Rental>
     {
         private VehicleController controladorVeiculo = null;
-        private ControladorFuncionario controladorFuncionario = null;
+        private EmployeeController controladorFuncionario = null;
         private CustomerController controladorCliente = null;
         private ServiceController controladorServico = null;
         private CouponController controladorCupom = new CouponController();
 
-        public RentalController(VehicleController controladorVeiculo, ControladorFuncionario controladorFuncionario, CustomerController controladorCliente, ServiceController controladorServico, CouponController controladorCupom)
+        public RentalController(VehicleController controladorVeiculo, EmployeeController controladorFuncionario, CustomerController controladorCliente, ServiceController controladorServico, CouponController controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;

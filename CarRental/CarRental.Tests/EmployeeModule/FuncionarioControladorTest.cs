@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.FuncionarioModule;
+﻿using CarRental.Controllers.EmployeeModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarRental.Domain.EmployeeModule;
 using System.Collections.Generic;
@@ -13,11 +13,11 @@ namespace CarRental.Tests.FuncionarioModule
     {
         Employee funcionario;
         Employee funcionario2;
-        ControladorFuncionario ctr; 
+        EmployeeController ctr; 
 
         public FuncionarioControladorTest()
         {
-            ctr = new ControladorFuncionario();
+            ctr = new EmployeeController();
             ResetarBanco.ResetarTabelas();
         }
 

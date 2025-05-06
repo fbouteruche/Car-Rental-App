@@ -4,9 +4,9 @@ using System.Data;
 using CarRental.Controllers.Shared;
 using CarRental.Domain.EmployeeModule;
 
-namespace CarRental.Controllers.FuncionarioModule
+namespace CarRental.Controllers.EmployeeModule
 {
-    public class ControladorFuncionario : Controller<Employee>
+    public class EmployeeController : Controller<Employee>
     {
 
         #region Queries

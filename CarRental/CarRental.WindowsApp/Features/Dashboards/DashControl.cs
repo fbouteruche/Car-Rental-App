@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CouponModule;
-using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.EmployeeModule;
 using CarRental.Controllers.RentalModule;
 using CarRental.Controllers.ServiceModule;
 using CarRental.Controllers.VehicleModule;
@@ -26,7 +26,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
         CustomerController controladorCliente;
         ServiceController controladorServicos;
         RentalController controladorLocacao;
-        ControladorFuncionario controladorFuncionario;
+        EmployeeController controladorFuncionario;
         CouponController controladorCupom;
         public DashControl()
         {
@@ -34,7 +34,7 @@ namespace CarRental.WindowsApp.Features.Dashboards
             controladorVeiculo = new VehicleController();
             controladorCliente = new CustomerController();
             controladorServicos = new ServiceController();
-            controladorFuncionario = new ControladorFuncionario();
+            controladorFuncionario = new EmployeeController();
             controladorLocacao = new RentalController(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos, controladorCupom);
             MudaLabels();
         }

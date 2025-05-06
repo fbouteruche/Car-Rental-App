@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.CustomersModule;
 using CarRental.Controllers.CouponModule;
-using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.EmployeeModule;
 using CarRental.Controllers.VehicleModule;
 using CarRental.Domain.CustomerModule;
 using CarRental.Domain.CouponModule;
@@ -27,7 +27,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
     public partial class TelaLocacaoForm : Form
     {
         private Rental locacao;
-        private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
+        private EmployeeController controladorFuncionario = new EmployeeController();
         private VehicleController controladorVeiculo = new VehicleController();
         private CustomerController controladorCliente = new CustomerController();
         private CouponController controladorCupom = new CouponController();

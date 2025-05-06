@@ -1,4 +1,4 @@
-﻿using CarRental.Controllers.FuncionarioModule;
+﻿using CarRental.Controllers.EmployeeModule;
 using CarRental.Domain.EmployeeModule;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,12 @@ namespace CarRental.WindowsApp.Features.Login
 {
     public partial class TelaLogin : Form
     {
-        private readonly ControladorFuncionario controlador;
+        private readonly EmployeeController controlador;
         Thread thread;
         public TelaLogin()
         {
             InitializeComponent();
-            controlador = new ControladorFuncionario();
+            controlador = new EmployeeController();
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {

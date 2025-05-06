@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarRental.Controllers.FuncionarioModule;
+using CarRental.Controllers.EmployeeModule;
 using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.Shared;
 using CarRental.Domain.PersonModule;
@@ -16,10 +16,10 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 {
     public class OperacoesFuncionario : ICadastravel
     {
-        private readonly ControladorFuncionario controlador = null;
+        private readonly EmployeeController controlador = null;
         private readonly TabelaFuncionarioControl tabelaFuncionarios = null;
 
-        public OperacoesFuncionario(ControladorFuncionario ctrlFuncionario)
+        public OperacoesFuncionario(EmployeeController ctrlFuncionario)
         {
             controlador = ctrlFuncionario;
             tabelaFuncionarios = new TabelaFuncionarioControl();
