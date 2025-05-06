@@ -9,10 +9,10 @@ using CarRental.Domain.Shared;
 using CarRental.Domain.PersonModule;
 using CarRental.Controllers.Shared;
 using CarRental.WindowsApp.Shared;
-using CarRental.WindowsApp.Funcionarios;
+using CarRental.WindowsApp.Features.Employee;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Employees
 {
     public class EmployeeOperation : ICadastravel
     {
@@ -40,14 +40,14 @@ namespace CarRental.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Employee funcionarioSelecionado = controlador.SelectById(id);
+            Domain.EmployeeModule.Employee funcionarioSelecionado = controlador.SelectById(id);
             EmployeeForm tela = new EmployeeForm("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.Edit(id, tela.Funcionario);
-                List<Employee> funcionarios = controlador.SelectAll();
+                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] editado com sucesso");
             }
@@ -64,12 +64,12 @@ namespace CarRental.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Employee funcionarioSelecionado = controlador.SelectById(id);
+            Domain.EmployeeModule.Employee funcionarioSelecionado = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Name}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Delete(id);
-                List<Employee> funcionarios = controlador.SelectAll();
+                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Name}] removido com sucesso");
             }
@@ -87,7 +87,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InsertNew(tela.Funcionario);
-                List<Employee> funcionarios = controlador.SelectAll();
+                List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Name}] inserido com sucesso");
             }
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp.Features.Funcionarios
 
         public UserControl GetTable()
         {
-            List<Employee> funcionarios = controlador.SelectAll();
+            List<Domain.EmployeeModule.Employee> funcionarios = controlador.SelectAll();
             tabelaFuncionarios.AtualizarRegistros(funcionarios);
             return tabelaFuncionarios;
         }

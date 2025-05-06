@@ -11,7 +11,7 @@ using CarRental.Domain.EmployeeModule;
 using CarRental.Domain.Shared;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Employees
 {
     public partial class EmployeeTableControl : UserControl
     {
@@ -57,11 +57,11 @@ namespace CarRental.WindowsApp.Features.Funcionarios
             return gridFuncionarios.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Employee> funcionarios)
+        public void AtualizarRegistros(List<Domain.EmployeeModule.Employee> funcionarios)
         {
             gridFuncionarios.Rows.Clear();
 
-            foreach (Employee funcionario in funcionarios)
+            foreach (Domain.EmployeeModule.Employee funcionario in funcionarios)
             {
                 gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Name, funcionario.UniqueId,
                     funcionario.Address, funcionario.Phone, funcionario.Email, funcionario.InternalRegistration,

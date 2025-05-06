@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRental.Domain.EmployeeModule;
-using CarRental.WindowsApp.Funcionarios;
+using CarRental.WindowsApp.Features;
 
-namespace CarRental.WindowsApp.Funcionarios
+namespace CarRental.WindowsApp.Features.Employee
 {
     public partial class EmployeeForm : Form
     {
-        private Employee funcionario;
+        private Domain.EmployeeModule.Employee funcionario;
 
         public EmployeeForm(string titulo)
         {
@@ -23,7 +23,7 @@ namespace CarRental.WindowsApp.Funcionarios
             lbTituloCadastroDeFuncionarios.Text = titulo;
         }
 
-        public Employee Funcionario
+        public Domain.EmployeeModule.Employee Funcionario
         {
             get { return funcionario; }
 
@@ -64,8 +64,8 @@ namespace CarRental.WindowsApp.Funcionarios
                 dataAdmissao = Convert.ToDateTime(mskTxtDataAdmissao.Text);
             string cargo = textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
-             
-            funcionario = new Employee(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,senha,dataAdmissao,cargo,salario,true);
+
+            funcionario = new Domain.EmployeeModule.Employee(0, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, true);
 
             string resultadoValidacao = funcionario.Validate();
 

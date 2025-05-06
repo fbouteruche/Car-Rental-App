@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarRental.WindowsApp.Shared;
 
-namespace CarRental.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Employees
 {
     public class EmployeeConfigurationToolBox : IConfigurationToolBox
     {

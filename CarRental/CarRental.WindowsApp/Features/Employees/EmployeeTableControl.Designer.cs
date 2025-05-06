@@ -1,5 +1,5 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Funcionarios
+namespace CarRental.WindowsApp.Features.Employees
 {
     partial class EmployeeTableControl
     {

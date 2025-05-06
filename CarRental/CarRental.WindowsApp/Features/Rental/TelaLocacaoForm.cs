@@ -100,7 +100,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             int id = Convert.ToInt32(txtId.Text);
             string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
             Vehicle veiculo = cBoxVeiculo.SelectedItem as Vehicle;
-            Employee funcionarioLocador = cBoxFuncionario.SelectedItem as Employee;
+            Domain.EmployeeModule.Employee funcionarioLocador = cBoxFuncionario.SelectedItem as Domain.EmployeeModule.Employee;
             Customer clienteContratante = cBoxCliente.SelectedItem as Customer;
             Customer condutor = cBoxCondutor.SelectedItem as Customer;
             DateTime dataDeSaida = dateTPDataSaida.Value;
