@@ -1,5 +1,5 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Coupons
 {
     partial class TelaCupomForm
     {
@@ -61,7 +61,7 @@ namespace CarRental.WindowsApp.Features.Cupons
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(173, 20);
             this.labelTitulo.TabIndex = 66;
-            this.labelTitulo.Text = "Cadastro de Cupons";
+            this.labelTitulo.Text = "Cadastro de Coupons";
             // 
             // dtpValidade
             // 

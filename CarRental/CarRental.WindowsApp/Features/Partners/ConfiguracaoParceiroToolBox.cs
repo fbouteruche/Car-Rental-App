@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Parceiros
 {
-    public class ConfiguracaoParceiroToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoParceiroToolBox : IConfigurationToolBox
     {
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Cadastro de Parceiros"; }
         }
 
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Cadastro de um novo Partner"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit um Partner existente"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete um Partner existente"; }
         }

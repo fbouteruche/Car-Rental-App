@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Devolucoes
 {
-    public class ConfiguracaoDevolucaoToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoDevolucaoToolBox : IConfigurationToolBox
     {
-        public string TipoCadastro { get { return "Devolução de Veículo"; } }
+        public string RegistrationType { get { return "Devolução de Veículo"; } }
 
-        public string ToolTipAdicionar { get { return "Registrar Devolução"; } }
+        public string AddToolTip { get { return "Registrar Devolução"; } }
 
-        public string ToolTipEditar { get { return "Edit Devolução"; } }
+        public string EditToolTip { get { return "Edit Devolução"; } }
 
-        public string ToolTipExcluir { get { return "Delete devolução"; } }
+        public string DeleteToolTip { get { return "Delete devolução"; } }
     }
 }

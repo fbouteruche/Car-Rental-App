@@ -287,7 +287,7 @@ namespace CarRental.WindowsApp
             // 
             this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
             this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cuponsToolStripMenuItem.Text = "Cupons";
+            this.cuponsToolStripMenuItem.Text = "Coupons";
             this.cuponsToolStripMenuItem.Click += new System.EventHandler(this.cuponsToolStripMenuItem_Click);
             // 
             // parceirosToolStripMenuItem

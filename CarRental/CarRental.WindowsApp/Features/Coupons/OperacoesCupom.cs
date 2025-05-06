@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Coupons
 {
     public class OperacoesCupom : ICadastravel
     {
@@ -43,7 +43,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um CouponModule para poder Edit!", "Edição de Cupons", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um CouponModule para poder Edit!", "Edição de Coupons", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace CarRental.WindowsApp.Features.Cupons
 
             Coupon parceiroSelecionado = controlador.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Coupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Delete(id);
                 List<Coupon> cupons = controlador.SelectAll();

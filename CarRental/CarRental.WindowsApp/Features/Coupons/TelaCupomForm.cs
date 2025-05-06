@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Coupons
 {
     public partial class TelaCupomForm : Form
     {

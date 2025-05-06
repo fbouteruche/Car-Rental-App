@@ -28,7 +28,7 @@ using CarRental.WindowsApp.Features.Devolucoes;
 using CarRental.WindowsApp.Features.Dashboards;
 using CarRental.WindowsApp.Features.Parceiros;
 using CarRental.Controllers.PartnerModule;
-using CarRental.WindowsApp.Features.Cupons;
+using CarRental.WindowsApp.Features.Coupons;
 using CarRental.Controllers.CouponModule;
 
 namespace CarRental.WindowsApp
@@ -53,7 +53,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesFuncionario(new EmployeeController());
 
@@ -67,7 +67,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesServico(new ServiceController());
 
@@ -81,7 +81,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesClientes(new CustomerController());
 
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesVeiculo(new VehicleController());
 
@@ -109,7 +109,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesGrupoDeVeiculos(new VehicleGroupController());
 
@@ -122,7 +122,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesLocacao(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
 
@@ -136,7 +136,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, true);
             btnAdicionar.Image = Properties.Resources.car_32px;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesDevolucao(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
 
@@ -145,11 +145,11 @@ namespace CarRental.WindowsApp
 
         private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoCupomToolBox configuracao = new ConfiguracaoCupomToolBox();
+            CouponConfigurationToolBox configuracao = new CouponConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesCupom(new CouponController());
 
@@ -163,7 +163,7 @@ namespace CarRental.WindowsApp
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
 
             operacoes = new OperacoesParceiro(new PartnerController());
 
@@ -213,17 +213,17 @@ namespace CarRental.WindowsApp
             panelRegistros.Controls.Add(tabela);
         }
 
-        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao, bool possivelFiltrar)
+        private void ConfigurarToolBox(IConfigurationToolBox configuracao, bool possivelFiltrar)
         {
             toolBoxAcoes.Enabled = true;
             if (possivelFiltrar)
                 btnFiltrar.Enabled = true;
             else
                 btnFiltrar.Enabled = false;
-            labelTipoCadastro.Text = configuracao.TipoCadastro;
-            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
-            btnEditar.ToolTipText = configuracao.ToolTipEditar;
-            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
+            labelTipoCadastro.Text = configuracao.RegistrationType;
+            btnAdicionar.ToolTipText = configuracao.AddToolTip;
+            btnEditar.ToolTipText = configuracao.EditToolTip;
+            btnExcluir.ToolTipText = configuracao.DeleteToolTip;
         }
         #endregion
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
@@ -237,7 +237,7 @@ namespace CarRental.WindowsApp
             ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
             ConfigurarToolBox(configuracao, false);
             toolBoxAcoes.Enabled = false;
-            AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.RegistrationType);
             ConfigurarPainelDashBoard();
         }
     }

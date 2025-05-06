@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 {
-    public class ConfiguracaoGrupoDeVeiculosToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoGrupoDeVeiculosToolBox : IConfigurationToolBox
     {
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Cadastro de Grupo de Veiculos"; }
         }
 
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Adicionar uma novo Grupo de Veiculos"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit um Grupo de Veiculos existente"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete um Grupo de Veiculos existente"; }
         }

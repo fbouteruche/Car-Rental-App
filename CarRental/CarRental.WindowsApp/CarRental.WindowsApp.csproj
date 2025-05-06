@@ -63,7 +63,7 @@
     <Compile Include="Features\Customers\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Coupons\ConfiguracaoCupomToolBox.cs" />
+    <Compile Include="Features\Coupons\CouponConfigurationToolBox.cs" />
     <Compile Include="Features\Coupons\OperacoesCupom.cs" />
     <Compile Include="Features\Coupons\TabelaCupomControl.cs">
       <SubType>UserControl</SubType>
@@ -209,7 +209,7 @@
     </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="Shared\ICadastravel.cs" />
-    <Compile Include="Shared\IConfiguracaoToolBox.cs" />
+    <Compile Include="Shared\IConfigurationToolBox.cs" />
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>

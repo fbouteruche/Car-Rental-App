@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Servicos
 {
-    class ConfiguracaoServicoToolBox : IConfiguracaoToolBox
+    class ConfiguracaoServicoToolBox : IConfigurationToolBox
     {
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Cadastro de Serviços"; }
         }
 
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Adicionar um novo Serviço"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit um Serviço existente"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete um Serviço existente"; }
         }

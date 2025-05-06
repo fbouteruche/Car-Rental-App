@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Clientes
 {
-    public class ConfiguracaoClienteToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoClienteToolBox : IConfigurationToolBox
     {
 
 
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Cadastro de Clientes"; }
         }
 
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Adicionar um novo Customer"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit um Customer existente"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete um Customer existente"; }
         }

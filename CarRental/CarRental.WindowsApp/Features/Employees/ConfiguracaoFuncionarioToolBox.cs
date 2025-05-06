@@ -7,14 +7,14 @@ using CarRental.WindowsApp.Shared;
 
 namespace CarRental.WindowsApp.Features.Funcionarios
 {
-    public class ConfiguracaoFuncionarioToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoFuncionarioToolBox : IConfigurationToolBox
     {
-        public string TipoCadastro { get { return "Cadastro de Funcionários"; } }
+        public string RegistrationType { get { return "Cadastro de Funcionários"; } }
 
-        public string ToolTipAdicionar { get { return "Adicionar um Funcionário"; } }
+        public string AddToolTip { get { return "Adicionar um Funcionário"; } }
 
-        public string ToolTipEditar { get { return "Edit um Funcionário"; } }
+        public string EditToolTip { get { return "Edit um Funcionário"; } }
 
-        public string ToolTipExcluir { get { return "Delete um Funcionário"; } }
+        public string DeleteToolTip { get { return "Delete um Funcionário"; } }
     }
 }

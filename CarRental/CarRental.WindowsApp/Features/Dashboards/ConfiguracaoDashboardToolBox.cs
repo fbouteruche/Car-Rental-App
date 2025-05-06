@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace CarRental.WindowsApp.Features.Dashboards
 {
-    public class ConfiguracaoDashboardToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoDashboardToolBox : IConfigurationToolBox
     {
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Adicionar"; }
         }
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "DashBoard"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete"; }
         }

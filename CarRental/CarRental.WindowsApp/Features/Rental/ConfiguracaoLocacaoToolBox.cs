@@ -2,24 +2,24 @@
 
 namespace CarRental.WindowsApp.Features.Locacoes
 {
-    public class ConfiguracaoLocacaoToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoLocacaoToolBox : IConfigurationToolBox
     {
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Registro Locação de Vehicle"; }
         }
 
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Realizar Locação de Vehicle"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit Locação de Vehicle"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete uma Locação de Vehicle"; }
         }

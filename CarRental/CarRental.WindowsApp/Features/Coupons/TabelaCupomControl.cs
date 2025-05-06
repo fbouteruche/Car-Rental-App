@@ -3,7 +3,7 @@ using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Cupons
+namespace CarRental.WindowsApp.Features.Coupons
 {
     public partial class TabelaCupomControl : UserControl
     {

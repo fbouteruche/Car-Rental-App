@@ -2,24 +2,24 @@
 
 namespace CarRental.WindowsApp.Features.Veiculos
 {
-    public class ConfiguracaoVeiculoToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoVeiculoToolBox : IConfigurationToolBox
     {
-        public string ToolTipAdicionar
+        public string AddToolTip
         {
             get { return "Cadastro de Veiculos"; }
         }
 
-        public string TipoCadastro
+        public string RegistrationType
         {
             get { return "Cadastro de um novo Vehicle"; }
         }
 
-        public string ToolTipEditar
+        public string EditToolTip
         {
             get { return "Edit um Vehicle existente"; }
         }
 
-        public string ToolTipExcluir
+        public string DeleteToolTip
         {
             get { return "Delete um Vehicle existente"; }
         }
