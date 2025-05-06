@@ -18,9 +18,9 @@ namespace CarRental.WindowsApp.Features.Employees
         public EmployeeTableControl()
         {
             InitializeComponent();
-            gridFuncionarios.ConfigureZebraGrid();
-            gridFuncionarios.ConfigureReadOnlyGrid();
-            gridFuncionarios.Columns.AddRange(GetColumns());
+            gridEmployees.ConfigureZebraGrid();
+            gridEmployees.ConfigureReadOnlyGrid();
+            gridEmployees.Columns.AddRange(GetColumns());
         }
         public DataGridViewColumn[] GetColumns()
         {
@@ -54,16 +54,16 @@ namespace CarRental.WindowsApp.Features.Employees
 
         public int GetSelectedId()
         {
-            return gridFuncionarios.SelecionarId<int>();
+            return gridEmployees.SelecionarId<int>();
         }
 
         public void UpdateRecords(List<Domain.EmployeeModule.Employee> employees)
         {
-            gridFuncionarios.Rows.Clear();
+            gridEmployees.Rows.Clear();
 
             foreach (Domain.EmployeeModule.Employee employee in employees)
             {
-                gridFuncionarios.Rows.Add(employee.Id, employee.Name, employee.UniqueId,
+                gridEmployees.Rows.Add(employee.Id, employee.Name, employee.UniqueId,
                     employee.Address, employee.Phone, employee.Email, employee.InternalRegistration,
                     employee.LoginUsername, employee.JobTitle, employee.Salary, employee.HiringDate);
             }

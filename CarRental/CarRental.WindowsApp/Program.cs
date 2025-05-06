@@ -17,7 +17,7 @@ namespace CarRental.WindowsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaLogin());
+            Application.Run(new LoginForm());
         }
     }
 }

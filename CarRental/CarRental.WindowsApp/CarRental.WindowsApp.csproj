@@ -154,11 +154,11 @@
     <Compile Include="Features\Rental\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Login\TelaLogin.cs">
+    <Compile Include="Features\Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Login\TelaLogin.Designer.cs">
-      <DependentUpon>TelaLogin.cs</DependentUpon>
+    <Compile Include="Features\Login\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Partners\ConfiguracaoParceiroToolBox.cs" />
     <Compile Include="Features\Partners\OperacoesParceiro.cs" />
@@ -269,8 +269,8 @@
     <EmbeddedResource Include="Features\Rental\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Login\TelaLogin.resx">
-      <DependentUpon>TelaLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Login\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Partners\TabelaParceiroControl.resx">
       <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
