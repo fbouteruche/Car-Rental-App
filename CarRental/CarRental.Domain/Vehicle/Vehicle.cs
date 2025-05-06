@@ -110,7 +110,7 @@ namespace CarRental.Domain.VehicleModule
                    hasPowerSteering == vehicle.hasPowerSteering &&
                    hasAbsBrakes == vehicle.hasAbsBrakes &&
                    isRented == vehicle.isRented &&
-                   (images == vehicle.images || (images.Count == 0 && vehicle.images.Count == 0) || (images.Count == 0 && vehicle.images == null));
+                   (images == vehicle.images || (images.Count == 0 && vehicle.images == null) || (images.Count == 0 && vehicle.images.Count == 0));
         }
 
         public override int GetHashCode()
