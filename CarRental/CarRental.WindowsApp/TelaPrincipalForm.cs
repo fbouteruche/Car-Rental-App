@@ -14,7 +14,7 @@ using CarRental.WindowsApp.Features.Dashboards;
 using CarRental.WindowsApp.Features.Devolucoes;
 using CarRental.WindowsApp.Features.Employees;
 using CarRental.WindowsApp.Features.GrupoDeVeiculos;
-using CarRental.WindowsApp.Features.Locacoes;
+using CarRental.WindowsApp.Features.Rentals;
 using CarRental.WindowsApp.Features.Partners;
 using CarRental.WindowsApp.Features.Servicos;
 using CarRental.WindowsApp.Features.Veiculos;

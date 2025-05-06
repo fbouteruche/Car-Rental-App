@@ -1,6 +1,6 @@
 ﻿using CarRental.WindowsApp.Shared;
 
-namespace CarRental.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Rentals
 {
     public class RentalConfigurationToolBox : IConfigurationToolBox
     {

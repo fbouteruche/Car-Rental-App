@@ -13,26 +13,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Rentals
 {
     public class RentalOperation : ICadastravel
     {
         private readonly RentalController controlador = null;
         private readonly RentalServiceRelationshipController controladorRelacionamento = null;
         private RentalServiceRelationship relacionamento;
-        private readonly TabelaLocacaoControl tabelaLocacao = null;
+        private readonly RentalTableControl tabelaLocacao = null;
         PdfConverter conversorPdf;
         public RentalOperation(RentalController ctrlLocacao)
         {
             conversorPdf = new PdfConverter(10, 18);
             controlador = ctrlLocacao;
             controladorRelacionamento = new RentalServiceRelationshipController();
-            tabelaLocacao = new TabelaLocacaoControl();
+            tabelaLocacao = new RentalTableControl();
         }
 
         public void InsertNewRecord()
         {
-            TelaLocacaoForm tela = new TelaLocacaoForm("Locação de Veiculos");
+            RentalForm tela = new RentalForm("Locação de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -74,7 +74,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
 
             Rental locacaoSelecionada = controlador.SelectById(id);
 
-            TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Locação");
+            RentalForm tela = new RentalForm("Edição de Locação");
 
             tela.Locacao = locacaoSelecionada;
 
@@ -132,7 +132,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
             return tabelaLocacao;
         }
 
-        private void EnviarEmail(TelaLocacaoForm tela)
+        private void EnviarEmail(RentalForm tela)
         {
             using (SmtpClient smtp = new SmtpClient())
             {

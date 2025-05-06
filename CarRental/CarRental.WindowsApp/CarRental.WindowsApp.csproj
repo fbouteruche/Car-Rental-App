@@ -142,17 +142,17 @@
     </Compile>
     <Compile Include="Features\Rental\RentalConfigurationToolBox.cs" />
     <Compile Include="Features\Rental\RentalOperation.cs" />
-    <Compile Include="Features\Rental\TabelaLocacaoControl.cs">
+    <Compile Include="Features\Rental\RentalTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Rental\TabelaLocacaoControl.Designer.cs">
-      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    <Compile Include="Features\Rental\RentalTableControl.Designer.cs">
+      <DependentUpon>RentalTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Rental\TelaLocacaoForm.cs">
+    <Compile Include="Features\Rental\RentalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Rental\TelaLocacaoForm.Designer.cs">
-      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    <Compile Include="Features\Rental\RentalForm.Designer.cs">
+      <DependentUpon>RentalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Login\LoginForm.cs">
       <SubType>Form</SubType>
@@ -263,11 +263,11 @@
     <EmbeddedResource Include="Features\VehicleImage\ImagemVeiculoForm.resx">
       <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Rental\TabelaLocacaoControl.resx">
-      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Rental\RentalTableControl.resx">
+      <DependentUpon>RentalTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Rental\TelaLocacaoForm.resx">
-      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Rental\RentalForm.resx">
+      <DependentUpon>RentalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

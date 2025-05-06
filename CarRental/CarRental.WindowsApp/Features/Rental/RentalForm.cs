@@ -22,9 +22,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Rentals
 {
-    public partial class TelaLocacaoForm : Form
+    public partial class RentalForm : Form
     {
         private Rental locacao;
         private EmployeeController controladorFuncionario = new EmployeeController();
@@ -34,7 +34,7 @@ namespace CarRental.WindowsApp.Features.Locacoes
         public List<Service> Servicos;
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
-        public TelaLocacaoForm(string titulo)
+        public RentalForm(string titulo)
         {
             Servicos = new List<Service>();
             InitializeComponent();

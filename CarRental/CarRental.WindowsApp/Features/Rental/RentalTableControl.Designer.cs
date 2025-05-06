@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Rentals
 {
-    partial class TabelaLocacaoControl
+    partial class RentalTableControl
     {
         /// <summary> 
         /// Required designer variable.

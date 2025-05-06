@@ -3,11 +3,11 @@ using CarRental.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Locacoes
+namespace CarRental.WindowsApp.Features.Rentals
 {
-    public partial class TabelaLocacaoControl : UserControl
+    public partial class RentalTableControl : UserControl
     {
-        public TabelaLocacaoControl()
+        public RentalTableControl()
         {
             InitializeComponent();
             gridLocacao.ConfigureZebraGrid();
