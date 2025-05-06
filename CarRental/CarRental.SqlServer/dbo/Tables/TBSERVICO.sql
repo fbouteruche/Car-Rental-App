@@ -1,8 +1,8 @@
-﻿CREATE TABLE [dbo].[TBSERVICO] (
+﻿CREATE TABLE [dbo].[Service] (
     [Id]    INT          IDENTITY (1, 1) NOT NULL,
-    [nome]  VARCHAR (50) NOT NULL,
-    [ehTaxadoDiario]  BIT NOT NULL,
-    [valor] FLOAT (53)   NOT NULL,
+    [Name]  VARCHAR (50) NOT NULL,
+    [IsDailyCharged]  BIT NOT NULL,
+    [Value] FLOAT (53)   NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

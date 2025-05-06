@@ -1,14 +1,18 @@
-﻿CREATE TABLE [dbo].[TBGRUPOVEICULO] (
+﻿CREATE TABLE [dbo].[Vehicle_Group] (
     [Id]                       INT          IDENTITY (1, 1) NOT NULL,
-    [Nome]                     VARCHAR (50) NOT NULL,
-    [TaxaPlanoDiario]          FLOAT (53)   NOT NULL,
-    [TaxaPorKmDiario]          FLOAT (53)   NULL,
-    [TaxaPlanoControlado]      FLOAT (53)   NOT NULL,
-    [LimiteKmControlado]       INT          NULL,
-    [TaxaKmExcedidoControlado] FLOAT (53)   NULL,
-    [TaxaPlanoLivre]           FLOAT (53)   NOT NULL,
-    CONSTRAINT [PK__TBGRUPOV__3214EC07DABBBF2B] PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Name]                     VARCHAR (50) NOT NULL,
+    [DailyPlanRate]            FLOAT (53)   NOT NULL,
+    [DailyKmRate]              FLOAT (53)   NULL,
+    [ControlledPlanRate]       FLOAT (53)   NOT NULL,
+    [ControlledKmLimit]        INT          NULL,
+    [ControlledExceededKmRate] FLOAT (53)   NULL,
+    [FreePlanRate]             FLOAT (53)   NOT NULL,
+    CONSTRAINT [PK_VEHICLE_GROUP] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 
 
 

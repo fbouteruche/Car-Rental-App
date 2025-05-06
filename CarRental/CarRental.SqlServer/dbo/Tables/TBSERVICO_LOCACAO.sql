@@ -1,11 +1,13 @@
-﻿CREATE TABLE [dbo].[TBSERVICO_LOCACAO] (
-    [id]         INT IDENTITY (1, 1) NOT NULL,
-    [id_locacao] INT NOT NULL,
-    [id_servico]  INT NOT NULL,
-    CONSTRAINT [PK_TBSERVICO_LOCACAO] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [id_locacao] FOREIGN KEY ([id_locacao]) REFERENCES [dbo].[TBLOCACAO] ([Id]),
-    CONSTRAINT [id_servico] FOREIGN KEY ([id_servico]) REFERENCES [dbo].[TBSERVICO] ([Id])
+﻿CREATE TABLE [dbo].[Service_Rental] (
+    [Id]         INT IDENTITY (1, 1) NOT NULL,
+    [RentalId]   INT NOT NULL,
+    [ServiceId]  INT NOT NULL,
+    CONSTRAINT [PK_SERVICE_RENTAL] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_SERVICE_RENTAL_TBRENTAL] FOREIGN KEY ([RentalId]) REFERENCES [dbo].[Rental] ([Id]),
+    CONSTRAINT [FK_SERVICE_RENTAL_TBSERVICE] FOREIGN KEY ([ServiceId]) REFERENCES [dbo].[Service] ([Id])
 );
+
+
 
 
 

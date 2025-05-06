@@ -1,24 +1,30 @@
-﻿CREATE TABLE [dbo].[TBVEICULO] (
+﻿CREATE TABLE [dbo].[Vehicle] (
     [Id]                   INT          IDENTITY (1, 1) NOT NULL,
-    [Modelo]               VARCHAR (50) NOT NULL,
-    [Id_GrupoVeiculo]      INT          NOT NULL,
-    [Placa]                VARCHAR (50) NOT NULL,
-    [Chassi]               VARCHAR (50) NOT NULL,
-    [Marca]                VARCHAR (50) NOT NULL,
-    [Cor]                  VARCHAR (50) NOT NULL,
-    [TipoCombustivel]      VARCHAR (50) NOT NULL,
-    [CapacidadeTanque]     FLOAT (53)   NOT NULL,
-    [Ano]                  INT          NOT NULL,
-    [Kilometragem]         FLOAT (53)   NOT NULL,
-    [NumeroPortas]         INT          NOT NULL,
-    [CapacidadePessoas]    INT          NOT NULL,
-    [TamanhoPortaMala]     VARCHAR (50) NOT NULL,
-    [TemArCondicionado]    BIT          NOT NULL,
-    [TemDirecaoHidraulica] BIT          NOT NULL,
-    [TemFreiosAbs]         BIT          NOT NULL,
-    [EstaAlugado]          BIT          NULL,
-    CONSTRAINT [PK__tmp_ms_x__3214EC07CEA50E53] PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Model]                VARCHAR (50) NOT NULL,
+    [VehicleGroupId]       INT          NOT NULL,
+    [Plate]                VARCHAR (50) NOT NULL,
+    [Chassis]              VARCHAR (50) NOT NULL,
+    [Brand]                VARCHAR (50) NOT NULL,
+    [Color]                VARCHAR (50) NOT NULL,
+    [FuelType]             VARCHAR (50) NOT NULL,
+    [TankCapacity]         FLOAT (53)   NOT NULL,
+    [Year]                 INT          NOT NULL,
+    [Mileage]              FLOAT (53)   NOT NULL,
+    [NumberOfDoors]        INT          NOT NULL,
+    [PeopleCapacity]       INT          NOT NULL,
+    [TrunkSize]            VARCHAR (50) NOT NULL,
+    [HasAirConditioning]   BIT          NOT NULL,
+    [HasPowerSteering]     BIT          NOT NULL,
+    [HasAbsBrakes]         BIT          NOT NULL,
+    [IsRented]             BIT          NULL,
+    CONSTRAINT [PK_VEHICLE] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
+
+
 
 
 

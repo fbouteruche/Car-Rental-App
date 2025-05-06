@@ -1,15 +1,19 @@
-﻿CREATE TABLE [dbo].[TBCLIENTE] (
+﻿CREATE TABLE [dbo].[Customer] (
     [Id]             INT          IDENTITY (1, 1) NOT NULL,
-    [Nome]           VARCHAR (50) NOT NULL,
-    [RegistroUnico]  VARCHAR (50) NOT NULL,
-    [Endereco]       VARCHAR (50) NULL,
-    [Telefone]       VARCHAR (50) NULL,
+    [Name]           VARCHAR (50) NOT NULL,
+    [UniqueRegister] VARCHAR (50) NOT NULL,
+    [Address]        VARCHAR (50) NULL,
+    [Phone]          VARCHAR (50) NULL,
     [Email]          VARCHAR (50) NULL,
-    [EhPessoaFisica] BIT          NOT NULL,
-    [Cnh]            VARCHAR (50) NULL,
-    [ValidadeCnh]    DATETIME     NULL,
+    [IsIndividual]   BIT          NOT NULL,
+    [DriverLicense]  VARCHAR (50) NULL,
+    [DriverLicenseValidity] DATETIME     NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 
 
 
