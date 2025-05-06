@@ -17,8 +17,8 @@ namespace CarRental.WindowsApp.Features.Devolucoes
         public TabelaDevolucaoControl()
         {
             InitializeComponent();
-            gridDevolucoes.ConfigurarGridZebrado();
-            gridDevolucoes.ConfigurarGridSomenteLeitura();
+            gridDevolucoes.ConfigureZebraGrid();
+            gridDevolucoes.ConfigureReadOnlyGrid();
             gridDevolucoes.Columns.AddRange(ObterColunas());
         }
         public DataGridViewColumn[] ObterColunas()

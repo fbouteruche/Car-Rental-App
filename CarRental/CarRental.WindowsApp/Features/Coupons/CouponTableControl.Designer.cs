@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Features.Coupons
 {
-    partial class TabelaCupomControl
+    partial class CouponTableControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,32 +29,32 @@ namespace CarRental.WindowsApp.Features.Coupons
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridCupons = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCupons)).BeginInit();
+            this.gridCoupons = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCoupons)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridCupons
+            // gridCoupons
             // 
-            this.gridCupons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCupons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCupons.Location = new System.Drawing.Point(0, 0);
-            this.gridCupons.Name = "gridCupons";
-            this.gridCupons.Size = new System.Drawing.Size(150, 150);
-            this.gridCupons.TabIndex = 0;
+            this.gridCoupons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCoupons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCoupons.Location = new System.Drawing.Point(0, 0);
+            this.gridCoupons.Name = "gridCoupons";
+            this.gridCoupons.Size = new System.Drawing.Size(150, 150);
+            this.gridCoupons.TabIndex = 0;
             // 
             // TabelaCupomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridCupons);
+            this.Controls.Add(this.gridCoupons);
             this.Name = "TabelaCupomControl";
-            ((System.ComponentModel.ISupportInitialize)(this.gridCupons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCoupons)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridCupons;
+        private System.Windows.Forms.DataGridView gridCoupons;
     }
 }

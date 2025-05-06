@@ -65,11 +65,11 @@
     </Compile>
     <Compile Include="Features\Coupons\CouponConfigurationToolBox.cs" />
     <Compile Include="Features\Coupons\CouponOperations.cs" />
-    <Compile Include="Features\Coupons\TabelaCupomControl.cs">
+    <Compile Include="Features\Coupons\CouponTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Coupons\TabelaCupomControl.Designer.cs">
-      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    <Compile Include="Features\Coupons\CouponTableControl.Designer.cs">
+      <DependentUpon>CouponTableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Coupons\TelaCupomForm.cs">
       <SubType>Form</SubType>
@@ -230,8 +230,8 @@
     <EmbeddedResource Include="Features\Customers\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Coupons\TabelaCupomControl.resx">
-      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Coupons\CouponTableControl.resx">
+      <DependentUpon>CouponTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Coupons\TelaCupomForm.resx">
       <DependentUpon>TelaCupomForm.cs</DependentUpon>

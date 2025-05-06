@@ -17,8 +17,8 @@ namespace CarRental.WindowsApp.Features.Servicos
         public TabelaServicoControl()
         {
             InitializeComponent();
-            gridServicos.ConfigurarGridZebrado();
-            gridServicos.ConfigurarGridSomenteLeitura();
+            gridServicos.ConfigureZebraGrid();
+            gridServicos.ConfigureReadOnlyGrid();
             gridServicos.Columns.AddRange(ObterColunas());
         }
 

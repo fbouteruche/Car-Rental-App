@@ -10,8 +10,8 @@ namespace CarRental.WindowsApp.Features.Locacoes
         public TabelaLocacaoControl()
         {
             InitializeComponent();
-            gridLocacao.ConfigurarGridZebrado();
-            gridLocacao.ConfigurarGridSomenteLeitura();
+            gridLocacao.ConfigureZebraGrid();
+            gridLocacao.ConfigureReadOnlyGrid();
             gridLocacao.Columns.AddRange(ObterColunas());
         }
         public DataGridViewColumn[] ObterColunas()

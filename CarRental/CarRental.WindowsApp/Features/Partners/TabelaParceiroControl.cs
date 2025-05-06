@@ -17,8 +17,8 @@ namespace CarRental.WindowsApp.Features.Parceiros
         public TabelaParceiroControl()
         {
             InitializeComponent();
-            gridParceiros.ConfigurarGridZebrado();
-            gridParceiros.ConfigurarGridSomenteLeitura();
+            gridParceiros.ConfigureZebraGrid();
+            gridParceiros.ConfigureReadOnlyGrid();
             gridParceiros.Columns.AddRange(ObterColunas());
         }
 

@@ -18,8 +18,8 @@ namespace CarRental.WindowsApp.Features.Funcionarios
         public TabelaFuncionarioControl()
         {
             InitializeComponent();
-            gridFuncionarios.ConfigurarGridZebrado();
-            gridFuncionarios.ConfigurarGridSomenteLeitura();
+            gridFuncionarios.ConfigureZebraGrid();
+            gridFuncionarios.ConfigureReadOnlyGrid();
             gridFuncionarios.Columns.AddRange(ObterColunas());
         }
         public DataGridViewColumn[] ObterColunas()

@@ -13,78 +13,78 @@ namespace CarRental.WindowsApp.Features.Coupons
     public class CouponOperations : ICadastravel
     {
         private CouponController controller;
-        private readonly TabelaCupomControl table;
+        private readonly CouponTableControl table;
 
         public CouponOperations(CouponController couponController)
         {
             controller = couponController;
-            table = new TabelaCupomControl();
+            table = new CouponTableControl();
         }
 
         public void InsertNewRecord()
         {
-            TelaCupomForm tela = new TelaCupomForm("Cadastro de CouponModule");
+            TelaCupomForm form = new TelaCupomForm("Coupon Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controller.InsertNew(tela.Cupom);
+                controller.InsertNew(form.Cupom);
 
-                List<Coupon> cupons = controller.SelectAll();
+                List<Coupon> coupons = controller.SelectAll();
 
-                table.AtualizarRegistros(cupons);
+                table.UpdateRecords(coupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{tela.Cupom.Name}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{form.Cupom.Name}] successfully inserted");
             }
         }
 
         public void EditRecord()
         {
-            int id = table.ObtemIdSelecionado();
+            int id = table.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um CouponModule para poder Edit!", "Edição de Coupons", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a coupon to edit!", "Coupon Editing", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Coupon cupomSelecionado = controller.SelectById(id);
-            TelaCupomForm tela = new TelaCupomForm("Edição de CouponModule");
-            tela.Cupom = cupomSelecionado;
+            Coupon selectedCoupon = controller.SelectById(id);
+            TelaCupomForm form = new TelaCupomForm("Coupon Editing");
+            form.Cupom = selectedCoupon;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controller.Edit(id, tela.Cupom);
-                List<Coupon> funcionarios = controller.SelectAll();
-                table.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{cupomSelecionado.Name}] editado com sucesso");
+                controller.Edit(id, form.Cupom);
+                List<Coupon> coupons = controller.SelectAll();
+                table.UpdateRecords(coupons);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{selectedCoupon.Name}] successfully edited");
             }
         }
 
         public void DeleteRecord()
         {
-            int id = table.ObtemIdSelecionado();
+            int id = table.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um CouponModule para excluir", "Exclusão de CouponModule", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a coupon to delete", "Coupon Deletion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Coupon parceiroSelecionado = controller.SelectById(id);
+            Coupon selectedCoupon = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Name}] ?", "Exclusão de Coupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the coupon: [{selectedCoupon.Name}]?", "Coupon Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controller.Delete(id);
-                List<Coupon> cupons = controller.SelectAll();
-                table.AtualizarRegistros(cupons);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"CouponModule: [{parceiroSelecionado.Name}] removido com sucesso");
+                List<Coupon> coupons = controller.SelectAll();
+                table.UpdateRecords(coupons);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{selectedCoupon.Name}] successfully removed");
             }
         }
 
         public UserControl GetTable()
         {
-            List<Coupon> cupons = controller.SelectAll();
-            table.AtualizarRegistros(cupons);
+            List<Coupon> coupons = controller.SelectAll();
+            table.UpdateRecords(coupons);
             return table;
         }
 

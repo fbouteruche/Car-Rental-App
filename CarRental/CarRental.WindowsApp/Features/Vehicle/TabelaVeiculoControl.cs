@@ -10,8 +10,8 @@ namespace CarRental.WindowsApp.Features.Veiculos
         public TabelaVeiculoControl()
         {
             InitializeComponent();
-            gridVeiculos.ConfigurarGridZebrado();
-            gridVeiculos.ConfigurarGridSomenteLeitura();
+            gridVeiculos.ConfigureZebraGrid();
+            gridVeiculos.ConfigureReadOnlyGrid();
             gridVeiculos.Columns.AddRange(ObterColunas());
         }
         public DataGridViewColumn[] ObterColunas()

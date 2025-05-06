@@ -17,8 +17,8 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
         public TabelaGrupoDeVeiculosControl()
         {
             InitializeComponent();
-            gridGrupoDeVeiculos.ConfigurarGridZebrado();
-            gridGrupoDeVeiculos.ConfigurarGridSomenteLeitura();
+            gridGrupoDeVeiculos.ConfigureZebraGrid();
+            gridGrupoDeVeiculos.ConfigureReadOnlyGrid();
             gridGrupoDeVeiculos.Columns.AddRange(ObterColunas());
         }
 

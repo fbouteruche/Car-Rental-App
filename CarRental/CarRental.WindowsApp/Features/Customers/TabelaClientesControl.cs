@@ -20,8 +20,8 @@ namespace CarRental.WindowsApp.Clientes
         {
             controladorCliente = new CustomerController();
             InitializeComponent();
-            gridClientes.ConfigurarGridZebrado();
-            gridClientes.ConfigurarGridSomenteLeitura();
+            gridClientes.ConfigureZebraGrid();
+            gridClientes.ConfigureReadOnlyGrid();
             gridClientes.Columns.AddRange(ObterColunas());
         }
 
