@@ -11,22 +11,22 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
     {
         public string RegistrationType
         {
-            get { return "Cadastro de Grupo de Vehicles"; }
+            get { return "Vehicle Group Registration"; }
         }
 
         public string AddToolTip
         {
-            get { return "Adicionar uma novo Grupo de Vehicles"; }
+            get { return "Add a new Vehicle Group"; }
         }
 
         public string EditToolTip
         {
-            get { return "Edit um Grupo de Vehicles existente"; }
+            get { return "Edit an existing Vehicle Group"; }
         }
 
         public string DeleteToolTip
         {
-            get { return "Delete um Grupo de Vehicles existente"; }
+            get { return "Delete an existing Vehicle Group"; }
         }
     }
 }

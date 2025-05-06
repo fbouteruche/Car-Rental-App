@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.VehicleGroups
+﻿namespace CarRental.WindowsApp.Features.VehicleGroups
 {
     partial class VehicleGroupTableControl
     {
@@ -29,33 +28,33 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridGrupoDeVeiculos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridGrupoDeVeiculos)).BeginInit();
+            this.gridVehicleGroups = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVehicleGroups)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridGrupoDeVeiculos
+            // gridVehicleGroups
             // 
-            this.gridGrupoDeVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridGrupoDeVeiculos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridGrupoDeVeiculos.Location = new System.Drawing.Point(0, 0);
-            this.gridGrupoDeVeiculos.Name = "gridGrupoDeVeiculos";
-            this.gridGrupoDeVeiculos.Size = new System.Drawing.Size(237, 219);
-            this.gridGrupoDeVeiculos.TabIndex = 0;
+            this.gridVehicleGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridVehicleGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridVehicleGroups.Location = new System.Drawing.Point(0, 0);
+            this.gridVehicleGroups.Name = "gridVehicleGroups";
+            this.gridVehicleGroups.Size = new System.Drawing.Size(237, 219);
+            this.gridVehicleGroups.TabIndex = 0;
             // 
-            // TabelaGrupoDeVeiculosControl
+            // VehicleGroupTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridGrupoDeVeiculos);
-            this.Name = "TabelaGrupoDeVeiculosControl";
+            this.Controls.Add(this.gridVehicleGroups);
+            this.Name = "VehicleGroupTableControl";
             this.Size = new System.Drawing.Size(237, 219);
-            ((System.ComponentModel.ISupportInitialize)(this.gridGrupoDeVeiculos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVehicleGroups)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridGrupoDeVeiculos;
+        private System.Windows.Forms.DataGridView gridVehicleGroups;
     }
 }

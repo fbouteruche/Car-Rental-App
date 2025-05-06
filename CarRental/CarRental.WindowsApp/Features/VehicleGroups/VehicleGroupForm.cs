@@ -13,79 +13,77 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Features.VehicleGroups
 {
-    public partial class TarefaGrupoDeVeiculosForm : Form
+    public partial class VehicleGroupForm : Form
     {
-        private VehicleGroup grupoDeVeiculos;
-        public TarefaGrupoDeVeiculosForm(string titulo)
+        private VehicleGroup vehicleGroup;
+        public VehicleGroupForm(string title)
         {
             InitializeComponent();
-            this.Text = titulo;
-            lblCadastroGrupoDeVeiculos.Text = titulo;
+            this.Text = title;
+            lblVehicleGroupRegistration.Text = title;
         }
 
-        public VehicleGroup GrupoDeVeiculos
+        public VehicleGroup VehicleGroup
         {
-            get { return grupoDeVeiculos; }
+            get { return vehicleGroup; }
 
             set
             {
-                grupoDeVeiculos = value;
+                vehicleGroup = value;
 
-                textId.Text = grupoDeVeiculos.Id.ToString();
-                textNomeGrupo.Text = grupoDeVeiculos.Name;
-                txtTaxaPlanoDiario.Text = grupoDeVeiculos.DailyPlanRate.ToString();
-                txtTaxaPorKmDiario.Text = grupoDeVeiculos.DailyPerKmRate.ToString();
-                txtTaxaPlanoControlado.Text = grupoDeVeiculos.ControlledPlanRate.ToString();
-                txtLimiteKmControlado.Text = grupoDeVeiculos.ControlledKmLimit.ToString();
-                txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.ControlledExceededKmRate.ToString();
-                txtTaxaPlanoLivre.Text = grupoDeVeiculos.UnlimitedPlanRate.ToString();
-                
+                textId.Text = vehicleGroup.Id.ToString();
+                textGroupName.Text = vehicleGroup.Name;
+                txtDailyPlanRate.Text = vehicleGroup.DailyPlanRate.ToString();
+                txtDailyPerKmRate.Text = vehicleGroup.DailyPerKmRate.ToString();
+                txtControlledPlanRate.Text = vehicleGroup.ControlledPlanRate.ToString();
+                txtControlledKmLimit.Text = vehicleGroup.ControlledKmLimit.ToString();
+                txtControlledExceededKmRate.Text = vehicleGroup.ControlledExceededKmRate.ToString();
+                txtUnlimitedPlanRate.Text = vehicleGroup.UnlimitedPlanRate.ToString();
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(textId.Text);
-            string Nome = textNomeGrupo.Text;
-            double TaxaPlanoDiario = 0;
-            double TaxaPorKmDiario = 0;
-            double TaxaPlanoControlado = 0;
-            int LimiteKmControlado = 0;
-            double TaxaKmExcedidoControlado = 0;
-            double TaxaPlanoLivre = 0;
-            if (txtTaxaPlanoDiario.Text.Length > 0)
-                TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text, CultureInfo.InvariantCulture);
-            if (txtTaxaPorKmDiario.Text.Length > 0)
-                TaxaPorKmDiario = Convert.ToDouble(txtTaxaPorKmDiario.Text, CultureInfo.InvariantCulture);
-            if (txtTaxaPlanoControlado.Text.Length > 0)
-                TaxaPlanoControlado = Convert.ToDouble(txtTaxaPlanoControlado.Text, CultureInfo.InvariantCulture);
-            if (txtLimiteKmControlado.Text.Length > 0)
-                LimiteKmControlado = Convert.ToInt32(txtLimiteKmControlado.Text);
-            if (txtTaxaKmExcedidoControlado.Text.Length > 0)
-                TaxaKmExcedidoControlado = Convert.ToDouble(txtTaxaKmExcedidoControlado.Text, CultureInfo.InvariantCulture);
-            if (txtTaxaPlanoLivre.Text.Length > 0)
-                TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
+            int id = Convert.ToInt32(textId.Text);
+            string name = textGroupName.Text;
+            double dailyPlanRate = 0;
+            double dailyPerKmRate = 0;
+            double controlledPlanRate = 0;
+            int controlledKmLimit = 0;
+            double controlledExceededKmRate = 0;
+            double unlimitedPlanRate = 0;
+            if (txtDailyPlanRate.Text.Length > 0)
+                dailyPlanRate = Convert.ToDouble(txtDailyPlanRate.Text, CultureInfo.InvariantCulture);
+            if (txtDailyPerKmRate.Text.Length > 0)
+                dailyPerKmRate = Convert.ToDouble(txtDailyPerKmRate.Text, CultureInfo.InvariantCulture);
+            if (txtControlledPlanRate.Text.Length > 0)
+                controlledPlanRate = Convert.ToDouble(txtControlledPlanRate.Text, CultureInfo.InvariantCulture);
+            if (txtControlledKmLimit.Text.Length > 0)
+                controlledKmLimit = Convert.ToInt32(txtControlledKmLimit.Text);
+            if (txtControlledExceededKmRate.Text.Length > 0)
+                controlledExceededKmRate = Convert.ToDouble(txtControlledExceededKmRate.Text, CultureInfo.InvariantCulture);
+            if (txtUnlimitedPlanRate.Text.Length > 0)
+                unlimitedPlanRate = Convert.ToDouble(txtUnlimitedPlanRate.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new VehicleGroup(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
+            vehicleGroup = new VehicleGroup(id, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate, controlledKmLimit, controlledExceededKmRate, unlimitedPlanRate);
 
-            string resultadoValidacao = grupoDeVeiculos.Validate();
+            string validationResult = vehicleGroup.Validate();
 
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string erro = new StringReader(resultadoValidacao).ReadLine();
+                string error = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(error);
 
                 DialogResult = DialogResult.None;
             }
         }
 
-        //Esses eventos tem muito código duplicado. Podemos abstrair através de extração de método
-        private void txtTaxaPlanoDiario_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtDailyPlanRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoDiario.Text.IndexOf(".") >= 0 || txtTaxaPlanoDiario.Text.Length == 0)
+                if (txtDailyPlanRate.Text.IndexOf(".") >= 0 || txtDailyPlanRate.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -96,11 +94,11 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             }
         }
 
-        private void txtTaxaKmDiario_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtDailyPerKmRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPorKmDiario.Text.IndexOf(".") >= 0 || txtTaxaPorKmDiario.Text.Length == 0)
+                if (txtDailyPerKmRate.Text.IndexOf(".") >= 0 || txtDailyPerKmRate.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -111,11 +109,11 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             }
         }
 
-        private void txtTaxaPlanoControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtControlledPlanRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoControlado.Text.IndexOf(".") >= 0 || txtTaxaPlanoControlado.Text.Length == 0)
+                if (txtControlledPlanRate.Text.IndexOf(".") >= 0 || txtControlledPlanRate.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -126,7 +124,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             }
         }
 
-        private void txtLimiteKmControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtControlledKmLimit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
             {
@@ -134,11 +132,11 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             }
         }
 
-        private void txtTaxaKmExcedidoControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtControlledExceededKmRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaKmExcedidoControlado.Text.IndexOf(".") >= 0 || txtTaxaKmExcedidoControlado.Text.Length == 0)
+                if (txtControlledExceededKmRate.Text.IndexOf(".") >= 0 || txtControlledExceededKmRate.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -149,11 +147,11 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             }
         }
 
-        private void txtTaxaPlanoLivre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtUnlimitedPlanRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoLivre.Text.IndexOf(".") >= 0 || txtTaxaPlanoLivre.Text.Length == 0)
+                if (txtUnlimitedPlanRate.Text.IndexOf(".") >= 0 || txtUnlimitedPlanRate.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

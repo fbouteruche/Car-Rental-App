@@ -17,47 +17,47 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
         public VehicleGroupTableControl()
         {
             InitializeComponent();
-            gridGrupoDeVeiculos.ConfigureZebraGrid();
-            gridGrupoDeVeiculos.ConfigureReadOnlyGrid();
-            gridGrupoDeVeiculos.Columns.AddRange(ObterColunas());
+            gridVehicleGroups.ConfigureZebraGrid();
+            gridVehicleGroups.ConfigureReadOnlyGrid();
+            gridVehicleGroups.Columns.AddRange(GetColumns());
         }
 
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Name do Grupo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Name", HeaderText = "Group Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPlanRate", HeaderText = "Taxa do Plano Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPlanRate", HeaderText = "Daily Plan Rate"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPerKmRate", HeaderText = "Taxa por KM Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DailyPerKmRate", HeaderText = "Daily Per Km Rate"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledPlanRate", HeaderText = "Taxa do Plano Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledPlanRate", HeaderText = "Controlled Plan Rate"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledKmLimit", HeaderText = "Limites de KM Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledKmLimit", HeaderText = "Controlled Km Limit"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledExceededKmRate", HeaderText = "Taxa por KM Excedidos Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ControlledExceededKmRate", HeaderText = "Controlled Exceeded Km Rate"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "UnlimitedPlanRate", HeaderText = "Taxa do Plano Livre"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "UnlimitedPlanRate", HeaderText = "Unlimited Plan Rate"}
            };
 
-            return colunas;
+            return columns;
         }
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
-            return gridGrupoDeVeiculos.SelecionarId<int>();
+            return gridVehicleGroups.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<VehicleGroup> grupoDeVeiculos)
+        public void UpdateRecords(List<VehicleGroup> vehicleGroups)
         {
-            gridGrupoDeVeiculos.Rows.Clear();
+            gridVehicleGroups.Rows.Clear();
 
-            foreach (VehicleGroup grupo in grupoDeVeiculos)
+            foreach (VehicleGroup group in vehicleGroups)
             {
-                gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Name, grupo.DailyPlanRate, grupo.DailyPerKmRate, grupo.ControlledPlanRate,
-                    grupo.ControlledKmLimit, grupo.ControlledExceededKmRate, grupo.UnlimitedPlanRate);
+                gridVehicleGroups.Rows.Add(group.Id, group.Name, group.DailyPlanRate, group.DailyPerKmRate, group.ControlledPlanRate,
+                    group.ControlledKmLimit, group.ControlledExceededKmRate, group.UnlimitedPlanRate);
             }
         }
     }

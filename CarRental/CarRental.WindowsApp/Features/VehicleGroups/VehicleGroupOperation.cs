@@ -13,13 +13,13 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 {
     public class VehicleGroupOperation : ICadastravel
     {
-        private readonly VehicleGroupController controlador = null;
-        private readonly VehicleGroupTableControl tabelaGrupoDeVeiculos = null;
+        private readonly VehicleGroupController controller = null;
+        private readonly VehicleGroupTableControl vehicleGroupTable = null;
 
-        public VehicleGroupOperation(VehicleGroupController ctrlGrupoDeVeiculos)
+        public VehicleGroupOperation(VehicleGroupController vehicleGroupController)
         {
-            controlador = ctrlGrupoDeVeiculos;
-            tabelaGrupoDeVeiculos = new VehicleGroupTableControl();
+            controller = vehicleGroupController;
+            vehicleGroupTable = new VehicleGroupTableControl();
         }
         public void GroupRecords()
         {
@@ -28,53 +28,53 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
         public void EditRecord()
         {
-            int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
+            int id = vehicleGroupTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo de Vehicles para poder editar!", "Edição de Grupo de Vehicles",
+                MessageBox.Show("Select a Vehicle Group to edit!", "Edit Vehicle Group",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            VehicleGroup grupoSelecionado = controlador.SelectById(id);
+            VehicleGroup selectedGroup = controller.SelectById(id);
 
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Vehicles");
+            VehicleGroupForm form = new VehicleGroupForm("Edit Vehicle Group");
 
-            tela.GrupoDeVeiculos = grupoSelecionado;
+            form.VehicleGroup = selectedGroup;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.GrupoDeVeiculos);
+                controller.Edit(id, form.VehicleGroup);
 
-                List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
+                List<VehicleGroup> vehicleGroups = controller.SelectAll();
 
-                tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
+                vehicleGroupTable.UpdateRecords(vehicleGroups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Name}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{form.VehicleGroup.Name}] successfully edited");
             }
         }
 
         public void DeleteRecord()
         {
-            int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
+            int id = vehicleGroupTable.GetSelectedId();
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a Vehicle Group to delete", "Delete Vehicle Group", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            VehicleGroup grupoSelecionado = controlador.SelectById(id);
+            VehicleGroup selectedGroup = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Name}]?",
-                "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the Vehicle Group: [{selectedGroup.Name}]?",
+                "Delete Vehicle Group", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Delete(id);
+                controller.Delete(id);
 
-                List<VehicleGroup> grupos = controlador.SelectAll();
+                List<VehicleGroup> groups = controller.SelectAll();
 
-                tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
+                vehicleGroupTable.UpdateRecords(groups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Name}]removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{selectedGroup.Name}] successfully removed");
             }
         }
 
@@ -85,26 +85,26 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
         public void InsertNewRecord()
         {
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Vehicles");
+            VehicleGroupForm form = new VehicleGroupForm("Vehicle Group Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.InsertNew(tela.GrupoDeVeiculos);
+                controller.InsertNew(form.VehicleGroup);
 
-                List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
+                List<VehicleGroup> vehicleGroups = controller.SelectAll();
 
-                tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
+                vehicleGroupTable.UpdateRecords(vehicleGroups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Name}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{form.VehicleGroup.Name}] successfully inserted");
             }
         }
 
         public UserControl GetTable()
         {
-            List<VehicleGroup> grupoDeVeiculos = controlador.SelectAll();
-            tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
+            List<VehicleGroup> vehicleGroups = controller.SelectAll();
+            vehicleGroupTable.UpdateRecords(vehicleGroups);
 
-            return tabelaGrupoDeVeiculos;
+            return vehicleGroupTable;
         }
     }
 }

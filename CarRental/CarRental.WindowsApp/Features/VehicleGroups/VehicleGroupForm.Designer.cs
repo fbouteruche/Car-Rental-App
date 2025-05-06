@@ -1,7 +1,6 @@
-﻿
-namespace CarRental.WindowsApp.Features.VehicleGroups
+﻿namespace CarRental.WindowsApp.Features.VehicleGroups
 {
-    partial class TarefaGrupoDeVeiculosForm
+    partial class VehicleGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,64 +28,64 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
         /// </summary>
         private void InitializeComponent()
         {
-            this.textNomeGrupo = new System.Windows.Forms.TextBox();
-            this.txtTaxaPlanoDiario = new System.Windows.Forms.TextBox();
-            this.txtTaxaPorKmDiario = new System.Windows.Forms.TextBox();
-            this.txtTaxaPlanoControlado = new System.Windows.Forms.TextBox();
+            this.textGroupName = new System.Windows.Forms.TextBox();
+            this.txtDailyPlanRate = new System.Windows.Forms.TextBox();
+            this.txtDailyPerKmRate = new System.Windows.Forms.TextBox();
+            this.txtControlledPlanRate = new System.Windows.Forms.TextBox();
             this.textId = new System.Windows.Forms.TextBox();
-            this.lblCadastroGrupoDeVeiculos = new System.Windows.Forms.Label();
+            this.lblVehicleGroupRegistration = new System.Windows.Forms.Label();
             this.lbId = new System.Windows.Forms.Label();
-            this.lbNomeGrupo = new System.Windows.Forms.Label();
-            this.lbTaxaPlanoDiário = new System.Windows.Forms.Label();
-            this.lbTaxaPorKMPlanoDiário = new System.Windows.Forms.Label();
-            this.lbKMLivre = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.lbGroupName = new System.Windows.Forms.Label();
+            this.lbDailyPlanRate = new System.Windows.Forms.Label();
+            this.lbDailyPerKmRate = new System.Windows.Forms.Label();
+            this.lbControlledPlanRate = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lbTaxaPlanoLivre = new System.Windows.Forms.Label();
+            this.lbUnlimitedPlanRate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTaxaKmExcedidoControlado = new System.Windows.Forms.TextBox();
-            this.txtTaxaPlanoLivre = new System.Windows.Forms.TextBox();
+            this.txtControlledExceededKmRate = new System.Windows.Forms.TextBox();
+            this.txtUnlimitedPlanRate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLimiteKmControlado = new System.Windows.Forms.TextBox();
-            this.lbLimiteKmControlado = new System.Windows.Forms.Label();
+            this.txtControlledKmLimit = new System.Windows.Forms.TextBox();
+            this.lbControlledKmLimit = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textNomeGrupo
+            // textGroupName
             // 
-            this.textNomeGrupo.Location = new System.Drawing.Point(235, 37);
-            this.textNomeGrupo.Name = "textNomeGrupo";
-            this.textNomeGrupo.Size = new System.Drawing.Size(100, 20);
-            this.textNomeGrupo.TabIndex = 2;
+            this.textGroupName.Location = new System.Drawing.Point(235, 37);
+            this.textGroupName.Name = "textGroupName";
+            this.textGroupName.Size = new System.Drawing.Size(100, 20);
+            this.textGroupName.TabIndex = 2;
             // 
-            // txtTaxaPlanoDiario
+            // txtDailyPlanRate
             // 
-            this.txtTaxaPlanoDiario.Location = new System.Drawing.Point(235, 63);
-            this.txtTaxaPlanoDiario.Name = "txtTaxaPlanoDiario";
-            this.txtTaxaPlanoDiario.Size = new System.Drawing.Size(100, 20);
-            this.txtTaxaPlanoDiario.TabIndex = 3;
-            this.txtTaxaPlanoDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoDiario_KeyPress);
+            this.txtDailyPlanRate.Location = new System.Drawing.Point(235, 63);
+            this.txtDailyPlanRate.Name = "txtDailyPlanRate";
+            this.txtDailyPlanRate.Size = new System.Drawing.Size(100, 20);
+            this.txtDailyPlanRate.TabIndex = 3;
+            this.txtDailyPlanRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDailyPlanRate_KeyPress);
             // 
-            // txtTaxaPorKmDiario
+            // txtDailyPerKmRate
             // 
-            this.txtTaxaPorKmDiario.Location = new System.Drawing.Point(235, 89);
-            this.txtTaxaPorKmDiario.Name = "txtTaxaPorKmDiario";
-            this.txtTaxaPorKmDiario.Size = new System.Drawing.Size(100, 20);
-            this.txtTaxaPorKmDiario.TabIndex = 4;
-            this.txtTaxaPorKmDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaKmDiario_KeyPress);
+            this.txtDailyPerKmRate.Location = new System.Drawing.Point(235, 89);
+            this.txtDailyPerKmRate.Name = "txtDailyPerKmRate";
+            this.txtDailyPerKmRate.Size = new System.Drawing.Size(100, 20);
+            this.txtDailyPerKmRate.TabIndex = 4;
+            this.txtDailyPerKmRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDailyPerKmRate_KeyPress);
             // 
-            // txtTaxaPlanoControlado
+            // txtControlledPlanRate
             // 
-            this.txtTaxaPlanoControlado.Location = new System.Drawing.Point(235, 115);
-            this.txtTaxaPlanoControlado.Name = "txtTaxaPlanoControlado";
-            this.txtTaxaPlanoControlado.Size = new System.Drawing.Size(100, 20);
-            this.txtTaxaPlanoControlado.TabIndex = 5;
-            this.txtTaxaPlanoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoControlado_KeyPress);
+            this.txtControlledPlanRate.Location = new System.Drawing.Point(235, 115);
+            this.txtControlledPlanRate.Name = "txtControlledPlanRate";
+            this.txtControlledPlanRate.Size = new System.Drawing.Size(100, 20);
+            this.txtControlledPlanRate.TabIndex = 5;
+            this.txtControlledPlanRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtControlledPlanRate_KeyPress);
             // 
             // textId
             // 
@@ -98,16 +97,16 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             this.textId.TabIndex = 1;
             this.textId.Text = "0";
             // 
-            // lblCadastroGrupoDeVeiculos
+            // lblVehicleGroupRegistration
             // 
-            this.lblCadastroGrupoDeVeiculos.AutoSize = true;
-            this.lblCadastroGrupoDeVeiculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCadastroGrupoDeVeiculos.ForeColor = System.Drawing.Color.Black;
-            this.lblCadastroGrupoDeVeiculos.Location = new System.Drawing.Point(43, 18);
-            this.lblCadastroGrupoDeVeiculos.Name = "lblCadastroGrupoDeVeiculos";
-            this.lblCadastroGrupoDeVeiculos.Size = new System.Drawing.Size(260, 20);
-            this.lblCadastroGrupoDeVeiculos.TabIndex = 47;
-            this.lblCadastroGrupoDeVeiculos.Text = "Cadastro de Grupo de Veículos";
+            this.lblVehicleGroupRegistration.AutoSize = true;
+            this.lblVehicleGroupRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblVehicleGroupRegistration.ForeColor = System.Drawing.Color.Black;
+            this.lblVehicleGroupRegistration.Location = new System.Drawing.Point(43, 18);
+            this.lblVehicleGroupRegistration.Name = "lblVehicleGroupRegistration";
+            this.lblVehicleGroupRegistration.Size = new System.Drawing.Size(260, 20);
+            this.lblVehicleGroupRegistration.TabIndex = 47;
+            this.lblVehicleGroupRegistration.Text = "Vehicle Group Registration";
             // 
             // lbId
             // 
@@ -120,96 +119,96 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             this.lbId.TabIndex = 41;
             this.lbId.Text = "Id";
             // 
-            // lbNomeGrupo
+            // lbGroupName
             // 
-            this.lbNomeGrupo.AutoSize = true;
-            this.lbNomeGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbNomeGrupo.ForeColor = System.Drawing.Color.Black;
-            this.lbNomeGrupo.Location = new System.Drawing.Point(6, 40);
-            this.lbNomeGrupo.Name = "lbNomeGrupo";
-            this.lbNomeGrupo.Size = new System.Drawing.Size(80, 13);
-            this.lbNomeGrupo.TabIndex = 42;
-            this.lbNomeGrupo.Text = "Name do grupo";
+            this.lbGroupName.AutoSize = true;
+            this.lbGroupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbGroupName.ForeColor = System.Drawing.Color.Black;
+            this.lbGroupName.Location = new System.Drawing.Point(6, 40);
+            this.lbGroupName.Name = "lbGroupName";
+            this.lbGroupName.Size = new System.Drawing.Size(69, 13);
+            this.lbGroupName.TabIndex = 42;
+            this.lbGroupName.Text = "Group Name";
             // 
-            // lbTaxaPlanoDiário
+            // lbDailyPlanRate
             // 
-            this.lbTaxaPlanoDiário.AutoSize = true;
-            this.lbTaxaPlanoDiário.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTaxaPlanoDiário.ForeColor = System.Drawing.Color.Black;
-            this.lbTaxaPlanoDiário.Location = new System.Drawing.Point(6, 66);
-            this.lbTaxaPlanoDiário.Name = "lbTaxaPlanoDiário";
-            this.lbTaxaPlanoDiário.Size = new System.Drawing.Size(106, 13);
-            this.lbTaxaPlanoDiário.TabIndex = 43;
-            this.lbTaxaPlanoDiário.Text = "Taxa do Plano Diário";
+            this.lbDailyPlanRate.AutoSize = true;
+            this.lbDailyPlanRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbDailyPlanRate.ForeColor = System.Drawing.Color.Black;
+            this.lbDailyPlanRate.Location = new System.Drawing.Point(6, 66);
+            this.lbDailyPlanRate.Name = "lbDailyPlanRate";
+            this.lbDailyPlanRate.Size = new System.Drawing.Size(87, 13);
+            this.lbDailyPlanRate.TabIndex = 43;
+            this.lbDailyPlanRate.Text = "Daily Plan Rate";
             // 
-            // lbTaxaPorKMPlanoDiário
+            // lbDailyPerKmRate
             // 
-            this.lbTaxaPorKMPlanoDiário.AutoSize = true;
-            this.lbTaxaPorKMPlanoDiário.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTaxaPorKMPlanoDiário.ForeColor = System.Drawing.Color.Black;
-            this.lbTaxaPorKMPlanoDiário.Location = new System.Drawing.Point(6, 92);
-            this.lbTaxaPorKMPlanoDiário.Name = "lbTaxaPorKMPlanoDiário";
-            this.lbTaxaPorKMPlanoDiário.Size = new System.Drawing.Size(144, 13);
-            this.lbTaxaPorKMPlanoDiário.TabIndex = 44;
-            this.lbTaxaPorKMPlanoDiário.Text = "Taxa Por KM do Plano Diário";
+            this.lbDailyPerKmRate.AutoSize = true;
+            this.lbDailyPerKmRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbDailyPerKmRate.ForeColor = System.Drawing.Color.Black;
+            this.lbDailyPerKmRate.Location = new System.Drawing.Point(6, 92);
+            this.lbDailyPerKmRate.Name = "lbDailyPerKmRate";
+            this.lbDailyPerKmRate.Size = new System.Drawing.Size(108, 13);
+            this.lbDailyPerKmRate.TabIndex = 44;
+            this.lbDailyPerKmRate.Text = "Daily Per KM Rate";
             // 
-            // lbKMLivre
+            // lbControlledPlanRate
             // 
-            this.lbKMLivre.AutoSize = true;
-            this.lbKMLivre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbKMLivre.ForeColor = System.Drawing.Color.Black;
-            this.lbKMLivre.Location = new System.Drawing.Point(6, 118);
-            this.lbKMLivre.Name = "lbKMLivre";
-            this.lbKMLivre.Size = new System.Drawing.Size(130, 13);
-            this.lbKMLivre.TabIndex = 45;
-            this.lbKMLivre.Text = "Taxa do Plano Controlado";
+            this.lbControlledPlanRate.AutoSize = true;
+            this.lbControlledPlanRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbControlledPlanRate.ForeColor = System.Drawing.Color.Black;
+            this.lbControlledPlanRate.Location = new System.Drawing.Point(6, 118);
+            this.lbControlledPlanRate.Name = "lbControlledPlanRate";
+            this.lbControlledPlanRate.Size = new System.Drawing.Size(110, 13);
+            this.lbControlledPlanRate.TabIndex = 45;
+            this.lbControlledPlanRate.Text = "Controlled Plan Rate";
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(280, 286);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 10;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancel.Location = new System.Drawing.Point(280, 286);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnConfirmar
+            // btnConfirm
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(199, 286);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 9;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirm.Location = new System.Drawing.Point(199, 286);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 9;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.lbTaxaPlanoLivre);
+            this.groupBox1.Controls.Add(this.lbUnlimitedPlanRate);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtTaxaKmExcedidoControlado);
-            this.groupBox1.Controls.Add(this.txtTaxaPlanoLivre);
+            this.groupBox1.Controls.Add(this.txtControlledExceededKmRate);
+            this.groupBox1.Controls.Add(this.txtUnlimitedPlanRate);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtLimiteKmControlado);
-            this.groupBox1.Controls.Add(this.lbLimiteKmControlado);
+            this.groupBox1.Controls.Add(this.txtControlledKmLimit);
+            this.groupBox1.Controls.Add(this.lbControlledKmLimit);
             this.groupBox1.Controls.Add(this.lbId);
-            this.groupBox1.Controls.Add(this.lbKMLivre);
-            this.groupBox1.Controls.Add(this.lbTaxaPorKMPlanoDiário);
-            this.groupBox1.Controls.Add(this.textNomeGrupo);
-            this.groupBox1.Controls.Add(this.lbTaxaPlanoDiário);
-            this.groupBox1.Controls.Add(this.txtTaxaPlanoDiario);
-            this.groupBox1.Controls.Add(this.lbNomeGrupo);
-            this.groupBox1.Controls.Add(this.txtTaxaPorKmDiario);
+            this.groupBox1.Controls.Add(this.lbControlledPlanRate);
+            this.groupBox1.Controls.Add(this.lbDailyPerKmRate);
+            this.groupBox1.Controls.Add(this.textGroupName);
+            this.groupBox1.Controls.Add(this.lbDailyPlanRate);
+            this.groupBox1.Controls.Add(this.txtDailyPlanRate);
+            this.groupBox1.Controls.Add(this.lbGroupName);
+            this.groupBox1.Controls.Add(this.txtDailyPerKmRate);
             this.groupBox1.Controls.Add(this.textId);
-            this.groupBox1.Controls.Add(this.txtTaxaPlanoControlado);
+            this.groupBox1.Controls.Add(this.txtControlledPlanRate);
             this.groupBox1.Location = new System.Drawing.Point(10, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 228);
@@ -238,16 +237,16 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             this.label5.TabIndex = 55;
             this.label5.Text = "R$";
             // 
-            // lbTaxaPlanoLivre
+            // lbUnlimitedPlanRate
             // 
-            this.lbTaxaPlanoLivre.AutoSize = true;
-            this.lbTaxaPlanoLivre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTaxaPlanoLivre.ForeColor = System.Drawing.Color.Black;
-            this.lbTaxaPlanoLivre.Location = new System.Drawing.Point(6, 196);
-            this.lbTaxaPlanoLivre.Name = "lbTaxaPlanoLivre";
-            this.lbTaxaPlanoLivre.Size = new System.Drawing.Size(102, 13);
-            this.lbTaxaPlanoLivre.TabIndex = 54;
-            this.lbTaxaPlanoLivre.Text = "Taxa do Plano Livre";
+            this.lbUnlimitedPlanRate.AutoSize = true;
+            this.lbUnlimitedPlanRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbUnlimitedPlanRate.ForeColor = System.Drawing.Color.Black;
+            this.lbUnlimitedPlanRate.Location = new System.Drawing.Point(6, 196);
+            this.lbUnlimitedPlanRate.Name = "lbUnlimitedPlanRate";
+            this.lbUnlimitedPlanRate.Size = new System.Drawing.Size(102, 13);
+            this.lbUnlimitedPlanRate.TabIndex = 54;
+            this.lbUnlimitedPlanRate.Text = "Unlimited Plan Rate";
             // 
             // label7
             // 
@@ -256,25 +255,25 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(6, 170);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(181, 13);
+            this.label7.Size = new System.Drawing.Size(144, 13);
             this.label7.TabIndex = 53;
-            this.label7.Text = "Taxa KM Excedido Plano Controlado";
+            this.label7.Text = "Controlled Exceeded KM Rate";
             // 
-            // txtTaxaKmExcedidoControlado
+            // txtControlledExceededKmRate
             // 
-            this.txtTaxaKmExcedidoControlado.Location = new System.Drawing.Point(235, 167);
-            this.txtTaxaKmExcedidoControlado.Name = "txtTaxaKmExcedidoControlado";
-            this.txtTaxaKmExcedidoControlado.Size = new System.Drawing.Size(100, 20);
-            this.txtTaxaKmExcedidoControlado.TabIndex = 7;
-            this.txtTaxaKmExcedidoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaKmExcedidoControlado_KeyPress);
+            this.txtControlledExceededKmRate.Location = new System.Drawing.Point(235, 167);
+            this.txtControlledExceededKmRate.Name = "txtControlledExceededKmRate";
+            this.txtControlledExceededKmRate.Size = new System.Drawing.Size(100, 20);
+            this.txtControlledExceededKmRate.TabIndex = 7;
+            this.txtControlledExceededKmRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtControlledExceededKmRate_KeyPress);
             // 
-            // txtTaxaPlanoLivre
+            // txtUnlimitedPlanRate
             // 
-            this.txtTaxaPlanoLivre.Location = new System.Drawing.Point(235, 193);
-            this.txtTaxaPlanoLivre.Name = "txtTaxaPlanoLivre";
-            this.txtTaxaPlanoLivre.Size = new System.Drawing.Size(100, 20);
-            this.txtTaxaPlanoLivre.TabIndex = 8;
-            this.txtTaxaPlanoLivre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoLivre_KeyPress);
+            this.txtUnlimitedPlanRate.Location = new System.Drawing.Point(235, 193);
+            this.txtUnlimitedPlanRate.Name = "txtUnlimitedPlanRate";
+            this.txtUnlimitedPlanRate.Size = new System.Drawing.Size(100, 20);
+            this.txtUnlimitedPlanRate.TabIndex = 8;
+            this.txtUnlimitedPlanRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnlimitedPlanRate_KeyPress);
             // 
             // label3
             // 
@@ -309,44 +308,44 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             this.label1.TabIndex = 48;
             this.label1.Text = "R$";
             // 
-            // txtLimiteKmControlado
+            // txtControlledKmLimit
             // 
-            this.txtLimiteKmControlado.Location = new System.Drawing.Point(235, 141);
-            this.txtLimiteKmControlado.Name = "txtLimiteKmControlado";
-            this.txtLimiteKmControlado.Size = new System.Drawing.Size(100, 20);
-            this.txtLimiteKmControlado.TabIndex = 6;
-            this.txtLimiteKmControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteKmControlado_KeyPress);
+            this.txtControlledKmLimit.Location = new System.Drawing.Point(235, 141);
+            this.txtControlledKmLimit.Name = "txtControlledKmLimit";
+            this.txtControlledKmLimit.Size = new System.Drawing.Size(100, 20);
+            this.txtControlledKmLimit.TabIndex = 6;
+            this.txtControlledKmLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtControlledKmLimit_KeyPress);
             // 
-            // lbLimiteKmControlado
+            // lbControlledKmLimit
             // 
-            this.lbLimiteKmControlado.AutoSize = true;
-            this.lbLimiteKmControlado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbLimiteKmControlado.ForeColor = System.Drawing.Color.Black;
-            this.lbLimiteKmControlado.Location = new System.Drawing.Point(6, 144);
-            this.lbLimiteKmControlado.Name = "lbLimiteKmControlado";
-            this.lbLimiteKmControlado.Size = new System.Drawing.Size(167, 13);
-            this.lbLimiteKmControlado.TabIndex = 46;
-            this.lbLimiteKmControlado.Text = "Limite de KM do Plano Controlado";
+            this.lbControlledKmLimit.AutoSize = true;
+            this.lbControlledKmLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbControlledKmLimit.ForeColor = System.Drawing.Color.Black;
+            this.lbControlledKmLimit.Location = new System.Drawing.Point(6, 144);
+            this.lbControlledKmLimit.Name = "lbControlledKmLimit";
+            this.lbControlledKmLimit.Size = new System.Drawing.Size(110, 13);
+            this.lbControlledKmLimit.TabIndex = 46;
+            this.lbControlledKmLimit.Text = "Controlled KM Limit";
             // 
-            // TarefaGrupoDeVeiculosForm
+            // VehicleGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(365, 317);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.lblCadastroGrupoDeVeiculos);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.lblVehicleGroupRegistration);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TarefaGrupoDeVeiculosForm";
+            this.Name = "VehicleGroupForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veículos";
+            this.Text = "Car Rental";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -356,30 +355,30 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
         #endregion
 
-        private System.Windows.Forms.TextBox textNomeGrupo;
-        private System.Windows.Forms.TextBox txtTaxaPlanoDiario;
-        private System.Windows.Forms.TextBox txtTaxaPorKmDiario;
-        private System.Windows.Forms.TextBox txtTaxaPlanoControlado;
+        private System.Windows.Forms.TextBox textGroupName;
+        private System.Windows.Forms.TextBox txtDailyPlanRate;
+        private System.Windows.Forms.TextBox txtDailyPerKmRate;
+        private System.Windows.Forms.TextBox txtControlledPlanRate;
         private System.Windows.Forms.TextBox textId;
-        private System.Windows.Forms.Label lblCadastroGrupoDeVeiculos;
+        private System.Windows.Forms.Label lblVehicleGroupRegistration;
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Label lbNomeGrupo;
-        private System.Windows.Forms.Label lbTaxaPlanoDiário;
-        private System.Windows.Forms.Label lbTaxaPorKMPlanoDiário;
-        private System.Windows.Forms.Label lbKMLivre;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Label lbGroupName;
+        private System.Windows.Forms.Label lbDailyPlanRate;
+        private System.Windows.Forms.Label lbDailyPerKmRate;
+        private System.Windows.Forms.Label lbControlledPlanRate;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtLimiteKmControlado;
-        private System.Windows.Forms.Label lbLimiteKmControlado;
+        private System.Windows.Forms.TextBox txtControlledKmLimit;
+        private System.Windows.Forms.Label lbControlledKmLimit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbTaxaPlanoLivre;
+        private System.Windows.Forms.Label lbUnlimitedPlanRate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtTaxaKmExcedidoControlado;
-        private System.Windows.Forms.TextBox txtTaxaPlanoLivre;
+        private System.Windows.Forms.TextBox txtControlledExceededKmRate;
+        private System.Windows.Forms.TextBox txtUnlimitedPlanRate;
     }
 }
