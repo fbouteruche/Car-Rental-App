@@ -81,7 +81,7 @@ namespace CarRental.WindowsApp.Features.Vehicles
             int noDoors = Convert.ToInt32(numUpDownNoDoors.Value);
             int passengerCap = Convert.ToInt32(numUpDownPassengerCap.Value);
             double mileage = Convert.ToDouble(textMileage.Text);
-            char trunkSize = Convert.ToChar(cBoxTrunkSize.Text);
+            char trunkSize = Convert.ToChar(cBoxTrunkSize.Text[0]);
             bool hasAirConditioning = false;
             bool hasPowerSteering = false;
             bool hasAbsBrakes = false;
