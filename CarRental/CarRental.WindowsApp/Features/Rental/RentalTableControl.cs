@@ -10,45 +10,39 @@ namespace CarRental.WindowsApp.Features.Rentals
         public RentalTableControl()
         {
             InitializeComponent();
-            gridLocacao.ConfigureZebraGrid();
-            gridLocacao.ConfigureReadOnlyGrid();
-            gridLocacao.Columns.AddRange(ObterColunas());
+            rentalGrid.ConfigureZebraGrid();
+            rentalGrid.ConfigureReadOnlyGrid();
+            rentalGrid.Columns.AddRange(GetColumns());
         }
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
-
                 new DataGridViewTextBoxColumn { DataPropertyName = "Vehicle", HeaderText = "Vehicle"},
-
                 new DataGridViewTextBoxColumn { DataPropertyName = "ContractingCustomer", HeaderText = "Customer"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "RentalPrice", HeaderText = "Value Inicial"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "DepartureDate", HeaderText = "Data de Locação"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "DriverCustomer", HeaderText = "Driver"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "RentalPrice", HeaderText = "Initial Value"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "DepartureDate", HeaderText = "Rental Date"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Return Date"}
            };
 
-            return colunas;
+            return columns;
         }
 
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
-            return gridLocacao.SelecionarId<int>();
+            return rentalGrid.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Rental> locacoes)
+        public void UpdateRecords(List<Rental> rentals)
         {
-            gridLocacao.Rows.Clear();
+            rentalGrid.Rows.Clear();
 
-            foreach (Rental locacao in locacoes)
+            foreach (Rental rental in rentals)
             {
-                gridLocacao.Rows.Add(locacao.Id, locacao.Vehicle, locacao.ContractingCustomer, locacao.DriverCustomer, locacao.RentalPrice,
-                    locacao.DepartureDate, locacao.ExpectedReturnDate);
+                rentalGrid.Rows.Add(rental.Id, rental.Vehicle, rental.ContractingCustomer, rental.DriverCustomer, rental.RentalPrice,
+                    rental.DepartureDate, rental.ExpectedReturnDate);
             }
         }
     }

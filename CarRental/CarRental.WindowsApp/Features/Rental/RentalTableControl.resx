@@ -117,4 +117,5 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <!-- All UI strings should be in English, but this file currently has no data entries. If you add any, use English. -->
 </root>

@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Rentals
+﻿namespace CarRental.WindowsApp.Features.Rentals
 {
     partial class RentalTableControl
     {
@@ -29,32 +28,32 @@ namespace CarRental.WindowsApp.Features.Rentals
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridLocacao = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLocacao)).BeginInit();
+            this.rentalGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridLocacao
+            // rentalGrid
             // 
-            this.gridLocacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridLocacao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridLocacao.Location = new System.Drawing.Point(0, 0);
-            this.gridLocacao.Name = "gridLocacao";
-            this.gridLocacao.Size = new System.Drawing.Size(150, 150);
-            this.gridLocacao.TabIndex = 0;
+            this.rentalGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rentalGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rentalGrid.Location = new System.Drawing.Point(0, 0);
+            this.rentalGrid.Name = "rentalGrid";
+            this.rentalGrid.Size = new System.Drawing.Size(150, 150);
+            this.rentalGrid.TabIndex = 0;
             // 
-            // TabelaLocacaoControl
+            // RentalTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridLocacao);
-            this.Name = "TabelaLocacaoControl";
-            ((System.ComponentModel.ISupportInitialize)(this.gridLocacao)).EndInit();
+            this.Controls.Add(this.rentalGrid);
+            this.Name = "RentalTableControl";
+            ((System.ComponentModel.ISupportInitialize)(this.rentalGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridLocacao;
+        private System.Windows.Forms.DataGridView rentalGrid;
     }
 }

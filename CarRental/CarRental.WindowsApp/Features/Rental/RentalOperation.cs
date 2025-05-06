@@ -17,102 +17,102 @@ namespace CarRental.WindowsApp.Features.Rentals
 {
     public class RentalOperation : ICadastravel
     {
-        private readonly RentalController controlador = null;
-        private readonly RentalServiceRelationshipController controladorRelacionamento = null;
-        private RentalServiceRelationship relacionamento;
-        private readonly RentalTableControl tabelaLocacao = null;
-        PdfConverter conversorPdf;
-        public RentalOperation(RentalController ctrlLocacao)
+        private readonly RentalController controller = null;
+        private readonly RentalServiceRelationshipController relationshipController = null;
+        private RentalServiceRelationship relationship;
+        private readonly RentalTableControl rentalTable = null;
+        PdfConverter pdfConverter;
+        public RentalOperation(RentalController rentalController)
         {
-            conversorPdf = new PdfConverter(10, 18);
-            controlador = ctrlLocacao;
-            controladorRelacionamento = new RentalServiceRelationshipController();
-            tabelaLocacao = new RentalTableControl();
+            pdfConverter = new PdfConverter(10, 18);
+            controller = rentalController;
+            relationshipController = new RentalServiceRelationshipController();
+            rentalTable = new RentalTableControl();
         }
 
         public void InsertNewRecord()
         {
-            RentalForm tela = new RentalForm("Locação de Vehicles");
+            RentalForm form = new RentalForm("Vehicle Rental");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                string resultadoLocacao = controlador.InsertNew(tela.Locacao);
+                string rentalResult = controller.InsertNew(form.Rental);
 
-                if (resultadoLocacao == "VALID")
+                if (rentalResult == "VALID")
                 {
-                    relacionamento = new RentalServiceRelationship(0, tela.Locacao, tela.Servicos);
-                    controladorRelacionamento.InsertNew(relacionamento);
-                    conversorPdf.ConvertRentalToPdf(tela.Locacao);
+                    relationship = new RentalServiceRelationship(0, form.Rental, form.Services);
+                    relationshipController.InsertNew(relationship);
+                    pdfConverter.ConvertRentalToPdf(form.Rental);
 
                     try
                     {
-                        EnviarEmail(tela);
+                        SendEmail(form);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ocorreu um erro ao tentar enviar os dados de locação por e-mail.\nO recibo está salvo na pasta Recibos e deverá ser enviado manualmente assim que possível!!\n" + ex.Message, "Erro ao enviar e-mail");
+                        MessageBox.Show("An error occurred while trying to send the rental data by email.\nThe receipt is saved in the Receipts folder and should be sent manually as soon as possible!!\n" + ex.Message, "Error sending email");
                     }
                 }
 
-                List<Rental> veiculos = controlador.SelectAll();
+                List<Rental> vehicles = controller.SelectAll();
 
-                tabelaLocacao.AtualizarRegistros(veiculos);
+                rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Vehicle}] realizada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental: [{form.Rental.Vehicle}] completed successfully");
             }
         }
 
         public void EditRecord()
         {
-            int id = tabelaLocacao.ObtemIdSelecionado();
+            int id = rentalTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma locação para poder editar!", "Edição de locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a rental to edit!", "Edit rental", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelectById(id);
+            Rental selectedRental = controller.SelectById(id);
 
-            RentalForm tela = new RentalForm("Edição de Locação");
+            RentalForm form = new RentalForm("Edit Rental");
 
-            tela.Locacao = locacaoSelecionada;
+            form.Rental = selectedRental;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Locacao);
+                controller.Edit(id, form.Rental);
 
-                List<Rental> veiculos = controlador.SelectAll();
+                List<Rental> vehicles = controller.SelectAll();
 
-                tabelaLocacao.AtualizarRegistros(veiculos);
+                rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ContractingCustomer}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental of: [{form.Rental.ContractingCustomer}] edited successfully");
             }
         }
 
         public void DeleteRecord()
         {
-            int id = tabelaLocacao.ObtemIdSelecionado();
+            int id = rentalTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma locação para poder excluir!", "Exclusão de Locação",
+                MessageBox.Show("Select a rental to delete!", "Delete Rental",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelectById(id);
+            Rental selectedRental = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
-                "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the rental: [{selectedRental.Id}] ?",
+                "Delete Rental", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Delete(id);
+                controller.Delete(id);
 
-                List<Rental> veiculos = controlador.SelectAll();
+                List<Rental> vehicles = controller.SelectAll();
 
-                tabelaLocacao.AtualizarRegistros(veiculos);
+                rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ContractingCustomer}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental of: [{selectedRental.ContractingCustomer}] removed successfully");
             }
         }
         public void GroupRecords()
@@ -126,13 +126,13 @@ namespace CarRental.WindowsApp.Features.Rentals
         }
         public UserControl GetTable()
         {
-            List<Rental> locacoes = controlador.SelectAll();
-            tabelaLocacao.AtualizarRegistros(locacoes);
+            List<Rental> rentals = controller.SelectAll();
+            rentalTable.UpdateRecords(rentals);
 
-            return tabelaLocacao;
+            return rentalTable;
         }
 
-        private void EnviarEmail(RentalForm tela)
+        private void SendEmail(RentalForm form)
         {
             using (SmtpClient smtp = new SmtpClient())
             {
@@ -145,14 +145,13 @@ namespace CarRental.WindowsApp.Features.Rentals
                     smtp.EnableSsl = true;
 
                     email.From = new MailAddress("matriquisdevelopers@gmail.com");
-                    email.To.Add(tela.Locacao.ContractingCustomer.Email);
+                    email.To.Add(form.Rental.ContractingCustomer.Email);
 
                     email.Subject = "Matrix";
                     email.IsBodyHtml = false;
-                    email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
+                    email.Body = "Thank you for using our services, come back soon!";
 
-
-                    email.Attachments.Add(new Attachment($@"..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
+                    email.Attachments.Add(new Attachment($@"..\..\..\Receipts\receipt{form.Rental.Id}.pdf"));
 
                     smtp.Send(email);
                 }

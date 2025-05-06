@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Rentals
+﻿namespace CarRental.WindowsApp.Features.Rentals
 {
     partial class RentalForm
     {
@@ -29,66 +28,66 @@ namespace CarRental.WindowsApp.Features.Rentals
         /// </summary>
         private void InitializeComponent()
         {
-            this.gBoxRegistro = new System.Windows.Forms.GroupBox();
+            this.gBoxRegistration = new System.Windows.Forms.GroupBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.lblValorInicial = new System.Windows.Forms.Label();
-            this.btnServicos = new System.Windows.Forms.Button();
-            this.lblServicos = new System.Windows.Forms.Label();
-            this.cBoxPlano = new System.Windows.Forms.ComboBox();
-            this.lblPlano = new System.Windows.Forms.Label();
-            this.lblVeiculo = new System.Windows.Forms.Label();
-            this.lblDataDevolucao = new System.Windows.Forms.Label();
-            this.lblDataLocacao = new System.Windows.Forms.Label();
-            this.lblCondutor = new System.Windows.Forms.Label();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFuncionario = new System.Windows.Forms.Label();
+            this.lblInitialValue = new System.Windows.Forms.Label();
+            this.btnServices = new System.Windows.Forms.Button();
+            this.lblServices = new System.Windows.Forms.Label();
+            this.cBoxPlan = new System.Windows.Forms.ComboBox();
+            this.lblPlan = new System.Windows.Forms.Label();
+            this.lblVehicle = new System.Windows.Forms.Label();
+            this.lblReturnDate = new System.Windows.Forms.Label();
+            this.lblRentalDate = new System.Windows.Forms.Label();
+            this.lblDriver = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblEmployee = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.dateTPDataDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.dateTPDataSaida = new System.Windows.Forms.DateTimePicker();
-            this.cBoxCondutor = new System.Windows.Forms.ComboBox();
-            this.cBoxCliente = new System.Windows.Forms.ComboBox();
-            this.cBoxFuncionario = new System.Windows.Forms.ComboBox();
-            this.cBoxVeiculo = new System.Windows.Forms.ComboBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.brnConfirmar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblCupom = new System.Windows.Forms.Label();
-            this.txtCupom = new System.Windows.Forms.TextBox();
-            this.btnVerificar = new System.Windows.Forms.Button();
-            this.gBoxRegistro.SuspendLayout();
+            this.dateTPReturnDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTPDepartureDate = new System.Windows.Forms.DateTimePicker();
+            this.cBoxDriver = new System.Windows.Forms.ComboBox();
+            this.cBoxCustomer = new System.Windows.Forms.ComboBox();
+            this.cBoxEmployee = new System.Windows.Forms.ComboBox();
+            this.cBoxVehicle = new System.Windows.Forms.ComboBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblCoupon = new System.Windows.Forms.Label();
+            this.txtCoupon = new System.Windows.Forms.TextBox();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.gBoxRegistration.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gBoxRegistro
+            // gBoxRegistration
             // 
-            this.gBoxRegistro.Controls.Add(this.btnVerificar);
-            this.gBoxRegistro.Controls.Add(this.txtCupom);
-            this.gBoxRegistro.Controls.Add(this.lblCupom);
-            this.gBoxRegistro.Controls.Add(this.txtTotal);
-            this.gBoxRegistro.Controls.Add(this.lblValorInicial);
-            this.gBoxRegistro.Controls.Add(this.btnServicos);
-            this.gBoxRegistro.Controls.Add(this.lblServicos);
-            this.gBoxRegistro.Controls.Add(this.cBoxPlano);
-            this.gBoxRegistro.Controls.Add(this.lblPlano);
-            this.gBoxRegistro.Controls.Add(this.lblVeiculo);
-            this.gBoxRegistro.Controls.Add(this.lblDataDevolucao);
-            this.gBoxRegistro.Controls.Add(this.lblDataLocacao);
-            this.gBoxRegistro.Controls.Add(this.lblCondutor);
-            this.gBoxRegistro.Controls.Add(this.lblCliente);
-            this.gBoxRegistro.Controls.Add(this.lblFuncionario);
-            this.gBoxRegistro.Controls.Add(this.lblId);
-            this.gBoxRegistro.Controls.Add(this.txtId);
-            this.gBoxRegistro.Controls.Add(this.dateTPDataDevolucao);
-            this.gBoxRegistro.Controls.Add(this.dateTPDataSaida);
-            this.gBoxRegistro.Controls.Add(this.cBoxCondutor);
-            this.gBoxRegistro.Controls.Add(this.cBoxCliente);
-            this.gBoxRegistro.Controls.Add(this.cBoxFuncionario);
-            this.gBoxRegistro.Controls.Add(this.cBoxVeiculo);
-            this.gBoxRegistro.Location = new System.Drawing.Point(12, 87);
-            this.gBoxRegistro.Name = "gBoxRegistro";
-            this.gBoxRegistro.Size = new System.Drawing.Size(433, 282);
-            this.gBoxRegistro.TabIndex = 0;
-            this.gBoxRegistro.TabStop = false;
+            this.gBoxRegistration.Controls.Add(this.btnCheck);
+            this.gBoxRegistration.Controls.Add(this.txtCoupon);
+            this.gBoxRegistration.Controls.Add(this.lblCoupon);
+            this.gBoxRegistration.Controls.Add(this.txtTotal);
+            this.gBoxRegistration.Controls.Add(this.lblInitialValue);
+            this.gBoxRegistration.Controls.Add(this.btnServices);
+            this.gBoxRegistration.Controls.Add(this.lblServices);
+            this.gBoxRegistration.Controls.Add(this.cBoxPlan);
+            this.gBoxRegistration.Controls.Add(this.lblPlan);
+            this.gBoxRegistration.Controls.Add(this.lblVehicle);
+            this.gBoxRegistration.Controls.Add(this.lblReturnDate);
+            this.gBoxRegistration.Controls.Add(this.lblRentalDate);
+            this.gBoxRegistration.Controls.Add(this.lblDriver);
+            this.gBoxRegistration.Controls.Add(this.lblCustomer);
+            this.gBoxRegistration.Controls.Add(this.lblEmployee);
+            this.gBoxRegistration.Controls.Add(this.lblId);
+            this.gBoxRegistration.Controls.Add(this.txtId);
+            this.gBoxRegistration.Controls.Add(this.dateTPReturnDate);
+            this.gBoxRegistration.Controls.Add(this.dateTPDepartureDate);
+            this.gBoxRegistration.Controls.Add(this.cBoxDriver);
+            this.gBoxRegistration.Controls.Add(this.cBoxCustomer);
+            this.gBoxRegistration.Controls.Add(this.cBoxEmployee);
+            this.gBoxRegistration.Controls.Add(this.cBoxVehicle);
+            this.gBoxRegistration.Location = new System.Drawing.Point(12, 87);
+            this.gBoxRegistration.Name = "gBoxRegistration";
+            this.gBoxRegistration.Size = new System.Drawing.Size(433, 282);
+            this.gBoxRegistration.TabIndex = 0;
+            this.gBoxRegistration.TabStop = false;
             // 
             // txtTotal
             // 
@@ -100,110 +99,110 @@ namespace CarRental.WindowsApp.Features.Rentals
             this.txtTotal.TabIndex = 17;
             this.txtTotal.Text = "0";
             // 
-            // lblValorInicial
+            // lblInitialValue
             // 
-            this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(195, 250);
-            this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
-            this.lblValorInicial.TabIndex = 2;
-            this.lblValorInicial.Text = "Value Inicial: R$";
+            this.lblInitialValue.AutoSize = true;
+            this.lblInitialValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInitialValue.Location = new System.Drawing.Point(195, 250);
+            this.lblInitialValue.Name = "lblInitialValue";
+            this.lblInitialValue.Size = new System.Drawing.Size(108, 16);
+            this.lblInitialValue.TabIndex = 2;
+            this.lblInitialValue.Text = "Initial Value: R$";
             // 
-            // btnServicos
+            // btnServices
             // 
-            this.btnServicos.Location = new System.Drawing.Point(334, 99);
-            this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Size = new System.Drawing.Size(75, 23);
-            this.btnServicos.TabIndex = 16;
-            this.btnServicos.Text = "Selecionar";
-            this.btnServicos.UseVisualStyleBackColor = true;
-            this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
+            this.btnServices.Location = new System.Drawing.Point(334, 99);
+            this.btnServices.Name = "btnServices";
+            this.btnServices.Size = new System.Drawing.Size(75, 23);
+            this.btnServices.TabIndex = 16;
+            this.btnServices.Text = "Select";
+            this.btnServices.UseVisualStyleBackColor = true;
+            this.btnServices.Click += new System.EventHandler(this.btnServices_Click);
             // 
-            // lblServicos
+            // lblServices
             // 
-            this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(280, 104);
-            this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(48, 13);
-            this.lblServicos.TabIndex = 15;
-            this.lblServicos.Text = "Serviços";
+            this.lblServices.AutoSize = true;
+            this.lblServices.Location = new System.Drawing.Point(280, 104);
+            this.lblServices.Name = "lblServices";
+            this.lblServices.Size = new System.Drawing.Size(47, 13);
+            this.lblServices.TabIndex = 15;
+            this.lblServices.Text = "Services";
             // 
-            // cBoxPlano
+            // cBoxPlan
             // 
-            this.cBoxPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxPlano.FormattingEnabled = true;
-            this.cBoxPlano.Items.AddRange(new object[] {
-            "Plano Diario",
-            "Km Controlado",
-            "Km Livre"});
-            this.cBoxPlano.Location = new System.Drawing.Point(89, 99);
-            this.cBoxPlano.Name = "cBoxPlano";
-            this.cBoxPlano.Size = new System.Drawing.Size(170, 21);
-            this.cBoxPlano.TabIndex = 14;
+            this.cBoxPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxPlan.FormattingEnabled = true;
+            this.cBoxPlan.Items.AddRange(new object[] {
+            "Daily Plan",
+            "Controlled Km",
+            "Free Km"});
+            this.cBoxPlan.Location = new System.Drawing.Point(89, 99);
+            this.cBoxPlan.Name = "cBoxPlan";
+            this.cBoxPlan.Size = new System.Drawing.Size(170, 21);
+            this.cBoxPlan.TabIndex = 14;
             // 
-            // lblPlano
+            // lblPlan
             // 
-            this.lblPlano.AutoSize = true;
-            this.lblPlano.Location = new System.Drawing.Point(49, 104);
-            this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(34, 13);
-            this.lblPlano.TabIndex = 13;
-            this.lblPlano.Text = "Plano";
+            this.lblPlan.AutoSize = true;
+            this.lblPlan.Location = new System.Drawing.Point(49, 104);
+            this.lblPlan.Name = "lblPlan";
+            this.lblPlan.Size = new System.Drawing.Size(31, 13);
+            this.lblPlan.TabIndex = 13;
+            this.lblPlan.Text = "Plan";
             // 
-            // lblVeiculo
+            // lblVehicle
             // 
-            this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(39, 75);
-            this.lblVeiculo.Name = "lblVeiculo";
-            this.lblVeiculo.Size = new System.Drawing.Size(44, 13);
-            this.lblVeiculo.TabIndex = 12;
-            this.lblVeiculo.Text = "Veículo";
+            this.lblVehicle.AutoSize = true;
+            this.lblVehicle.Location = new System.Drawing.Point(39, 75);
+            this.lblVehicle.Name = "lblVehicle";
+            this.lblVehicle.Size = new System.Drawing.Size(42, 13);
+            this.lblVehicle.TabIndex = 12;
+            this.lblVehicle.Text = "Vehicle";
             // 
-            // lblDataDevolucao
+            // lblReturnDate
             // 
-            this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(216, 183);
-            this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(62, 13);
-            this.lblDataDevolucao.TabIndex = 11;
-            this.lblDataDevolucao.Text = "Devolução ";
+            this.lblReturnDate.AutoSize = true;
+            this.lblReturnDate.Location = new System.Drawing.Point(216, 183);
+            this.lblReturnDate.Name = "lblReturnDate";
+            this.lblReturnDate.Size = new System.Drawing.Size(66, 13);
+            this.lblReturnDate.TabIndex = 11;
+            this.lblReturnDate.Text = "Return Date";
             // 
-            // lblDataLocacao
+            // lblRentalDate
             // 
-            this.lblDataLocacao.AutoSize = true;
-            this.lblDataLocacao.Location = new System.Drawing.Point(34, 183);
-            this.lblDataLocacao.Name = "lblDataLocacao";
-            this.lblDataLocacao.Size = new System.Drawing.Size(49, 13);
-            this.lblDataLocacao.TabIndex = 10;
-            this.lblDataLocacao.Text = "Locação";
+            this.lblRentalDate.AutoSize = true;
+            this.lblRentalDate.Location = new System.Drawing.Point(34, 183);
+            this.lblRentalDate.Name = "lblRentalDate";
+            this.lblRentalDate.Size = new System.Drawing.Size(65, 13);
+            this.lblRentalDate.TabIndex = 10;
+            this.lblRentalDate.Text = "Rental Date";
             // 
-            // lblCondutor
+            // lblDriver
             // 
-            this.lblCondutor.AutoSize = true;
-            this.lblCondutor.Location = new System.Drawing.Point(33, 156);
-            this.lblCondutor.Name = "lblCondutor";
-            this.lblCondutor.Size = new System.Drawing.Size(50, 13);
-            this.lblCondutor.TabIndex = 9;
-            this.lblCondutor.Text = "Condutor";
+            this.lblDriver.AutoSize = true;
+            this.lblDriver.Location = new System.Drawing.Point(33, 156);
+            this.lblDriver.Name = "lblDriver";
+            this.lblDriver.Size = new System.Drawing.Size(35, 13);
+            this.lblDriver.TabIndex = 9;
+            this.lblDriver.Text = "Driver";
             // 
-            // lblCliente
+            // lblCustomer
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(44, 129);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 8;
-            this.lblCliente.Text = "Customer";
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.Location = new System.Drawing.Point(44, 129);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(51, 13);
+            this.lblCustomer.TabIndex = 8;
+            this.lblCustomer.Text = "Customer";
             // 
-            // lblFuncionario
+            // lblEmployee
             // 
-            this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(21, 48);
-            this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(62, 13);
-            this.lblFuncionario.TabIndex = 7;
-            this.lblFuncionario.Text = "Funcionário";
+            this.lblEmployee.AutoSize = true;
+            this.lblEmployee.Location = new System.Drawing.Point(21, 48);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(53, 13);
+            this.lblEmployee.TabIndex = 7;
+            this.lblEmployee.Text = "Employee";
             // 
             // lblId
             // 
@@ -224,137 +223,137 @@ namespace CarRental.WindowsApp.Features.Rentals
             this.txtId.TabIndex = 2;
             this.txtId.Text = "0";
             // 
-            // dateTPDataDevolucao
+            // dateTPReturnDate
             // 
-            this.dateTPDataDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dateTPDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataDevolucao.Location = new System.Drawing.Point(284, 180);
-            this.dateTPDataDevolucao.Name = "dateTPDataDevolucao";
-            this.dateTPDataDevolucao.Size = new System.Drawing.Size(125, 20);
-            this.dateTPDataDevolucao.TabIndex = 5;
+            this.dateTPReturnDate.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTPReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTPReturnDate.Location = new System.Drawing.Point(284, 180);
+            this.dateTPReturnDate.Name = "dateTPReturnDate";
+            this.dateTPReturnDate.Size = new System.Drawing.Size(125, 20);
+            this.dateTPReturnDate.TabIndex = 5;
             // 
-            // dateTPDataSaida
+            // dateTPDepartureDate
             // 
-            this.dateTPDataSaida.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dateTPDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataSaida.Location = new System.Drawing.Point(89, 180);
-            this.dateTPDataSaida.Name = "dateTPDataSaida";
-            this.dateTPDataSaida.Size = new System.Drawing.Size(121, 20);
-            this.dateTPDataSaida.TabIndex = 4;
+            this.dateTPDepartureDate.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTPDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTPDepartureDate.Location = new System.Drawing.Point(89, 180);
+            this.dateTPDepartureDate.Name = "dateTPDepartureDate";
+            this.dateTPDepartureDate.Size = new System.Drawing.Size(121, 20);
+            this.dateTPDepartureDate.TabIndex = 4;
             // 
-            // cBoxCondutor
+            // cBoxDriver
             // 
-            this.cBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCondutor.FormattingEnabled = true;
-            this.cBoxCondutor.Location = new System.Drawing.Point(89, 153);
-            this.cBoxCondutor.Name = "cBoxCondutor";
-            this.cBoxCondutor.Size = new System.Drawing.Size(320, 21);
-            this.cBoxCondutor.TabIndex = 3;
+            this.cBoxDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxDriver.FormattingEnabled = true;
+            this.cBoxDriver.Location = new System.Drawing.Point(89, 153);
+            this.cBoxDriver.Name = "cBoxDriver";
+            this.cBoxDriver.Size = new System.Drawing.Size(320, 21);
+            this.cBoxDriver.TabIndex = 3;
             // 
-            // cBoxCliente
+            // cBoxCustomer
             // 
-            this.cBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCliente.FormattingEnabled = true;
-            this.cBoxCliente.Location = new System.Drawing.Point(89, 126);
-            this.cBoxCliente.Name = "cBoxCliente";
-            this.cBoxCliente.Size = new System.Drawing.Size(320, 21);
-            this.cBoxCliente.TabIndex = 2;
+            this.cBoxCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCustomer.FormattingEnabled = true;
+            this.cBoxCustomer.Location = new System.Drawing.Point(89, 126);
+            this.cBoxCustomer.Name = "cBoxCustomer";
+            this.cBoxCustomer.Size = new System.Drawing.Size(320, 21);
+            this.cBoxCustomer.TabIndex = 2;
             // 
-            // cBoxFuncionario
+            // cBoxEmployee
             // 
-            this.cBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxFuncionario.FormattingEnabled = true;
-            this.cBoxFuncionario.Location = new System.Drawing.Point(89, 45);
-            this.cBoxFuncionario.Name = "cBoxFuncionario";
-            this.cBoxFuncionario.Size = new System.Drawing.Size(320, 21);
-            this.cBoxFuncionario.TabIndex = 1;
+            this.cBoxEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxEmployee.FormattingEnabled = true;
+            this.cBoxEmployee.Location = new System.Drawing.Point(89, 45);
+            this.cBoxEmployee.Name = "cBoxEmployee";
+            this.cBoxEmployee.Size = new System.Drawing.Size(320, 21);
+            this.cBoxEmployee.TabIndex = 1;
             // 
-            // cBoxVeiculo
+            // cBoxVehicle
             // 
-            this.cBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxVeiculo.FormattingEnabled = true;
-            this.cBoxVeiculo.Location = new System.Drawing.Point(89, 72);
-            this.cBoxVeiculo.Name = "cBoxVeiculo";
-            this.cBoxVeiculo.Size = new System.Drawing.Size(320, 21);
-            this.cBoxVeiculo.TabIndex = 0;
+            this.cBoxVehicle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxVehicle.FormattingEnabled = true;
+            this.cBoxVehicle.Location = new System.Drawing.Point(89, 72);
+            this.cBoxVehicle.Name = "cBoxVehicle";
+            this.cBoxVehicle.Size = new System.Drawing.Size(320, 21);
+            this.cBoxVehicle.TabIndex = 0;
             // 
-            // lblTitulo
+            // lblTitle
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(150, 39);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(156, 20);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Registrar Locação";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(150, 39);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(144, 20);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Register Rental";
             // 
-            // brnConfirmar
+            // btnConfirm
             // 
-            this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.brnConfirmar.Location = new System.Drawing.Point(289, 377);
-            this.brnConfirmar.Name = "brnConfirmar";
-            this.brnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.brnConfirmar.TabIndex = 18;
-            this.brnConfirmar.Text = "Confirmar";
-            this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.brnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Location = new System.Drawing.Point(289, 377);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 18;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(370, 377);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 19;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(370, 377);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // lblCupom
+            // lblCoupon
             // 
-            this.lblCupom.AutoSize = true;
-            this.lblCupom.Location = new System.Drawing.Point(43, 209);
-            this.lblCupom.Name = "lblCupom";
-            this.lblCupom.Size = new System.Drawing.Size(40, 13);
-            this.lblCupom.TabIndex = 18;
-            this.lblCupom.Text = "CouponModule";
+            this.lblCoupon.AutoSize = true;
+            this.lblCoupon.Location = new System.Drawing.Point(43, 209);
+            this.lblCoupon.Name = "lblCoupon";
+            this.lblCoupon.Size = new System.Drawing.Size(43, 13);
+            this.lblCoupon.TabIndex = 18;
+            this.lblCoupon.Text = "Coupon";
             // 
-            // txtCupom
+            // txtCoupon
             // 
-            this.txtCupom.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCupom.Location = new System.Drawing.Point(89, 206);
-            this.txtCupom.Name = "txtCupom";
-            this.txtCupom.Size = new System.Drawing.Size(239, 20);
-            this.txtCupom.TabIndex = 19;
+            this.txtCoupon.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCoupon.Location = new System.Drawing.Point(89, 206);
+            this.txtCoupon.Name = "txtCoupon";
+            this.txtCoupon.Size = new System.Drawing.Size(239, 20);
+            this.txtCoupon.TabIndex = 19;
             // 
-            // btnVerificar
+            // btnCheck
             // 
-            this.btnVerificar.Location = new System.Drawing.Point(334, 204);
-            this.btnVerificar.Name = "btnVerificar";
-            this.btnVerificar.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificar.TabIndex = 20;
-            this.btnVerificar.Text = "Verificar";
-            this.btnVerificar.UseVisualStyleBackColor = true;
-            this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
+            this.btnCheck.Location = new System.Drawing.Point(334, 204);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 20;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // TelaLocacaoForm
+            // RentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 412);
-            this.Controls.Add(this.brnConfirmar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.gBoxRegistro);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.gBoxRegistration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TelaLocacaoForm";
+            this.Name = "RentalForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Vehicle";
-            this.gBoxRegistro.ResumeLayout(false);
-            this.gBoxRegistro.PerformLayout();
+            this.Text = "Vehicle Rental";
+            this.gBoxRegistration.ResumeLayout(false);
+            this.gBoxRegistration.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,32 +361,32 @@ namespace CarRental.WindowsApp.Features.Rentals
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gBoxRegistro;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.GroupBox gBoxRegistration;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DateTimePicker dateTPDataDevolucao;
-        private System.Windows.Forms.DateTimePicker dateTPDataSaida;
-        private System.Windows.Forms.ComboBox cBoxCondutor;
-        private System.Windows.Forms.ComboBox cBoxCliente;
-        private System.Windows.Forms.ComboBox cBoxFuncionario;
-        private System.Windows.Forms.ComboBox cBoxVeiculo;
-        private System.Windows.Forms.Label lblVeiculo;
-        private System.Windows.Forms.Label lblDataDevolucao;
-        private System.Windows.Forms.Label lblDataLocacao;
-        private System.Windows.Forms.Label lblCondutor;
-        private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.Label lblFuncionario;
-        private System.Windows.Forms.Button btnServicos;
-        private System.Windows.Forms.Label lblServicos;
-        private System.Windows.Forms.ComboBox cBoxPlano;
-        private System.Windows.Forms.Label lblPlano;
+        private System.Windows.Forms.DateTimePicker dateTPReturnDate;
+        private System.Windows.Forms.DateTimePicker dateTPDepartureDate;
+        private System.Windows.Forms.ComboBox cBoxDriver;
+        private System.Windows.Forms.ComboBox cBoxCustomer;
+        private System.Windows.Forms.ComboBox cBoxEmployee;
+        private System.Windows.Forms.ComboBox cBoxVehicle;
+        private System.Windows.Forms.Label lblVehicle;
+        private System.Windows.Forms.Label lblReturnDate;
+        private System.Windows.Forms.Label lblRentalDate;
+        private System.Windows.Forms.Label lblDriver;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblEmployee;
+        private System.Windows.Forms.Button btnServices;
+        private System.Windows.Forms.Label lblServices;
+        private System.Windows.Forms.ComboBox cBoxPlan;
+        private System.Windows.Forms.Label lblPlan;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Button brnConfirmar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblValorInicial;
-        private System.Windows.Forms.TextBox txtCupom;
-        private System.Windows.Forms.Label lblCupom;
-        private System.Windows.Forms.Button btnVerificar;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblInitialValue;
+        private System.Windows.Forms.TextBox txtCoupon;
+        private System.Windows.Forms.Label lblCoupon;
+        private System.Windows.Forms.Button btnCheck;
     }
 }

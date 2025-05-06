@@ -26,135 +26,132 @@ namespace CarRental.WindowsApp.Features.Rentals
 {
     public partial class RentalForm : Form
     {
-        private Rental locacao;
-        private EmployeeController controladorFuncionario = new EmployeeController();
-        private VehicleController controladorVeiculo = new VehicleController();
-        private CustomerController controladorCliente = new CustomerController();
-        private CouponController controladorCupom = new CouponController();
-        public List<Service> Servicos;
-        public string TipoSeguro = "Nenhum";
-        ServiceSelectionForm telaServico = new ServiceSelectionForm();
-        public RentalForm(string titulo)
+        private Rental rental;
+        private EmployeeController employeeController = new EmployeeController();
+        private VehicleController vehicleController = new VehicleController();
+        private CustomerController customerController = new CustomerController();
+        private CouponController couponController = new CouponController();
+        public List<Service> Services;
+        public string InsuranceType = "None";
+        ServiceSelectionForm serviceForm = new ServiceSelectionForm();
+        public RentalForm(string title)
         {
-            Servicos = new List<Service>();
+            Services = new List<Service>();
             InitializeComponent();
-            lblTitulo.Text = titulo;
-            CarregarDados();
-            CarregaCondutor();
-            cBoxPlano.SelectedIndex = 0;
+            lblTitle.Text = title;
+            LoadData();
+            LoadDrivers();
+            cBoxPlan.SelectedIndex = 0;
         }
 
-        public Rental Locacao
+        public Rental Rental
         {
-            get { return locacao; }
+            get { return rental; }
 
             set
             {
-                locacao = value;
+                rental = value;
 
-                txtId.Text = locacao.Id.ToString();
-                cBoxVeiculo.SelectedItem = locacao.Vehicle;
-                cBoxFuncionario.SelectedItem = locacao.RentingEmployee;
-                cBoxCliente.SelectedItem = locacao.ContractingCustomer;
-                cBoxCondutor.SelectedItem = locacao.DriverCustomer;
-                cBoxPlano.SelectedItem = locacao.PlanType;
-                dateTPDataSaida.Text = locacao.DepartureDate.ToLongDateString();
-                dateTPDataDevolucao.Text = locacao.ExpectedReturnDate.ToLongDateString();
-                txtTotal.Text = locacao.RentalPrice.ToString();
-                Servicos = locacao.Services;
-                TipoSeguro = locacao.InsuranceType;
-
+                txtId.Text = rental.Id.ToString();
+                cBoxVehicle.SelectedItem = rental.Vehicle;
+                cBoxEmployee.SelectedItem = rental.RentingEmployee;
+                cBoxCustomer.SelectedItem = rental.ContractingCustomer;
+                cBoxDriver.SelectedItem = rental.DriverCustomer;
+                cBoxPlan.SelectedItem = rental.PlanType;
+                dateTPDepartureDate.Text = rental.DepartureDate.ToLongDateString();
+                dateTPReturnDate.Text = rental.ExpectedReturnDate.ToLongDateString();
+                txtTotal.Text = rental.RentalPrice.ToString();
+                Services = rental.Services;
+                InsuranceType = rental.InsuranceType;
             }
         }
 
-        private void CarregarDados()
+        private void LoadData()
         {
-            cBoxFuncionario.DataSource = controladorFuncionario.SelectAll();
-            List<Vehicle> veiculosDisponiveis = new List<Vehicle>();
-            if (lblTitulo.Text.Contains("Edição"))
-                veiculosDisponiveis = controladorVeiculo.SelectAll();
+            cBoxEmployee.DataSource = employeeController.SelectAll();
+            List<Vehicle> availableVehicles = new List<Vehicle>();
+            if (lblTitle.Text.Contains("Edit"))
+                availableVehicles = vehicleController.SelectAll();
             else
-                AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
-            cBoxVeiculo.DataSource = veiculosDisponiveis;
-            cBoxCliente.DataSource = controladorCliente.SelectAll();
+                AddOnlyAvailableVehicles(availableVehicles);
+            cBoxVehicle.DataSource = availableVehicles;
+            cBoxCustomer.DataSource = customerController.SelectAll();
         }
 
-        private void AdicionaApenasVeiculoDisponivel(List<Vehicle> veiculosDisponiveis)
+        private void AddOnlyAvailableVehicles(List<Vehicle> availableVehicles)
         {
-            foreach (Vehicle item in controladorVeiculo.SelectAll())
+            foreach (Vehicle item in vehicleController.SelectAll())
                 if (!item.isRented)
-                    veiculosDisponiveis.Add(item);
+                    availableVehicles.Add(item);
         }
 
-        private void CarregaCondutor()
+        private void LoadDrivers()
         {
-            List<Customer> clientesPf = new List<Customer>();
-            foreach (Customer cliente in controladorCliente.SelectAll())
-                if (cliente.IsPhysicalPerson)
-                    clientesPf.Add(cliente);
-            cBoxCondutor.DataSource = clientesPf;
+            List<Customer> physicalCustomers = new List<Customer>();
+            foreach (Customer customer in customerController.SelectAll())
+                if (customer.IsPhysicalPerson)
+                    physicalCustomers.Add(customer);
+            cBoxDriver.DataSource = physicalCustomers;
         }
 
-        private void brnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtId.Text);
-            string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
-            Vehicle veiculo = cBoxVeiculo.SelectedItem as Vehicle;
-            Domain.EmployeeModule.Employee funcionarioLocador = cBoxFuncionario.SelectedItem as Domain.EmployeeModule.Employee;
-            Customer clienteContratante = cBoxCliente.SelectedItem as Customer;
-            Customer condutor = cBoxCondutor.SelectedItem as Customer;
-            DateTime dataDeSaida = dateTPDataSaida.Value;
-            DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
-            string tipoDeSeguro = "Nenhum";
-            if (telaServico.seguro.Length > 0)
-                tipoDeSeguro = telaServico.seguro;
-            Coupon cupom = null;
-            bool existe = controladorCupom.CodeExists(txtCupom.Text);
-            if (existe)
+            string planType = cBoxPlan.Text.Replace(" ", "");
+            Vehicle vehicle = cBoxVehicle.SelectedItem as Vehicle;
+            Domain.EmployeeModule.Employee rentingEmployee = cBoxEmployee.SelectedItem as Domain.EmployeeModule.Employee;
+            Customer contractingCustomer = cBoxCustomer.SelectedItem as Customer;
+            Customer driver = cBoxDriver.SelectedItem as Customer;
+            DateTime departureDate = dateTPDepartureDate.Value;
+            DateTime expectedReturnDate = dateTPReturnDate.Value;
+            string insuranceType = "None";
+            if (serviceForm.seguro.Length > 0)
+                insuranceType = serviceForm.seguro;
+            Coupon coupon = null;
+            bool exists = couponController.CodeExists(txtCoupon.Text);
+            if (exists)
             {
-                cupom = controladorCupom.SelectByCode(txtCupom.Text);
-                if (cupom.ExpirationDate < DateTime.Now)
-                    cupom = null;
+                coupon = couponController.SelectByCode(txtCoupon.Text);
+                if (coupon.ExpirationDate < DateTime.Now)
+                    coupon = null;
             }
 
-            locacao = new Rental(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-            Vehicle veiculoAtualizado = locacao.Vehicle;
-            controladorVeiculo.Edit(locacao.Vehicle.Id, veiculoAtualizado);
-            string resultadoValidacao = locacao.Validate();
+            rental = new Rental(id, vehicle, rentingEmployee, contractingCustomer, driver, coupon, departureDate, expectedReturnDate, planType, insuranceType, Services);
+            Vehicle updatedVehicle = rental.Vehicle;
+            vehicleController.Edit(rental.Vehicle.Id, updatedVehicle);
+            string validationResult = rental.Validate();
 
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                string firstError = new StringReader(validationResult).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
                 DialogResult = DialogResult.None;
             }
         }
 
-
-
-        private void btnServicos_Click(object sender, EventArgs e)
+        private void btnServices_Click(object sender, EventArgs e)
         {
-            telaServico = new ServiceSelectionForm();
-            telaServico.InicializarCampos(Servicos, TipoSeguro, true);
+            serviceForm = new ServiceSelectionForm();
+            serviceForm.InicializarCampos(Services, InsuranceType, true);
 
-            if (telaServico.ShowDialog() == DialogResult.OK)
+            if (serviceForm.ShowDialog() == DialogResult.OK)
             {
-                Servicos = telaServico.servicosSelecionados;
-                TipoSeguro = telaServico.seguro;
-                double precoGarantia = CalculateRental.CalculateGuarantee();
-                double precoSeguro = CalculateRental.CalculateInsurance(telaServico.seguro);
-                txtTotal.Text = Convert.ToString(precoGarantia + precoSeguro);
+                Services = serviceForm.servicosSelecionados;
+                InsuranceType = serviceForm.seguro;
+                double guaranteePrice = CalculateRental.CalculateGuarantee();
+                double insurancePrice = CalculateRental.CalculateInsurance(serviceForm.seguro);
+                txtTotal.Text = Convert.ToString(guaranteePrice + insurancePrice);
             }
         }
 
-        private void btnVerificar_Click(object sender, EventArgs e)
+        private void btnCheck_Click(object sender, EventArgs e)
         {
-            string cupom = txtCupom.Text;
-            bool existe = controladorCupom.CodeExists(cupom);
-            if (existe)
-                txtCupom.BackColor = Color.Green;
+            string coupon = txtCoupon.Text;
+            bool exists = couponController.CodeExists(coupon);
+            if (exists)
+                txtCoupon.BackColor = Color.Green;
             else
-                txtCupom.BackColor = Color.Red;
+                txtCoupon.BackColor = Color.Red;
         }
     }
 }
