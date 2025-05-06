@@ -58,7 +58,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
                 rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental: [{form.Rental.Vehicle}] completed successfully");
+                MainForm.Instance.UpdateFooter($"Rental: [{form.Rental.Vehicle}] completed successfully");
             }
         }
 
@@ -86,7 +86,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
                 rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental of: [{form.Rental.ContractingCustomer}] edited successfully");
+                MainForm.Instance.UpdateFooter($"Rental of: [{form.Rental.ContractingCustomer}] edited successfully");
             }
         }
 
@@ -112,7 +112,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
                 rentalTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental of: [{selectedRental.ContractingCustomer}] removed successfully");
+                MainForm.Instance.UpdateFooter($"Rental of: [{selectedRental.ContractingCustomer}] removed successfully");
             }
         }
         public void GroupRecords()

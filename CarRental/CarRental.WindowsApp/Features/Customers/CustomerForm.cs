@@ -83,8 +83,8 @@ namespace CarRental.WindowsApp.CustomerModule
             string validationResult = customer.Validate();
             if (validationResult != "VALID")
             {
-                string error = new StringReader(validationResult).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(error);
+                string firstError = new StringReader(validationResult).ReadLine();
+                MainForm.Instance.UpdateFooter(firstError);
                 DialogResult = DialogResult.None;
             }
         }

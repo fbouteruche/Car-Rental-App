@@ -73,7 +73,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
             {
                 string error = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(error);
+                MainForm.Instance.UpdateFooter(error);
 
                 DialogResult = DialogResult.None;
             }

@@ -33,7 +33,7 @@ namespace CarRental.WindowsApp.Features.Coupons
 
                 table.UpdateRecords(coupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{form.Coupon.Name}] successfully inserted");
+                MainForm.Instance.UpdateFooter($"Coupon: [{form.Coupon.Name}] successfully inserted");
             }
         }
 
@@ -56,7 +56,7 @@ namespace CarRental.WindowsApp.Features.Coupons
                 controller.Edit(id, form.Coupon);
                 List<Coupon> coupons = controller.SelectAll();
                 table.UpdateRecords(coupons);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{selectedCoupon.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Coupon: [{selectedCoupon.Name}] successfully edited");
             }
         }
 
@@ -77,7 +77,7 @@ namespace CarRental.WindowsApp.Features.Coupons
                 controller.Delete(id);
                 List<Coupon> coupons = controller.SelectAll();
                 table.UpdateRecords(coupons);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Coupon: [{selectedCoupon.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Coupon: [{selectedCoupon.Name}] successfully removed");
             }
         }
 

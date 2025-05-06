@@ -71,14 +71,14 @@ namespace CarRental.WindowsApp.Features.Employee
             if (validationResult != "VALID")
             {
                 string firstError = new StringReader(validationResult).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
+                MainForm.Instance.UpdateFooter(firstError);
                 DialogResult = DialogResult.None;
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
+            MainForm.Instance.UpdateFooter("");
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)

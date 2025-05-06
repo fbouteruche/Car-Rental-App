@@ -56,7 +56,7 @@ namespace CarRental.WindowsApp.Features.Login
 
         public void OpenMainScreen()
         {
-            Application.Run(new TelaPrincipalForm());
+            Application.Run(new MainForm());
         }
 
         private void linkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

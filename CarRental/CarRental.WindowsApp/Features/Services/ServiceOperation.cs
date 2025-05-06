@@ -34,7 +34,7 @@ namespace CarRental.WindowsApp.Features.Services
 
                 serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{form.Service.Name}] successfully added");
+                MainForm.Instance.UpdateFooter($"Service: [{form.Service.Name}] successfully added");
             }
         }
 
@@ -63,7 +63,7 @@ namespace CarRental.WindowsApp.Features.Services
 
                 serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{form.Service.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Service: [{form.Service.Name}] successfully edited");
             }
         }
 
@@ -89,7 +89,7 @@ namespace CarRental.WindowsApp.Features.Services
 
                 serviceTable.UpdateRecords(services);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Service: [{selectedService.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Service: [{selectedService.Name}] successfully removed");
             }
         }
 

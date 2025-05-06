@@ -57,7 +57,7 @@ namespace CarRental.WindowsApp.Features.Services
             {
                 string firstError = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
+                MainForm.Instance.UpdateFooter(firstError);
 
                 DialogResult = DialogResult.None;
             }
@@ -78,9 +78,9 @@ namespace CarRental.WindowsApp.Features.Services
             }
         }
 
-        private void ServicoForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ServiceForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
+            MainForm.Instance.UpdateFooter("");
         }
     }
 }

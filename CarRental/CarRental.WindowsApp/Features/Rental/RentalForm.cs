@@ -124,7 +124,7 @@ namespace CarRental.WindowsApp.Features.Rentals
             if (validationResult != "VALID")
             {
                 string firstError = new StringReader(validationResult).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
+                MainForm.Instance.UpdateFooter(firstError);
                 DialogResult = DialogResult.None;
             }
         }

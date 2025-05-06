@@ -49,7 +49,7 @@ namespace CarRental.WindowsApp.Features.Employees
                 controller.Edit(id, form.Employee);
                 List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
                 employeeTable.UpdateRecords(employees);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{selectedEmployee.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Employee: [{selectedEmployee.Name}] successfully edited");
             }
         }
 
@@ -70,7 +70,7 @@ namespace CarRental.WindowsApp.Features.Employees
                 controller.Delete(id);
                 List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
                 employeeTable.UpdateRecords(employees);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{selectedEmployee.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Employee: [{selectedEmployee.Name}] successfully removed");
             }
         }
 
@@ -88,7 +88,7 @@ namespace CarRental.WindowsApp.Features.Employees
                 controller.InsertNew(form.Employee);
                 List<Domain.EmployeeModule.Employee> employees = controller.SelectAll();
                 employeeTable.UpdateRecords(employees);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: [{form.Employee.Name}] successfully added");
+                MainForm.Instance.UpdateFooter($"Employee: [{form.Employee.Name}] successfully added");
             }
         }
 

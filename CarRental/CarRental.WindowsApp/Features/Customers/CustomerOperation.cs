@@ -37,7 +37,7 @@ namespace CarRental.WindowsApp.Features.Customers
                 controller.Edit(id, form.CustomerData);
                 List<Customer> customers = controller.SelectAll();
                 customerTable.UpdateRecords();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{form.CustomerData.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Customer: [{form.CustomerData.Name}] successfully edited");
             }
         }
         public void DeleteRecord()
@@ -55,7 +55,7 @@ namespace CarRental.WindowsApp.Features.Customers
                 controller.Delete(id);
                 List<Customer> customers = controller.SelectAll();
                 customerTable.UpdateRecords();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{selectedCustomer.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Customer: [{selectedCustomer.Name}] successfully removed");
             }
         }
         public void InsertNewRecord()
@@ -66,7 +66,7 @@ namespace CarRental.WindowsApp.Features.Customers
                 controller.InsertNew(form.CustomerData);
                 List<Customer> customers = controller.SelectAll();
                 customerTable.UpdateRecords();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Customer: [{form.CustomerData.Name}] successfully added");
+                MainForm.Instance.UpdateFooter($"Customer: [{form.CustomerData.Name}] successfully added");
             }
         }
 

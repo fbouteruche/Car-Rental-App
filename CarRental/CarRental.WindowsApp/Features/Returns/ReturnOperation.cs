@@ -38,7 +38,7 @@ namespace CarRental.WindowsApp.Features.Returns
                 controller.Edit(form.Return.Id , form.Return);
                 List<Rental> employees = controller.SelectAll();
                 returnTable.UpdateRecords(employees);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Return: [{form.Return.Id}] successfully processed");
+                MainForm.Instance.UpdateFooter($"Return: [{form.Return.Id}] successfully processed");
             }
         }
 
@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Features.Returns
 
                 returnTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Record of: [{selectedRental.ContractingCustomer}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Record of: [{selectedRental.ContractingCustomer}] successfully removed");
             }
         }
 
@@ -114,7 +114,7 @@ namespace CarRental.WindowsApp.Features.Returns
                 }
 
                 returnTable.UpdateRecords(returns);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Viewing {returns.Count} return(s) {rentalType}");
+                MainForm.Instance.UpdateFooter($"Viewing {returns.Count} return(s) {rentalType}");
             }
         }
 

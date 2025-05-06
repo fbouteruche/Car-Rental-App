@@ -33,7 +33,7 @@ namespace CarRental.WindowsApp.Features.Vehicles
 
                 vehicleTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{form.Vehicle.model}] successfully registered");
+                MainForm.Instance.UpdateFooter($"Vehicle: [{form.Vehicle.model}] successfully registered");
             }
         }
         public void EditRecord()
@@ -60,7 +60,7 @@ namespace CarRental.WindowsApp.Features.Vehicles
 
                 vehicleTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{form.Vehicle.model}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Vehicle: [{form.Vehicle.model}] successfully edited");
             }
         }
         public void DeleteRecord()
@@ -85,7 +85,7 @@ namespace CarRental.WindowsApp.Features.Vehicles
 
                 vehicleTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{selectedVehicle.model}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Vehicle: [{selectedVehicle.model}] successfully removed");
             }
         }
         public void FilterRecords()

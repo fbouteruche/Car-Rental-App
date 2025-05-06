@@ -51,7 +51,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
                 vehicleGroupTable.UpdateRecords(vehicleGroups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{form.VehicleGroup.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Vehicle Group: [{form.VehicleGroup.Name}] successfully edited");
             }
         }
 
@@ -74,7 +74,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
                 vehicleGroupTable.UpdateRecords(groups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{selectedGroup.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Vehicle Group: [{selectedGroup.Name}] successfully removed");
             }
         }
 
@@ -95,7 +95,7 @@ namespace CarRental.WindowsApp.Features.VehicleGroups
 
                 vehicleGroupTable.UpdateRecords(vehicleGroups);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: [{form.VehicleGroup.Name}] successfully inserted");
+                MainForm.Instance.UpdateFooter($"Vehicle Group: [{form.VehicleGroup.Name}] successfully inserted");
             }
         }
 

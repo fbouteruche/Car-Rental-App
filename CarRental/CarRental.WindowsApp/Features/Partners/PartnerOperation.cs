@@ -30,7 +30,7 @@ namespace CarRental.WindowsApp.Features.Partners
 
                 table.UpdateRecords(partners);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{form.Partner.Name}] successfully added");
+                MainForm.Instance.UpdateFooter($"Partner: [{form.Partner.Name}] successfully added");
             }
         }        
 
@@ -53,7 +53,7 @@ namespace CarRental.WindowsApp.Features.Partners
                 controller.Edit(id, form.Partner);
                 List<Partner> partners = controller.SelectAll();
                 table.UpdateRecords(partners);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{selectedPartner.Name}] successfully edited");
+                MainForm.Instance.UpdateFooter($"Partner: [{selectedPartner.Name}] successfully edited");
             }
         }
 
@@ -74,7 +74,7 @@ namespace CarRental.WindowsApp.Features.Partners
                 controller.Delete(id);
                 List<Partner> partners = controller.SelectAll();
                 table.UpdateRecords(partners);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: [{selectedPartner.Name}] successfully removed");
+                MainForm.Instance.UpdateFooter($"Partner: [{selectedPartner.Name}] successfully removed");
             }
         }
         public void GroupRecords()

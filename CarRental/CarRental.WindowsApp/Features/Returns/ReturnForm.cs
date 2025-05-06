@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Features.Returns
         {
             if (dtpReturn.Value <= returnRental.DepartureDate)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Return date is earlier than rental date");
+                MainForm.Instance.UpdateFooter("Return date is earlier than rental date");
                 DialogResult = DialogResult.None;
             }
             else
@@ -84,7 +84,7 @@ namespace CarRental.WindowsApp.Features.Returns
                 if (validationResult != "VALID")
                 {
                     string firstError = new StringReader(validationResult).ReadLine();
-                    TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
+                    MainForm.Instance.UpdateFooter(firstError);
                     DialogResult = DialogResult.None;
                 }
             }
