@@ -63,7 +63,7 @@ namespace CarRental.Tests.RentalModule
             driverCustomer = new Customer(0, "Nardolindo", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             customerController.InsertNew(driverCustomer);
 
-            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmFree", "None", 0, 0, false, null);
+            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "UnlimitedKm", "None", 0, 0, false, null);
             controller.InsertNew(rental);
 
             var foundRental = controller.SelectById(rental.Id);
@@ -84,7 +84,7 @@ namespace CarRental.Tests.RentalModule
             driverCustomer = new Customer(0, "Nardolindo", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             customerController.InsertNew(driverCustomer);
 
-            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmFree", "None", null);
+            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "UnlimitedKm", "None", null);
             controller.InsertNew(rental);
             Rental anotherRental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today.AddDays(-10), DateTime.Today.AddDays(15), "DailyPlan", "CustomerInsurance", null);
             controller.InsertNew(anotherRental);
@@ -107,9 +107,9 @@ namespace CarRental.Tests.RentalModule
             driverCustomer = new Customer(0, "Nardolindo", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             customerController.InsertNew(driverCustomer);
 
-            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmFree", "None", null);
+            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "UnlimitedKm", "None", null);
             controller.InsertNew(rental);
-            Rental anotherRental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmFree", "None", 0, 0, false, null);
+            Rental anotherRental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "UnlimitedKm", "None", 0, 0, false, null);
             controller.Edit(rental.Id, anotherRental);
 
             var foundRental = controller.SelectById(rental.Id);
@@ -130,7 +130,7 @@ namespace CarRental.Tests.RentalModule
             driverCustomer = new Customer(0, "Nardolindo", "954.746.736-04", "Customer Address", "4932518000", "test@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             customerController.InsertNew(driverCustomer);
 
-            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "KmFree", "None", null);
+            rental = new Rental(0, vehicle, employee, contractingCustomer, driverCustomer, null, DateTime.Today, DateTime.Today.AddDays(5f), "UnlimitedKm", "None", null);
             controller.InsertNew(rental);
             controller.Delete(rental.Id);
 
