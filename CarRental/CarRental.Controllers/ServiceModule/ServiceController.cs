@@ -10,60 +10,60 @@ namespace CarRental.Controllers.ServiceModule
     {
         #region queries
         private const string sqlInsertService =
-            @"INSERT INTO TBSERVICO
+            @"INSERT INTO Service
             (
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
+                [Name],
+                [IsDailyCharged],
+                [Value]
             )
             VALUES
             (
-                @NOME,
-                @EHTAXADODIARIO,
-                @VALOR
+                @Name,
+                @IsDailyCharged,
+                @Value
             )";
         private const string sqlSelectAllServices =
             @"SELECT 
-                [ID],
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
+                [Id],
+                [Name],
+                [IsDailyCharged],
+                [Value]
             FROM 
-                TBSERVICO ORDER BY ID;";
+                Service ORDER BY Id;";
 
         private const string sqlSelectServiceById =
             @"SELECT  
-                [ID],
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
+                [Id],
+                [Name],
+                [IsDailyCharged],
+                [Value]
             FROM
-                TBSERVICO 
+                Service 
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
 
         private const string sqlEditService =
-            @"UPDATE TBSERVICO SET
-                [NOME] = @NOME,
-                [EHTAXADODIARIO] = @EHTAXADODIARIO,
-                [VALOR] = @VALOR
+            @"UPDATE Service SET
+                [Name] = @Name,
+                [IsDailyCharged] = @IsDailyCharged,
+                [Value] = @Value
             WHERE
-                [ID] = @ID
+                [Id] = @Id
             ";
         private const string sqlDeleteService =
             @"DELETE 
                 FROM 
-                TBSERVICO 
+                Service 
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
 
         private const string sqlServiceExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBSERVICO]
+                [Service]
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
         #endregion
         public override string InsertNew(Service registro)
         {
@@ -80,7 +80,7 @@ namespace CarRental.Controllers.ServiceModule
         }
         public override Service SelectById(int id)
         {
-            return Db.Get(sqlSelectServiceById, ConvertToService, AddParameter("ID", id));
+            return Db.Get(sqlSelectServiceById, ConvertToService, AddParameter("Id", id));
         }
         public override string Edit(int id, Service registro)
         {
@@ -98,7 +98,7 @@ namespace CarRental.Controllers.ServiceModule
         {
             try
             {
-                Db.Delete(sqlDeleteService, AddParameter("ID", id));
+                Db.Delete(sqlDeleteService, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -110,29 +110,29 @@ namespace CarRental.Controllers.ServiceModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlServiceExists, AddParameter("ID", id));
+            return Db.Exists(sqlServiceExists, AddParameter("Id", id));
         }
 
         private Dictionary<string, object> GetServiceParameters(Service servico)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", servico.Id);
-            parametros.Add("NOME", servico.Name);
-            parametros.Add("EHTAXADODIARIO", servico.IsChargedDaily);
-            parametros.Add("VALOR", servico.Value);
+            parametros.Add("Id", servico.Id);
+            parametros.Add("Name", servico.Name);
+            parametros.Add("IsDailyCharged", servico.IsChargedDaily);
+            parametros.Add("Value", servico.Value);
 
             return parametros;
         }
         
         private Service ConvertToService(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOME"]);
-            bool ehTaxadoDiario = Convert.ToBoolean(reader["EHTAXADODIARIO"]);
-            double valor = Convert.ToDouble(reader["VALOR"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["Name"]);
+            bool isDailyCharged = Convert.ToBoolean(reader["IsDailyCharged"]);
+            double value = Convert.ToDouble(reader["Value"]);
 
-            Service servico = new Service(id, nome, ehTaxadoDiario, valor);
+            Service servico = new Service(id, name, isDailyCharged, value);
 
             servico.Id = id;
 

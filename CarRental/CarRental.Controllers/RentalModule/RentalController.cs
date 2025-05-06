@@ -38,70 +38,70 @@ namespace CarRental.Controllers.RentalModule
 
         #region queries
         private const string sqlInsertRental =
-                @"INSERT INTO[DBO].[TBLOCACAO]
+                @"INSERT INTO[DBO].[Rental]
                 (
-                    [ID_VEICULO],
-                    [ID_FUNCIONARIO],
-                    [ID_CLIENTECONTRATANTE],
-                    [ID_CLIENTECONDUTOR],
-                    [ID_CUPOM],
-                    [DATADESAIDA],
-                    [DATAPREVISTADECHEGADA],
-                    [DATADECHEGADA],
-                    [TIPODOPLANO],
-                    [TIPODESEGURO],
-                    [PRECOLOCACAO],
-                    [PRECODEVOLUCAO],
-                    [ESTAABERTA]
+                    [VehicleId],
+                    [EmployeeId],
+                    [ContractingCustomerId],
+                    [DriverCustomerId],
+                    [CouponId],
+                    [DepartureDate],
+                    [ExpectedReturnDate],
+                    [ReturnDate],
+                    [PlanType],
+                    [InsuranceType],
+                    [RentalPrice],
+                    [ReturnPrice],
+                    [IsOpen]
                 )
                 VALUES
                 (
-                    @ID_VEICULO,
-                    @ID_FUNCIONARIO,
-                    @ID_CLIENTECONTRATANTE,
-                    @ID_CLIENTECONDUTOR,
-                    @ID_CUPOM,
-                    @DATADESAIDA,
-                    @DATAPREVISTADECHEGADA,
-                    @DATADECHEGADA,
-                    @TIPODOPLANO,
-                    @TIPODESEGURO,
-                    @PRECOLOCACAO,
-                    @PRECODEVOLUCAO,
-                    @ESTAABERTA
+                    @VehicleId,
+                    @EmployeeId,
+                    @ContractingCustomerId,
+                    @DriverCustomerId,
+                    @CouponId,
+                    @DepartureDate,
+                    @ExpectedReturnDate,
+                    @ReturnDate,
+                    @PlanType,
+                    @InsuranceType,
+                    @RentalPrice,
+                    @ReturnPrice,
+                    @IsOpen
                 );";
 
         private const string sqlUpdateRental =
-        @"UPDATE [DBO].[TBLOCACAO] 
+        @"UPDATE [DBO].[Rental] 
                 SET
-                    [ID_VEICULO] = @ID_VEICULO,
-                    [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
-                    [ID_CLIENTECONTRATANTE] = @ID_CLIENTECONTRATANTE,
-                    [ID_CLIENTECONDUTOR] = @ID_CLIENTECONDUTOR,
-                    [ID_CUPOM] = @ID_CUPOM,
-                    [DATADESAIDA] = @DATADESAIDA,
-                    [DATAPREVISTADECHEGADA] = @DATAPREVISTADECHEGADA,
-                    [DATADECHEGADA] = @DATADECHEGADA,
-                    [TIPODOPLANO] = @TIPODOPLANO,
-                    [TIPODESEGURO] = @TIPODESEGURO,
-                    [PRECOLOCACAO] = @PRECOLOCACAO,
-                    [PRECODEVOLUCAO] = @PRECODEVOLUCAO,
-                    [ESTAABERTA] = @ESTAABERTA
+                    [VehicleId] = @VehicleId,
+                    [EmployeeId] = @EmployeeId,
+                    [ContractingCustomerId] = @ContractingCustomerId,
+                    [DriverCustomerId] = @DriverCustomerId,
+                    [CouponId] = @CouponId,
+                    [DepartureDate] = @DepartureDate,
+                    [ExpectedReturnDate] = @ExpectedReturnDate,
+                    [ReturnDate] = @ReturnDate,
+                    [PlanType] = @PlanType,
+                    [InsuranceType] = @InsuranceType,
+                    [RentalPrice] = @RentalPrice,
+                    [ReturnPrice] = @ReturnPrice,
+                    [IsOpen] = @IsOpen
                 WHERE 
-                    [ID] = @ID;";
+                    [Id] = @Id;";
 
         private const string sqlSelectAllRentals =
-            @"SELECT * FROM [DBO].[TBLOCACAO];";
+            @"SELECT * FROM [DBO].[Rental];";
 
         private const string sqlSelectRentalById =
-            @"SELECT * FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
+            @"SELECT * FROM [DBO].[Rental] WHERE [Id] = @Id;";
 
         private const string sqlDeleteRental =
-                @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
+                @"DELETE FROM [DBO].[Rental] WHERE [Id] = @Id;";
 
         private string sqlSelectServiceIdByRentalId =
-            @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
-               WHERE [ID_LOCACAO] = @ID_LOCACAO";
+            @"SELECT [ServiceId] FROM [RentalService]
+               WHERE [RentalId] = @RentalId";
         #endregion
 
         public override string InsertNew(Rental record)
@@ -119,13 +119,13 @@ namespace CarRental.Controllers.RentalModule
         }
         public override Rental SelectById(int id)
         {
-            return Db.Get(sqlSelectRentalById, ConvertToRental, AddParameter("ID", id));
+            return Db.Get(sqlSelectRentalById, ConvertToRental, AddParameter("Id", id));
         }
 
         private List<Service> SelectServicesByRentalId(int rentalId)
         {
             List<Service> rentalServices = new List<Service>();
-            List<int> serviceIds = Db.GetAll(sqlSelectServiceIdByRentalId, ConvertToInt, AddParameter("ID_LOCACAO", rentalId));
+            List<int> serviceIds = Db.GetAll(sqlSelectServiceIdByRentalId, ConvertToInt, AddParameter("RentalId", rentalId));
             foreach (int serviceId in serviceIds)
             {
                 rentalServices.Add(serviceController.SelectById(serviceId));
@@ -149,7 +149,7 @@ namespace CarRental.Controllers.RentalModule
         {
             try
             {
-                Db.Delete(sqlDeleteRental, AddParameter("ID", id));
+                Db.Delete(sqlDeleteRental, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -161,59 +161,59 @@ namespace CarRental.Controllers.RentalModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelectRentalById, AddParameter("ID", id));
+            return Db.Exists(sqlSelectRentalById, AddParameter("Id", id));
         }
 
         private Dictionary<string, object> GetRentalParameters(Rental rental)
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", rental.Id);
-            parameters.Add("ID_VEICULO", rental.Vehicle.Id);
-            parameters.Add("ID_FUNCIONARIO", rental.RentingEmployee.Id);
-            parameters.Add("ID_CLIENTECONTRATANTE", rental.ContractingCustomer.Id);
-            parameters.Add("ID_CLIENTECONDUTOR", rental.DriverCustomer.Id);
+            parameters.Add("Id", rental.Id);
+            parameters.Add("VehicleId", rental.Vehicle.Id);
+            parameters.Add("EmployeeId", rental.RentingEmployee.Id);
+            parameters.Add("ContractingCustomerId", rental.ContractingCustomer.Id);
+            parameters.Add("DriverCustomerId", rental.DriverCustomer.Id);
             if (rental.Coupon != null)
-                parameters.Add("ID_CUPOM", rental.Coupon.Id);
+                parameters.Add("CouponId", rental.Coupon.Id);
             else
-                parameters.Add("ID_CUPOM", null);
-            parameters.Add("DATADESAIDA", rental.DepartureDate);
-            parameters.Add("DATAPREVISTADECHEGADA", rental.ExpectedReturnDate);
-            parameters.Add("DATADECHEGADA", rental.ReturnDate);
-            parameters.Add("TIPODOPLANO", rental.PlanType);
-            parameters.Add("TIPODESEGURO", rental.InsuranceType);
-            parameters.Add("PRECOLOCACAO", rental.RentalPrice);
-            parameters.Add("PRECODEVOLUCAO", rental.ReturnPrice);
-            parameters.Add("ESTAABERTA", rental.IsOpen);
+                parameters.Add("CouponId", null);
+            parameters.Add("DepartureDate", rental.DepartureDate);
+            parameters.Add("ExpectedReturnDate", rental.ExpectedReturnDate);
+            parameters.Add("ReturnDate", rental.ReturnDate);
+            parameters.Add("PlanType", rental.PlanType);
+            parameters.Add("InsuranceType", rental.InsuranceType);
+            parameters.Add("RentalPrice", rental.RentalPrice);
+            parameters.Add("ReturnPrice", rental.ReturnPrice);
+            parameters.Add("IsOpen", rental.IsOpen);
             return parameters;
         }
 
         private int ConvertToInt(IDataReader reader)
         {
-            return Convert.ToInt32(reader["ID_SERVICO"]);
+            return Convert.ToInt32(reader["ServiceId"]);
         }
 
         private Rental ConvertToRental(IDataReader reader)
         {
-            var id = Convert.ToInt32(reader["ID"]);
-            var vehicleId = Convert.ToInt32(reader["ID_VEICULO"]);
-            var employeeId = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
-            var contractingCustomerId = Convert.ToInt32(reader["ID_CLIENTECONTRATANTE"]);
-            var driverCustomerId = Convert.ToInt32(reader["ID_CLIENTECONDUTOR"]);
+            var id = Convert.ToInt32(reader["Id"]);
+            var vehicleId = Convert.ToInt32(reader["VehicleId"]);
+            var employeeId = Convert.ToInt32(reader["EmployeeId"]);
+            var contractingCustomerId = Convert.ToInt32(reader["ContractingCustomerId"]);
+            var driverCustomerId = Convert.ToInt32(reader["DriverCustomerId"]);
             var couponId = 0;
-            if (reader["ID_CUPOM"] != DBNull.Value)
-                couponId = Convert.ToInt32(reader["ID_CUPOM"]);
+            if (reader["CouponId"] != DBNull.Value)
+                couponId = Convert.ToInt32(reader["CouponId"]);
             // There may be problems with null return. If it happens, do something like:
-            // if (!int.TryParse(reader["ID_CLIENTECONDUTOR"].ToString(), out int driverCustomerId))
+            // if (!int.TryParse(reader["DriverCustomerId"].ToString(), out int driverCustomerId))
             //     driverCustomerId = -1;
-            var departureDate = Convert.ToDateTime(reader["DATADESAIDA"]);
-            var expectedReturnDate = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
-            var returnDate = Convert.ToDateTime(reader["DATADECHEGADA"]);
-            var planType = Convert.ToString(reader["TIPODOPLANO"]);
-            var insuranceType = Convert.ToString(reader["TIPODESEGURO"]);
-            var rentalPrice = Convert.ToDouble(reader["PRECOLOCACAO"]);
-            var returnPrice = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
-            var isOpen = Convert.ToBoolean(reader["ESTAABERTA"]);
+            var departureDate = Convert.ToDateTime(reader["DepartureDate"]);
+            var expectedReturnDate = Convert.ToDateTime(reader["ExpectedReturnDate"]);
+            var returnDate = Convert.ToDateTime(reader["ReturnDate"]);
+            var planType = Convert.ToString(reader["PlanType"]);
+            var insuranceType = Convert.ToString(reader["InsuranceType"]);
+            var rentalPrice = Convert.ToDouble(reader["RentalPrice"]);
+            var returnPrice = Convert.ToDouble(reader["ReturnPrice"]);
+            var isOpen = Convert.ToBoolean(reader["IsOpen"]);
 
             List<Service> rentalServices = SelectServicesByRentalId(id);
             //foreach (Service service in serviceController.SelectAll())

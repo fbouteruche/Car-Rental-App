@@ -10,54 +10,54 @@ namespace CarRental.Controllers.EmployeeModule
     {
 
         #region Queries
-        private const string insertCommand = @"INSERT INTO TBFUNCIONARIO
-										(
-											[NOME],
-											[REGISTROUNICO],
-											[ENDERECO],
-											[TELEFONE],
-											[EMAIL],
-											[EHPESSOAFISICA],
-											[MATRICULAINTERNA],
-											[USUARIOACESSO],
-                                            [SENHA],
-											[CARGO],
-											[SALARIO],
-                                            [DATAADMISSAO]
-										)
-										VALUES
-										(
-											@NOME,
-											@REGISTROUNICO,
-											@ENDERECO,
-											@TELEFONE,
-											@EMAIL,
-											@EHPESSOAFISICA,
-											@MATRICULAINTERNA,
-											@USUARIOACESSO,
-                                            @SENHA,
-											@CARGO,
-											@SALARIO,
-                                            @DATAADMISSAO
-										);";
-        private const string updateCommand = @"UPDATE TBFUNCIONARIO 
-									    SET
-									    	[NOME] = @NOME,
-									    	[REGISTROUNICO] = @REGISTROUNICO,
-									    	[ENDERECO] = @ENDERECO,
-									    	[TELEFONE] = @TELEFONE,
-									    	[EMAIL] = @EMAIL,
-									    	[EHPESSOAFISICA] = @EHPESSOAFISICA,
-									    	[MATRICULAINTERNA] = @MATRICULAINTERNA,
-									    	[USUARIOACESSO] = @USUARIOACESSO,
-                                            [SENHA] = @SENHA,
-									    	[CARGO] = @CARGO,
-									    	[SALARIO] = @SALARIO,
-                                            [DATAADMISSAO] = @DATAADMISSAO
-									    WHERE [ID] = @ID;";
-        private const string deleteCommand = @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
-        private const string selectAllCommand = "SELECT * FROM TBFUNCIONARIO;";
-        private const string selectByIdCommand = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
+        private const string insertCommand = @"INSERT INTO Employee
+                                        (
+                                            [Name],
+                                            [UniqueRegister],
+                                            [Address],
+                                            [Phone],
+                                            [Email],
+                                            [IsIndividual],
+                                            [InternalRegister],
+                                            [AccessUser],
+                                            [Password],
+                                            [Role],
+                                            [Salary],
+                                            [AdmissionDate]
+                                        )
+                                        VALUES
+                                        (
+                                            @Name,
+                                            @UniqueRegister,
+                                            @Address,
+                                            @Phone,
+                                            @Email,
+                                            @IsIndividual,
+                                            @InternalRegister,
+                                            @AccessUser,
+                                            @Password,
+                                            @Role,
+                                            @Salary,
+                                            @AdmissionDate
+                                        );";
+        private const string updateCommand = @"UPDATE Employee 
+                                        SET
+                                            [Name] = @Name,
+                                            [UniqueRegister] = @UniqueRegister,
+                                            [Address] = @Address,
+                                            [Phone] = @Phone,
+                                            [Email] = @Email,
+                                            [IsIndividual] = @IsIndividual,
+                                            [InternalRegister] = @InternalRegister,
+                                            [AccessUser] = @AccessUser,
+                                            [Password] = @Password,
+                                            [Role] = @Role,
+                                            [Salary] = @Salary,
+                                            [AdmissionDate] = @AdmissionDate
+                                        WHERE [Id] = @Id;";
+        private const string deleteCommand = @"DELETE FROM Employee WHERE [Id] = @Id;";
+        private const string selectAllCommand = "SELECT * FROM Employee;";
+        private const string selectByIdCommand = "SELECT * FROM Employee WHERE [Id] = @Id;";
         #endregion
 
         public override string Edit(int id, Employee employee)
@@ -75,7 +75,7 @@ namespace CarRental.Controllers.EmployeeModule
         {
             try
             {
-                Db.Delete(deleteCommand, AddParameter("ID", id));
+                Db.Delete(deleteCommand, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -86,7 +86,7 @@ namespace CarRental.Controllers.EmployeeModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(selectByIdCommand, AddParameter("ID", id));
+            return Db.Exists(selectByIdCommand, AddParameter("Id", id));
         }
 
         public override string InsertNew(Employee employee)
@@ -100,7 +100,7 @@ namespace CarRental.Controllers.EmployeeModule
 
         public override Employee SelectById(int id)
         {
-            return Db.Get(selectByIdCommand, ConvertToEmployee, AddParameter("ID", id));
+            return Db.Get(selectByIdCommand, ConvertToEmployee, AddParameter("Id", id));
         }
 
         public override List<Employee> SelectAll()
@@ -112,38 +112,38 @@ namespace CarRental.Controllers.EmployeeModule
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", employee.Id);
-            parameters.Add("NOME", employee.Name);
-            parameters.Add("REGISTROUNICO", employee.UniqueId);
-            parameters.Add("ENDERECO", employee.Address);
-            parameters.Add("TELEFONE", employee.Phone);
-            parameters.Add("EMAIL", employee.Email);
-            parameters.Add("MATRICULAINTERNA", employee.InternalRegistration);
-            parameters.Add("USUARIOACESSO", employee.LoginUsername);
-            parameters.Add("SENHA", employee.UserPassword);
-            parameters.Add("DATAADMISSAO", employee.HiringDate);
-            parameters.Add("CARGO", employee.JobTitle);
-            parameters.Add("SALARIO", float.Parse(Convert.ToString(employee.Salary)));
-            parameters.Add("EHPESSOAFISICA", Convert.ToBoolean(employee.IsPhysicalPerson));
+            parameters.Add("Id", employee.Id);
+            parameters.Add("Name", employee.Name);
+            parameters.Add("UniqueRegister", employee.UniqueId);
+            parameters.Add("Address", employee.Address);
+            parameters.Add("Phone", employee.Phone);
+            parameters.Add("Email", employee.Email);
+            parameters.Add("InternalRegister", employee.InternalRegistration);
+            parameters.Add("AccessUser", employee.LoginUsername);
+            parameters.Add("Password", employee.UserPassword);
+            parameters.Add("AdmissionDate", employee.HiringDate);
+            parameters.Add("Role", employee.JobTitle);
+            parameters.Add("Salary", float.Parse(Convert.ToString(employee.Salary)));
+            parameters.Add("IsIndividual", Convert.ToBoolean(employee.IsPhysicalPerson));
 
             return parameters;
         }
 
         private Employee ConvertToEmployee(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string name = Convert.ToString(reader["NOME"]);
-            string uniqueId = Convert.ToString(reader["REGISTROUNICO"]);
-            string address = Convert.ToString(reader["ENDERECO"]);
-            string phone = Convert.ToString(reader["TELEFONE"]);
-            string email = Convert.ToString(reader["EMAIL"]);
-            int internalRegistration = Convert.ToInt32(reader["MATRICULAINTERNA"]);
-            string loginUsername = Convert.ToString(reader["USUARIOACESSO"]);
-            string userPassword = Convert.ToString(reader["SENHA"]);
-            DateTime hiringDate = Convert.ToDateTime(reader["DATAADMISSAO"]);
-            string jobTitle = Convert.ToString(reader["CARGO"]);
-            double salary = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
-            bool isPhysicalPerson = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["Name"]);
+            string uniqueId = Convert.ToString(reader["UniqueRegister"]);
+            string address = Convert.ToString(reader["Address"]);
+            string phone = Convert.ToString(reader["Phone"]);
+            string email = Convert.ToString(reader["Email"]);
+            int internalRegistration = Convert.ToInt32(reader["InternalRegister"]);
+            string loginUsername = Convert.ToString(reader["AccessUser"]);
+            string userPassword = Convert.ToString(reader["Password"]);
+            DateTime hiringDate = Convert.ToDateTime(reader["AdmissionDate"]);
+            string jobTitle = Convert.ToString(reader["Role"]);
+            double salary = Convert.ToDouble(Convert.ToString(reader["Salary"]));
+            bool isPhysicalPerson = Convert.ToBoolean(reader["IsIndividual"]);
 
             Employee employee = new Employee(id, name, uniqueId, address, phone, email, internalRegistration, loginUsername, userPassword, hiringDate, jobTitle, salary, isPhysicalPerson);
 

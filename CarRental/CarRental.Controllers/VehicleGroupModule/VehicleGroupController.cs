@@ -9,55 +9,55 @@ namespace CarRental.Controllers.VehicleGroupModule
     public class VehicleGroupController : Controller<VehicleGroup>
     {
         private const string sqlInsertVehicleGroup =
-                @"INSERT INTO TBGRUPOVEICULO
+                @"INSERT INTO VehicleGroup
                 (
-                    [NOME],
-                    [TAXAPLANODIARIO],
-                    [TAXAPORKMDIARIO],
-                    [TAXAPLANOCONTROLADO],
-                    [LIMITEKMCONTROLADO],
-                    [TAXAKMEXCEDIDOCONTROLADO],
-                    [TAXAPLANOLIVRE]
+                    [Name],
+                    [DailyPlanRate],
+                    [DailyKmRate],
+                    [ControlledPlanRate],
+                    [ControlledKmLimit],
+                    [ControlledExcessKmRate],
+                    [FreePlanRate]
                 )
                 VALUES
                 (
-                    @NOME,
-                    @TAXAPLANODIARIO,
-                    @TAXAPORKMDIARIO,
-                    @TAXAPLANOCONTROLADO,
-                    @LIMITEKMCONTROLADO,
-                    @TAXAKMEXCEDIDOCONTROLADO,
-                    @TAXAPLANOLIVRE
+                    @Name,
+                    @DailyPlanRate,
+                    @DailyKmRate,
+                    @ControlledPlanRate,
+                    @ControlledKmLimit,
+                    @ControlledExcessKmRate,
+                    @FreePlanRate
                 );";
 
         private const string sqlUpdateVehicleGroup =
-                @"UPDATE TBGRUPOVEICULO 
+                @"UPDATE VehicleGroup 
                 SET
-                    [NOME] = @NOME,
-                    [TAXAPLANODIARIO] = @TAXAPLANODIARIO,
-                    [TAXAPORKMDIARIO] = @TAXAPORKMDIARIO,
-                    [TAXAPLANOCONTROLADO] = @TAXAPLANOCONTROLADO,
-                    [LIMITEKMCONTROLADO] = @LIMITEKMCONTROLADO,
-                    [TAXAKMEXCEDIDOCONTROLADO] = @TAXAKMEXCEDIDOCONTROLADO,
-                    [TAXAPLANOLIVRE] = @TAXAPLANOLIVRE
-                WHERE [ID] = @ID;";
+                    [Name] = @Name,
+                    [DailyPlanRate] = @DailyPlanRate,
+                    [DailyKmRate] = @DailyKmRate,
+                    [ControlledPlanRate] = @ControlledPlanRate,
+                    [ControlledKmLimit] = @ControlledKmLimit,
+                    [ControlledExcessKmRate] = @ControlledExcessKmRate,
+                    [FreePlanRate] = @FreePlanRate
+                WHERE [Id] = @Id;";
 
         private const string sqlDeleteVehicleGroup =
-                @"DELETE FROM TBGRUPOVEICULO  WHERE [ID] = @ID;";
+                @"DELETE FROM VehicleGroup  WHERE [Id] = @Id;";
 
         private const string sqlSelectVehicleGroupById =
-                @"SELECT * FROM TBGRUPOVEICULO WHERE [ID] = @ID;";
+                @"SELECT * FROM VehicleGroup WHERE [Id] = @Id;";
 
         private const string sqlSelectAllVehicleGroups =
-                @"SELECT * FROM TBGRUPOVEICULO;";
+                @"SELECT * FROM VehicleGroup;";
 
         private const string sqlVehicleGroupExists =
                 @"SELECT 
                     COUNT(*) 
                 FROM 
-                    [TBGRUPOVEICULO]
+                    [VehicleGroup]
                 WHERE 
-                    [ID] = @ID";
+                    [Id] = @Id";
 
         public override string InsertNew(VehicleGroup record)
         {
@@ -102,7 +102,7 @@ namespace CarRental.Controllers.VehicleGroupModule
         {
             try
             {
-                Db.Delete(sqlDeleteVehicleGroup, AddParameter("ID", id));
+                Db.Delete(sqlDeleteVehicleGroup, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -114,12 +114,12 @@ namespace CarRental.Controllers.VehicleGroupModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlVehicleGroupExists, AddParameter("ID", id));
+            return Db.Exists(sqlVehicleGroupExists, AddParameter("Id", id));
         }
 
         public override VehicleGroup SelectById(int id)
         {
-            return Db.Get(sqlSelectVehicleGroupById, ConvertToVehicleGroup, AddParameter("ID", id));
+            return Db.Get(sqlSelectVehicleGroupById, ConvertToVehicleGroup, AddParameter("Id", id));
         }
 
         public override List<VehicleGroup> SelectAll()
@@ -131,28 +131,28 @@ namespace CarRental.Controllers.VehicleGroupModule
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", vehicleGroup.Id);
-            parameters.Add("NOME", vehicleGroup.Name);
-            parameters.Add("TAXAPLANODIARIO", vehicleGroup.DailyPlanRate);
-            parameters.Add("TAXAPORKMDIARIO", vehicleGroup.DailyPerKmRate);
-            parameters.Add("TAXAPLANOCONTROLADO", vehicleGroup.ControlledPlanRate);
-            parameters.Add("LIMITEKMCONTROLADO", vehicleGroup.ControlledKmLimit);
-            parameters.Add("TAXAKMEXCEDIDOCONTROLADO", vehicleGroup.ControlledExceededKmRate);
-            parameters.Add("TAXAPLANOLIVRE", vehicleGroup.UnlimitedPlanRate);
+            parameters.Add("Id", vehicleGroup.Id);
+            parameters.Add("Name", vehicleGroup.Name);
+            parameters.Add("DailyPlanRate", vehicleGroup.DailyPlanRate);
+            parameters.Add("DailyKmRate", vehicleGroup.DailyPerKmRate);
+            parameters.Add("ControlledPlanRate", vehicleGroup.ControlledPlanRate);
+            parameters.Add("ControlledKmLimit", vehicleGroup.ControlledKmLimit);
+            parameters.Add("ControlledExcessKmRate", vehicleGroup.ControlledExceededKmRate);
+            parameters.Add("FreePlanRate", vehicleGroup.UnlimitedPlanRate);
 
             return parameters;
         }
 
         private VehicleGroup ConvertToVehicleGroup(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string name = Convert.ToString(reader["NOME"]);
-            double dailyPlanRate = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            double dailyPerKmRate = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
-            double controlledPlanRate = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
-            int controlledKmLimit = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
-            double controlledExceededKmRate = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
-            double unlimitedPlanRate = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["Name"]);
+            double dailyPlanRate = Convert.ToDouble(reader["DailyPlanRate"]);
+            double dailyPerKmRate = Convert.ToDouble(reader["DailyKmRate"]);
+            double controlledPlanRate = Convert.ToDouble(reader["ControlledPlanRate"]);
+            int controlledKmLimit = Convert.ToInt32(reader["ControlledKmLimit"]);
+            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExcessKmRate"]);
+            double unlimitedPlanRate = Convert.ToDouble(reader["FreePlanRate"]);
 
             VehicleGroup vehicleGroup = new VehicleGroup(id, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate,
                 controlledKmLimit, controlledExceededKmRate, unlimitedPlanRate);

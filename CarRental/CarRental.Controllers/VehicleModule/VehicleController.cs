@@ -15,150 +15,150 @@ namespace CarRental.Controllers.VehicleModule
         private VehicleImageController imageController = new VehicleImageController();
         #region queries
         private const string sqlInsertVehicle =
-            @"INSERT INTO TBVEICULO
+            @"INSERT INTO Vehicle
             (
-                [MODELO],
-                [ID_GRUPOVEICULO],
-                [PLACA],
-                [CHASSI],      
-                [MARCA], 
-                [COR],
-                [TIPOCOMBUSTIVEL],
-                [CAPACIDADETANQUE],
-                [ANO],
-                [KILOMETRAGEM],
-                [NUMEROPORTAS],
-                [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALA],
-                [TEMARCONDICIONADO],
-                [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOSABS],
-                [ESTAALUGADO]
+                [Model],
+                [VehicleGroupId],
+                [Plate],
+                [Chassis],      
+                [Brand], 
+                [Color],
+                [FuelType],
+                [TankCapacity],
+                [Year],
+                [Mileage],
+                [NumberOfDoors],
+                [SeatingCapacity],
+                [TrunkSize],
+                [HasAirConditioning],
+                [HasPowerSteering],
+                [HasAbsBrakes],
+                [IsRented]
             )
             VALUES
             (
-                @MODELO,
-                @ID_GRUPOVEICULO,
-                @PLACA,
-                @CHASSI,      
-                @MARCA,
-                @COR,
-                @TIPOCOMBUSTIVEL,
-                @CAPACIDADETANQUE,
-                @ANO,
-                @KILOMETRAGEM,
-                @NUMEROPORTAS,
-                @CAPACIDADEPESSOAS,
-                @TAMANHOPORTAMALA,
-                @TEMARCONDICIONADO,
-                @TEMDIRECAOHIDRAULICA,
-                @TEMFREIOSABS,
-                @ESTAALUGADO
+                @Model,
+                @VehicleGroupId,
+                @Plate,
+                @Chassis,      
+                @Brand,
+                @Color,
+                @FuelType,
+                @TankCapacity,
+                @Year,
+                @Mileage,
+                @NumberOfDoors,
+                @SeatingCapacity,
+                @TrunkSize,
+                @HasAirConditioning,
+                @HasPowerSteering,
+                @HasAbsBrakes,
+                @IsRented
             )";
         private const string sqlSelectAllVehicles =
             @"SELECT
-                CV.[ID],
-                CV.[MODELO],
-                CV.[ID_GRUPOVEICULO],
-                CV.[PLACA],
-                CV.[CHASSI],      
-                CV.[MARCA], 
-                CV.[COR],
-                CV.[TIPOCOMBUSTIVEL],
-                CV.[CAPACIDADETANQUE],
-                CV.[ANO],
-                CV.[KILOMETRAGEM],
-                CV.[NUMEROPORTAS],
-                CV.[CAPACIDADEPESSOAS],
-                CV.[TAMANHOPORTAMALA],
-                CV.[TEMARCONDICIONADO],
-                CV.[TEMDIRECAOHIDRAULICA],
-                CV.[TEMFREIOSABS],
-                CV.[ESTAALUGADO],
-                CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAPORKMDIARIO],
-                CG.[TAXAPLANOCONTROLADO],
-                CG.[LIMITEKMCONTROLADO],
-                CG.[TAXAKMEXCEDIDOCONTROLADO],
-                CG.[TAXAPLANOLIVRE]
+                CV.[Id],
+                CV.[Model],
+                CV.[VehicleGroupId],
+                CV.[Plate],
+                CV.[Chassis],      
+                CV.[Brand], 
+                CV.[Color],
+                CV.[FuelType],
+                CV.[TankCapacity],
+                CV.[Year],
+                CV.[Mileage],
+                CV.[NumberOfDoors],
+                CV.[SeatingCapacity],
+                CV.[TrunkSize],
+                CV.[HasAirConditioning],
+                CV.[HasPowerSteering],
+                CV.[HasAbsBrakes],
+                CV.[IsRented],
+                CG.[Name],
+                CG.[DailyPlanRate],
+                CG.[DailyKmRate],
+                CG.[ControlledPlanRate],
+                CG.[ControlledKmLimit],
+                CG.[ControlledExcessKmRate],
+                CG.[FreePlanRate]
             FROM 
-                [TBVEICULO] AS CV LEFT JOIN 
-                [TBGRUPOVEICULO] AS CG
+                [Vehicle] AS CV LEFT JOIN 
+                [VehicleGroup] AS CG
             ON
-                CG.ID = CV.ID_GRUPOVEICULO";
+                CG.Id = CV.VehicleGroupId";
         private const string sqlSelectVehicleById =
             @"SELECT  
-                CV.[ID],
-                CV.[MODELO],
-                CV.[ID_GRUPOVEICULO],
-                CV.[PLACA],
-                CV.[CHASSI],      
-                CV.[MARCA], 
-                CV.[COR],
-                CV.[TIPOCOMBUSTIVEL],
-                CV.[CAPACIDADETANQUE],
-                CV.[ANO],
-                CV.[KILOMETRAGEM],
-                CV.[NUMEROPORTAS],
-                CV.[CAPACIDADEPESSOAS],
-                CV.[TAMANHOPORTAMALA],
-                CV.[TEMARCONDICIONADO],
-                CV.[TEMDIRECAOHIDRAULICA],
-                CV.[TEMFREIOSABS],
-                CV.[ESTAALUGADO],
-                CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAPORKMDIARIO],
-                CG.[TAXAPLANOCONTROLADO],
-                CG.[LIMITEKMCONTROLADO],
-                CG.[TAXAKMEXCEDIDOCONTROLADO],
-                CG.[TAXAPLANOLIVRE]
+                CV.[Id],
+                CV.[Model],
+                CV.[VehicleGroupId],
+                CV.[Plate],
+                CV.[Chassis],      
+                CV.[Brand], 
+                CV.[Color],
+                CV.[FuelType],
+                CV.[TankCapacity],
+                CV.[Year],
+                CV.[Mileage],
+                CV.[NumberOfDoors],
+                CV.[SeatingCapacity],
+                CV.[TrunkSize],
+                CV.[HasAirConditioning],
+                CV.[HasPowerSteering],
+                CV.[HasAbsBrakes],
+                CV.[IsRented],
+                CG.[Name],
+                CG.[DailyPlanRate],
+                CG.[DailyKmRate],
+                CG.[ControlledPlanRate],
+                CG.[ControlledKmLimit],
+                CG.[ControlledExcessKmRate],
+                CG.[FreePlanRate]
             FROM 
-                [TBVEICULO] AS CV LEFT JOIN 
-                [TBGRUPOVEICULO] AS CG
+                [Vehicle] AS CV LEFT JOIN 
+                [VehicleGroup] AS CG
             ON
-                CG.ID = CV.ID_GRUPOVEICULO
+                CG.Id = CV.VehicleGroupId
             WHERE 
-                CV.[ID] = @ID";
+                CV.[Id] = @Id";
         private const string sqlEditVehicle =
-            @"UPDATE TBVEICULO SET
-                [MODELO] = @MODELO,
-                [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO,
-                [PLACA] = @PLACA,
-                [CHASSI] = @CHASSI,
-                [MARCA] = @MARCA,
-                [COR] = @COR,
-                [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
-                [CAPACIDADETANQUE] = @CAPACIDADETANQUE,
-                [ANO] = @ANO,
-                [KILOMETRAGEM] = @KILOMETRAGEM,
-                [NUMEROPORTAS] = @NUMEROPORTAS,
-                [CAPACIDADEPESSOAS] = @CAPACIDADEPESSOAS,
-                [TAMANHOPORTAMALA] = @TAMANHOPORTAMALA,
-                [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
-                [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
-                [TEMFREIOSABS] = @TEMFREIOSABS,
-                [ESTAALUGADO] = @ESTAALUGADO
+            @"UPDATE Vehicle SET
+                [Model] = @Model,
+                [VehicleGroupId] = @VehicleGroupId,
+                [Plate] = @Plate,
+                [Chassis] = @Chassis,
+                [Brand] = @Brand,
+                [Color] = @Color,
+                [FuelType] = @FuelType,
+                [TankCapacity] = @TankCapacity,
+                [Year] = @Year,
+                [Mileage] = @Mileage,
+                [NumberOfDoors] = @NumberOfDoors,
+                [SeatingCapacity] = @SeatingCapacity,
+                [TrunkSize] = @TrunkSize,
+                [HasAirConditioning] = @HasAirConditioning,
+                [HasPowerSteering] = @HasPowerSteering,
+                [HasAbsBrakes] = @HasAbsBrakes,
+                [IsRented] = @IsRented
             WHERE
-                [ID] = @ID
+                [Id] = @Id
             ";
         private const string sqlDeleteVehicle =
             @"DELETE 
                 FROM 
-                TBVEICULO 
+                Vehicle 
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
         private const string sqlVehicleExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBVEICULO]
+                [Vehicle]
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
 
         private const string sqlVehicleTotal =
-            @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
+            @"SELECT COUNT(*) AS QTD FROM[Vehicle]";
         #endregion
         public override string InsertNew(Vehicle vehicle)
         {
@@ -191,7 +191,7 @@ namespace CarRental.Controllers.VehicleModule
         }
         public override Vehicle SelectById(int id)
         {
-            Vehicle vehicle = Db.Get(sqlSelectVehicleById, ConvertToVehicle, AddParameter("ID", id));
+            Vehicle vehicle = Db.Get(sqlSelectVehicleById, ConvertToVehicle, AddParameter("Id", id));
             vehicle.images = imageController.SelectAllImagesOfVehicle(id);
             return vehicle;
         }
@@ -214,7 +214,7 @@ namespace CarRental.Controllers.VehicleModule
         {
             try
             {
-                Db.Delete(sqlDeleteVehicle, AddParameter("ID", id));
+                Db.Delete(sqlDeleteVehicle, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -226,63 +226,63 @@ namespace CarRental.Controllers.VehicleModule
      
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlVehicleExists, AddParameter("ID", id));
+            return Db.Exists(sqlVehicleExists, AddParameter("Id", id));
         }
 
         private Dictionary<string, object> GetVehicleParameters(Vehicle vehicle)
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", vehicle.Id);
-            parameters.Add("MODELO", vehicle.model);
-            parameters.Add("ID_GRUPOVEICULO", vehicle.vehicleGroup.Id);
-            parameters.Add("PLACA", vehicle.licensePlate);
-            parameters.Add("CHASSI", vehicle.chassis);
-            parameters.Add("MARCA", vehicle.brand);
-            parameters.Add("COR", vehicle.color);
-            parameters.Add("TIPOCOMBUSTIVEL", vehicle.fuelType);
-            parameters.Add("CAPACIDADETANQUE", vehicle.tankCapacity);
-            parameters.Add("ANO", vehicle.year);
-            parameters.Add("KILOMETRAGEM", vehicle.mileage);
-            parameters.Add("NUMEROPORTAS", vehicle.numberOfDoors);
-            parameters.Add("CAPACIDADEPESSOAS", vehicle.passengerCapacity);
-            parameters.Add("TAMANHOPORTAMALA", vehicle.trunkSize);
-            parameters.Add("TEMARCONDICIONADO", vehicle.hasAirConditioning);
-            parameters.Add("TEMDIRECAOHIDRAULICA", vehicle.hasPowerSteering);
-            parameters.Add("TEMFREIOSABS", vehicle.hasAbsBrakes);
-            parameters.Add("ESTAALUGADO", vehicle.isRented);
+            parameters.Add("Id", vehicle.Id);
+            parameters.Add("Model", vehicle.model);
+            parameters.Add("VehicleGroupId", vehicle.vehicleGroup.Id);
+            parameters.Add("Plate", vehicle.licensePlate);
+            parameters.Add("Chassis", vehicle.chassis);
+            parameters.Add("Brand", vehicle.brand);
+            parameters.Add("Color", vehicle.color);
+            parameters.Add("FuelType", vehicle.fuelType);
+            parameters.Add("TankCapacity", vehicle.tankCapacity);
+            parameters.Add("Year", vehicle.year);
+            parameters.Add("Mileage", vehicle.mileage);
+            parameters.Add("NumberOfDoors", vehicle.numberOfDoors);
+            parameters.Add("SeatingCapacity", vehicle.passengerCapacity);
+            parameters.Add("TrunkSize", vehicle.trunkSize);
+            parameters.Add("HasAirConditioning", vehicle.hasAirConditioning);
+            parameters.Add("HasPowerSteering", vehicle.hasPowerSteering);
+            parameters.Add("HasAbsBrakes", vehicle.hasAbsBrakes);
+            parameters.Add("IsRented", vehicle.isRented);
 
             return parameters;
         }
 
         private Vehicle ConvertToVehicle(IDataReader reader)
         {
-            var id = Convert.ToInt32(reader["ID"]);
-            var model = Convert.ToString(reader["MODELO"]);
-            var vehicleGroupId = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
-            var licensePlate = Convert.ToString(reader["PLACA"]);
-            var chassis = Convert.ToString(reader["CHASSI"]);
-            var brand = Convert.ToString(reader["MARCA"]);
-            var color = Convert.ToString(reader["COR"]);
-            var fuelType = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
-            var tankCapacity = Convert.ToDouble(reader["CAPACIDADETANQUE"]);
-            var year = Convert.ToInt32(reader["ANO"]);
-            var mileage = Convert.ToDouble(reader["KILOMETRAGEM"]);
-            var numberOfDoors = Convert.ToInt32(reader["NUMEROPORTAS"]);
-            var passengerCapacity = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
-            var trunkSize = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
-            var hasAirConditioning = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
-            var hasPowerSteering = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
-            var hasAbsBrakes = Convert.ToBoolean(reader["TEMFREIOSABS"]);
-            var isRented = Convert.ToBoolean(reader["ESTAALUGADO"]);
+            var id = Convert.ToInt32(reader["Id"]);
+            var model = Convert.ToString(reader["Model"]);
+            var vehicleGroupId = Convert.ToInt32(reader["VehicleGroupId"]);
+            var licensePlate = Convert.ToString(reader["Plate"]);
+            var chassis = Convert.ToString(reader["Chassis"]);
+            var brand = Convert.ToString(reader["Brand"]);
+            var color = Convert.ToString(reader["Color"]);
+            var fuelType = Convert.ToString(reader["FuelType"]);
+            var tankCapacity = Convert.ToDouble(reader["TankCapacity"]);
+            var year = Convert.ToInt32(reader["Year"]);
+            var mileage = Convert.ToDouble(reader["Mileage"]);
+            var numberOfDoors = Convert.ToInt32(reader["NumberOfDoors"]);
+            var passengerCapacity = Convert.ToInt32(reader["SeatingCapacity"]);
+            var trunkSize = Convert.ToChar(reader["TrunkSize"]);
+            var hasAirConditioning = Convert.ToBoolean(reader["HasAirConditioning"]);
+            var hasPowerSteering = Convert.ToBoolean(reader["HasPowerSteering"]);
+            var hasAbsBrakes = Convert.ToBoolean(reader["HasAbsBrakes"]);
+            var isRented = Convert.ToBoolean(reader["IsRented"]);
 
-            string name = Convert.ToString(reader["NOME"]);
-            double dailyPlanRate = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            double dailyPerKmRate = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
-            double controlledPlanRate = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
-            int controlledKmLimit = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
-            double controlledExceededKmRate = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
-            double unlimitedPlanRate = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
+            string name = Convert.ToString(reader["Name"]);
+            double dailyPlanRate = Convert.ToDouble(reader["DailyPlanRate"]);
+            double dailyPerKmRate = Convert.ToDouble(reader["DailyKmRate"]);
+            double controlledPlanRate = Convert.ToDouble(reader["ControlledPlanRate"]);
+            int controlledKmLimit = Convert.ToInt32(reader["ControlledKmLimit"]);
+            double controlledExceededKmRate = Convert.ToDouble(reader["ControlledExcessKmRate"]);
+            double unlimitedPlanRate = Convert.ToDouble(reader["FreePlanRate"]);
 
             VehicleGroup group = new VehicleGroup(vehicleGroupId, name, dailyPlanRate, dailyPerKmRate, controlledPlanRate, controlledKmLimit, controlledExceededKmRate, unlimitedPlanRate);
 

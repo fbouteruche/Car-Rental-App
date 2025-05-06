@@ -13,52 +13,52 @@ namespace CarRental.Controllers.PartnerModule
     {
         #region queries
         private const string sqlInsertPartner =
-            @"INSERT INTO TBPARCEIRO
+            @"INSERT INTO Partner
                 (
-                    [NOMEPARCEIRO]
+                    [PartnerName]
                 ) 
                 VALUES
                 (
-                    @NOMEPARCEIRO
+                    @PartnerName
                 )";
 
         private const string sqlEditPartner =
-            @"UPDATE TBPARCEIRO
+            @"UPDATE Partner
                     SET
-                        [NOMEPARCEIRO] = @NOMEPARCEIRO
+                        [PartnerName] = @PartnerName
                     WHERE 
-                        ID = @ID";
+                        Id = @Id";
 
         private const string sqlDeletePartner =
             @"DELETE 
                 FROM
-                        TBPARCEIRO
+                        Partner
                     WHERE 
-                        ID = @ID";
+                        Id = @Id";
 
         private const string sqlSelectPartnerById =
             @"SELECT
-                        [ID],
-                    [NOMEPARCEIRO]
+                        [Id],
+                    [PartnerName]
                 FROM
-                        TBPARCEIRO
+                        Partner
                     WHERE 
-                        ID = @ID";
+                        Id = @Id";
 
         private const string sqlSelectAllPartners =
             @"SELECT
-                        [ID],
-                    [NOMEPARCEIRO]
+                        [Id],
+                    [PartnerName]
                 FROM
-                        TBPARCEIRO";
+                        Partner";
 
         private const string sqlPartnerExists =
             @"SELECT 
                     COUNT(*) 
                 FROM 
-                    [TBPARCEIRO]
+                    [Partner]
                 WHERE 
-                    [ID] = @ID";
+                    [Id] = @Id";
         #endregion
         public override string InsertNew(Partner partner)
         {
@@ -77,7 +77,7 @@ namespace CarRental.Controllers.PartnerModule
 
         public override Partner SelectById(int id)
         {
-            return Db.Get(sqlSelectPartnerById, ConvertToPartner, AddParameter("ID", id));
+            return Db.Get(sqlSelectPartnerById, ConvertToPartner, AddParameter("Id", id));
         }        
         public override string Edit(int id, Partner partner)
         {
@@ -96,7 +96,7 @@ namespace CarRental.Controllers.PartnerModule
         {
             try
             {
-                Db.Delete(sqlDeletePartner, AddParameter("ID", id));
+                Db.Delete(sqlDeletePartner, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -108,22 +108,22 @@ namespace CarRental.Controllers.PartnerModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlPartnerExists, AddParameter("ID", id));
+            return Db.Exists(sqlPartnerExists, AddParameter("Id", id));
         }
 
         private Dictionary<string, object> GetPartnerParameters(Partner partner)
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", partner.Id);
-            parameters.Add("NOMEPARCEIRO", partner.Name);
+            parameters.Add("Id", partner.Id);
+            parameters.Add("PartnerName", partner.Name);
 
             return parameters;
         }
         private Partner ConvertToPartner(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string name = Convert.ToString(reader["NOMEPARCEIRO"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["PartnerName"]);
 
             Partner partner = new Partner(id, name);
 

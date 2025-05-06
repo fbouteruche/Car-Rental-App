@@ -14,115 +14,115 @@ namespace CarRental.Controllers.CouponModule
     {
         #region queries
         private const string sqlInsertCoupon =
-           @"INSERT INTO [TBCUPOM_DESCONTO]
+           @"INSERT INTO [DiscountCoupon]
                 (
-                    [NOMECUPOM],
-                    [CODIGO],      
-                    [VALORMINIMO],
-                    [VALOR], 
-                    [EHDESCONTOFIXO],
-                    [VALIDADE],                    
-                    [ID_PARCEIRO] 
+                    [CouponName],
+                    [Code],      
+                    [MinimumValue],
+                    [Value], 
+                    [IsFixedDiscount],
+                    [Validity],                    
+                    [PartnerId] 
                 )
             VALUES
                 (
-                    @NOMECUPOM,
-                    @CODIGO,
-                    @VALORMINIMO,
-                    @VALOR,
-                    @EHDESCONTOFIXO,
-                    @VALIDADE,
-                    @ID_PARCEIRO
+                    @CouponName,
+                    @Code,
+                    @MinimumValue,
+                    @Value,
+                    @IsFixedDiscount,
+                    @Validity,
+                    @PartnerId
                 )";
 
         private const string sqlEditCoupon =
-            @" UPDATE [TBCUPOM_DESCONTO]
+            @" UPDATE [DiscountCoupon]
                 SET 
-                    [NOMECUPOM] = @NOMECUPOM, 
-                    [CODIGO] = @CODIGO, 
-                    [VALORMINIMO] = @VALORMINIMO,
-                    [VALOR] = @VALOR, 
-                    [EHDESCONTOFIXO] = @EHDESCONTOFIXO,
-                    [VALIDADE] = @VALIDADE,
-                    [ID_PARCEIRO] = @ID_PARCEIRO
-                WHERE [ID] = @ID";
+                    [CouponName] = @CouponName, 
+                    [Code] = @Code, 
+                    [MinimumValue] = @MinimumValue,
+                    [Value] = @Value, 
+                    [IsFixedDiscount] = @IsFixedDiscount,
+                    [Validity] = @Validity,
+                    [PartnerId] = @PartnerId
+                WHERE [Id] = @Id";
 
         private const string sqlDeleteCoupon =
-            @"DELETE FROM [TBCUPOM_DESCONTO] 
-                WHERE [ID] = @ID";
+            @"DELETE FROM [DiscountCoupon] 
+                WHERE [Id] = @Id";
 
         private const string sqlSelectAllCoupons =
             @"SELECT 
-                    D.[ID],       
-                    D.[NOMECUPOM],       
-                    D.[CODIGO], 
-                    D.[VALORMINIMO],
-                    D.[VALOR],                    
-                    D.[EHDESCONTOFIXO],                                                           
-                    D.[VALIDADE],
-                    D.[ID_PARCEIRO],
-                    P.[ID],
-                    P.[NOMEPARCEIRO]
+                    D.[Id],       
+                    D.[CouponName],       
+                    D.[Code], 
+                    D.[MinimumValue],
+                    D.[Value],                    
+                    D.[IsFixedDiscount],                                                           
+                    D.[Validity],
+                    D.[PartnerId],
+                    P.[Id] AS PartnerId,
+                    P.[PartnerName]
             FROM
-                [TBCUPOM_DESCONTO] AS D INNER JOIN
-                [TBPARCEIRO] AS P
+                [DiscountCoupon] AS D INNER JOIN
+                [Partner] AS P
             ON
-                D.ID_PARCEIRO = P.ID";
+                D.PartnerId = P.Id";
         private const string sqlSelectCouponById =
             @"SELECT 
-                    D.[ID],       
-                    D.[NOMECUPOM],       
-                    D.[CODIGO], 
-                    D.[VALORMINIMO],
-                    D.[VALOR],                    
-                    D.[EHDESCONTOFIXO],                                                           
-                    D.[VALIDADE],
-                    D.[ID_PARCEIRO],
-                    P.[ID],
-                    P.[NOMEPARCEIRO]
+                    D.[Id],       
+                    D.[CouponName],       
+                    D.[Code], 
+                    D.[MinimumValue],
+                    D.[Value],                    
+                    D.[IsFixedDiscount],                                                           
+                    D.[Validity],
+                    D.[PartnerId],
+                    P.[Id] AS PartnerId,
+                    P.[PartnerName]
             FROM
-                [TBCUPOM_DESCONTO] AS D INNER JOIN
-                [TBPARCEIRO] AS P
+                [DiscountCoupon] AS D INNER JOIN
+                [Partner] AS P
             ON
-                D.ID_PARCEIRO = P.ID
+                D.PartnerId = P.Id
             WHERE 
-                D.[ID] = @ID";
+                D.[Id] = @Id";
 
         private const string sqlSelectCouponByCode =
             @"SELECT 
-                    D.[ID],       
-                    D.[NOMECUPOM],       
-                    D.[CODIGO], 
-                    D.[VALORMINIMO],
-                    D.[VALOR],                    
-                    D.[EHDESCONTOFIXO],                                                           
-                    D.[VALIDADE],
-                    D.[ID_PARCEIRO],
-                    P.[ID],
-                    P.[NOMEPARCEIRO]
+                    D.[Id],       
+                    D.[CouponName],       
+                    D.[Code], 
+                    D.[MinimumValue],
+                    D.[Value],                    
+                    D.[IsFixedDiscount],                                                           
+                    D.[Validity],
+                    D.[PartnerId],
+                    P.[Id] AS PartnerId,
+                    P.[PartnerName]
             FROM
-                [TBCUPOM_DESCONTO] AS D INNER JOIN
-                [TBPARCEIRO] AS P
+                [DiscountCoupon] AS D INNER JOIN
+                [Partner] AS P
             ON
-                D.ID_PARCEIRO = P.ID
+                D.PartnerId = P.Id
             WHERE 
-                D.[CODIGO] = @CODIGO";
+                D.[Code] = @Code";
 
         private const string sqlCouponExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBCUPOM_DESCONTO]
+                [DiscountCoupon]
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
 
         private const string sqlCodeExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBCUPOM_DESCONTO]
+                [DiscountCoupon]
             WHERE 
-                [CODIGO] = @CODIGO";
+                [Code] = @Code";
         #endregion
         public override string InsertNew(Coupon coupon)
         {
@@ -141,12 +141,12 @@ namespace CarRental.Controllers.CouponModule
 
         public override Coupon SelectById(int id)
         {
-            return Db.Get(sqlSelectCouponById, ConvertToCoupon, AddParameter("ID", id));
+            return Db.Get(sqlSelectCouponById, ConvertToCoupon, AddParameter("Id", id));
         }
 
         public Coupon SelectByCode(string code)
         {
-            return Db.Get(sqlSelectCouponByCode, ConvertToCoupon, AddParameter("CODIGO", code));
+            return Db.Get(sqlSelectCouponByCode, ConvertToCoupon, AddParameter("Code", code));
         }
 
         public override string Edit(int id, Coupon coupon)
@@ -166,7 +166,7 @@ namespace CarRental.Controllers.CouponModule
         {
             try
             {
-                Db.Delete(sqlDeleteCoupon, AddParameter("ID", id));
+                Db.Delete(sqlDeleteCoupon, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -178,42 +178,42 @@ namespace CarRental.Controllers.CouponModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlCouponExists, AddParameter("ID", id));
+            return Db.Exists(sqlCouponExists, AddParameter("Id", id));
         }
 
         public bool CodeExists(string code)
         {
-            return Db.Exists(sqlCodeExists, AddParameter("CODIGO", code));
+            return Db.Exists(sqlCodeExists, AddParameter("Code", code));
         }
 
         private Dictionary<string, object> GetCouponParameters(Coupon coupon)
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", coupon.Id);
-            parameters.Add("NOMECUPOM", coupon.Name);
-            parameters.Add("CODIGO", coupon.Code);
-            parameters.Add("VALORMINIMO", coupon.MinimumValue);
-            parameters.Add("VALOR", coupon.Value);
-            parameters.Add("EHDESCONTOFIXO", coupon.IsFixedDiscount);
-            parameters.Add("VALIDADE", coupon.ExpirationDate);
-            parameters.Add("ID_PARCEIRO", coupon.Partner.Id);
+            parameters.Add("Id", coupon.Id);
+            parameters.Add("CouponName", coupon.Name);
+            parameters.Add("Code", coupon.Code);
+            parameters.Add("MinimumValue", coupon.MinimumValue);
+            parameters.Add("Value", coupon.Value);
+            parameters.Add("IsFixedDiscount", coupon.IsFixedDiscount);
+            parameters.Add("Validity", coupon.ExpirationDate);
+            parameters.Add("PartnerId", coupon.Partner.Id);
 
             return parameters;
         }
 
         private Coupon ConvertToCoupon(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string name = Convert.ToString(reader["NOMECUPOM"]);
-            string code = Convert.ToString(reader["CODIGO"]);
-            double minimumValue = Convert.ToDouble(reader["VALORMINIMO"]);
-            double value = Convert.ToDouble(reader["VALOR"]);            
-            bool isFixedDiscount = Convert.ToBoolean(reader["EHDESCONTOFIXO"]);
-            DateTime expirationDate = Convert.ToDateTime(reader["VALIDADE"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["CouponName"]);
+            string code = Convert.ToString(reader["Code"]);
+            double minimumValue = Convert.ToDouble(reader["MinimumValue"]);
+            double value = Convert.ToDouble(reader["Value"]);            
+            bool isFixedDiscount = Convert.ToBoolean(reader["IsFixedDiscount"]);
+            DateTime expirationDate = Convert.ToDateTime(reader["Validity"]);
 
-            int partnerId = Convert.ToInt32(reader["ID_PARCEIRO"]);
-            string partnerName = Convert.ToString(reader["NOMEPARCEIRO"]);
+            int partnerId = Convert.ToInt32(reader["PartnerId"]);
+            string partnerName = Convert.ToString(reader["PartnerName"]);
             Partner partner = new Partner(partnerId, partnerName);
 
             Coupon coupon = new Coupon(id, name, code, value, minimumValue, isFixedDiscount, expirationDate, partner);

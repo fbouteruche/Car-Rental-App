@@ -24,36 +24,36 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         RentalController rentalController = new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController());
         #region relationship queries
         private const string sqlInsertRelationship =
-                @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
+                @"INSERT INTO[DBO].[RentalService]
                 (
-                    [ID_LOCACAO],
-                    [ID_SERVICO]
+                    [RentalId],
+                    [ServiceId]
                 )
                 VALUES
                 (
-                    @ID_LOCACAO,
-                    @ID_SERVICO
+                    @RentalId,
+                    @ServiceId
                 );";
 
         private const string sqlEditRelationship =
-        @"UPDATE [DBO].[TBSERVICO_LOCACAO] 
+        @"UPDATE [DBO].[RentalService] 
                 SET
-                    [ID_LOCACAO] = @ID_LOCACAO,
-                    [ID_SERVICO] = @ID_SERVICO
+                    [RentalId] = @RentalId,
+                    [ServiceId] = @ServiceId
                 WHERE 
-                    [ID] = @ID;";
+                    [Id] = @Id;";
 
         private const string sqlSelectAllRelationships =
-            @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO];";
+            @"SELECT * FROM [DBO].[RentalService];";
 
         private const string sqlSelectRelationshipById =
-            @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
+            @"SELECT * FROM [DBO].[RentalService] WHERE [Id] = @Id;";
 
         private const string sqlSelectRelationshipByRental =
-            @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID_LOCACAO] = @ID_LOCACAO;";
+            @"SELECT * FROM [DBO].[RentalService] WHERE [RentalId] = @RentalId;";
 
         private const string sqlDeleteRelationship =
-            @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
+            @"DELETE FROM [DBO].[RentalService] WHERE [Id] = @Id;";
 
         #endregion
         public override string Edit(int id, RentalServiceRelationship record)
@@ -65,7 +65,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         {
             try
             {
-                Db.Delete(sqlDeleteRelationship, AddParameter("ID", id));
+                Db.Delete(sqlDeleteRelationship, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -77,7 +77,7 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelectRelationshipById, AddParameter("ID", id));
+            return Db.Exists(sqlSelectRelationshipById, AddParameter("Id", id));
         }
 
         public override string InsertNew(RentalServiceRelationship record)
@@ -96,12 +96,12 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
 
         public override RentalServiceRelationship SelectById(int id)
         {
-            return Db.Get(sqlSelectRelationshipById, ConvertToRelationship, AddParameter("ID", id));
+            return Db.Get(sqlSelectRelationshipById, ConvertToRelationship, AddParameter("Id", id));
         }
 
         public object SelectByRental(int rentalId)
         {
-            return Db.GetAll(sqlSelectRelationshipByRental, ConvertToRelationship, AddParameter("ID_LOCACAO", rentalId));
+            return Db.GetAll(sqlSelectRelationshipByRental, ConvertToRelationship, AddParameter("RentalId", rentalId));
         }
 
         public override List<RentalServiceRelationship> SelectAll()
@@ -110,9 +110,9 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         }
         private RentalServiceRelationship ConvertToRelationship(IDataReader reader)
         {
-            var relationshipId = Convert.ToInt32(reader["ID"]);
-            var rentalId = Convert.ToInt32(reader["ID_LOCACAO"]);
-            var serviceId = Convert.ToInt32(reader["ID_SERVICO"]);
+            var relationshipId = Convert.ToInt32(reader["Id"]);
+            var rentalId = Convert.ToInt32(reader["RentalId"]);
+            var serviceId = Convert.ToInt32(reader["ServiceId"]);
 
             List<Service> filteredServices = new List<Service>();
             foreach (Service item in serviceController.SelectAll())
@@ -125,9 +125,9 @@ namespace CarRental.Controllers.RentalServiceRelationshipModule
         private Dictionary<string, object> GetRelationshipParameters(RentalServiceRelationship relationship)
         {
             var parameters = new Dictionary<string, object>();
-            parameters.Add("ID", relationship.Id);
-            parameters.Add("ID_LOCACAO", relationship.Rental.Id);
-            parameters.Add("ID_SERVICO", id);
+            parameters.Add("Id", relationship.Id);
+            parameters.Add("RentalId", relationship.Rental.Id);
+            parameters.Add("ServiceId", id);
 
             return parameters;
         }

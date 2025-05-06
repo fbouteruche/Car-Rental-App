@@ -14,66 +14,66 @@ namespace CarRental.Controllers.CustomersModule
         #region Queries
         private const string sqlInsertCustomers =
         @"
-           INSERT INTO [TBCLIENTE]
+           INSERT INTO [Customer]
         (
-            [NOME],
-            [REGISTROUNICO],
-            [ENDERECO],
-            [EMAIL],
-            [TELEFONE],
-            [EHPESSOAFISICA],
-            [CNH],
-            [VALIDADECNH]
+            [Name],
+            [UniqueRegister],
+            [Address],
+            [Email],
+            [Phone],
+            [IsIndividual],
+            [DriverLicense],
+            [LicenseExpiry]
         )
         VALUES
         (
-            @NOME,
-            @REGISTROUNICO,
-            @ENDERECO,
-            @EMAIL,
-            @TELEFONE,
-            @EHPESSOAFISICA,
-            @CNH,
-            @VALIDADECNH
+            @Name,
+            @UniqueRegister,
+            @Address,
+            @Email,
+            @Phone,
+            @IsIndividual,
+            @DriverLicense,
+            @LicenseExpiry
         )";
 
         private const string sqlEditCustomers =
         @"
-                UPDATE [TBCLIENTE] 
+                UPDATE [Customer] 
                  SET
-                    [NOME] = @NOME,
-                    [REGISTROUNICO] = @REGISTROUNICO,
-                    [ENDERECO] = @ENDERECO,
-                    [TELEFONE] = @TELEFONE,
-                    [EMAIL] = @EMAIL,
-                    [EHPESSOAFISICA] = @EHPESSOAFISICA,
-                    [CNH] = @CNH,
-                    [VALIDADECNH] = @VALIDADECNH
-                WHERE [ID] = @ID;
+                    [Name] = @Name,
+                    [UniqueRegister] = @UniqueRegister,
+                    [Address] = @Address,
+                    [Phone] = @Phone,
+                    [Email] = @Email,
+                    [IsIndividual] = @IsIndividual,
+                    [DriverLicense] = @DriverLicense,
+                    [LicenseExpiry] = @LicenseExpiry
+                WHERE [Id] = @Id;
             ";
 
         private const string sqlDeleteCustomers =
         @"
-                DELETE FROM [TBCLIENTE] WHERE [ID] = @ID
+                DELETE FROM [Customer] WHERE [Id] = @Id
             ";
 
         private const string sqlSelectAllCustomers =
         @"
-            SELECT * FROM [TBCLIENTE]
+            SELECT * FROM [Customer]
             ";
 
         private const string sqlSelectCustomerById =
         @"
-            SELECT * FROM [TBCLIENTE] WHERE [ID] = @ID;
+            SELECT * FROM [Customer] WHERE [Id] = @Id;
             ";
 
         private const string sqlCustomerExists =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBCLIENTE]
+                [Customer]
             WHERE 
-                [ID] = @ID";
+                [Id] = @Id";
 
         #endregion
 
@@ -94,7 +94,7 @@ namespace CarRental.Controllers.CustomersModule
         {
             try
             {
-                Db.Delete(sqlDeleteCustomers, AddParameter("ID", id));
+                Db.Delete(sqlDeleteCustomers, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -106,7 +106,7 @@ namespace CarRental.Controllers.CustomersModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlCustomerExists, AddParameter("ID", id));
+            return Db.Exists(sqlCustomerExists, AddParameter("Id", id));
         }
 
         public override string InsertNew(Customer record)
@@ -122,7 +122,7 @@ namespace CarRental.Controllers.CustomersModule
 
         public override Customer SelectById(int id)
         {
-            return Db.Get(sqlSelectCustomerById, ConvertToCustomer, AddParameter("ID", id));
+            return Db.Get(sqlSelectCustomerById, ConvertToCustomer, AddParameter("Id", id));
         }
 
         public override List<Customer> SelectAll()
@@ -133,18 +133,18 @@ namespace CarRental.Controllers.CustomersModule
         private Customer ConvertToCustomer(IDataReader reader)
         {
             DateTime? licenseExpiryDate = null;
-            int id = Convert.ToInt32(reader["ID"]);
-            string name = Convert.ToString(reader["NOME"]);
-            string uniqueId = Convert.ToString(reader["REGISTROUNICO"]);
-            string address = Convert.ToString(reader["ENDERECO"]);
-            string phone = Convert.ToString(reader["TELEFONE"]);
-            string email = Convert.ToString(reader["EMAIL"]);
-            string driverLicense = Convert.ToString(reader["CNH"]);
-            if(reader["VALIDADECNH"] != DBNull.Value)
-                licenseExpiryDate = Convert.ToDateTime(reader["VALIDADECNH"]);
-            bool isPhysicalPerson = Convert.ToBoolean(reader["EHPESSOAFISiCA"]);
+            int id = Convert.ToInt32(reader["Id"]);
+            string name = Convert.ToString(reader["Name"]);
+            string uniqueRegister = Convert.ToString(reader["UniqueRegister"]);
+            string address = Convert.ToString(reader["Address"]);
+            string phone = Convert.ToString(reader["Phone"]);
+            string email = Convert.ToString(reader["Email"]);
+            string driverLicense = Convert.ToString(reader["DriverLicense"]);
+            if(reader["LicenseExpiry"] != DBNull.Value)
+                licenseExpiryDate = Convert.ToDateTime(reader["LicenseExpiry"]);
+            bool isIndividual = Convert.ToBoolean(reader["IsIndividual"]);
 
-            Customer customer = new Customer(id, name, uniqueId, address, phone, email, driverLicense, licenseExpiryDate, isPhysicalPerson);
+            Customer customer = new Customer(id, name, uniqueRegister, address, phone, email, driverLicense, licenseExpiryDate, isIndividual);
             customer.Id = id;
             return customer;
         }
@@ -153,15 +153,15 @@ namespace CarRental.Controllers.CustomersModule
         {
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", customer.Id);
-            parameters.Add("NOME", customer.Name);
-            parameters.Add("REGISTROUNICO", customer.UniqueId);
-            parameters.Add("ENDERECO", customer.Address);
-            parameters.Add("TELEFONE", customer.Phone);
-            parameters.Add("EMAIL", customer.Email);
-            parameters.Add("CNH", customer.DriverLicense);
-            parameters.Add("VALIDADECNH", customer.LicenseExpiryDate);
-            parameters.Add("EHPESSOAFISICA", customer.IsPhysicalPerson);
+            parameters.Add("Id", customer.Id);
+            parameters.Add("Name", customer.Name);
+            parameters.Add("UniqueRegister", customer.UniqueId);
+            parameters.Add("Address", customer.Address);
+            parameters.Add("Phone", customer.Phone);
+            parameters.Add("Email", customer.Email);
+            parameters.Add("DriverLicense", customer.DriverLicense);
+            parameters.Add("LicenseExpiry", customer.LicenseExpiryDate);
+            parameters.Add("IsIndividual", customer.IsPhysicalPerson);
 
             return parameters;
         }

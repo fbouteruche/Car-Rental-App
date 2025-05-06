@@ -13,21 +13,21 @@ namespace CarRental.Controllers.VehicleImageModule
     public class VehicleImageController : Controller<VehicleImage>
     {
         #region Queries
-        private const string insertCommand = @"INSERT INTO [DBO].[TBIMAGEMVEICULO] 
+        private const string insertCommand = @"INSERT INTO [VehicleImage] 
                                                 (
-                                                 [ID_VEICULO],
-                                                 [IMAGEM]
+                                                 [VehicleId],
+                                                 [Image]
                                                 )VALUES
                                                 (
-                                                @ID_VEICULO,
-                                                @IMAGEM
+                                                @VehicleId,
+                                                @Image
                                                 );";
-        private const string deleteCommand = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
-        private const string deleteAllByVehicleIdCommand = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
-        private const string selectAllByVehicleIdCommand = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
-        private const string selectByIdCommand = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
-        private const string selectByVehicleIdCommand = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
-        private const string selectAllCommand = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
+        private const string deleteCommand = "DELETE FROM [VehicleImage] WHERE [Id] = @Id";
+        private const string deleteAllByVehicleIdCommand = "DELETE FROM [VehicleImage] WHERE [VehicleId] = @VehicleId";
+        private const string selectAllByVehicleIdCommand = "SELECT * FROM [VehicleImage] WHERE [VehicleId] = @VehicleId;";
+        private const string selectByIdCommand = "SELECT * FROM [VehicleImage] WHERE [Id] = @Id";
+        private const string selectByVehicleIdCommand = "SELECT * FROM [VehicleImage] WHERE [VehicleId] = @VehicleId";
+        private const string selectAllCommand = "SELECT * FROM [VehicleImage]";
         #endregion
         public override string Edit(int id, VehicleImage record)
         {
@@ -52,7 +52,7 @@ namespace CarRental.Controllers.VehicleImageModule
         {
             try
             {
-                Db.Delete(deleteCommand, AddParameter("ID", id));
+                Db.Delete(deleteCommand, AddParameter("Id", id));
             }
             catch (Exception)
             {
@@ -65,7 +65,7 @@ namespace CarRental.Controllers.VehicleImageModule
         {
             try
             {
-                Db.Delete(deleteAllByVehicleIdCommand, AddParameter("ID_Veiculo", vehicleId));
+                Db.Delete(deleteAllByVehicleIdCommand, AddParameter("VehicleId", vehicleId));
             }
             catch (Exception)
             {
@@ -91,11 +91,11 @@ namespace CarRental.Controllers.VehicleImageModule
 
         public override VehicleImage SelectById(int id)
         {
-            return Db.Get(selectByIdCommand, ConvertToVehicleImage, AddParameter("ID", id));
+            return Db.Get(selectByIdCommand, ConvertToVehicleImage, AddParameter("Id", id));
         }
         public List<VehicleImage> SelectByVehicleId(int vehicleId)
         {
-            return Db.GetAll(selectByVehicleIdCommand, ConvertToVehicleImage, AddParameter("ID_VEICULO", vehicleId));
+            return Db.GetAll(selectByVehicleIdCommand, ConvertToVehicleImage, AddParameter("VehicleId", vehicleId));
         }
 
         public override List<VehicleImage> SelectAll()
@@ -105,7 +105,7 @@ namespace CarRental.Controllers.VehicleImageModule
 
         public List<VehicleImage> SelectAllImagesOfVehicle(int vehicleId)
         {
-            return Db.GetAll(selectAllByVehicleIdCommand, ConvertToVehicleImage, AddParameter("ID_VEICULO", vehicleId));
+            return Db.GetAll(selectAllByVehicleIdCommand, ConvertToVehicleImage, AddParameter("VehicleId", vehicleId));
         }
 
         private Dictionary<string, object> GetImageParameters(VehicleImage vehicleImage)
@@ -117,16 +117,16 @@ namespace CarRental.Controllers.VehicleImageModule
 
             var parameters = new Dictionary<string, object>();
 
-            parameters.Add("ID", vehicleImage.Id);
-            parameters.Add("ID_VEICULO", vehicleImage.VehicleId);
-            parameters.Add("IMAGEM", imageBytes);
+            parameters.Add("Id", vehicleImage.Id);
+            parameters.Add("VehicleId", vehicleImage.VehicleId);
+            parameters.Add("Image", imageBytes);
 
             return parameters;
         }
 
         private Bitmap ConvertToImage(IDataReader reader)
         {
-            byte[] bytes = (byte[])(reader["IMAGEM"]);
+            byte[] bytes = (byte[])(reader["Image"]);
 
             TypeConverter typeConverter = TypeDescriptor.GetConverter(typeof(Bitmap));
             Bitmap bitmap = (Bitmap)typeConverter.ConvertFrom(bytes);
@@ -136,9 +136,9 @@ namespace CarRental.Controllers.VehicleImageModule
 
         private VehicleImage ConvertToVehicleImage(IDataReader reader)
         {
-            byte[] byteArray = (byte[])(reader["IMAGEM"]);
-            var id = Convert.ToInt32(reader["ID"]);
-            var vehicleId = Convert.ToInt32(reader["ID_VEICULO"]);
+            byte[] byteArray = (byte[])(reader["Image"]);
+            var id = Convert.ToInt32(reader["Id"]);
+            var vehicleId = Convert.ToInt32(reader["VehicleId"]);
 
             TypeConverter typeConverter = TypeDescriptor.GetConverter(typeof(Bitmap));
             Bitmap bitmap = (Bitmap)typeConverter.ConvertFrom(byteArray);
