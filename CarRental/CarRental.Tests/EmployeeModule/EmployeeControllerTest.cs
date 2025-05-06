@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System;
 using CarRental.Tests.Shared;
 
-namespace CarRental.Tests.FuncionarioModule
+namespace CarRental.Tests.EmployeeModule
 {
     [TestClass]
     [TestCategory("Controllers")]
-    public class FuncionarioControladorTest
+    public class EmployeeControllerTest
     {
         Employee funcionario;
         Employee funcionario2;
         EmployeeController ctr; 
 
-        public FuncionarioControladorTest()
+        public EmployeeControllerTest()
         {
             ctr = new EmployeeController();
             ResetarBanco.ResetarTabelas();

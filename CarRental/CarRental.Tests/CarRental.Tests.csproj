@@ -80,7 +80,7 @@
     <Compile Include="CouponModule\CouponControllerTest.cs" />
     <Compile Include="CouponModule\CouponTest.cs" />
     <Compile Include="EmployeeModule\EmployeeTest.cs" />
-    <Compile Include="EmployeeModule\FuncionarioControladorTest.cs" />
+    <Compile Include="EmployeeModule\EmployeeControllerTest.cs" />
     <Compile Include="RentalModule\RentalTest.cs" />
     <Compile Include="RentalModule\LocacaoControladorTest.cs" />
     <Compile Include="PartnerModule\PartnerControllerTest.cs" />
