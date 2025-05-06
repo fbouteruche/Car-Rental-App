@@ -9,103 +9,103 @@ namespace CarRental.WindowsApp.Features.Returns
 {
     public class ReturnOperation : ICadastravel
     {
-        private readonly RentalController controlador = null;
-        private readonly ReturnTableControl tabelaDevolucao = null;
-        public ReturnOperation(RentalController ctrlDevolucao)
+        private readonly RentalController controller = null;
+        private readonly ReturnTableControl returnTable = null;
+        public ReturnOperation(RentalController returnController)
         {
-            controlador = ctrlDevolucao;
-            tabelaDevolucao = new ReturnTableControl();
+            controller = returnController;
+            returnTable = new ReturnTableControl();
         }
         public void InsertNewRecord()
         {
-            int id = tabelaDevolucao.ObtemIdSelecionado();
+            int id = returnTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um registro para realizar a devolução!", "Registrar Devolução",
+                MessageBox.Show("Select a record to process the return!", "Register Return",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelectById(id);
+            Rental selectedRental = controller.SelectById(id);
 
-            ReturnForm tela = new ReturnForm("Devolução de Veículo");
+            ReturnForm form = new ReturnForm("Vehicle Return");
 
-            tela.Devolucao = locacaoSelecionada;
+            form.Return = selectedRental;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(tela.Devolucao.Id , tela.Devolucao);
-                List<Rental> funcionarios = controlador.SelectAll();
-                tabelaDevolucao.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
+                controller.Edit(form.Return.Id , form.Return);
+                List<Rental> employees = controller.SelectAll();
+                returnTable.UpdateRecords(employees);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Return: [{form.Return.Id}] successfully processed");
             }
         }
 
         public void EditRecord()
         {
-            MessageBox.Show("Não é possivel editar uma devolução encerrada!! \nPara editar uma locação em aberta, vá ao menu Locação");
+            MessageBox.Show("It is not possible to edit a closed return!\nTo edit an open rental, go to the Rental menu");
         }
 
         public void DeleteRecord()
         {
-            int id = tabelaDevolucao.ObtemIdSelecionado();
+            int id = returnTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um registro de Devolução para poder excluir!", "Exclusão de Registro",
+                MessageBox.Show("Select a return record to delete!", "Delete Record",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Rental locacaoSelecionada = controlador.SelectById(id);
+            Rental selectedRental = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.Id}] ?",
-                "Exclusão de Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the entire rental and return record: [{selectedRental.Id}] ?",
+                "Delete Record", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Delete(id);
+                controller.Delete(id);
 
-                List<Rental> veiculos = controlador.SelectAll();
+                List<Rental> vehicles = controller.SelectAll();
 
-                tabelaDevolucao.AtualizarRegistros(veiculos);
+                returnTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Registro de: [{locacaoSelecionada.ContractingCustomer}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Record of: [{selectedRental.ContractingCustomer}] successfully removed");
             }
         }
 
         public void FilterRecords()
         {
-            FilterReturnForm telaFiltro = new FilterReturnForm();
+            FilterReturnForm filterForm = new FilterReturnForm();
 
-            if (telaFiltro.ShowDialog() == DialogResult.OK)
+            if (filterForm.ShowDialog() == DialogResult.OK)
             {
-                List<Rental> devolucoes = controlador.SelectAll();
-                string tipoLocacao = "";
+                List<Rental> returns = controller.SelectAll();
+                string rentalType = "";
 
-                switch (telaFiltro.TipoFiltro)
+                switch (filterForm.FilterType)
                 {
-                    case FilterReturnEnum.TodasDevolucoes:
+                    case FilterReturnEnum.AllReturns:
                         break;
 
-                    case FilterReturnEnum.DevolucoesPendentes:
+                    case FilterReturnEnum.PendingReturns:
                         {
-                            List<Rental> filtro = new List<Rental>();
-                            foreach (Rental devolucao in devolucoes)
-                                if (devolucao.IsOpen)
-                                    filtro.Add(devolucao);
-                            devolucoes = filtro;
-                            tipoLocacao = "pendente(s)";
+                            List<Rental> filter = new List<Rental>();
+                            foreach (Rental returnRental in returns)
+                                if (returnRental.IsOpen)
+                                    filter.Add(returnRental);
+                            returns = filter;
+                            rentalType = "pending";
                             break;
                         }
 
-                    case FilterReturnEnum.DevolucoesFinalizadas:
+                    case FilterReturnEnum.CompletedReturns:
                         {
-                            List<Rental> filtro = new List<Rental>();
-                            foreach (Rental devolucao in devolucoes)
-                                if (!devolucao.IsOpen)
-                                    filtro.Add(devolucao);
-                            devolucoes = filtro;
-                            tipoLocacao = "concluída(s)";
+                            List<Rental> filter = new List<Rental>();
+                            foreach (Rental returnRental in returns)
+                                if (!returnRental.IsOpen)
+                                    filter.Add(returnRental);
+                            returns = filter;
+                            rentalType = "completed";
                             break;
                         }
 
@@ -113,8 +113,8 @@ namespace CarRental.WindowsApp.Features.Returns
                         break;
                 }
 
-                tabelaDevolucao.AtualizarRegistros(devolucoes);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {devolucoes.Count} devolucao(s) {tipoLocacao}");
+                returnTable.UpdateRecords(returns);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Viewing {returns.Count} return(s) {rentalType}");
             }
         }
 
@@ -125,11 +125,11 @@ namespace CarRental.WindowsApp.Features.Returns
 
         public UserControl GetTable()
         {
-            List<Rental> locacoes = controlador.SelectAll();
+            List<Rental> rentals = controller.SelectAll();
 
-            tabelaDevolucao.AtualizarRegistros(locacoes);
+            returnTable.UpdateRecords(rentals);
 
-            return tabelaDevolucao;
+            return returnTable;
         }
     }
 }

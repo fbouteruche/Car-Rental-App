@@ -16,18 +16,18 @@ namespace CarRental.WindowsApp.Features.Returns
         {
             InitializeComponent();
         }
-        public FilterReturnEnum TipoFiltro
+        public FilterReturnEnum FilterType
         {
             get
             {
-                if (rdbDevolucoesConcluidas.Checked)
-                    return FilterReturnEnum.DevolucoesFinalizadas;
+                if (rdbCompletedReturns.Checked)
+                    return FilterReturnEnum.CompletedReturns;
 
-                else if (rdbDevolucoesPendentes.Checked)
-                    return FilterReturnEnum.DevolucoesPendentes;
+                else if (rdbPendingReturns.Checked)
+                    return FilterReturnEnum.PendingReturns;
 
                 else
-                    return FilterReturnEnum.TodasDevolucoes;
+                    return FilterReturnEnum.AllReturns;
             }
         }
     }

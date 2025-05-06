@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Returns
+﻿namespace CarRental.WindowsApp.Features.Returns
 {
     partial class ReturnTableControl
     {
@@ -29,32 +28,32 @@ namespace CarRental.WindowsApp.Features.Returns
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridDevolucoes = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucoes)).BeginInit();
+            this.gridReturns = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReturns)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridDevolucoes
+            // gridReturns
             // 
-            this.gridDevolucoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridDevolucoes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDevolucoes.Location = new System.Drawing.Point(0, 0);
-            this.gridDevolucoes.Name = "gridDevolucoes";
-            this.gridDevolucoes.Size = new System.Drawing.Size(150, 150);
-            this.gridDevolucoes.TabIndex = 0;
+            this.gridReturns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridReturns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridReturns.Location = new System.Drawing.Point(0, 0);
+            this.gridReturns.Name = "gridReturns";
+            this.gridReturns.Size = new System.Drawing.Size(150, 150);
+            this.gridReturns.TabIndex = 0;
             // 
-            // TabelaDevolucaoControl
+            // ReturnTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridDevolucoes);
-            this.Name = "TabelaDevolucaoControl";
-            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucoes)).EndInit();
+            this.Controls.Add(this.gridReturns);
+            this.Name = "ReturnTableControl";
+            ((System.ComponentModel.ISupportInitialize)(this.gridReturns)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gridDevolucoes;
+        private System.Windows.Forms.DataGridView gridReturns;
     }
 }

@@ -19,158 +19,157 @@ namespace CarRental.WindowsApp.Features.Returns
 {
     public partial class ReturnForm : Form
     {
-        private Rental devolucao;
-        ServiceSelectionForm telaServico;
-        VehicleController controladorVeiculo =  new VehicleController();
-        public ReturnForm(string titulo)
+        private Rental returnRental;
+        ServiceSelectionForm serviceForm;
+        VehicleController vehicleController = new VehicleController();
+        public ReturnForm(string title)
         {
             InitializeComponent();
-            lblTitulo.Text = titulo;
-            cBoxQtdTanque.SelectedIndex = 0;
-            telaServico = new ServiceSelectionForm();
+            lblTitle.Text = title;
+            cbxTankAmount.SelectedIndex = 0;
+            serviceForm = new ServiceSelectionForm();
         }
 
-        public Rental Devolucao
+        public Rental Return
         {
-            get { return devolucao; }
+            get { return returnRental; }
 
             set
             {
-                devolucao = value;
+                returnRental = value;
 
-                txtId.Text = devolucao.Id.ToString();
-                txtKmInicial.Text = devolucao.Vehicle.mileage.ToString();
-                txtVeiculo.Text = devolucao.Vehicle.model;
-                txtFuncionario.Text = devolucao.RentingEmployee.Name;
-                txtCliente.Text = devolucao.ContractingCustomer.Name;
-                txtCondutor.Text = devolucao.DriverCustomer.Name;
-                txtPlano.Text = devolucao.PlanType;
-                txtDataLocacao.Text = devolucao.DepartureDate.ToString();
-                txtDataDevolucao.Text = devolucao.ExpectedReturnDate.ToString();
-                dtDevolucao.Value = devolucao.ExpectedReturnDate;
-                txtValorInicial.Text = devolucao.RentalPrice.ToString();
-                telaServico.InicializarCampos(Devolucao.Services, devolucao.InsuranceType, false);
-                AtualizarListBox();
+                txtId.Text = returnRental.Id.ToString();
+                txtInitialKm.Text = returnRental.Vehicle.mileage.ToString();
+                txtVehicle.Text = returnRental.Vehicle.model;
+                txtEmployee.Text = returnRental.RentingEmployee.Name;
+                txtCustomer.Text = returnRental.ContractingCustomer.Name;
+                txtDriver.Text = returnRental.DriverCustomer.Name;
+                txtPlan.Text = returnRental.PlanType;
+                txtRentalDate.Text = returnRental.DepartureDate.ToString();
+                txtReturnDate.Text = returnRental.ExpectedReturnDate.ToString();
+                dtpReturn.Value = returnRental.ExpectedReturnDate;
+                txtInitialValue.Text = returnRental.RentalPrice.ToString();
+                serviceForm.InicializarCampos(Return.Services, returnRental.InsuranceType, false);
+                UpdateListBox();
             }
         }
 
-        #region Eventos dos botões
-        private void btnSelecionarServicos_Click(object sender, EventArgs e)
+        #region Button Events
+        private void btnSelectServices_Click(object sender, EventArgs e)
         {
-            telaServico.InicializarCampos(Devolucao.Services, devolucao.InsuranceType, false);
-            Devolucao.Services.Clear();
-            if (telaServico.ShowDialog() == DialogResult.OK)
+            serviceForm.InicializarCampos(Return.Services, returnRental.InsuranceType, false);
+            Return.Services.Clear();
+            if (serviceForm.ShowDialog() == DialogResult.OK)
             {
-                Devolucao.Services = telaServico.servicosSelecionados;
-                AtualizarListBox();
+                Return.Services = serviceForm.servicosSelecionados;
+                UpdateListBox();
             }
         }
-        private void brnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (dtDevolucao.Value <= devolucao.DepartureDate)
+            if (dtpReturn.Value <= returnRental.DepartureDate)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Data de entrega menor que a de saída");
+                TelaPrincipalForm.Instancia.AtualizarRodape("Return date is earlier than rental date");
                 DialogResult = DialogResult.None;
             }
             else
             {
-                double precoCombustivel = ReceberPrecoCombustivel();
-                Devolucao.CloseRental(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
+                double fuelPrice = GetFuelPrice();
+                Return.CloseRental(dtpReturn.Value, fuelPrice, Convert.ToDouble(txtFinalKm.Text));
 
-                string resultadoValidacao = Devolucao.Validate();
-                Vehicle veiculoAtualizado = devolucao.Vehicle;
-                controladorVeiculo.Edit(devolucao.Vehicle.Id, veiculoAtualizado);
+                string validationResult = Return.Validate();
+                Vehicle updatedVehicle = returnRental.Vehicle;
+                vehicleController.Edit(returnRental.Vehicle.Id, updatedVehicle);
 
-
-                if (resultadoValidacao != "VALID")
+                if (validationResult != "VALID")
                 {
-                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                    string firstError = new StringReader(validationResult).ReadLine();
+                    TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
                     DialogResult = DialogResult.None;
                 }
             }
         }
 
-        private double ReceberPrecoCombustivel()
+        private double GetFuelPrice()
         {
-            double porcentagemTanque = 0;
-            switch (cBoxQtdTanque.SelectedItem.ToString())
+            double tankPercentage = 0;
+            switch (cbxTankAmount.SelectedItem.ToString())
             {
                 case "1/4":
-                    porcentagemTanque = 0.25;
+                    tankPercentage = 0.25;
                     break;
                 case "1/2":
-                    porcentagemTanque = 0.5;
+                    tankPercentage = 0.5;
                     break;
                 case "3/4":
-                    porcentagemTanque = 0.75;
+                    tankPercentage = 0.75;
                     break;
                 case "1/1":
-                    porcentagemTanque = 1;
+                    tankPercentage = 1;
                     break;
             }
-            if (!double.TryParse(txtValorCombustivel.Text, out double valorPorLitro))
-                valorPorLitro = 0;
-            double precoCombustivel = CalculateRental.CalculateFuelDifference(Devolucao.Vehicle.tankCapacity, porcentagemTanque, valorPorLitro);
-            return precoCombustivel;
+            if (!double.TryParse(txtFuelValue.Text, out double pricePerLiter))
+                pricePerLiter = 0;
+            double fuelPrice = CalculateRental.CalculateFuelDifference(Return.Vehicle.tankCapacity, tankPercentage, pricePerLiter);
+            return fuelPrice;
         }
         #endregion
 
-        #region rButton e cBox do combustivel
-        private void cBoxQtdTanque_SelectedIndexChanged(object sender, EventArgs e)
+        #region Tank RadioButton and ComboBox
+        private void cbxTankAmount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxQtdTanque.SelectedIndex == 0)
-                rBtn01.Checked = true;
-            else if (cBoxQtdTanque.SelectedIndex == 1)
-                rBtn14.Checked = true;
-            else if (cBoxQtdTanque.SelectedIndex == 2)
-                rBtn12.Checked = true;
-            else if (cBoxQtdTanque.SelectedIndex == 3)
-                rBtn34.Checked = true;
-            else if (cBoxQtdTanque.SelectedIndex == 4)
-                rBtn11.Checked = true;
+            if (cbxTankAmount.SelectedIndex == 0)
+                rbtnEmpty.Checked = true;
+            else if (cbxTankAmount.SelectedIndex == 1)
+                rbtnQuarter.Checked = true;
+            else if (cbxTankAmount.SelectedIndex == 2)
+                rbtnHalf.Checked = true;
+            else if (cbxTankAmount.SelectedIndex == 3)
+                rbtnThreeQuarters.Checked = true;
+            else if (cbxTankAmount.SelectedIndex == 4)
+                rbtnFull.Checked = true;
 
-            if (Devolucao != null)
-                SimularCalculoDevolucao();
+            if (Return != null)
+                SimulateReturnCalculation();
         }
 
-        private void rBtn01_CheckedChanged(object sender, EventArgs e)
+        private void rbtnEmpty_CheckedChanged(object sender, EventArgs e)
         {
-            if (rBtn01.Checked)
-                cBoxQtdTanque.SelectedIndex = 0;
+            if (rbtnEmpty.Checked)
+                cbxTankAmount.SelectedIndex = 0;
         }
 
-        private void rBtn14_CheckedChanged(object sender, EventArgs e)
+        private void rbtnQuarter_CheckedChanged(object sender, EventArgs e)
         {
-            if (rBtn14.Checked)
-                cBoxQtdTanque.SelectedIndex = 1;
+            if (rbtnQuarter.Checked)
+                cbxTankAmount.SelectedIndex = 1;
         }
 
-        private void rBtn12_CheckedChanged(object sender, EventArgs e)
+        private void rbtnHalf_CheckedChanged(object sender, EventArgs e)
         {
-            if (rBtn12.Checked)
-                cBoxQtdTanque.SelectedIndex = 2;
+            if (rbtnHalf.Checked)
+                cbxTankAmount.SelectedIndex = 2;
         }
 
-        private void rBtn34_CheckedChanged(object sender, EventArgs e)
+        private void rbtnThreeQuarters_CheckedChanged(object sender, EventArgs e)
         {
-            if (rBtn34.Checked)
-                cBoxQtdTanque.SelectedIndex = 3;
+            if (rbtnThreeQuarters.Checked)
+                cbxTankAmount.SelectedIndex = 3;
         }
 
-        private void rBtn11_CheckedChanged(object sender, EventArgs e)
+        private void rbtnFull_CheckedChanged(object sender, EventArgs e)
         {
-            if (rBtn11.Checked)
-                cBoxQtdTanque.SelectedIndex = 4;
+            if (rbtnFull.Checked)
+                cbxTankAmount.SelectedIndex = 4;
         }
         #endregion
 
-        #region Validação para aceitar apenas números
-        private void txtValorCombustivel_KeyPress(object sender, KeyPressEventArgs e)
+        #region Validation for Numeric Input
+        private void txtFuelValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtValorCombustivel.Text.IndexOf(".") >= 0 || txtValorCombustivel.Text.Length == 0)
+                if (txtFuelValue.Text.IndexOf(".") >= 0 || txtFuelValue.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -180,13 +179,13 @@ namespace CarRental.WindowsApp.Features.Returns
                 e.Handled = true;
             }
 
-            SimularCalculoDevolucao();
+            SimulateReturnCalculation();
         }
-        private void txtKmFinal_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtFinalKm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtKmFinal.Text.IndexOf(".") >= 0 || txtKmFinal.Text.Length == 0)
+                if (txtFinalKm.Text.IndexOf(".") >= 0 || txtFinalKm.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -196,49 +195,49 @@ namespace CarRental.WindowsApp.Features.Returns
                 e.Handled = true;
             }
 
-            SimularCalculoDevolucao();
+            SimulateReturnCalculation();
         }
 
-        private void dtDevolucao_ValueChanged(object sender, EventArgs e)
+        private void dtpReturn_ValueChanged(object sender, EventArgs e)
         {
-            SimularCalculoDevolucao();
+            SimulateReturnCalculation();
         }
         #endregion
 
-        #region Atualizar lista
-        private void AtualizarListBox()
+        #region Update List
+        private void UpdateListBox()
         {
-            if (string.IsNullOrEmpty(txtKmFinal.Text))
-                txtKmFinal.Text = "0";
-            if (string.IsNullOrEmpty(txtValorCombustivel.Text))
-                txtValorCombustivel.Text = "0";
-            if (Devolucao.Services != null)
+            if (string.IsNullOrEmpty(txtFinalKm.Text))
+                txtFinalKm.Text = "0";
+            if (string.IsNullOrEmpty(txtFuelValue.Text))
+                txtFuelValue.Text = "0";
+            if (Return.Services != null)
             {
-                cLBoxServicosSelecionados.Items.Clear();
+                clbSelectedServices.Items.Clear();
                 int i = 0;
-                foreach (Service servico in Devolucao.Services)
+                foreach (Service service in Return.Services)
                 {
-                    cLBoxServicosSelecionados.Items.Add(servico);
-                    cLBoxServicosSelecionados.SetItemChecked(i++, true);
+                    clbSelectedServices.Items.Add(service);
+                    clbSelectedServices.SetItemChecked(i++, true);
                 }
             }
-            SimularCalculoDevolucao();
+            SimulateReturnCalculation();
         }
         #endregion
 
-        private void SimularCalculoDevolucao()
+        private void SimulateReturnCalculation()
         {
-            if (!double.TryParse(txtValorInicial.Text, out double precoDevolucao))
-                precoDevolucao = 0;
-            if (!double.TryParse(txtKmFinal.Text, out double kilometrosRodados))
-                precoDevolucao = 0;
+            if (!double.TryParse(txtInitialValue.Text, out double returnPrice))
+                returnPrice = 0;
+            if (!double.TryParse(txtFinalKm.Text, out double kilometersDriven))
+                returnPrice = 0;
 
-            precoDevolucao += ReceberPrecoCombustivel();
-            precoDevolucao += CalculateRental.CalculatePlan(Devolucao.PlanType, Devolucao.Vehicle.vehicleGroup, kilometrosRodados, Devolucao.DepartureDate, dtDevolucao.Value);
-            precoDevolucao += CalculateRental.CalculateServices(Devolucao.Services, Devolucao.DepartureDate, dtDevolucao.Value);
-            precoDevolucao +=  CalculateRental.CalculateLateReturnFee(Devolucao.ReturnPrice, Devolucao.ExpectedReturnDate, Devolucao.ReturnDate);
-            precoDevolucao -= CalculateRental.CalculateDiscountCoupon(precoDevolucao, Devolucao.Coupon);
-            txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
+            returnPrice += GetFuelPrice();
+            returnPrice += CalculateRental.CalculatePlan(Return.PlanType, Return.Vehicle.vehicleGroup, kilometersDriven, Return.DepartureDate, dtpReturn.Value);
+            returnPrice += CalculateRental.CalculateServices(Return.Services, Return.DepartureDate, dtpReturn.Value);
+            returnPrice += CalculateRental.CalculateLateReturnFee(Return.ReturnPrice, Return.ExpectedReturnDate, Return.ReturnDate);
+            returnPrice -= CalculateRental.CalculateDiscountCoupon(returnPrice, Return.Coupon);
+            txtTotalValue.Text = Math.Round(returnPrice, 2).ToString();
         }
     }
 }

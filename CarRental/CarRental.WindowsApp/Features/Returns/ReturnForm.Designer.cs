@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Returns
+﻿namespace CarRental.WindowsApp.Features.Returns
 {
     partial class ReturnForm
     {
@@ -29,265 +28,265 @@ namespace CarRental.WindowsApp.Features.Returns
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.brnConfirmar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.gBoxLocacao = new System.Windows.Forms.GroupBox();
-            this.txtKmInicial = new System.Windows.Forms.TextBox();
-            this.lblServicosSelecionados = new System.Windows.Forms.Label();
-            this.lblKmInicial = new System.Windows.Forms.Label();
-            this.cLBoxServicosSelecionados = new System.Windows.Forms.CheckedListBox();
-            this.txtDataDevolucao = new System.Windows.Forms.TextBox();
-            this.txtDataLocacao = new System.Windows.Forms.TextBox();
-            this.txtCondutor = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.txtPlano = new System.Windows.Forms.TextBox();
-            this.txtVeiculo = new System.Windows.Forms.TextBox();
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
-            this.lblPlano = new System.Windows.Forms.Label();
-            this.lblVeiculo = new System.Windows.Forms.Label();
-            this.lblDataDevolucao = new System.Windows.Forms.Label();
-            this.lblDataLocacao = new System.Windows.Forms.Label();
-            this.lblCondutor = new System.Windows.Forms.Label();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFuncionario = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.grpRental = new System.Windows.Forms.GroupBox();
+            this.txtInitialKm = new System.Windows.Forms.TextBox();
+            this.lblSelectedServices = new System.Windows.Forms.Label();
+            this.lblInitialKm = new System.Windows.Forms.Label();
+            this.clbSelectedServices = new System.Windows.Forms.CheckedListBox();
+            this.txtReturnDate = new System.Windows.Forms.TextBox();
+            this.txtRentalDate = new System.Windows.Forms.TextBox();
+            this.txtDriver = new System.Windows.Forms.TextBox();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.txtPlan = new System.Windows.Forms.TextBox();
+            this.txtVehicle = new System.Windows.Forms.TextBox();
+            this.txtEmployee = new System.Windows.Forms.TextBox();
+            this.lblPlan = new System.Windows.Forms.Label();
+            this.lblVehicle = new System.Windows.Forms.Label();
+            this.lblReturnDate = new System.Windows.Forms.Label();
+            this.lblRentalDate = new System.Windows.Forms.Label();
+            this.lblDriver = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblEmployee = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtValorTotal = new System.Windows.Forms.TextBox();
-            this.lblValorTotal = new System.Windows.Forms.Label();
-            this.gBoxDevolucao = new System.Windows.Forms.GroupBox();
-            this.txtValorInicial = new System.Windows.Forms.TextBox();
-            this.lblValorInicial = new System.Windows.Forms.Label();
-            this.lblEncerrar = new System.Windows.Forms.Label();
-            this.dtDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.rBtn01 = new System.Windows.Forms.RadioButton();
+            this.txtTotalValue = new System.Windows.Forms.TextBox();
+            this.lblTotalValue = new System.Windows.Forms.Label();
+            this.grpReturn = new System.Windows.Forms.GroupBox();
+            this.txtInitialValue = new System.Windows.Forms.TextBox();
+            this.lblInitialValue = new System.Windows.Forms.Label();
+            this.lblClose = new System.Windows.Forms.Label();
+            this.dtpReturn = new System.Windows.Forms.DateTimePicker();
+            this.rbtnEmpty = new System.Windows.Forms.RadioButton();
             this.lblFull = new System.Windows.Forms.Label();
             this.lblEmpty = new System.Windows.Forms.Label();
-            this.rBtn11 = new System.Windows.Forms.RadioButton();
-            this.rBtn34 = new System.Windows.Forms.RadioButton();
-            this.rBtn12 = new System.Windows.Forms.RadioButton();
-            this.rBtn14 = new System.Windows.Forms.RadioButton();
+            this.rbtnFull = new System.Windows.Forms.RadioButton();
+            this.rbtnThreeQuarters = new System.Windows.Forms.RadioButton();
+            this.rbtnHalf = new System.Windows.Forms.RadioButton();
+            this.rbtnQuarter = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblKmFinal = new System.Windows.Forms.Label();
-            this.txtKmFinal = new System.Windows.Forms.TextBox();
-            this.lblServicos = new System.Windows.Forms.Label();
-            this.btnSelecionarServicos = new System.Windows.Forms.Button();
-            this.lblQtdTanque = new System.Windows.Forms.Label();
-            this.cBoxQtdTanque = new System.Windows.Forms.ComboBox();
-            this.lblValorCombustivel = new System.Windows.Forms.Label();
-            this.txtValorCombustivel = new System.Windows.Forms.TextBox();
-            this.gBoxLocacao.SuspendLayout();
-            this.gBoxDevolucao.SuspendLayout();
+            this.lblFinalKm = new System.Windows.Forms.Label();
+            this.txtFinalKm = new System.Windows.Forms.TextBox();
+            this.lblServices = new System.Windows.Forms.Label();
+            this.btnSelectServices = new System.Windows.Forms.Button();
+            this.lblTankAmount = new System.Windows.Forms.Label();
+            this.cbxTankAmount = new System.Windows.Forms.ComboBox();
+            this.lblFuelValue = new System.Windows.Forms.Label();
+            this.txtFuelValue = new System.Windows.Forms.TextBox();
+            this.grpRental.SuspendLayout();
+            this.grpReturn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTitulo
+            // lblTitle
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(357, 34);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(182, 20);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Devolução de Veículo";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(357, 34);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(182, 20);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Vehicle Return";
             // 
-            // brnConfirmar
+            // btnConfirm
             // 
-            this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.brnConfirmar.Location = new System.Drawing.Point(729, 408);
-            this.brnConfirmar.Name = "brnConfirmar";
-            this.brnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.brnConfirmar.TabIndex = 22;
-            this.brnConfirmar.Text = "Confirmar";
-            this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.brnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Location = new System.Drawing.Point(729, 408);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 22;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(810, 408);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(810, 408);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // gBoxLocacao
+            // grpRental
             // 
-            this.gBoxLocacao.Controls.Add(this.txtKmInicial);
-            this.gBoxLocacao.Controls.Add(this.lblServicosSelecionados);
-            this.gBoxLocacao.Controls.Add(this.lblKmInicial);
-            this.gBoxLocacao.Controls.Add(this.cLBoxServicosSelecionados);
-            this.gBoxLocacao.Controls.Add(this.txtDataDevolucao);
-            this.gBoxLocacao.Controls.Add(this.txtDataLocacao);
-            this.gBoxLocacao.Controls.Add(this.txtCondutor);
-            this.gBoxLocacao.Controls.Add(this.txtCliente);
-            this.gBoxLocacao.Controls.Add(this.txtPlano);
-            this.gBoxLocacao.Controls.Add(this.txtVeiculo);
-            this.gBoxLocacao.Controls.Add(this.txtFuncionario);
-            this.gBoxLocacao.Controls.Add(this.lblPlano);
-            this.gBoxLocacao.Controls.Add(this.lblVeiculo);
-            this.gBoxLocacao.Controls.Add(this.lblDataDevolucao);
-            this.gBoxLocacao.Controls.Add(this.lblDataLocacao);
-            this.gBoxLocacao.Controls.Add(this.lblCondutor);
-            this.gBoxLocacao.Controls.Add(this.lblCliente);
-            this.gBoxLocacao.Controls.Add(this.lblFuncionario);
-            this.gBoxLocacao.Controls.Add(this.lblId);
-            this.gBoxLocacao.Controls.Add(this.txtId);
-            this.gBoxLocacao.Enabled = false;
-            this.gBoxLocacao.Location = new System.Drawing.Point(12, 83);
-            this.gBoxLocacao.Name = "gBoxLocacao";
-            this.gBoxLocacao.Size = new System.Drawing.Size(433, 312);
-            this.gBoxLocacao.TabIndex = 20;
-            this.gBoxLocacao.TabStop = false;
-            this.gBoxLocacao.Text = "Dados da locação";
+            this.grpRental.Controls.Add(this.txtInitialKm);
+            this.grpRental.Controls.Add(this.lblSelectedServices);
+            this.grpRental.Controls.Add(this.lblInitialKm);
+            this.grpRental.Controls.Add(this.clbSelectedServices);
+            this.grpRental.Controls.Add(this.txtReturnDate);
+            this.grpRental.Controls.Add(this.txtRentalDate);
+            this.grpRental.Controls.Add(this.txtDriver);
+            this.grpRental.Controls.Add(this.txtCustomer);
+            this.grpRental.Controls.Add(this.txtPlan);
+            this.grpRental.Controls.Add(this.txtVehicle);
+            this.grpRental.Controls.Add(this.txtEmployee);
+            this.grpRental.Controls.Add(this.lblPlan);
+            this.grpRental.Controls.Add(this.lblVehicle);
+            this.grpRental.Controls.Add(this.lblReturnDate);
+            this.grpRental.Controls.Add(this.lblRentalDate);
+            this.grpRental.Controls.Add(this.lblDriver);
+            this.grpRental.Controls.Add(this.lblCustomer);
+            this.grpRental.Controls.Add(this.lblEmployee);
+            this.grpRental.Controls.Add(this.lblId);
+            this.grpRental.Controls.Add(this.txtId);
+            this.grpRental.Enabled = false;
+            this.grpRental.Location = new System.Drawing.Point(12, 83);
+            this.grpRental.Name = "grpRental";
+            this.grpRental.Size = new System.Drawing.Size(433, 312);
+            this.grpRental.TabIndex = 20;
+            this.grpRental.TabStop = false;
+            this.grpRental.Text = "Rental Details";
             // 
-            // txtKmInicial
+            // txtInitialKm
             // 
-            this.txtKmInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtKmInicial.Enabled = false;
-            this.txtKmInicial.Location = new System.Drawing.Point(284, 19);
-            this.txtKmInicial.Name = "txtKmInicial";
-            this.txtKmInicial.Size = new System.Drawing.Size(141, 20);
-            this.txtKmInicial.TabIndex = 25;
+            this.txtInitialKm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtInitialKm.Enabled = false;
+            this.txtInitialKm.Location = new System.Drawing.Point(284, 19);
+            this.txtInitialKm.Name = "txtInitialKm";
+            this.txtInitialKm.Size = new System.Drawing.Size(141, 20);
+            this.txtInitialKm.TabIndex = 25;
             // 
-            // lblServicosSelecionados
+            // lblSelectedServices
             // 
-            this.lblServicosSelecionados.AutoSize = true;
-            this.lblServicosSelecionados.Location = new System.Drawing.Point(35, 204);
-            this.lblServicosSelecionados.Name = "lblServicosSelecionados";
-            this.lblServicosSelecionados.Size = new System.Drawing.Size(48, 13);
-            this.lblServicosSelecionados.TabIndex = 31;
-            this.lblServicosSelecionados.Text = "Serviços";
+            this.lblSelectedServices.AutoSize = true;
+            this.lblSelectedServices.Location = new System.Drawing.Point(35, 204);
+            this.lblSelectedServices.Name = "lblSelectedServices";
+            this.lblSelectedServices.Size = new System.Drawing.Size(48, 13);
+            this.lblSelectedServices.TabIndex = 31;
+            this.lblSelectedServices.Text = "Services";
             // 
-            // lblKmInicial
+            // lblInitialKm
             // 
-            this.lblKmInicial.AutoSize = true;
-            this.lblKmInicial.Location = new System.Drawing.Point(226, 22);
-            this.lblKmInicial.Name = "lblKmInicial";
-            this.lblKmInicial.Size = new System.Drawing.Size(52, 13);
-            this.lblKmInicial.TabIndex = 24;
-            this.lblKmInicial.Text = "Km Inicial";
+            this.lblInitialKm.AutoSize = true;
+            this.lblInitialKm.Location = new System.Drawing.Point(226, 22);
+            this.lblInitialKm.Name = "lblInitialKm";
+            this.lblInitialKm.Size = new System.Drawing.Size(52, 13);
+            this.lblInitialKm.TabIndex = 24;
+            this.lblInitialKm.Text = "Initial Km";
             // 
-            // cLBoxServicosSelecionados
+            // clbSelectedServices
             // 
-            this.cLBoxServicosSelecionados.FormattingEnabled = true;
-            this.cLBoxServicosSelecionados.Location = new System.Drawing.Point(89, 204);
-            this.cLBoxServicosSelecionados.Name = "cLBoxServicosSelecionados";
-            this.cLBoxServicosSelecionados.Size = new System.Drawing.Size(338, 79);
-            this.cLBoxServicosSelecionados.TabIndex = 30;
+            this.clbSelectedServices.FormattingEnabled = true;
+            this.clbSelectedServices.Location = new System.Drawing.Point(89, 204);
+            this.clbSelectedServices.Name = "clbSelectedServices";
+            this.clbSelectedServices.Size = new System.Drawing.Size(338, 79);
+            this.clbSelectedServices.TabIndex = 30;
             // 
-            // txtDataDevolucao
+            // txtReturnDate
             // 
-            this.txtDataDevolucao.Location = new System.Drawing.Point(284, 175);
-            this.txtDataDevolucao.Name = "txtDataDevolucao";
-            this.txtDataDevolucao.Size = new System.Drawing.Size(143, 20);
-            this.txtDataDevolucao.TabIndex = 25;
+            this.txtReturnDate.Location = new System.Drawing.Point(284, 175);
+            this.txtReturnDate.Name = "txtReturnDate";
+            this.txtReturnDate.Size = new System.Drawing.Size(143, 20);
+            this.txtReturnDate.TabIndex = 25;
             // 
-            // txtDataLocacao
+            // txtRentalDate
             // 
-            this.txtDataLocacao.Location = new System.Drawing.Point(89, 175);
-            this.txtDataLocacao.Name = "txtDataLocacao";
-            this.txtDataLocacao.Size = new System.Drawing.Size(121, 20);
-            this.txtDataLocacao.TabIndex = 29;
+            this.txtRentalDate.Location = new System.Drawing.Point(89, 175);
+            this.txtRentalDate.Name = "txtRentalDate";
+            this.txtRentalDate.Size = new System.Drawing.Size(121, 20);
+            this.txtRentalDate.TabIndex = 29;
             // 
-            // txtCondutor
+            // txtDriver
             // 
-            this.txtCondutor.Location = new System.Drawing.Point(89, 149);
-            this.txtCondutor.Name = "txtCondutor";
-            this.txtCondutor.Size = new System.Drawing.Size(338, 20);
-            this.txtCondutor.TabIndex = 28;
+            this.txtDriver.Location = new System.Drawing.Point(89, 149);
+            this.txtDriver.Name = "txtDriver";
+            this.txtDriver.Size = new System.Drawing.Size(338, 20);
+            this.txtDriver.TabIndex = 28;
             // 
-            // txtCliente
+            // txtCustomer
             // 
-            this.txtCliente.Location = new System.Drawing.Point(89, 123);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(338, 20);
-            this.txtCliente.TabIndex = 27;
+            this.txtCustomer.Location = new System.Drawing.Point(89, 123);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.Size = new System.Drawing.Size(338, 20);
+            this.txtCustomer.TabIndex = 27;
             // 
-            // txtPlano
+            // txtPlan
             // 
-            this.txtPlano.Location = new System.Drawing.Point(89, 97);
-            this.txtPlano.Name = "txtPlano";
-            this.txtPlano.Size = new System.Drawing.Size(338, 20);
-            this.txtPlano.TabIndex = 26;
+            this.txtPlan.Location = new System.Drawing.Point(89, 97);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.Size = new System.Drawing.Size(338, 20);
+            this.txtPlan.TabIndex = 26;
             // 
-            // txtVeiculo
+            // txtVehicle
             // 
-            this.txtVeiculo.Location = new System.Drawing.Point(89, 71);
-            this.txtVeiculo.Name = "txtVeiculo";
-            this.txtVeiculo.Size = new System.Drawing.Size(338, 20);
-            this.txtVeiculo.TabIndex = 25;
+            this.txtVehicle.Location = new System.Drawing.Point(89, 71);
+            this.txtVehicle.Name = "txtVehicle";
+            this.txtVehicle.Size = new System.Drawing.Size(338, 20);
+            this.txtVehicle.TabIndex = 25;
             // 
-            // txtFuncionario
+            // txtEmployee
             // 
-            this.txtFuncionario.Location = new System.Drawing.Point(89, 45);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(338, 20);
-            this.txtFuncionario.TabIndex = 16;
+            this.txtEmployee.Location = new System.Drawing.Point(89, 45);
+            this.txtEmployee.Name = "txtEmployee";
+            this.txtEmployee.Size = new System.Drawing.Size(338, 20);
+            this.txtEmployee.TabIndex = 16;
             // 
-            // lblPlano
+            // lblPlan
             // 
-            this.lblPlano.AutoSize = true;
-            this.lblPlano.Location = new System.Drawing.Point(49, 100);
-            this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(34, 13);
-            this.lblPlano.TabIndex = 13;
-            this.lblPlano.Text = "Plano";
+            this.lblPlan.AutoSize = true;
+            this.lblPlan.Location = new System.Drawing.Point(49, 100);
+            this.lblPlan.Name = "lblPlan";
+            this.lblPlan.Size = new System.Drawing.Size(31, 13);
+            this.lblPlan.TabIndex = 13;
+            this.lblPlan.Text = "Plan";
             // 
-            // lblVeiculo
+            // lblVehicle
             // 
-            this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(39, 74);
-            this.lblVeiculo.Name = "lblVeiculo";
-            this.lblVeiculo.Size = new System.Drawing.Size(44, 13);
-            this.lblVeiculo.TabIndex = 12;
-            this.lblVeiculo.Text = "Veículo";
+            this.lblVehicle.AutoSize = true;
+            this.lblVehicle.Location = new System.Drawing.Point(39, 74);
+            this.lblVehicle.Name = "lblVehicle";
+            this.lblVehicle.Size = new System.Drawing.Size(44, 13);
+            this.lblVehicle.TabIndex = 12;
+            this.lblVehicle.Text = "Vehicle";
             // 
-            // lblDataDevolucao
+            // lblReturnDate
             // 
-            this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(230, 178);
-            this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(48, 13);
-            this.lblDataDevolucao.TabIndex = 11;
-            this.lblDataDevolucao.Text = "Previsao";
+            this.lblReturnDate.AutoSize = true;
+            this.lblReturnDate.Location = new System.Drawing.Point(230, 178);
+            this.lblReturnDate.Name = "lblReturnDate";
+            this.lblReturnDate.Size = new System.Drawing.Size(48, 13);
+            this.lblReturnDate.TabIndex = 11;
+            this.lblReturnDate.Text = "Forecast";
             // 
-            // lblDataLocacao
+            // lblRentalDate
             // 
-            this.lblDataLocacao.AutoSize = true;
-            this.lblDataLocacao.Location = new System.Drawing.Point(34, 178);
-            this.lblDataLocacao.Name = "lblDataLocacao";
-            this.lblDataLocacao.Size = new System.Drawing.Size(49, 13);
-            this.lblDataLocacao.TabIndex = 10;
-            this.lblDataLocacao.Text = "Locação";
+            this.lblRentalDate.AutoSize = true;
+            this.lblRentalDate.Location = new System.Drawing.Point(34, 178);
+            this.lblRentalDate.Name = "lblRentalDate";
+            this.lblRentalDate.Size = new System.Drawing.Size(49, 13);
+            this.lblRentalDate.TabIndex = 10;
+            this.lblRentalDate.Text = "Rental";
             // 
-            // lblCondutor
+            // lblDriver
             // 
-            this.lblCondutor.AutoSize = true;
-            this.lblCondutor.Location = new System.Drawing.Point(33, 152);
-            this.lblCondutor.Name = "lblCondutor";
-            this.lblCondutor.Size = new System.Drawing.Size(50, 13);
-            this.lblCondutor.TabIndex = 9;
-            this.lblCondutor.Text = "Condutor";
+            this.lblDriver.AutoSize = true;
+            this.lblDriver.Location = new System.Drawing.Point(33, 152);
+            this.lblDriver.Name = "lblDriver";
+            this.lblDriver.Size = new System.Drawing.Size(38, 13);
+            this.lblDriver.TabIndex = 9;
+            this.lblDriver.Text = "Driver";
             // 
-            // lblCliente
+            // lblCustomer
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(44, 126);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 8;
-            this.lblCliente.Text = "Customer";
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.Location = new System.Drawing.Point(44, 126);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(51, 13);
+            this.lblCustomer.TabIndex = 8;
+            this.lblCustomer.Text = "Customer";
             // 
-            // lblFuncionario
+            // lblEmployee
             // 
-            this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(21, 48);
-            this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(62, 13);
-            this.lblFuncionario.TabIndex = 7;
-            this.lblFuncionario.Text = "Funcionário";
+            this.lblEmployee.AutoSize = true;
+            this.lblEmployee.Location = new System.Drawing.Point(21, 48);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(56, 13);
+            this.lblEmployee.TabIndex = 7;
+            this.lblEmployee.Text = "Employee";
             // 
             // lblId
             // 
@@ -308,106 +307,106 @@ namespace CarRental.WindowsApp.Features.Returns
             this.txtId.TabIndex = 2;
             this.txtId.Text = "0";
             // 
-            // txtValorTotal
+            // txtTotalValue
             // 
-            this.txtValorTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtValorTotal.Enabled = false;
-            this.txtValorTotal.Location = new System.Drawing.Point(327, 278);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtValorTotal.TabIndex = 17;
-            this.txtValorTotal.Text = "0";
+            this.txtTotalValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtTotalValue.Enabled = false;
+            this.txtTotalValue.Location = new System.Drawing.Point(327, 278);
+            this.txtTotalValue.Name = "txtTotalValue";
+            this.txtTotalValue.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalValue.TabIndex = 17;
+            this.txtTotalValue.Text = "0";
             // 
-            // lblValorTotal
+            // lblTotalValue
             // 
-            this.lblValorTotal.AutoSize = true;
-            this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(215, 278);
-            this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(116, 16);
-            this.lblValorTotal.TabIndex = 2;
-            this.lblValorTotal.Text = "Preço Total: R$";
+            this.lblTotalValue.AutoSize = true;
+            this.lblTotalValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalValue.Location = new System.Drawing.Point(215, 278);
+            this.lblTotalValue.Name = "lblTotalValue";
+            this.lblTotalValue.Size = new System.Drawing.Size(116, 16);
+            this.lblTotalValue.TabIndex = 2;
+            this.lblTotalValue.Text = "Total Price: R$";
             // 
-            // gBoxDevolucao
+            // grpReturn
             // 
-            this.gBoxDevolucao.Controls.Add(this.txtValorInicial);
-            this.gBoxDevolucao.Controls.Add(this.lblValorInicial);
-            this.gBoxDevolucao.Controls.Add(this.lblEncerrar);
-            this.gBoxDevolucao.Controls.Add(this.dtDevolucao);
-            this.gBoxDevolucao.Controls.Add(this.rBtn01);
-            this.gBoxDevolucao.Controls.Add(this.lblFull);
-            this.gBoxDevolucao.Controls.Add(this.lblEmpty);
-            this.gBoxDevolucao.Controls.Add(this.rBtn11);
-            this.gBoxDevolucao.Controls.Add(this.rBtn34);
-            this.gBoxDevolucao.Controls.Add(this.rBtn12);
-            this.gBoxDevolucao.Controls.Add(this.rBtn14);
-            this.gBoxDevolucao.Controls.Add(this.pictureBox1);
-            this.gBoxDevolucao.Controls.Add(this.lblKmFinal);
-            this.gBoxDevolucao.Controls.Add(this.txtKmFinal);
-            this.gBoxDevolucao.Controls.Add(this.lblServicos);
-            this.gBoxDevolucao.Controls.Add(this.btnSelecionarServicos);
-            this.gBoxDevolucao.Controls.Add(this.lblQtdTanque);
-            this.gBoxDevolucao.Controls.Add(this.cBoxQtdTanque);
-            this.gBoxDevolucao.Controls.Add(this.lblValorCombustivel);
-            this.gBoxDevolucao.Controls.Add(this.txtValorCombustivel);
-            this.gBoxDevolucao.Controls.Add(this.txtValorTotal);
-            this.gBoxDevolucao.Controls.Add(this.lblValorTotal);
-            this.gBoxDevolucao.Location = new System.Drawing.Point(451, 83);
-            this.gBoxDevolucao.Name = "gBoxDevolucao";
-            this.gBoxDevolucao.Size = new System.Drawing.Size(433, 312);
-            this.gBoxDevolucao.TabIndex = 24;
-            this.gBoxDevolucao.TabStop = false;
-            this.gBoxDevolucao.Text = "Devolução";
+            this.grpReturn.Controls.Add(this.txtInitialValue);
+            this.grpReturn.Controls.Add(this.lblInitialValue);
+            this.grpReturn.Controls.Add(this.lblClose);
+            this.grpReturn.Controls.Add(this.dtpReturn);
+            this.grpReturn.Controls.Add(this.rbtnEmpty);
+            this.grpReturn.Controls.Add(this.lblFull);
+            this.grpReturn.Controls.Add(this.lblEmpty);
+            this.grpReturn.Controls.Add(this.rbtnFull);
+            this.grpReturn.Controls.Add(this.rbtnThreeQuarters);
+            this.grpReturn.Controls.Add(this.rbtnHalf);
+            this.grpReturn.Controls.Add(this.rbtnQuarter);
+            this.grpReturn.Controls.Add(this.pictureBox1);
+            this.grpReturn.Controls.Add(this.lblFinalKm);
+            this.grpReturn.Controls.Add(this.txtFinalKm);
+            this.grpReturn.Controls.Add(this.lblServices);
+            this.grpReturn.Controls.Add(this.btnSelectServices);
+            this.grpReturn.Controls.Add(this.lblTankAmount);
+            this.grpReturn.Controls.Add(this.cbxTankAmount);
+            this.grpReturn.Controls.Add(this.lblFuelValue);
+            this.grpReturn.Controls.Add(this.txtFuelValue);
+            this.grpReturn.Controls.Add(this.txtTotalValue);
+            this.grpReturn.Controls.Add(this.lblTotalValue);
+            this.grpReturn.Location = new System.Drawing.Point(451, 83);
+            this.grpReturn.Name = "grpReturn";
+            this.grpReturn.Size = new System.Drawing.Size(433, 312);
+            this.grpReturn.TabIndex = 24;
+            this.grpReturn.TabStop = false;
+            this.grpReturn.Text = "Return";
             // 
-            // txtValorInicial
+            // txtInitialValue
             // 
-            this.txtValorInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtValorInicial.Enabled = false;
-            this.txtValorInicial.Location = new System.Drawing.Point(327, 252);
-            this.txtValorInicial.Name = "txtValorInicial";
-            this.txtValorInicial.Size = new System.Drawing.Size(100, 20);
-            this.txtValorInicial.TabIndex = 35;
-            this.txtValorInicial.Text = "0";
+            this.txtInitialValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtInitialValue.Enabled = false;
+            this.txtInitialValue.Location = new System.Drawing.Point(327, 252);
+            this.txtInitialValue.Name = "txtInitialValue";
+            this.txtInitialValue.Size = new System.Drawing.Size(100, 20);
+            this.txtInitialValue.TabIndex = 35;
+            this.txtInitialValue.Text = "0";
             // 
-            // lblValorInicial
+            // lblInitialValue
             // 
-            this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(215, 254);
-            this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
-            this.lblValorInicial.TabIndex = 34;
-            this.lblValorInicial.Text = "Value Inicial: R$";
+            this.lblInitialValue.AutoSize = true;
+            this.lblInitialValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInitialValue.Location = new System.Drawing.Point(215, 254);
+            this.lblInitialValue.Name = "lblInitialValue";
+            this.lblInitialValue.Size = new System.Drawing.Size(117, 16);
+            this.lblInitialValue.TabIndex = 34;
+            this.lblInitialValue.Text = "Initial Value: R$";
             // 
-            // lblEncerrar
+            // lblClose
             // 
-            this.lblEncerrar.AutoSize = true;
-            this.lblEncerrar.Location = new System.Drawing.Point(8, 217);
-            this.lblEncerrar.Name = "lblEncerrar";
-            this.lblEncerrar.Size = new System.Drawing.Size(59, 13);
-            this.lblEncerrar.TabIndex = 33;
-            this.lblEncerrar.Text = "Devolução";
+            this.lblClose.AutoSize = true;
+            this.lblClose.Location = new System.Drawing.Point(8, 217);
+            this.lblClose.Name = "lblClose";
+            this.lblClose.Size = new System.Drawing.Size(59, 13);
+            this.lblClose.TabIndex = 33;
+            this.lblClose.Text = "Return";
             // 
-            // dtDevolucao
+            // dtpReturn
             // 
-            this.dtDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dtDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDevolucao.Location = new System.Drawing.Point(73, 214);
-            this.dtDevolucao.Name = "dtDevolucao";
-            this.dtDevolucao.Size = new System.Drawing.Size(129, 20);
-            this.dtDevolucao.TabIndex = 32;
-            this.dtDevolucao.ValueChanged += new System.EventHandler(this.dtDevolucao_ValueChanged);
+            this.dtpReturn.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpReturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpReturn.Location = new System.Drawing.Point(73, 214);
+            this.dtpReturn.Name = "dtpReturn";
+            this.dtpReturn.Size = new System.Drawing.Size(129, 20);
+            this.dtpReturn.TabIndex = 32;
+            this.dtpReturn.ValueChanged += new System.EventHandler(this.dtpReturn_ValueChanged);
             // 
-            // rBtn01
+            // rbtnEmpty
             // 
-            this.rBtn01.AutoSize = true;
-            this.rBtn01.Location = new System.Drawing.Point(112, 158);
-            this.rBtn01.Name = "rBtn01";
-            this.rBtn01.Size = new System.Drawing.Size(14, 13);
-            this.rBtn01.TabIndex = 25;
-            this.rBtn01.TabStop = true;
-            this.rBtn01.UseVisualStyleBackColor = true;
-            this.rBtn01.CheckedChanged += new System.EventHandler(this.rBtn01_CheckedChanged);
+            this.rbtnEmpty.AutoSize = true;
+            this.rbtnEmpty.Location = new System.Drawing.Point(112, 158);
+            this.rbtnEmpty.Name = "rbtnEmpty";
+            this.rbtnEmpty.Size = new System.Drawing.Size(14, 13);
+            this.rbtnEmpty.TabIndex = 25;
+            this.rbtnEmpty.TabStop = true;
+            this.rbtnEmpty.UseVisualStyleBackColor = true;
+            this.rbtnEmpty.CheckedChanged += new System.EventHandler(this.rbtnEmpty_CheckedChanged);
             // 
             // lblFull
             // 
@@ -431,49 +430,49 @@ namespace CarRental.WindowsApp.Features.Returns
             this.lblEmpty.TabIndex = 30;
             this.lblEmpty.Text = "E";
             // 
-            // rBtn11
+            // rbtnFull
             // 
-            this.rBtn11.AutoSize = true;
-            this.rBtn11.Location = new System.Drawing.Point(324, 158);
-            this.rBtn11.Name = "rBtn11";
-            this.rBtn11.Size = new System.Drawing.Size(14, 13);
-            this.rBtn11.TabIndex = 29;
-            this.rBtn11.TabStop = true;
-            this.rBtn11.UseVisualStyleBackColor = true;
-            this.rBtn11.CheckedChanged += new System.EventHandler(this.rBtn11_CheckedChanged);
+            this.rbtnFull.AutoSize = true;
+            this.rbtnFull.Location = new System.Drawing.Point(324, 158);
+            this.rbtnFull.Name = "rbtnFull";
+            this.rbtnFull.Size = new System.Drawing.Size(14, 13);
+            this.rbtnFull.TabIndex = 29;
+            this.rbtnFull.TabStop = true;
+            this.rbtnFull.UseVisualStyleBackColor = true;
+            this.rbtnFull.CheckedChanged += new System.EventHandler(this.rbtnFull_CheckedChanged);
             // 
-            // rBtn34
+            // rbtnThreeQuarters
             // 
-            this.rBtn34.AutoSize = true;
-            this.rBtn34.Location = new System.Drawing.Point(279, 117);
-            this.rBtn34.Name = "rBtn34";
-            this.rBtn34.Size = new System.Drawing.Size(14, 13);
-            this.rBtn34.TabIndex = 28;
-            this.rBtn34.TabStop = true;
-            this.rBtn34.UseVisualStyleBackColor = true;
-            this.rBtn34.CheckedChanged += new System.EventHandler(this.rBtn34_CheckedChanged);
+            this.rbtnThreeQuarters.AutoSize = true;
+            this.rbtnThreeQuarters.Location = new System.Drawing.Point(279, 117);
+            this.rbtnThreeQuarters.Name = "rbtnThreeQuarters";
+            this.rbtnThreeQuarters.Size = new System.Drawing.Size(14, 13);
+            this.rbtnThreeQuarters.TabIndex = 28;
+            this.rbtnThreeQuarters.TabStop = true;
+            this.rbtnThreeQuarters.UseVisualStyleBackColor = true;
+            this.rbtnThreeQuarters.CheckedChanged += new System.EventHandler(this.rbtnThreeQuarters_CheckedChanged);
             // 
-            // rBtn12
+            // rbtnHalf
             // 
-            this.rBtn12.AutoSize = true;
-            this.rBtn12.Location = new System.Drawing.Point(218, 102);
-            this.rBtn12.Name = "rBtn12";
-            this.rBtn12.Size = new System.Drawing.Size(14, 13);
-            this.rBtn12.TabIndex = 27;
-            this.rBtn12.TabStop = true;
-            this.rBtn12.UseVisualStyleBackColor = true;
-            this.rBtn12.CheckedChanged += new System.EventHandler(this.rBtn12_CheckedChanged);
+            this.rbtnHalf.AutoSize = true;
+            this.rbtnHalf.Location = new System.Drawing.Point(218, 102);
+            this.rbtnHalf.Name = "rbtnHalf";
+            this.rbtnHalf.Size = new System.Drawing.Size(14, 13);
+            this.rbtnHalf.TabIndex = 27;
+            this.rbtnHalf.TabStop = true;
+            this.rbtnHalf.UseVisualStyleBackColor = true;
+            this.rbtnHalf.CheckedChanged += new System.EventHandler(this.rbtnHalf_CheckedChanged);
             // 
-            // rBtn14
+            // rbtnQuarter
             // 
-            this.rBtn14.AutoSize = true;
-            this.rBtn14.Location = new System.Drawing.Point(158, 117);
-            this.rBtn14.Name = "rBtn14";
-            this.rBtn14.Size = new System.Drawing.Size(14, 13);
-            this.rBtn14.TabIndex = 26;
-            this.rBtn14.TabStop = true;
-            this.rBtn14.UseVisualStyleBackColor = true;
-            this.rBtn14.CheckedChanged += new System.EventHandler(this.rBtn14_CheckedChanged);
+            this.rbtnQuarter.AutoSize = true;
+            this.rbtnQuarter.Location = new System.Drawing.Point(158, 117);
+            this.rbtnQuarter.Name = "rbtnQuarter";
+            this.rbtnQuarter.Size = new System.Drawing.Size(14, 13);
+            this.rbtnQuarter.TabIndex = 26;
+            this.rbtnQuarter.TabStop = true;
+            this.rbtnQuarter.UseVisualStyleBackColor = true;
+            this.rbtnQuarter.CheckedChanged += new System.EventHandler(this.rbtnQuarter_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -485,108 +484,108 @@ namespace CarRental.WindowsApp.Features.Returns
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // lblKmFinal
+            // lblFinalKm
             // 
-            this.lblKmFinal.AutoSize = true;
-            this.lblKmFinal.Location = new System.Drawing.Point(8, 47);
-            this.lblKmFinal.Name = "lblKmFinal";
-            this.lblKmFinal.Size = new System.Drawing.Size(58, 13);
-            this.lblKmFinal.TabIndex = 25;
-            this.lblKmFinal.Text = "Km rodado";
+            this.lblFinalKm.AutoSize = true;
+            this.lblFinalKm.Location = new System.Drawing.Point(8, 47);
+            this.lblFinalKm.Name = "lblFinalKm";
+            this.lblFinalKm.Size = new System.Drawing.Size(58, 13);
+            this.lblFinalKm.TabIndex = 25;
+            this.lblFinalKm.Text = "Km driven";
             // 
-            // txtKmFinal
+            // txtFinalKm
             // 
-            this.txtKmFinal.Location = new System.Drawing.Point(72, 45);
-            this.txtKmFinal.Name = "txtKmFinal";
-            this.txtKmFinal.Size = new System.Drawing.Size(141, 20);
-            this.txtKmFinal.TabIndex = 24;
-            this.txtKmFinal.Text = "0";
-            this.txtKmFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmFinal_KeyPress);
+            this.txtFinalKm.Location = new System.Drawing.Point(72, 45);
+            this.txtFinalKm.Name = "txtFinalKm";
+            this.txtFinalKm.Size = new System.Drawing.Size(141, 20);
+            this.txtFinalKm.TabIndex = 24;
+            this.txtFinalKm.Text = "0";
+            this.txtFinalKm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFinalKm_KeyPress);
             // 
-            // lblServicos
+            // lblServices
             // 
-            this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(240, 47);
-            this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(99, 13);
-            this.lblServicos.TabIndex = 23;
-            this.lblServicos.Text = "Serviços Adicionais";
+            this.lblServices.AutoSize = true;
+            this.lblServices.Location = new System.Drawing.Point(240, 47);
+            this.lblServices.Name = "lblServices";
+            this.lblServices.Size = new System.Drawing.Size(99, 13);
+            this.lblServices.TabIndex = 23;
+            this.lblServices.Text = "Additional Services";
             // 
-            // btnSelecionarServicos
+            // btnSelectServices
             // 
-            this.btnSelecionarServicos.Location = new System.Drawing.Point(344, 43);
-            this.btnSelecionarServicos.Name = "btnSelecionarServicos";
-            this.btnSelecionarServicos.Size = new System.Drawing.Size(75, 23);
-            this.btnSelecionarServicos.TabIndex = 22;
-            this.btnSelecionarServicos.Text = "Selecionar";
-            this.btnSelecionarServicos.UseVisualStyleBackColor = true;
-            this.btnSelecionarServicos.Click += new System.EventHandler(this.btnSelecionarServicos_Click);
+            this.btnSelectServices.Location = new System.Drawing.Point(344, 43);
+            this.btnSelectServices.Name = "btnSelectServices";
+            this.btnSelectServices.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectServices.TabIndex = 22;
+            this.btnSelectServices.Text = "Select";
+            this.btnSelectServices.UseVisualStyleBackColor = true;
+            this.btnSelectServices.Click += new System.EventHandler(this.btnSelectServices_Click);
             // 
-            // lblQtdTanque
+            // lblTankAmount
             // 
-            this.lblQtdTanque.AutoSize = true;
-            this.lblQtdTanque.Location = new System.Drawing.Point(272, 80);
-            this.lblQtdTanque.Name = "lblQtdTanque";
-            this.lblQtdTanque.Size = new System.Drawing.Size(67, 13);
-            this.lblQtdTanque.TabIndex = 21;
-            this.lblQtdTanque.Text = "Qtd. Tanque";
+            this.lblTankAmount.AutoSize = true;
+            this.lblTankAmount.Location = new System.Drawing.Point(272, 80);
+            this.lblTankAmount.Name = "lblTankAmount";
+            this.lblTankAmount.Size = new System.Drawing.Size(67, 13);
+            this.lblTankAmount.TabIndex = 21;
+            this.lblTankAmount.Text = "Tank Amount";
             // 
-            // cBoxQtdTanque
+            // cbxTankAmount
             // 
-            this.cBoxQtdTanque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxQtdTanque.FormattingEnabled = true;
-            this.cBoxQtdTanque.Items.AddRange(new object[] {
+            this.cbxTankAmount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTankAmount.FormattingEnabled = true;
+            this.cbxTankAmount.Items.AddRange(new object[] {
             "0/1",
             "1/4",
             "1/2",
             "3/4",
             "1/1"});
-            this.cBoxQtdTanque.Location = new System.Drawing.Point(344, 80);
-            this.cBoxQtdTanque.Name = "cBoxQtdTanque";
-            this.cBoxQtdTanque.Size = new System.Drawing.Size(75, 21);
-            this.cBoxQtdTanque.TabIndex = 20;
-            this.cBoxQtdTanque.SelectedIndexChanged += new System.EventHandler(this.cBoxQtdTanque_SelectedIndexChanged);
+            this.cbxTankAmount.Location = new System.Drawing.Point(344, 80);
+            this.cbxTankAmount.Name = "cbxTankAmount";
+            this.cbxTankAmount.Size = new System.Drawing.Size(75, 21);
+            this.cbxTankAmount.TabIndex = 20;
+            this.cbxTankAmount.SelectedIndexChanged += new System.EventHandler(this.cbxTankAmount_SelectedIndexChanged);
             // 
-            // lblValorCombustivel
+            // lblFuelValue
             // 
-            this.lblValorCombustivel.AutoSize = true;
-            this.lblValorCombustivel.Location = new System.Drawing.Point(8, 80);
-            this.lblValorCombustivel.Name = "lblValorCombustivel";
-            this.lblValorCombustivel.Size = new System.Drawing.Size(123, 13);
-            this.lblValorCombustivel.TabIndex = 19;
-            this.lblValorCombustivel.Text = "Value do Combustivel R$";
+            this.lblFuelValue.AutoSize = true;
+            this.lblFuelValue.Location = new System.Drawing.Point(8, 80);
+            this.lblFuelValue.Name = "lblFuelValue";
+            this.lblFuelValue.Size = new System.Drawing.Size(123, 13);
+            this.lblFuelValue.TabIndex = 19;
+            this.lblFuelValue.Text = "Fuel Value R$";
             // 
-            // txtValorCombustivel
+            // txtFuelValue
             // 
-            this.txtValorCombustivel.Location = new System.Drawing.Point(136, 80);
-            this.txtValorCombustivel.Name = "txtValorCombustivel";
-            this.txtValorCombustivel.Size = new System.Drawing.Size(75, 20);
-            this.txtValorCombustivel.TabIndex = 18;
-            this.txtValorCombustivel.Text = "0";
-            this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCombustivel_KeyPress);
+            this.txtFuelValue.Location = new System.Drawing.Point(136, 80);
+            this.txtFuelValue.Name = "txtFuelValue";
+            this.txtFuelValue.Size = new System.Drawing.Size(75, 20);
+            this.txtFuelValue.TabIndex = 18;
+            this.txtFuelValue.Text = "0";
+            this.txtFuelValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFuelValue_KeyPress);
             // 
-            // TelaDevolucaoForm
+            // ReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 443);
-            this.Controls.Add(this.gBoxDevolucao);
-            this.Controls.Add(this.brnConfirmar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.gBoxLocacao);
-            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.grpReturn);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.grpRental);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TelaDevolucaoForm";
+            this.Name = "ReturnForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Locadora de Veículo";
-            this.gBoxLocacao.ResumeLayout(false);
-            this.gBoxLocacao.PerformLayout();
-            this.gBoxDevolucao.ResumeLayout(false);
-            this.gBoxDevolucao.PerformLayout();
+            this.Text = "Vehicle Rental";
+            this.grpRental.ResumeLayout(false);
+            this.grpRental.PerformLayout();
+            this.grpReturn.ResumeLayout(false);
+            this.grpReturn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -595,52 +594,52 @@ namespace CarRental.WindowsApp.Features.Returns
 
         #endregion
 
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button brnConfirmar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.GroupBox gBoxLocacao;
-        private System.Windows.Forms.Label lblServicosSelecionados;
-        private System.Windows.Forms.CheckedListBox cLBoxServicosSelecionados;
-        private System.Windows.Forms.TextBox txtDataDevolucao;
-        private System.Windows.Forms.TextBox txtDataLocacao;
-        private System.Windows.Forms.TextBox txtCondutor;
-        private System.Windows.Forms.TextBox txtCliente;
-        private System.Windows.Forms.TextBox txtPlano;
-        private System.Windows.Forms.TextBox txtVeiculo;
-        private System.Windows.Forms.TextBox txtFuncionario;
-        private System.Windows.Forms.Label lblPlano;
-        private System.Windows.Forms.Label lblVeiculo;
-        private System.Windows.Forms.Label lblDataDevolucao;
-        private System.Windows.Forms.Label lblDataLocacao;
-        private System.Windows.Forms.Label lblCondutor;
-        private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.Label lblFuncionario;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox grpRental;
+        private System.Windows.Forms.Label lblSelectedServices;
+        private System.Windows.Forms.CheckedListBox clbSelectedServices;
+        private System.Windows.Forms.TextBox txtReturnDate;
+        private System.Windows.Forms.TextBox txtRentalDate;
+        private System.Windows.Forms.TextBox txtDriver;
+        private System.Windows.Forms.TextBox txtCustomer;
+        private System.Windows.Forms.TextBox txtPlan;
+        private System.Windows.Forms.TextBox txtVehicle;
+        private System.Windows.Forms.TextBox txtEmployee;
+        private System.Windows.Forms.Label lblPlan;
+        private System.Windows.Forms.Label lblVehicle;
+        private System.Windows.Forms.Label lblReturnDate;
+        private System.Windows.Forms.Label lblRentalDate;
+        private System.Windows.Forms.Label lblDriver;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtValorTotal;
-        private System.Windows.Forms.Label lblValorTotal;
-        private System.Windows.Forms.GroupBox gBoxDevolucao;
-        private System.Windows.Forms.Label lblServicos;
-        private System.Windows.Forms.Button btnSelecionarServicos;
-        private System.Windows.Forms.Label lblQtdTanque;
-        private System.Windows.Forms.ComboBox cBoxQtdTanque;
-        private System.Windows.Forms.Label lblValorCombustivel;
-        private System.Windows.Forms.TextBox txtValorCombustivel;
-        private System.Windows.Forms.TextBox txtKmInicial;
-        private System.Windows.Forms.Label lblKmInicial;
-        private System.Windows.Forms.Label lblKmFinal;
-        private System.Windows.Forms.TextBox txtKmFinal;
+        private System.Windows.Forms.TextBox txtTotalValue;
+        private System.Windows.Forms.Label lblTotalValue;
+        private System.Windows.Forms.GroupBox grpReturn;
+        private System.Windows.Forms.Label lblServices;
+        private System.Windows.Forms.Button btnSelectServices;
+        private System.Windows.Forms.Label lblTankAmount;
+        private System.Windows.Forms.ComboBox cbxTankAmount;
+        private System.Windows.Forms.Label lblFuelValue;
+        private System.Windows.Forms.TextBox txtFuelValue;
+        private System.Windows.Forms.TextBox txtInitialKm;
+        private System.Windows.Forms.Label lblInitialKm;
+        private System.Windows.Forms.Label lblFinalKm;
+        private System.Windows.Forms.TextBox txtFinalKm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblFull;
         private System.Windows.Forms.Label lblEmpty;
-        private System.Windows.Forms.RadioButton rBtn01;
-        private System.Windows.Forms.RadioButton rBtn14;
-        private System.Windows.Forms.RadioButton rBtn12;
-        private System.Windows.Forms.RadioButton rBtn34;
-        private System.Windows.Forms.RadioButton rBtn11;
-        private System.Windows.Forms.Label lblEncerrar;
-        private System.Windows.Forms.DateTimePicker dtDevolucao;
-        private System.Windows.Forms.Label lblValorInicial;
-        private System.Windows.Forms.TextBox txtValorInicial;
+        private System.Windows.Forms.RadioButton rbtnEmpty;
+        private System.Windows.Forms.RadioButton rbtnQuarter;
+        private System.Windows.Forms.RadioButton rbtnHalf;
+        private System.Windows.Forms.RadioButton rbtnThreeQuarters;
+        private System.Windows.Forms.RadioButton rbtnFull;
+        private System.Windows.Forms.Label lblClose;
+        private System.Windows.Forms.DateTimePicker dtpReturn;
+        private System.Windows.Forms.Label lblInitialValue;
+        private System.Windows.Forms.TextBox txtInitialValue;
     }
 }

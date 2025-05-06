@@ -17,45 +17,38 @@ namespace CarRental.WindowsApp.Features.Returns
         public ReturnTableControl()
         {
             InitializeComponent();
-            gridDevolucoes.ConfigureZebraGrid();
-            gridDevolucoes.ConfigureReadOnlyGrid();
-            gridDevolucoes.Columns.AddRange(ObterColunas());
+            gridReturns.ConfigureZebraGrid();
+            gridReturns.ConfigureReadOnlyGrid();
+            gridReturns.Columns.AddRange(GetColumns());
         }
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Modelo"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Placa", HeaderText = "Placa"},
-
+                new DataGridViewTextBoxColumn { DataPropertyName = "Model", HeaderText = "Model"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "LicensePlate", HeaderText = "License Plate"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "ContractingCustomer", HeaderText = "Customer"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "RentalPrice", HeaderText = "Preço Inicial"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "IsOpen", HeaderText = "Locação Ativa"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "ReturnPrice", HeaderText = "Preço Final"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "RentalPrice", HeaderText = "Initial Price"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "IsOpen", HeaderText = "Active Rental"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ReturnPrice", HeaderText = "Final Price"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ExpectedReturnDate", HeaderText = "Return"}
            };
 
-            return colunas;
+            return columns;
         }
 
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
-            return gridDevolucoes.SelecionarId<int>();
+            return gridReturns.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Rental> devolucoes)
+        public void UpdateRecords(List<Rental> returns)
         {
-            gridDevolucoes.Rows.Clear();
+            gridReturns.Rows.Clear();
 
-            foreach (Rental devolucao in devolucoes)
-                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Vehicle.model, devolucao.Vehicle.licensePlate, devolucao.ContractingCustomer.Name, devolucao.RentalPrice, devolucao.IsOpen, devolucao.ReturnPrice, devolucao.ExpectedReturnDate);
+            foreach (Rental returnRental in returns)
+                gridReturns.Rows.Add(returnRental.Id, returnRental.Vehicle.model, returnRental.Vehicle.licensePlate, returnRental.ContractingCustomer.Name, returnRental.RentalPrice, returnRental.IsOpen, returnRental.ReturnPrice, returnRental.ExpectedReturnDate);
         }
     }
 }

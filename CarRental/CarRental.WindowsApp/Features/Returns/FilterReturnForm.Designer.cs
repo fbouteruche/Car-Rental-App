@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Features.Returns
+﻿namespace CarRental.WindowsApp.Features.Returns
 {
     partial class FilterReturnForm
     {
@@ -24,89 +23,88 @@ namespace CarRental.WindowsApp.Features.Returns
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.rdbDevolucoesConcluidas = new System.Windows.Forms.RadioButton();
-            this.rdbDevolucoesPendentes = new System.Windows.Forms.RadioButton();
-            this.rdbTodasDevolucoes = new System.Windows.Forms.RadioButton();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
+            this.rdbCompletedReturns = new System.Windows.Forms.RadioButton();
+            this.rdbPendingReturns = new System.Windows.Forms.RadioButton();
+            this.rdbAllReturns = new System.Windows.Forms.RadioButton();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // rdbDevolucoesConcluidas
+            // rdbCompletedReturns
             // 
-            this.rdbDevolucoesConcluidas.AutoSize = true;
-            this.rdbDevolucoesConcluidas.Location = new System.Drawing.Point(49, 106);
-            this.rdbDevolucoesConcluidas.Name = "rdbDevolucoesConcluidas";
-            this.rdbDevolucoesConcluidas.Size = new System.Drawing.Size(226, 17);
-            this.rdbDevolucoesConcluidas.TabIndex = 9;
-            this.rdbDevolucoesConcluidas.TabStop = true;
-            this.rdbDevolucoesConcluidas.Text = "Visualizar somente devoluções concluídas";
-            this.rdbDevolucoesConcluidas.UseVisualStyleBackColor = true;
+            this.rdbCompletedReturns.AutoSize = true;
+            this.rdbCompletedReturns.Location = new System.Drawing.Point(49, 106);
+            this.rdbCompletedReturns.Name = "rdbCompletedReturns";
+            this.rdbCompletedReturns.Size = new System.Drawing.Size(226, 17);
+            this.rdbCompletedReturns.TabIndex = 9;
+            this.rdbCompletedReturns.TabStop = true;
+            this.rdbCompletedReturns.Text = "Show only completed returns";
+            this.rdbCompletedReturns.UseVisualStyleBackColor = true;
             // 
-            // rdbDevolucoesPendentes
+            // rdbPendingReturns
             // 
-            this.rdbDevolucoesPendentes.AutoSize = true;
-            this.rdbDevolucoesPendentes.Location = new System.Drawing.Point(49, 72);
-            this.rdbDevolucoesPendentes.Name = "rdbDevolucoesPendentes";
-            this.rdbDevolucoesPendentes.Size = new System.Drawing.Size(223, 17);
-            this.rdbDevolucoesPendentes.TabIndex = 8;
-            this.rdbDevolucoesPendentes.TabStop = true;
-            this.rdbDevolucoesPendentes.Text = "Visualizar somente devoluções pendentes";
-            this.rdbDevolucoesPendentes.UseVisualStyleBackColor = true;
+            this.rdbPendingReturns.AutoSize = true;
+            this.rdbPendingReturns.Location = new System.Drawing.Point(49, 72);
+            this.rdbPendingReturns.Name = "rdbPendingReturns";
+            this.rdbPendingReturns.Size = new System.Drawing.Size(223, 17);
+            this.rdbPendingReturns.TabIndex = 8;
+            this.rdbPendingReturns.TabStop = true;
+            this.rdbPendingReturns.Text = "Show only pending returns";
+            this.rdbPendingReturns.UseVisualStyleBackColor = true;
             // 
-            // rdbTodasDevolucoes
+            // rdbAllReturns
             // 
-            this.rdbTodasDevolucoes.AutoSize = true;
-            this.rdbTodasDevolucoes.Location = new System.Drawing.Point(49, 38);
-            this.rdbTodasDevolucoes.Name = "rdbTodasDevolucoes";
-            this.rdbTodasDevolucoes.Size = new System.Drawing.Size(170, 17);
-            this.rdbTodasDevolucoes.TabIndex = 7;
-            this.rdbTodasDevolucoes.TabStop = true;
-            this.rdbTodasDevolucoes.Text = "Visualizar todas as devoluções";
-            this.rdbTodasDevolucoes.UseVisualStyleBackColor = true;
+            this.rdbAllReturns.AutoSize = true;
+            this.rdbAllReturns.Location = new System.Drawing.Point(49, 38);
+            this.rdbAllReturns.Name = "rdbAllReturns";
+            this.rdbAllReturns.Size = new System.Drawing.Size(170, 17);
+            this.rdbAllReturns.TabIndex = 7;
+            this.rdbAllReturns.TabStop = true;
+            this.rdbAllReturns.Text = "Show all returns";
+            this.rdbAllReturns.UseVisualStyleBackColor = true;
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(338, 156);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(338, 156);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnGravar
+            // btnApply
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(257, 156);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 10;
-            this.btnGravar.Text = "Filtrar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnApply.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnApply.Location = new System.Drawing.Point(257, 156);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 10;
+            this.btnApply.Text = "Filter";
+            this.btnApply.UseVisualStyleBackColor = true;
             // 
-            // FiltroDevolucaoForm
+            // FilterReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 191);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.rdbDevolucoesConcluidas);
-            this.Controls.Add(this.rdbDevolucoesPendentes);
-            this.Controls.Add(this.rdbTodasDevolucoes);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.rdbCompletedReturns);
+            this.Controls.Add(this.rdbPendingReturns);
+            this.Controls.Add(this.rdbAllReturns);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FiltroDevolucaoForm";
+            this.Name = "FilterReturnForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Filtrar Devolucao";
+            this.Text = "Filter Return";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,10 +112,10 @@ namespace CarRental.WindowsApp.Features.Returns
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rdbDevolucoesConcluidas;
-        private System.Windows.Forms.RadioButton rdbDevolucoesPendentes;
-        private System.Windows.Forms.RadioButton rdbTodasDevolucoes;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.RadioButton rdbCompletedReturns;
+        private System.Windows.Forms.RadioButton rdbPendingReturns;
+        private System.Windows.Forms.RadioButton rdbAllReturns;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnApply;
     }
 }

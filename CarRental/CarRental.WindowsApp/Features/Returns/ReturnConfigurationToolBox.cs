@@ -9,12 +9,12 @@ namespace CarRental.WindowsApp.Features.Returns
 {
     public class ReturnConfigurationToolBox : IConfigurationToolBox
     {
-        public string RegistrationType { get { return "Devolução de Veículo"; } }
+        public string RegistrationType { get { return "Vehicle Return"; } }
 
-        public string AddToolTip { get { return "Registrar Devolução"; } }
+        public string AddToolTip { get { return "Register Return"; } }
 
-        public string EditToolTip { get { return "Edit Devolução"; } }
+        public string EditToolTip {get { return "Edit Return"; } }
 
-        public string DeleteToolTip { get { return "Delete devolução"; } }
+        public string DeleteToolTip { get { return "Delete Return"; } }
     }
 }
