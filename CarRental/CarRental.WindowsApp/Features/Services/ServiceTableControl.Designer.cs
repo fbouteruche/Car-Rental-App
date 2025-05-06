@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    partial class TabelaServicoControl
+    partial class ServiceTableControl
     {
         /// <summary> 
         /// Required designer variable.

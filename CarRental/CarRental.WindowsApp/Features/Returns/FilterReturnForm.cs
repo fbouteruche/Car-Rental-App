@@ -8,26 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public partial class FiltroDevolucaoForm : Form
+    public partial class FilterReturnForm : Form
     {
-        public FiltroDevolucaoForm()
+        public FilterReturnForm()
         {
             InitializeComponent();
         }
-        public FiltroDevolucaoEnum TipoFiltro
+        public FilterReturnEnum TipoFiltro
         {
             get
             {
                 if (rdbDevolucoesConcluidas.Checked)
-                    return FiltroDevolucaoEnum.DevolucoesFinalizadas;
+                    return FilterReturnEnum.DevolucoesFinalizadas;
 
                 else if (rdbDevolucoesPendentes.Checked)
-                    return FiltroDevolucaoEnum.DevolucoesPendentes;
+                    return FilterReturnEnum.DevolucoesPendentes;
 
                 else
-                    return FiltroDevolucaoEnum.TodasDevolucoes;
+                    return FilterReturnEnum.TodasDevolucoes;
             }
         }
     }

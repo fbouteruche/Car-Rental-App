@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    class ConfiguracaoServicoToolBox : IConfigurationToolBox
+    class ServiceConfigurationToolBox : IConfigurationToolBox
     {
         public string AddToolTip
         {

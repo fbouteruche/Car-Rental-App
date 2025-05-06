@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public class OperacoesDevolucao : ICadastravel
+    public class ReturnOperation : ICadastravel
     {
         private readonly RentalController controlador = null;
-        private readonly TabelaDevolucaoControl tabelaDevolucao = null;
-        public OperacoesDevolucao(RentalController ctrlDevolucao)
+        private readonly ReturnTableControl tabelaDevolucao = null;
+        public ReturnOperation(RentalController ctrlDevolucao)
         {
             controlador = ctrlDevolucao;
-            tabelaDevolucao = new TabelaDevolucaoControl();
+            tabelaDevolucao = new ReturnTableControl();
         }
         public void InsertNewRecord()
         {
@@ -29,7 +29,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
             Rental locacaoSelecionada = controlador.SelectById(id);
 
-            TelaDevolucaoForm tela = new TelaDevolucaoForm("Devolução de Veículo");
+            ReturnForm tela = new ReturnForm("Devolução de Veículo");
 
             tela.Devolucao = locacaoSelecionada;
 
@@ -75,7 +75,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
         public void FilterRecords()
         {
-            FiltroDevolucaoForm telaFiltro = new FiltroDevolucaoForm();
+            FilterReturnForm telaFiltro = new FilterReturnForm();
 
             if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
@@ -84,10 +84,10 @@ namespace CarRental.WindowsApp.Features.Devolucoes
 
                 switch (telaFiltro.TipoFiltro)
                 {
-                    case FiltroDevolucaoEnum.TodasDevolucoes:
+                    case FilterReturnEnum.TodasDevolucoes:
                         break;
 
-                    case FiltroDevolucaoEnum.DevolucoesPendentes:
+                    case FilterReturnEnum.DevolucoesPendentes:
                         {
                             List<Rental> filtro = new List<Rental>();
                             foreach (Rental devolucao in devolucoes)
@@ -98,7 +98,7 @@ namespace CarRental.WindowsApp.Features.Devolucoes
                             break;
                         }
 
-                    case FiltroDevolucaoEnum.DevolucoesFinalizadas:
+                    case FilterReturnEnum.DevolucoesFinalizadas:
                         {
                             List<Rental> filtro = new List<Rental>();
                             foreach (Rental devolucao in devolucoes)

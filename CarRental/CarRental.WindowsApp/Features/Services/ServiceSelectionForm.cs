@@ -1,7 +1,7 @@
 ﻿using CarRental.Controllers.ServiceModule;
 using CarRental.Domain.ServiceModule;
 using CarRental.Domain.Shared;
-using CarRental.WindowsApp.Features.Servicos;
+using CarRental.WindowsApp.Features.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace CarRental.WindowsApp.Servicos
 {
-    public partial class ServicosForm : Form
+    public partial class ServiceSelectionForm : Form
     {
         public List<Service> servicosSelecionados;
         public string seguro = "Nenhum";
         ServiceController controladorServico;
-        public ServicosForm()
+        public ServiceSelectionForm()
         {
             controladorServico = new ServiceController();
             servicosSelecionados = new List<Service>();
@@ -62,7 +62,7 @@ namespace CarRental.WindowsApp.Servicos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TelaServicoForm telaServicoForm = new TelaServicoForm("Cadastro de Serviços");
+            ServiceForm telaServicoForm = new ServiceForm("Cadastro de Serviços");
             if (telaServicoForm.ShowDialog() == DialogResult.OK)
             {
                 controladorServico.InsertNew(telaServicoForm.Servico);

@@ -11,13 +11,13 @@ using CarRental.WindowsApp.CustomerModule;
 using CarRental.WindowsApp.Features.Coupons;
 using CarRental.WindowsApp.Features.Customers;
 using CarRental.WindowsApp.Features.Dashboards;
-using CarRental.WindowsApp.Features.Devolucoes;
+using CarRental.WindowsApp.Features.Returns;
 using CarRental.WindowsApp.Features.Employees;
-using CarRental.WindowsApp.Features.GrupoDeVeiculos;
+using CarRental.WindowsApp.Features.VehicleGroups;
 using CarRental.WindowsApp.Features.Rentals;
 using CarRental.WindowsApp.Features.Partners;
-using CarRental.WindowsApp.Features.Servicos;
-using CarRental.WindowsApp.Features.Veiculos;
+using CarRental.WindowsApp.Features.Services;
+using CarRental.WindowsApp.Features.Vehicles;
 using CarRental.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -60,14 +60,14 @@ namespace CarRental.WindowsApp
 
         private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
+            ServiceConfigurationToolBox configuracao = new ServiceConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesServico(new ServiceController());
+            operacoes = new ServiceOperation(new ServiceController());
 
             ConfigurarPainelRegistros();
         }
@@ -88,28 +88,28 @@ namespace CarRental.WindowsApp
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+            VehicleConfigurationToolBox configuracao = new VehicleConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesVeiculo(new VehicleController());
+            operacoes = new VehicleOperation(new VehicleController());
 
             ConfigurarPainelRegistros();
         }
 
         private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+            VehicleGroupConfigurationToolBox configuracao = new VehicleGroupConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesGrupoDeVeiculos(new VehicleGroupController());
+            operacoes = new VehicleGroupOperation(new VehicleGroupController());
 
             ConfigurarPainelRegistros();
         }
@@ -129,14 +129,14 @@ namespace CarRental.WindowsApp
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
+            ReturnConfigurationToolBox configuracao = new ReturnConfigurationToolBox();
 
             ConfigurarToolBox(configuracao, true);
             btnAdicionar.Image = Properties.Resources.car_32px;
 
             AtualizarRodape(configuracao.RegistrationType);
 
-            operacoes = new OperacoesDevolucao(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
+            operacoes = new ReturnOperation(new RentalController(new VehicleController(), new EmployeeController(), new CustomerController(), new ServiceController(), new CouponController()));
 
             ConfigurarPainelRegistros();
         }

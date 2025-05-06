@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Servicos
 {
-    partial class ServicosForm
+    partial class ServiceSelectionForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public partial class TabelaDevolucaoControl : UserControl
+    public partial class ReturnTableControl : UserControl
     {
-        public TabelaDevolucaoControl()
+        public ReturnTableControl()
         {
             InitializeComponent();
             gridDevolucoes.ConfigureZebraGrid();

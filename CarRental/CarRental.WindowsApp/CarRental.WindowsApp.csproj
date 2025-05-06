@@ -85,26 +85,26 @@
       <DependentUpon>DashControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Dashboards\OperationDashboard.cs" />
-    <Compile Include="Features\Returns\ConfiguracaoDevolucaoToolBox.cs" />
-    <Compile Include="Features\Returns\FiltroDevolucaoEnum.cs" />
-    <Compile Include="Features\Returns\FiltroDevolucaoForm.cs">
+    <Compile Include="Features\Returns\ReturnConfigurationToolBox.cs" />
+    <Compile Include="Features\Returns\FilterReturnEnum.cs" />
+    <Compile Include="Features\Returns\FilterReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Returns\FiltroDevolucaoForm.Designer.cs">
-      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
+    <Compile Include="Features\Returns\FilterReturnForm.Designer.cs">
+      <DependentUpon>FilterReturnForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Returns\OperacoesDevolucao.cs" />
-    <Compile Include="Features\Returns\TabelaDevolucaoControl.cs">
+    <Compile Include="Features\Returns\ReturnOperation.cs" />
+    <Compile Include="Features\Returns\ReturnTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Returns\TabelaDevolucaoControl.Designer.cs">
-      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    <Compile Include="Features\Returns\ReturnTableControl.Designer.cs">
+      <DependentUpon>ReturnTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Returns\TelaDevolucaoForm.cs">
+    <Compile Include="Features\Returns\ReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Returns\TelaDevolucaoForm.Designer.cs">
-      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    <Compile Include="Features\Returns\ReturnForm.Designer.cs">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Employees\EmployeeConfigurationToolBox.cs" />
     <Compile Include="Features\Employees\EmployeeForm.cs">
@@ -120,25 +120,25 @@
     <Compile Include="Features\Employees\EmployeeTableControl.Designer.cs">
       <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleGroup\ConfiguracaoGrupoDeVeiculosToolBox.cs" />
-    <Compile Include="Features\VehicleGroup\OperacoesGrupoDeVeiculos.cs" />
-    <Compile Include="Features\VehicleGroup\TelaGrupoDeVeiculosForm.cs">
+    <Compile Include="Features\VehicleGroup\VehicleGroupConfigurationToolBox.cs" />
+    <Compile Include="Features\VehicleGroup\VehicleGroupOperation.cs" />
+    <Compile Include="Features\VehicleGroup\VehicleGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\VehicleGroup\TelaGrupoDeVeiculosForm.Designer.cs">
-      <DependentUpon>TelaGrupoDeVeiculosForm.cs</DependentUpon>
+    <Compile Include="Features\VehicleGroup\VehicleGroupForm.Designer.cs">
+      <DependentUpon>VehicleGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleGroup\TabelaGrupoDeVeiculosControl.cs">
+    <Compile Include="Features\VehicleGroup\VehicleGroupTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\VehicleGroup\TabelaGrupoDeVeiculosControl.Designer.cs">
-      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    <Compile Include="Features\VehicleGroup\VehicleGroupTableControl.Designer.cs">
+      <DependentUpon>VehicleGroupTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\VehicleImage\ImagemVeiculoForm.cs">
+    <Compile Include="Features\VehicleImage\VehicleImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\VehicleImage\ImagemVeiculoForm.Designer.cs">
-      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
+    <Compile Include="Features\VehicleImage\VehicleImageForm.Designer.cs">
+      <DependentUpon>VehicleImageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Rental\RentalConfigurationToolBox.cs" />
     <Compile Include="Features\Rental\RentalOperation.cs" />
@@ -174,33 +174,33 @@
     <Compile Include="Features\Partners\PartnerForm.Designer.cs">
       <DependentUpon>PartnerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Services\ConfiguracaoServicoToolBox.cs" />
-    <Compile Include="Features\Services\OperacoesServico.cs" />
-    <Compile Include="Features\Services\TabelaServicoControl.cs">
+    <Compile Include="Features\Services\ServiceConfigurationToolBox.cs" />
+    <Compile Include="Features\Services\ServiceOperation.cs" />
+    <Compile Include="Features\Services\ServiceTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Services\TabelaServicoControl.Designer.cs">
-      <DependentUpon>TabelaServicoControl.cs</DependentUpon>
+    <Compile Include="Features\Services\ServiceTableControl.Designer.cs">
+      <DependentUpon>ServiceTableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Services\TelaServicoForm.cs">
+    <Compile Include="Features\Services\ServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Services\TelaServicoForm.Designer.cs">
-      <DependentUpon>TelaServicoForm.cs</DependentUpon>
+    <Compile Include="Features\Services\ServiceForm.Designer.cs">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Services\ServicosForm.cs">
+    <Compile Include="Features\Services\ServiceSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Services\ServicosForm.Designer.cs">
-      <DependentUpon>ServicosForm.cs</DependentUpon>
+    <Compile Include="Features\Services\ServiceSelectionForm.Designer.cs">
+      <DependentUpon>ServiceSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Vehicle\ConfiguracaoVeiculoToolBox.cs" />
-    <Compile Include="Features\Vehicle\OperacoesVeiculo.cs" />
-    <Compile Include="Features\Vehicle\TabelaVeiculoControl.cs">
+    <Compile Include="Features\Vehicle\VehicleConfigurationToolBox.cs" />
+    <Compile Include="Features\Vehicle\VehicleOperation.cs" />
+    <Compile Include="Features\Vehicle\VehicleTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Vehicle\TabelaVeiculoControl.Designer.cs">
-      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
+    <Compile Include="Features\Vehicle\VehicleTableControl.Designer.cs">
+      <DependentUpon>VehicleTableControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -218,11 +218,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Features\Vehicle\VeiculoForm.cs">
+    <Compile Include="Features\Vehicle\VehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Vehicle\VeiculoForm.Designer.cs">
-      <DependentUpon>VeiculoForm.cs</DependentUpon>
+    <Compile Include="Features\Vehicle\VehicleForm.Designer.cs">
+      <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Features\Customers\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
@@ -239,14 +239,14 @@
     <EmbeddedResource Include="Features\Dashboards\DashControl.resx">
       <DependentUpon>DashControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Returns\FiltroDevolucaoForm.resx">
-      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Returns\FilterReturnForm.resx">
+      <DependentUpon>FilterReturnForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Returns\TabelaDevolucaoControl.resx">
-      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Returns\ReturnTableControl.resx">
+      <DependentUpon>ReturnTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Returns\TelaDevolucaoForm.resx">
-      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Returns\ReturnForm.resx">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Employees\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
@@ -254,14 +254,14 @@
     <EmbeddedResource Include="Features\Employees\EmployeeTableControl.resx">
       <DependentUpon>EmployeeTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleGroup\TelaGrupoDeVeiculosForm.resx">
-      <DependentUpon>TelaGrupoDeVeiculosForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\VehicleGroup\VehicleGroupForm.resx">
+      <DependentUpon>VehicleGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleGroup\TabelaGrupoDeVeiculosControl.resx">
-      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\VehicleGroup\VehicleGroupTableControl.resx">
+      <DependentUpon>VehicleGroupTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\VehicleImage\ImagemVeiculoForm.resx">
-      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\VehicleImage\VehicleImageForm.resx">
+      <DependentUpon>VehicleImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Rental\RentalTableControl.resx">
       <DependentUpon>RentalTableControl.cs</DependentUpon>
@@ -280,29 +280,29 @@
       <DependentUpon>PartnerForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Services\TabelaServicoControl.resx">
-      <DependentUpon>TabelaServicoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Services\ServiceTableControl.resx">
+      <DependentUpon>ServiceTableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Services\TelaServicoForm.resx">
-      <DependentUpon>TelaServicoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Services\ServiceForm.resx">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Vehicle\TabelaVeiculoControl.resx">
-      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Vehicle\VehicleTableControl.resx">
+      <DependentUpon>VehicleTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Services\ServicosForm.resx">
-      <DependentUpon>ServicosForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Services\ServiceSelectionForm.resx">
+      <DependentUpon>ServiceSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Vehicle\VeiculoForm.resx">
-      <DependentUpon>VeiculoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Vehicle\VehicleForm.resx">
+      <DependentUpon>VehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

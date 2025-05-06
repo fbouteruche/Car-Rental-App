@@ -32,7 +32,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
         public void InsertNewRecord()
         {
-            RentalForm tela = new RentalForm("Locação de Veiculos");
+            RentalForm tela = new RentalForm("Locação de Vehicles");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

@@ -6,20 +6,20 @@ using CarRental.Domain.VehicleImageModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Veiculos
+namespace CarRental.WindowsApp.Features.Vehicles
 {
-    public class OperacoesVeiculo : ICadastravel
+    public class VehicleOperation : ICadastravel
     {
         private readonly VehicleController controlador = null;
-        private readonly TabelaVeiculoControl tabelaVeiculo = null;
-        public OperacoesVeiculo(VehicleController ctrlVeiculo)
+        private readonly VehicleTableControl tabelaVeiculo = null;
+        public VehicleOperation(VehicleController ctrlVeiculo)
         {
             controlador = ctrlVeiculo;
-            tabelaVeiculo = new TabelaVeiculoControl();
+            tabelaVeiculo = new VehicleTableControl();
         }
         public void InsertNewRecord()
         {
-            VeiculoForm tela = new VeiculoForm("Cadastro de Veiculos");
+            VehicleForm tela = new VehicleForm("Cadastro de Vehicles");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -42,13 +42,13 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder editar!", "Edição de Veiculos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um veiculo para poder editar!", "Edição de Vehicles", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Vehicle tarefaSelecionada = controlador.SelectById(id);
 
-            VeiculoForm tela = new VeiculoForm("Edição de Veiculos");
+            VehicleForm tela = new VehicleForm("Edição de Vehicles");
 
             tela.Veiculo = tarefaSelecionada;
 
@@ -69,7 +69,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Veiculos",
+                MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Vehicles",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -77,7 +77,7 @@ namespace CarRental.WindowsApp.Features.Veiculos
             Vehicle tarefaSelecionada = controlador.SelectById(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.model}] ?",
-                "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                "Exclusão de Vehicles", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Delete(id);
 

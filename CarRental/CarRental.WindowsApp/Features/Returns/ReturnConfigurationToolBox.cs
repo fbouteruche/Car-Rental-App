@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public class ConfiguracaoDevolucaoToolBox : IConfigurationToolBox
+    public class ReturnConfigurationToolBox : IConfigurationToolBox
     {
         public string RegistrationType { get { return "Devolução de Veículo"; } }
 

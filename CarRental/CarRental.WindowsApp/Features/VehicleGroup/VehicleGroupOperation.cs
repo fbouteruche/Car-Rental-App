@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
+namespace CarRental.WindowsApp.Features.VehicleGroups
 {
-    public class OperacoesGrupoDeVeiculos : ICadastravel
+    public class VehicleGroupOperation : ICadastravel
     {
         private readonly VehicleGroupController controlador = null;
-        private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos = null;
+        private readonly VehicleGroupTableControl tabelaGrupoDeVeiculos = null;
 
-        public OperacoesGrupoDeVeiculos(VehicleGroupController ctrlGrupoDeVeiculos)
+        public VehicleGroupOperation(VehicleGroupController ctrlGrupoDeVeiculos)
         {
             controlador = ctrlGrupoDeVeiculos;
-            tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();
+            tabelaGrupoDeVeiculos = new VehicleGroupTableControl();
         }
         public void GroupRecords()
         {
@@ -32,14 +32,14 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo de Veiculos para poder editar!", "Edição de Grupo de Veiculos",
+                MessageBox.Show("Selecione um Grupo de Vehicles para poder editar!", "Edição de Grupo de Vehicles",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             VehicleGroup grupoSelecionado = controlador.SelectById(id);
 
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Veiculos");
+            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Vehicles");
 
             tela.GrupoDeVeiculos = grupoSelecionado;
 
@@ -85,7 +85,7 @@ namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
 
         public void InsertNewRecord()
         {
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Veiculos");
+            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Vehicles");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

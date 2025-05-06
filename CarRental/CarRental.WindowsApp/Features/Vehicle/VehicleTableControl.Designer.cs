@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Veiculos
+namespace CarRental.WindowsApp.Features.Vehicles
 {
-    partial class TabelaVeiculoControl
+    partial class VehicleTableControl
     {
         /// <summary> 
         /// Variável de designer necessária.

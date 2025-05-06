@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.GrupoDeVeiculos
+namespace CarRental.WindowsApp.Features.VehicleGroups
 {
-    public partial class TabelaGrupoDeVeiculosControl : UserControl
+    public partial class VehicleGroupTableControl : UserControl
     {
-        public TabelaGrupoDeVeiculosControl()
+        public VehicleGroupTableControl()
         {
             InitializeComponent();
             gridGrupoDeVeiculos.ConfigureZebraGrid();

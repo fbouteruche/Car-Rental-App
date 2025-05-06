@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    partial class TabelaDevolucaoControl
+    partial class ReturnTableControl
     {
         /// <summary> 
         /// Required designer variable.

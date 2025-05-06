@@ -1,7 +1,7 @@
 ﻿
 namespace CarRental.WindowsApp.Veiculos
 {
-    partial class VeiculoForm
+    partial class VehicleForm
     {
         /// <summary>
         /// Required designer variable.

@@ -111,7 +111,7 @@ namespace CarRental.WindowsApp
             // 
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
             this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.veiculosToolStripMenuItem.Text = "Veiculos";
+            this.veiculosToolStripMenuItem.Text = "Vehicles";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
             // grupoDeVeículosToolStripMenuItem

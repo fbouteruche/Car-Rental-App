@@ -1,12 +1,12 @@
 ﻿using CarRental.WindowsApp.Shared;
 
-namespace CarRental.WindowsApp.Features.Veiculos
+namespace CarRental.WindowsApp.Features.Vehicles
 {
-    public class ConfiguracaoVeiculoToolBox : IConfigurationToolBox
+    public class VehicleConfigurationToolBox : IConfigurationToolBox
     {
         public string AddToolTip
         {
-            get { return "Cadastro de Veiculos"; }
+            get { return "Cadastro de Vehicles"; }
         }
 
         public string RegistrationType

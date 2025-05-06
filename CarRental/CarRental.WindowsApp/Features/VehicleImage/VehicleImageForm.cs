@@ -8,21 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.WindowsApp.Features.Veiculos;
+using CarRental.WindowsApp.Features.Vehicles;
 using CarRental.Domain.VehicleImageModule;
 using CarRental.WindowsApp.Veiculos;
 
-namespace CarRental.WindowsApp.Features.ImagemVeiculo
+namespace CarRental.WindowsApp.Features.VehicleImage
 {
-    public partial class ImagemVeiculoForm : Form
+    public partial class VehicleImageForm : Form
     {
         private const long doisMB = 2097152;
         private const int voltar = -1;
         private const int avancar = 1;
         private int imagemAtual = 0;
         public List<Domain.VehicleImageModule.VehicleImage> imagens;
-        private readonly VeiculoForm telaBase;
-        public ImagemVeiculoForm(VeiculoForm telaBase)
+        private readonly VehicleForm telaBase;
+        public VehicleImageForm(VehicleForm telaBase)
         {
             this.telaBase = telaBase;
             if (telaBase.imagensVeiculo == null)

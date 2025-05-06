@@ -11,13 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    public partial class TelaServicoForm : Form
+    public partial class ServiceForm : Form
     {
         private Service servico;
 
-        public TelaServicoForm(string titulo)
+        public ServiceForm(string titulo)
         {
             InitializeComponent();
             this.Text = titulo;

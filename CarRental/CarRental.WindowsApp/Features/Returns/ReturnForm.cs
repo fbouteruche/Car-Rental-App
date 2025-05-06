@@ -15,19 +15,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public partial class TelaDevolucaoForm : Form
+    public partial class ReturnForm : Form
     {
         private Rental devolucao;
-        ServicosForm telaServico;
+        ServiceSelectionForm telaServico;
         VehicleController controladorVeiculo =  new VehicleController();
-        public TelaDevolucaoForm(string titulo)
+        public ReturnForm(string titulo)
         {
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
-            telaServico = new ServicosForm();
+            telaServico = new ServiceSelectionForm();
         }
 
         public Rental Devolucao

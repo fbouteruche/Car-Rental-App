@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    public enum FiltroDevolucaoEnum
+    public enum FilterReturnEnum
     {
         TodasDevolucoes, DevolucoesFinalizadas, DevolucoesPendentes
     }

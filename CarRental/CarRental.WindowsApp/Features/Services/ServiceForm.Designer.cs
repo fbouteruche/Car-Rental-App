@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    partial class TelaServicoForm
+    partial class ServiceForm
     {
         /// <summary>
         /// Required designer variable.

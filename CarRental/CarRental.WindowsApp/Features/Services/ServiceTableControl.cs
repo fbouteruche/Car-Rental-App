@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    public partial class TabelaServicoControl : UserControl
+    public partial class ServiceTableControl : UserControl
     {
-        public TabelaServicoControl()
+        public ServiceTableControl()
         {
             InitializeComponent();
             gridServicos.ConfigureZebraGrid();

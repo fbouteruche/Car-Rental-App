@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    partial class FiltroDevolucaoForm
+    partial class FilterReturnForm
     {
         /// <summary>
         /// Required designer variable.

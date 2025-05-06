@@ -33,7 +33,7 @@ namespace CarRental.WindowsApp.Features.Rentals
         private CouponController controladorCupom = new CouponController();
         public List<Service> Servicos;
         public string TipoSeguro = "Nenhum";
-        ServicosForm telaServico = new ServicosForm();
+        ServiceSelectionForm telaServico = new ServiceSelectionForm();
         public RentalForm(string titulo)
         {
             Servicos = new List<Service>();
@@ -134,7 +134,7 @@ namespace CarRental.WindowsApp.Features.Rentals
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
-            telaServico = new ServicosForm();
+            telaServico = new ServiceSelectionForm();
             telaServico.InicializarCampos(Servicos, TipoSeguro, true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)

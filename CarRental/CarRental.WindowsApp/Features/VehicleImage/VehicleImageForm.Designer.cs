@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.ImagemVeiculo
+namespace CarRental.WindowsApp.Features.VehicleImage
 {
-    partial class ImagemVeiculoForm
+    partial class VehicleImageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CarRental.WindowsApp.Features.ImagemVeiculo
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImagemVeiculoForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleImageForm));
             this.pctBoxImagem = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.btnAvancar = new System.Windows.Forms.Button();

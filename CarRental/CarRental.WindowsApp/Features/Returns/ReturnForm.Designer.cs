@@ -1,7 +1,7 @@
 ﻿
-namespace CarRental.WindowsApp.Features.Devolucoes
+namespace CarRental.WindowsApp.Features.Returns
 {
-    partial class TelaDevolucaoForm
+    partial class ReturnForm
     {
         /// <summary>
         /// Required designer variable.

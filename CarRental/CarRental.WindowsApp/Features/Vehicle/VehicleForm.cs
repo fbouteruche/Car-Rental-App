@@ -5,17 +5,17 @@ using System.Windows.Forms;
 using CarRental.Controllers.VehicleGroupModule;
 using CarRental.Domain.VehicleGroupModule;
 using CarRental.Domain.VehicleImageModule;
-using CarRental.WindowsApp.Features.ImagemVeiculo;
+using CarRental.WindowsApp.Features.VehicleImage;
 using System.Collections.Generic;
 using System.Drawing;
 
 namespace CarRental.WindowsApp.Veiculos
 {
-    public partial class VeiculoForm : Form
+    public partial class VehicleForm : Form
     {
         private Vehicle veiculo;
         private VehicleGroupController controladorGrupoVeiculos = new VehicleGroupController();
-        public VeiculoForm(string titulo)
+        public VehicleForm(string titulo)
         {            
             InitializeComponent();
             CarregarGruposDeVeiculos();
@@ -142,7 +142,7 @@ namespace CarRental.WindowsApp.Veiculos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm(this);
+            VehicleImageForm telaImagem = new VehicleImageForm(this);
             telaImagem.Show();
         }
 

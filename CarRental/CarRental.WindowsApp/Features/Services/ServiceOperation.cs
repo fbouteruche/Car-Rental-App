@@ -9,22 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental.WindowsApp.Features.Servicos
+namespace CarRental.WindowsApp.Features.Services
 {
-    class OperacoesServico : ICadastravel
+    class ServiceOperation : ICadastravel
     {
         private readonly ServiceController controlador = null;
-        private readonly TabelaServicoControl tabelaServicos = null;
+        private readonly ServiceTableControl tabelaServicos = null;
 
-        public OperacoesServico(ServiceController ctrlServico)
+        public ServiceOperation(ServiceController ctrlServico)
         {
             controlador = ctrlServico;
-            tabelaServicos = new TabelaServicoControl();
+            tabelaServicos = new ServiceTableControl();
         }
 
         public void InsertNewRecord()
         {
-            TelaServicoForm tela = new TelaServicoForm("Cadastro de Serviços");
+            ServiceForm tela = new ServiceForm("Cadastro de Serviços");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -51,7 +51,7 @@ namespace CarRental.WindowsApp.Features.Servicos
 
             Service servicoSelecionada = controlador.SelectById(id);
 
-            TelaServicoForm tela = new TelaServicoForm("Edição de Serviços");
+            ServiceForm tela = new ServiceForm("Edição de Serviços");
 
             tela.Servico = servicoSelecionada;
 
