@@ -6,22 +6,22 @@ namespace CarRental.WindowsApp.Features.Vehicles
     {
         public string AddToolTip
         {
-            get { return "Cadastro de Vehicles"; }
+            get { return "Register Vehicle"; }
         }
 
         public string RegistrationType
         {
-            get { return "Cadastro de um novo Vehicle"; }
+            get { return "Register a new Vehicle"; }
         }
 
         public string EditToolTip
         {
-            get { return "Edit um Vehicle existente"; }
+            get { return "Edit an existing Vehicle"; }
         }
 
         public string DeleteToolTip
         {
-            get { return "Delete um Vehicle existente"; }
+            get { return "Delete an existing Vehicle"; }
         }
     }
 }

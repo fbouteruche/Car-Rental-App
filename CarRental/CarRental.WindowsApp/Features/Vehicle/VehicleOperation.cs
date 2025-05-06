@@ -1,6 +1,6 @@
 ﻿using CarRental.Controllers.VehicleModule;
 using CarRental.WindowsApp.Shared;
-using CarRental.WindowsApp.Veiculos;
+using CarRental.WindowsApp.Vehicles;
 using CarRental.Domain.VehicleModule;
 using CarRental.Domain.VehicleImageModule;
 using System.Collections.Generic;
@@ -10,82 +10,82 @@ namespace CarRental.WindowsApp.Features.Vehicles
 {
     public class VehicleOperation : ICadastravel
     {
-        private readonly VehicleController controlador = null;
-        private readonly VehicleTableControl tabelaVeiculo = null;
-        public VehicleOperation(VehicleController ctrlVeiculo)
+        private readonly VehicleController controller = null;
+        private readonly VehicleTableControl vehicleTable = null;
+        public VehicleOperation(VehicleController vehicleController)
         {
-            controlador = ctrlVeiculo;
-            tabelaVeiculo = new VehicleTableControl();
+            controller = vehicleController;
+            vehicleTable = new VehicleTableControl();
         }
         public void InsertNewRecord()
         {
-            VehicleForm tela = new VehicleForm("Cadastro de Vehicles");
+            VehicleForm form = new VehicleForm("Vehicle Registration");
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                if(tela.Veiculo.images.Count !=0)
-                    foreach (Domain.VehicleImageModule.VehicleImage imagem in tela.Veiculo.images)
-                        imagem.VehicleId = tela.Veiculo.Id;
-                
-                controlador.InsertNew(tela.Veiculo);
+                if (form.Vehicle.images.Count != 0)
+                    foreach (Domain.VehicleImageModule.VehicleImage image in form.Vehicle.images)
+                        image.VehicleId = form.Vehicle.Id;
 
-                List<Vehicle> veiculos = controlador.SelectAll();
+                controller.InsertNew(form.Vehicle);
 
-                tabelaVeiculo.AtualizarRegistros(veiculos);
+                List<Vehicle> vehicles = controller.SelectAll();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] inserido com sucesso");
+                vehicleTable.UpdateRecords(vehicles);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{form.Vehicle.model}] successfully registered");
             }
         }
         public void EditRecord()
         {
-            int id = tabelaVeiculo.ObtemIdSelecionado();
+            int id = vehicleTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder editar!", "Edição de Vehicles", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a vehicle to edit!", "Edit Vehicles", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Vehicle tarefaSelecionada = controlador.SelectById(id);
+            Vehicle selectedVehicle = controller.SelectById(id);
 
-            VehicleForm tela = new VehicleForm("Edição de Vehicles");
+            VehicleForm form = new VehicleForm("Edit Vehicle");
 
-            tela.Veiculo = tarefaSelecionada;
+            form.Vehicle = selectedVehicle;
 
-            if (tela.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                controlador.Edit(id, tela.Veiculo);
+                controller.Edit(id, form.Vehicle);
 
-                List<Vehicle> veiculos = controlador.SelectAll();
+                List<Vehicle> vehicles = controller.SelectAll();
 
-                tabelaVeiculo.AtualizarRegistros(veiculos);
+                vehicleTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tela.Veiculo.model}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{form.Vehicle.model}] successfully edited");
             }
         }
         public void DeleteRecord()
         {
-            int id = tabelaVeiculo.ObtemIdSelecionado();
+            int id = vehicleTable.GetSelectedId();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Vehicles",
+                MessageBox.Show("Select a vehicle to delete!", "Delete Vehicles",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Vehicle tarefaSelecionada = controlador.SelectById(id);
+            Vehicle selectedVehicle = controller.SelectById(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.model}] ?",
-                "Exclusão de Vehicles", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the vehicle: [{selectedVehicle.model}] ?",
+                "Delete Vehicles", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Delete(id);
+                controller.Delete(id);
 
-                List<Vehicle> veiculos = controlador.SelectAll();
+                List<Vehicle> vehicles = controller.SelectAll();
 
-                tabelaVeiculo.AtualizarRegistros(veiculos);
+                vehicleTable.UpdateRecords(vehicles);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{tarefaSelecionada.model}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: [{selectedVehicle.model}] successfully removed");
             }
         }
         public void FilterRecords()
@@ -94,11 +94,11 @@ namespace CarRental.WindowsApp.Features.Vehicles
         }
         public UserControl GetTable()
         {
-            List<Vehicle> veiculos = controlador.SelectAll();
+            List<Vehicle> vehicles = controller.SelectAll();
 
-            tabelaVeiculo.AtualizarRegistros(veiculos);
+            vehicleTable.UpdateRecords(vehicles);
 
-            return tabelaVeiculo;
+            return vehicleTable;
         }
         public void GroupRecords()
         {

@@ -10,40 +10,40 @@ namespace CarRental.WindowsApp.Features.Vehicles
         public VehicleTableControl()
         {
             InitializeComponent();
-            gridVeiculos.ConfigureZebraGrid();
-            gridVeiculos.ConfigureReadOnlyGrid();
-            gridVeiculos.Columns.AddRange(ObterColunas());
+            dataGridVehicles.ConfigureZebraGrid();
+            dataGridVehicles.ConfigureReadOnlyGrid();
+            dataGridVehicles.Columns.AddRange(GetColumns());
         }
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] GetColumns()
         {
-            var colunas = new DataGridViewColumn[]
+            var columns = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "model", HeaderText = "Modelo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "vehicleGroup", HeaderText = "Grupo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "licensePlate", HeaderText = "Placa"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "marca", HeaderText = "Marca"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "color", HeaderText = "Cor"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "fuelType", HeaderText = "Combustivel"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "year", HeaderText = "Ano"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "numberOfDoors", HeaderText = "Qtd. Portas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "passengerCapacity", HeaderText = "Cap. Pessoas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "trunkSize", HeaderText = "Tam. Porta Malas"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "model", HeaderText = "Model"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "vehicleGroup", HeaderText = "Group"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "licensePlate", HeaderText = "License Plate"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "brand", HeaderText = "Brand"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "color", HeaderText = "Color"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "fuelType", HeaderText = "Fuel Type"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "year", HeaderText = "Year"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "numberOfDoors", HeaderText = "No. Doors"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "passengerCapacity", HeaderText = "Passenger Cap."},
+                new DataGridViewTextBoxColumn { DataPropertyName = "trunkSize", HeaderText = "Trunk Size"}
            };
 
-            return colunas;
+            return columns;
         }
-        public int ObtemIdSelecionado()
+        public int GetSelectedId()
         {
-            return gridVeiculos.SelecionarId<int>();
+            return dataGridVehicles.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Vehicle> veiculos)
+        public void UpdateRecords(List<Vehicle> vehicles)
         {
-            gridVeiculos.Rows.Clear();
+            dataGridVehicles.Rows.Clear();
 
-            foreach (Vehicle veiculo in veiculos)
-                gridVeiculos.Rows.Add(veiculo.Id, veiculo.model, veiculo.vehicleGroup, veiculo.licensePlate, veiculo.brand, veiculo.color, veiculo.fuelType, veiculo.year, veiculo.numberOfDoors, veiculo.passengerCapacity, veiculo.trunkSize);
+            foreach (Vehicle vehicle in vehicles)
+                dataGridVehicles.Rows.Add(vehicle.Id, vehicle.model, vehicle.vehicleGroup, vehicle.licensePlate, vehicle.brand, vehicle.color, vehicle.fuelType, vehicle.year, vehicle.numberOfDoors, vehicle.passengerCapacity, vehicle.trunkSize);
         }
     }
 }

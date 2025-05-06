@@ -9,112 +9,110 @@ using CarRental.WindowsApp.Features.VehicleImage;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace CarRental.WindowsApp.Veiculos
+namespace CarRental.WindowsApp.Vehicles
 {
     public partial class VehicleForm : Form
     {
-        private Vehicle veiculo;
-        private VehicleGroupController controladorGrupoVeiculos = new VehicleGroupController();
-        public VehicleForm(string titulo)
+        private Vehicle vehicle;
+        private VehicleGroupController vehicleGroupController = new VehicleGroupController();
+        public VehicleForm(string title)
         {            
             InitializeComponent();
-            CarregarGruposDeVeiculos();
-            labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;           
+            LoadVehicleGroups();
+            labelTitle.Text = title;
+            cBoxTrunkSize.SelectedIndex = 0;           
         }
-        public List<VehicleImage> imagensVeiculo = new List<VehicleImage>();
+        public List<VehicleImage> vehicleImages = new List<VehicleImage>();
 
-        private void CarregarGruposDeVeiculos()
+        private void LoadVehicleGroups()
         {
-            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelectAll();
+            cBoxGroup.DataSource = vehicleGroupController.SelectAll();
         }
 
-        public Vehicle Veiculo
+        public Vehicle Vehicle
         {
-            get { return veiculo; }
+            get { return vehicle; }
 
             set
             {
-                veiculo = value;
+                vehicle = value;
 
-                imagensVeiculo = veiculo.images;
-                textId.Text = veiculo.Id.ToString();
-                textModelo.Text = veiculo.model;
-                cBoxGrupo.Text = veiculo.vehicleGroup.Name;
-                textPlaca.Text = veiculo.licensePlate;
-                textChassi.Text = veiculo.chassis;
-                textMarca.Text = veiculo.brand;
-                textCor.Text = veiculo.color;
-                cBoxCombustivel.Text = veiculo.fuelType;
-                numUpDownCapTanque.Text = veiculo.tankCapacity.ToString();
-                textAno.Text = veiculo.year.ToString();
-                textKM.Text = veiculo.mileage.ToString();
-                numUpDownQtdPortas.Text = veiculo.numberOfDoors.ToString();
-                numUpDownQtdPessoas.Text = veiculo.passengerCapacity.ToString();
-                cBoxPortaMalas.Text = veiculo.trunkSize.ToString();
-                if (veiculo.hasAirConditioning)
-                    checkLBoxOpcionais.SetItemChecked(0, true);
-                if (veiculo.hasPowerSteering)
-                    checkLBoxOpcionais.SetItemChecked(1, true);
-                if (veiculo.hasAbsBrakes)
-                    checkLBoxOpcionais.SetItemChecked(2, true);
+                vehicleImages = vehicle.images;
+                textId.Text = vehicle.Id.ToString();
+                textModel.Text = vehicle.model;
+                cBoxGroup.Text = vehicle.vehicleGroup.Name;
+                textLicensePlate.Text = vehicle.licensePlate;
+                textChassis.Text = vehicle.chassis;
+                textBrand.Text = vehicle.brand;
+                textColor.Text = vehicle.color;
+                cBoxFuelType.Text = vehicle.fuelType;
+                numUpDownTankCapacity.Text = vehicle.tankCapacity.ToString();
+                textYear.Text = vehicle.year.ToString();
+                textMileage.Text = vehicle.mileage.ToString();
+                numUpDownNoDoors.Text = vehicle.numberOfDoors.ToString();
+                numUpDownPassengerCap.Text = vehicle.passengerCapacity.ToString();
+                cBoxTrunkSize.Text = vehicle.trunkSize.ToString();
+                if (vehicle.hasAirConditioning)
+                    checkedListBoxOptionals.SetItemChecked(0, true);
+                if (vehicle.hasPowerSteering)
+                    checkedListBoxOptionals.SetItemChecked(1, true);
+                if (vehicle.hasAbsBrakes)
+                    checkedListBoxOptionals.SetItemChecked(2, true);
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
             int id = 0;
-            int ano = 0;
-            VehicleGroup grupoDeVeiculos = null;
+            int year = 0;
+            VehicleGroup vehicleGroup = null;
             if (textId.Text.Length > 0)
                 id = Convert.ToInt32(textId.Text);            
-            string placa = textPlaca.Text;
-            string chassi = textChassi.Text;
-            string marca = textMarca.Text;
-            string modelo = textModelo.Text;
-            if(textAno.Text.Length > 0)
-                ano = Convert.ToInt32(textAno.Text);
-            string cor = textCor.Text;
-            grupoDeVeiculos = cBoxGrupo.SelectedItem as VehicleGroup;
-            int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
-            string combustivel = cBoxCombustivel.Text;
-            int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
-            int numPessoas = Convert.ToInt32(numUpDownQtdPessoas.Value);
-            double kilometragem = Convert.ToDouble(textKM.Text);
-            char tamPortaMalas = Convert.ToChar(cBoxPortaMalas.Text);
-            bool possuiArCondicionado = false;
-            bool possuiDirecaoHidraulica = false;
-            bool possuiFreioAbs = false;
-            List<VehicleImage> imagens = imagensVeiculo;
+            string licensePlate = textLicensePlate.Text;
+            string chassis = textChassis.Text;
+            string brand = textBrand.Text;
+            string model = textModel.Text;
+            if(textYear.Text.Length > 0)
+                year = Convert.ToInt32(textYear.Text);
+            string color = textColor.Text;
+            vehicleGroup = cBoxGroup.SelectedItem as VehicleGroup;
+            int tankCapacity = Convert.ToInt32(numUpDownTankCapacity.Value);
+            string fuelType = cBoxFuelType.Text;
+            int noDoors = Convert.ToInt32(numUpDownNoDoors.Value);
+            int passengerCap = Convert.ToInt32(numUpDownPassengerCap.Value);
+            double mileage = Convert.ToDouble(textMileage.Text);
+            char trunkSize = Convert.ToChar(cBoxTrunkSize.Text);
+            bool hasAirConditioning = false;
+            bool hasPowerSteering = false;
+            bool hasAbsBrakes = false;
+            List<VehicleImage> images = vehicleImages;
 
+            if (checkedListBoxOptionals.CheckedIndices.Contains(0))
+                hasAirConditioning = true;
+            if (checkedListBoxOptionals.CheckedIndices.Contains(1))
+                hasPowerSteering = true;
+            if (checkedListBoxOptionals.CheckedIndices.Contains(2))
+                hasAbsBrakes = true;
 
+            vehicle = new Vehicle(id, model, vehicleGroup, licensePlate, chassis, brand, color, fuelType, tankCapacity, year, mileage, noDoors, passengerCap, trunkSize, hasAirConditioning, hasPowerSteering, hasAbsBrakes, false, vehicleImages);
 
-            if (checkLBoxOpcionais.CheckedIndices.Contains(0))
-                possuiArCondicionado = true;
-            if (checkLBoxOpcionais.CheckedIndices.Contains(1))
-                possuiDirecaoHidraulica = true;
-            if (checkLBoxOpcionais.CheckedIndices.Contains(2))
-                possuiFreioAbs = true;
+            string validationResult = vehicle.Validate();
 
-            veiculo = new Vehicle(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
-
-            string resultadoValidacao = veiculo.Validate();
-
-            if (resultadoValidacao != "VALID")
+            if (validationResult != "VALID")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                string firstError = new StringReader(validationResult).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(firstError);
 
                 DialogResult = DialogResult.None;
             }
         }
 
-        private void textAno_KeyPress(object sender, KeyPressEventArgs e)
+        private void textYear_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (textAno.Text.IndexOf(".") >= 0 || textAno.Text.Length == 0)
+                if (textYear.Text.IndexOf(".") >= 0 || textYear.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -125,11 +123,11 @@ namespace CarRental.WindowsApp.Veiculos
             }
         }
 
-        private void textKM_KeyPress(object sender, KeyPressEventArgs e)
+        private void textMileage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (textKM.Text.IndexOf(".") >= 0 || textKM.Text.Length == 0)
+                if (textMileage.Text.IndexOf(".") >= 0 || textMileage.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -140,15 +138,15 @@ namespace CarRental.WindowsApp.Veiculos
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnImage_Click(object sender, EventArgs e)
         {
-            VehicleImageForm telaImagem = new VehicleImageForm(this);
-            telaImagem.Show();
+            VehicleImageForm imageForm = new VehicleImageForm(this);
+            imageForm.Show();
         }
 
-        public void AtualizarListaDeFotos(List<VehicleImage> imagens)
+        public void UpdateImageList(List<VehicleImage> images)
         {
-            this.imagensVeiculo = imagens;
+            this.vehicleImages = images;
         }
     }
 }

@@ -8,9 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CarRental.WindowsApp.Features.Vehicles;
+using CarRental.WindowsApp.Vehicles;
 using CarRental.Domain.VehicleImageModule;
-using CarRental.WindowsApp.Veiculos;
 
 namespace CarRental.WindowsApp.Features.VehicleImage
 {
@@ -25,25 +24,22 @@ namespace CarRental.WindowsApp.Features.VehicleImage
         public VehicleImageForm(VehicleForm telaBase)
         {
             this.telaBase = telaBase;
-            if (telaBase.imagensVeiculo == null)
+            if (telaBase.vehicleImages == null)
                 imagens = new List<Domain.VehicleImageModule.VehicleImage>();
             else
-                imagens = telaBase.imagensVeiculo;
+                imagens = telaBase.vehicleImages;
             InitializeComponent();
             if (imagens.Count != 0)
                 pctBoxImagem.Image = imagens[0].Image;
-
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-
             if (openFileDialog.ShowDialog()  == DialogResult.OK)
-                {
+            {
                 var imagem = openFileDialog.FileName;
                 var tamanho = new FileInfo(imagem).Length;
                 if (tamanho <= doisMB)
                 {
-
                     imagens.Add(new Domain.VehicleImageModule.VehicleImage(0, 0, (Bitmap)Image.FromFile(imagem)));
                     if (imagens.Count == 1)
                         AtualizarImagem();
@@ -57,21 +53,18 @@ namespace CarRental.WindowsApp.Features.VehicleImage
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void MudarImagemAtual(int indice)
         {
-            if (imagemAtual == 0 && indice == voltar) //<=======================|ir    para    a   ultima
+            if (imagemAtual == 0 && indice == voltar)
                 imagemAtual = imagens.Count() - 1;
-            else if (imagemAtual + 1 == imagens.Count() && indice == avancar) //|ir    para   a  primeira
+            else if (imagemAtual + 1 == imagens.Count() && indice == avancar)
                 imagemAtual = 0;
-            else if (indice != 1 && indice != -1) //<===========================| vai  para  o   index  0
+            else if (indice != 1 && indice != -1)
                 imagemAtual = indice;
-            else //<============================================================| só move no meio da list
+            else
                 imagemAtual = imagemAtual + indice;
-
             AtualizarImagem();
         }
-
         private void AtualizarImagem()
         {
             if (imagens.Count != 0)
@@ -79,19 +72,16 @@ namespace CarRental.WindowsApp.Features.VehicleImage
             else
                 pctBoxImagem.Image = default;
         }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             if (imagens.Count() != 0)
                 MudarImagemAtual(voltar);
         }
-
         private void btnAvancar_Click(object sender, EventArgs e)
         {
             if (imagens.Count() != 0)
                 MudarImagemAtual(avancar);
         }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem certeza que deseja excluir a Image?", "Locadora de veículos",
@@ -108,15 +98,13 @@ namespace CarRental.WindowsApp.Features.VehicleImage
                 }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-                telaBase.AtualizarListaDeFotos(imagens);
+            telaBase.UpdateImageList(imagens);
             this.Close();
         }
     }

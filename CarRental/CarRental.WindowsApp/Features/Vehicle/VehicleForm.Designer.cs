@@ -1,5 +1,4 @@
-﻿
-namespace CarRental.WindowsApp.Veiculos
+﻿namespace CarRental.WindowsApp.Vehicles
 {
     partial class VehicleForm
     {
@@ -11,7 +10,7 @@ namespace CarRental.WindowsApp.Veiculos
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -29,88 +28,88 @@ namespace CarRental.WindowsApp.Veiculos
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.textPlaca = new System.Windows.Forms.TextBox();
-            this.textChassi = new System.Windows.Forms.TextBox();
-            this.textMarca = new System.Windows.Forms.TextBox();
-            this.textModelo = new System.Windows.Forms.TextBox();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.textLicensePlate = new System.Windows.Forms.TextBox();
+            this.textChassis = new System.Windows.Forms.TextBox();
+            this.textBrand = new System.Windows.Forms.TextBox();
+            this.textModel = new System.Windows.Forms.TextBox();
             this.textId = new System.Windows.Forms.TextBox();
-            this.lbGrupo = new System.Windows.Forms.Label();
-            this.lbImagem = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbChassi = new System.Windows.Forms.Label();
-            this.lbMarca = new System.Windows.Forms.Label();
-            this.lbAno = new System.Windows.Forms.Label();
-            this.lbModelo = new System.Windows.Forms.Label();
-            this.textCor = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textKM = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.gBoxDados = new System.Windows.Forms.GroupBox();
-            this.btnImagem = new System.Windows.Forms.Button();
-            this.cBoxCombustivel = new System.Windows.Forms.ComboBox();
-            this.textAno = new System.Windows.Forms.TextBox();
-            this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
-            this.cBoxPortaMalas = new System.Windows.Forms.ComboBox();
-            this.numUpDownQtdPessoas = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownQtdPortas = new System.Windows.Forms.NumericUpDown();
-            this.cBoxGrupo = new System.Windows.Forms.ComboBox();
-            this.lbPlaca = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkLBoxOpcionais = new System.Windows.Forms.CheckedListBox();
-            this.gBoxDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.lblImage = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblChassis = new System.Windows.Forms.Label();
+            this.lblBrand = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.textColor = new System.Windows.Forms.TextBox();
+            this.lblColor = new System.Windows.Forms.Label();
+            this.lblFuelType = new System.Windows.Forms.Label();
+            this.textMileage = new System.Windows.Forms.TextBox();
+            this.lblPassengerCap = new System.Windows.Forms.Label();
+            this.lblNoDoors = new System.Windows.Forms.Label();
+            this.lblTankCapacity = new System.Windows.Forms.Label();
+            this.lblMileage = new System.Windows.Forms.Label();
+            this.lblTrunkSize = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.grpBoxRequiredData = new System.Windows.Forms.GroupBox();
+            this.btnImage = new System.Windows.Forms.Button();
+            this.cBoxFuelType = new System.Windows.Forms.ComboBox();
+            this.textYear = new System.Windows.Forms.TextBox();
+            this.numUpDownTankCapacity = new System.Windows.Forms.NumericUpDown();
+            this.cBoxTrunkSize = new System.Windows.Forms.ComboBox();
+            this.numUpDownPassengerCap = new System.Windows.Forms.NumericUpDown();
+            this.numUpDownNoDoors = new System.Windows.Forms.NumericUpDown();
+            this.cBoxGroup = new System.Windows.Forms.ComboBox();
+            this.lblLicensePlate = new System.Windows.Forms.Label();
+            this.grpBoxOptionals = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxOptionals = new System.Windows.Forms.CheckedListBox();
+            this.grpBoxRequiredData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTankCapacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPassengerCap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownNoDoors)).BeginInit();
+            this.grpBoxOptionals.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblTitle
+            // labelTitle
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(105, 26);
-            this.labelTitulo.Name = "lblTitle";
-            this.labelTitulo.Size = new System.Drawing.Size(180, 20);
-            this.labelTitulo.TabIndex = 64;
-            this.labelTitulo.Text = "Cadastro de Veículos";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.Location = new System.Drawing.Point(105, 26);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(153, 20);
+            this.labelTitle.TabIndex = 64;
+            this.labelTitle.Text = "Vehicle Registration";
             // 
-            // textPlaca
+            // textLicensePlate
             // 
-            this.textPlaca.Location = new System.Drawing.Point(97, 44);
-            this.textPlaca.MaxLength = 7;
-            this.textPlaca.Name = "textPlaca";
-            this.textPlaca.Size = new System.Drawing.Size(217, 20);
-            this.textPlaca.TabIndex = 1;
+            this.textLicensePlate.Location = new System.Drawing.Point(97, 44);
+            this.textLicensePlate.MaxLength = 7;
+            this.textLicensePlate.Name = "textLicensePlate";
+            this.textLicensePlate.Size = new System.Drawing.Size(217, 20);
+            this.textLicensePlate.TabIndex = 1;
             // 
-            // textChassi
+            // textChassis
             // 
-            this.textChassi.Location = new System.Drawing.Point(97, 70);
-            this.textChassi.Name = "textChassi";
-            this.textChassi.Size = new System.Drawing.Size(217, 20);
-            this.textChassi.TabIndex = 2;
+            this.textChassis.Location = new System.Drawing.Point(97, 70);
+            this.textChassis.Name = "textChassis";
+            this.textChassis.Size = new System.Drawing.Size(217, 20);
+            this.textChassis.TabIndex = 2;
             // 
-            // textMarca
+            // textBrand
             // 
-            this.textMarca.Location = new System.Drawing.Point(97, 96);
-            this.textMarca.Name = "textMarca";
-            this.textMarca.Size = new System.Drawing.Size(217, 20);
-            this.textMarca.TabIndex = 3;
+            this.textBrand.Location = new System.Drawing.Point(97, 96);
+            this.textBrand.Name = "textBrand";
+            this.textBrand.Size = new System.Drawing.Size(217, 20);
+            this.textBrand.TabIndex = 3;
             // 
-            // textModelo
+            // textModel
             // 
-            this.textModelo.Location = new System.Drawing.Point(97, 122);
-            this.textModelo.Name = "textModelo";
-            this.textModelo.Size = new System.Drawing.Size(217, 20);
-            this.textModelo.TabIndex = 4;
+            this.textModel.Location = new System.Drawing.Point(97, 122);
+            this.textModel.Name = "textModel";
+            this.textModel.Size = new System.Drawing.Size(217, 20);
+            this.textModel.TabIndex = 4;
             // 
             // textId
             // 
@@ -122,376 +121,376 @@ namespace CarRental.WindowsApp.Veiculos
             this.textId.Size = new System.Drawing.Size(217, 20);
             this.textId.TabIndex = 73;
             // 
-            // lbGrupo
+            // lblGroup
             // 
-            this.lbGrupo.AutoSize = true;
-            this.lbGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbGrupo.ForeColor = System.Drawing.Color.Black;
-            this.lbGrupo.Location = new System.Drawing.Point(55, 177);
-            this.lbGrupo.Name = "lbGrupo";
-            this.lbGrupo.Size = new System.Drawing.Size(36, 13);
-            this.lbGrupo.TabIndex = 72;
-            this.lbGrupo.Text = "Grupo";
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblGroup.ForeColor = System.Drawing.Color.Black;
+            this.lblGroup.Location = new System.Drawing.Point(55, 177);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(36, 13);
+            this.lblGroup.TabIndex = 72;
+            this.lblGroup.Text = "Group";
             // 
-            // lbImagem
+            // lblImage
             // 
-            this.lbImagem.AutoSize = true;
-            this.lbImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbImagem.ForeColor = System.Drawing.Color.Black;
-            this.lbImagem.Location = new System.Drawing.Point(47, 204);
-            this.lbImagem.Name = "lbImagem";
-            this.lbImagem.Size = new System.Drawing.Size(44, 13);
-            this.lbImagem.TabIndex = 71;
-            this.lbImagem.Text = "Imagem";
+            this.lblImage.AutoSize = true;
+            this.lblImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblImage.ForeColor = System.Drawing.Color.Black;
+            this.lblImage.Location = new System.Drawing.Point(47, 204);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(39, 13);
+            this.lblImage.TabIndex = 71;
+            this.lblImage.Text = "Image";
             // 
-            // lbNome
+            // lblId
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(75, 21);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(16, 13);
-            this.lbNome.TabIndex = 65;
-            this.lbNome.Text = "Id";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblId.ForeColor = System.Drawing.Color.Black;
+            this.lblId.Location = new System.Drawing.Point(75, 21);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.TabIndex = 65;
+            this.lblId.Text = "Id";
             // 
-            // lbChassi
+            // lblChassis
             // 
-            this.lbChassi.AutoSize = true;
-            this.lbChassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbChassi.ForeColor = System.Drawing.Color.Black;
-            this.lbChassi.Location = new System.Drawing.Point(53, 73);
-            this.lbChassi.Name = "lbChassi";
-            this.lbChassi.Size = new System.Drawing.Size(38, 13);
-            this.lbChassi.TabIndex = 67;
-            this.lbChassi.Text = "Chassi";
+            this.lblChassis.AutoSize = true;
+            this.lblChassis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblChassis.ForeColor = System.Drawing.Color.Black;
+            this.lblChassis.Location = new System.Drawing.Point(53, 73);
+            this.lblChassis.Name = "lblChassis";
+            this.lblChassis.Size = new System.Drawing.Size(43, 13);
+            this.lblChassis.TabIndex = 67;
+            this.lblChassis.Text = "Chassis";
             // 
-            // lbMarca
+            // lblBrand
             // 
-            this.lbMarca.AutoSize = true;
-            this.lbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbMarca.ForeColor = System.Drawing.Color.Black;
-            this.lbMarca.Location = new System.Drawing.Point(54, 99);
-            this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(37, 13);
-            this.lbMarca.TabIndex = 68;
-            this.lbMarca.Text = "Marca";
+            this.lblBrand.AutoSize = true;
+            this.lblBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblBrand.ForeColor = System.Drawing.Color.Black;
+            this.lblBrand.Location = new System.Drawing.Point(54, 99);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(35, 13);
+            this.lblBrand.TabIndex = 68;
+            this.lblBrand.Text = "Brand";
             // 
-            // lbAno
+            // lblYear
             // 
-            this.lbAno.AutoSize = true;
-            this.lbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbAno.ForeColor = System.Drawing.Color.Black;
-            this.lbAno.Location = new System.Drawing.Point(65, 148);
-            this.lbAno.Name = "lbAno";
-            this.lbAno.Size = new System.Drawing.Size(26, 13);
-            this.lbAno.TabIndex = 70;
-            this.lbAno.Text = "Ano";
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblYear.ForeColor = System.Drawing.Color.Black;
+            this.lblYear.Location = new System.Drawing.Point(65, 148);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(29, 13);
+            this.lblYear.TabIndex = 70;
+            this.lblYear.Text = "Year";
             // 
-            // lbModelo
+            // lblModel
             // 
-            this.lbModelo.AutoSize = true;
-            this.lbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbModelo.ForeColor = System.Drawing.Color.Black;
-            this.lbModelo.Location = new System.Drawing.Point(49, 125);
-            this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(42, 13);
-            this.lbModelo.TabIndex = 69;
-            this.lbModelo.Text = "Modelo";
+            this.lblModel.AutoSize = true;
+            this.lblModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblModel.ForeColor = System.Drawing.Color.Black;
+            this.lblModel.Location = new System.Drawing.Point(49, 125);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(39, 13);
+            this.lblModel.TabIndex = 69;
+            this.lblModel.Text = "Model";
             // 
-            // textCor
+            // textColor
             // 
-            this.textCor.Location = new System.Drawing.Point(195, 148);
-            this.textCor.Name = "textCor";
-            this.textCor.Size = new System.Drawing.Size(119, 20);
-            this.textCor.TabIndex = 6;
+            this.textColor.Location = new System.Drawing.Point(195, 148);
+            this.textColor.Name = "textColor";
+            this.textColor.Size = new System.Drawing.Size(119, 20);
+            this.textColor.TabIndex = 6;
             // 
-            // label10
+            // lblColor
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(166, 151);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 13);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Cor";
+            this.lblColor.AutoSize = true;
+            this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblColor.ForeColor = System.Drawing.Color.Black;
+            this.lblColor.Location = new System.Drawing.Point(166, 151);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(31, 13);
+            this.lblColor.TabIndex = 81;
+            this.lblColor.Text = "Color";
             // 
-            // label16
+            // lblFuelType
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(168, 230);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 13);
-            this.label16.TabIndex = 91;
-            this.label16.Text = "Tam. Porta Malas";
+            this.lblFuelType.AutoSize = true;
+            this.lblFuelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblFuelType.ForeColor = System.Drawing.Color.Black;
+            this.lblFuelType.Location = new System.Drawing.Point(25, 256);
+            this.lblFuelType.Name = "lblFuelType";
+            this.lblFuelType.Size = new System.Drawing.Size(56, 13);
+            this.lblFuelType.TabIndex = 81;
+            this.lblFuelType.Text = "Fuel Type";
             // 
-            // label11
+            // textMileage
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(25, 256);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
-            this.label11.TabIndex = 81;
-            this.label11.Text = "Combustível";
+            this.textMileage.Location = new System.Drawing.Point(195, 280);
+            this.textMileage.Name = "textMileage";
+            this.textMileage.Size = new System.Drawing.Size(119, 20);
+            this.textMileage.TabIndex = 13;
+            this.textMileage.Text = "0";
+            this.textMileage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMileage_KeyPress);
             // 
-            // textKM
+            // lblPassengerCap
             // 
-            this.textKM.Location = new System.Drawing.Point(195, 280);
-            this.textKM.Name = "textKM";
-            this.textKM.Size = new System.Drawing.Size(119, 20);
-            this.textKM.TabIndex = 13;
-            this.textKM.Text = "0";
-            this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textKM_KeyPress);
+            this.lblPassengerCap.AutoSize = true;
+            this.lblPassengerCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblPassengerCap.ForeColor = System.Drawing.Color.Black;
+            this.lblPassengerCap.Location = new System.Drawing.Point(29, 282);
+            this.lblPassengerCap.Name = "lblPassengerCap";
+            this.lblPassengerCap.Size = new System.Drawing.Size(62, 13);
+            this.lblPassengerCap.TabIndex = 85;
+            this.lblPassengerCap.Text = "Passengers";
             // 
-            // label12
+            // lblNoDoors
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(29, 282);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 85;
-            this.label12.Text = "N° Pessoas";
+            this.lblNoDoors.AutoSize = true;
+            this.lblNoDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblNoDoors.ForeColor = System.Drawing.Color.Black;
+            this.lblNoDoors.Location = new System.Drawing.Point(207, 256);
+            this.lblNoDoors.Name = "lblNoDoors";
+            this.lblNoDoors.Size = new System.Drawing.Size(52, 13);
+            this.lblNoDoors.TabIndex = 84;
+            this.lblNoDoors.Text = "No. Doors";
             // 
-            // label13
+            // lblTankCapacity
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(207, 256);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 84;
-            this.label13.Text = "N° Portas";
+            this.lblTankCapacity.AutoSize = true;
+            this.lblTankCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblTankCapacity.ForeColor = System.Drawing.Color.Black;
+            this.lblTankCapacity.Location = new System.Drawing.Point(22, 230);
+            this.lblTankCapacity.Name = "lblTankCapacity";
+            this.lblTankCapacity.Size = new System.Drawing.Size(78, 13);
+            this.lblTankCapacity.TabIndex = 83;
+            this.lblTankCapacity.Text = "Tank Capacity";
             // 
-            // label14
+            // lblMileage
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(22, 230);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
-            this.label14.TabIndex = 83;
-            this.label14.Text = "Cap. Tanque";
+            this.lblMileage.AutoSize = true;
+            this.lblMileage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblMileage.ForeColor = System.Drawing.Color.Black;
+            this.lblMileage.Location = new System.Drawing.Point(166, 283);
+            this.lblMileage.Name = "lblMileage";
+            this.lblMileage.Size = new System.Drawing.Size(45, 13);
+            this.lblMileage.TabIndex = 82;
+            this.lblMileage.Text = "Mileage";
             // 
-            // label15
+            // lblTrunkSize
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(166, 283);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(22, 13);
-            this.label15.TabIndex = 82;
-            this.label15.Text = "Km";
+            this.lblTrunkSize.AutoSize = true;
+            this.lblTrunkSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblTrunkSize.ForeColor = System.Drawing.Color.Black;
+            this.lblTrunkSize.Location = new System.Drawing.Point(168, 230);
+            this.lblTrunkSize.Name = "lblTrunkSize";
+            this.lblTrunkSize.Size = new System.Drawing.Size(61, 13);
+            this.lblTrunkSize.TabIndex = 91;
+            this.lblTrunkSize.Text = "Trunk Size";
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(305, 574);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 17;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancel.Location = new System.Drawing.Point(305, 574);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnConfirmar
+            // btnConfirm
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(224, 574);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 16;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirm.Location = new System.Drawing.Point(224, 574);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 16;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // gBoxDados
+            // grpBoxRequiredData
             // 
-            this.gBoxDados.Controls.Add(this.btnImagem);
-            this.gBoxDados.Controls.Add(this.cBoxCombustivel);
-            this.gBoxDados.Controls.Add(this.textAno);
-            this.gBoxDados.Controls.Add(this.numUpDownCapTanque);
-            this.gBoxDados.Controls.Add(this.cBoxPortaMalas);
-            this.gBoxDados.Controls.Add(this.label14);
-            this.gBoxDados.Controls.Add(this.numUpDownQtdPessoas);
-            this.gBoxDados.Controls.Add(this.numUpDownQtdPortas);
-            this.gBoxDados.Controls.Add(this.label11);
-            this.gBoxDados.Controls.Add(this.label16);
-            this.gBoxDados.Controls.Add(this.cBoxGrupo);
-            this.gBoxDados.Controls.Add(this.lbChassi);
-            this.gBoxDados.Controls.Add(this.label12);
-            this.gBoxDados.Controls.Add(this.label13);
-            this.gBoxDados.Controls.Add(this.label15);
-            this.gBoxDados.Controls.Add(this.textCor);
-            this.gBoxDados.Controls.Add(this.lbPlaca);
-            this.gBoxDados.Controls.Add(this.textKM);
-            this.gBoxDados.Controls.Add(this.label10);
-            this.gBoxDados.Controls.Add(this.lbImagem);
-            this.gBoxDados.Controls.Add(this.lbNome);
-            this.gBoxDados.Controls.Add(this.textModelo);
-            this.gBoxDados.Controls.Add(this.textPlaca);
-            this.gBoxDados.Controls.Add(this.lbMarca);
-            this.gBoxDados.Controls.Add(this.lbModelo);
-            this.gBoxDados.Controls.Add(this.lbGrupo);
-            this.gBoxDados.Controls.Add(this.textChassi);
-            this.gBoxDados.Controls.Add(this.textMarca);
-            this.gBoxDados.Controls.Add(this.textId);
-            this.gBoxDados.Controls.Add(this.lbAno);
-            this.gBoxDados.ForeColor = System.Drawing.Color.Black;
-            this.gBoxDados.Location = new System.Drawing.Point(12, 72);
-            this.gBoxDados.Name = "gBoxDados";
-            this.gBoxDados.Size = new System.Drawing.Size(367, 318);
-            this.gBoxDados.TabIndex = 94;
-            this.gBoxDados.TabStop = false;
-            this.gBoxDados.Text = "Dados Obrigatórios";
+            this.grpBoxRequiredData.Controls.Add(this.btnImage);
+            this.grpBoxRequiredData.Controls.Add(this.cBoxFuelType);
+            this.grpBoxRequiredData.Controls.Add(this.textYear);
+            this.grpBoxRequiredData.Controls.Add(this.numUpDownTankCapacity);
+            this.grpBoxRequiredData.Controls.Add(this.cBoxTrunkSize);
+            this.grpBoxRequiredData.Controls.Add(this.lblTankCapacity);
+            this.grpBoxRequiredData.Controls.Add(this.numUpDownPassengerCap);
+            this.grpBoxRequiredData.Controls.Add(this.numUpDownNoDoors);
+            this.grpBoxRequiredData.Controls.Add(this.lblFuelType);
+            this.grpBoxRequiredData.Controls.Add(this.lblTrunkSize);
+            this.grpBoxRequiredData.Controls.Add(this.cBoxGroup);
+            this.grpBoxRequiredData.Controls.Add(this.lblChassis);
+            this.grpBoxRequiredData.Controls.Add(this.lblPassengerCap);
+            this.grpBoxRequiredData.Controls.Add(this.lblNoDoors);
+            this.grpBoxRequiredData.Controls.Add(this.lblMileage);
+            this.grpBoxRequiredData.Controls.Add(this.textColor);
+            this.grpBoxRequiredData.Controls.Add(this.lblLicensePlate);
+            this.grpBoxRequiredData.Controls.Add(this.textMileage);
+            this.grpBoxRequiredData.Controls.Add(this.lblColor);
+            this.grpBoxRequiredData.Controls.Add(this.lblImage);
+            this.grpBoxRequiredData.Controls.Add(this.lblId);
+            this.grpBoxRequiredData.Controls.Add(this.textModel);
+            this.grpBoxRequiredData.Controls.Add(this.textLicensePlate);
+            this.grpBoxRequiredData.Controls.Add(this.lblBrand);
+            this.grpBoxRequiredData.Controls.Add(this.lblModel);
+            this.grpBoxRequiredData.Controls.Add(this.lblGroup);
+            this.grpBoxRequiredData.Controls.Add(this.textChassis);
+            this.grpBoxRequiredData.Controls.Add(this.textBrand);
+            this.grpBoxRequiredData.Controls.Add(this.textId);
+            this.grpBoxRequiredData.Controls.Add(this.lblYear);
+            this.grpBoxRequiredData.ForeColor = System.Drawing.Color.Black;
+            this.grpBoxRequiredData.Location = new System.Drawing.Point(12, 72);
+            this.grpBoxRequiredData.Name = "grpBoxRequiredData";
+            this.grpBoxRequiredData.Size = new System.Drawing.Size(367, 318);
+            this.grpBoxRequiredData.TabIndex = 94;
+            this.grpBoxRequiredData.TabStop = false;
+            this.grpBoxRequiredData.Text = "Required Data";
             // 
-            // btnImagem
+            // btnImage
             // 
-            this.btnImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnImagem.Location = new System.Drawing.Point(97, 199);
-            this.btnImagem.Name = "btnImagem";
-            this.btnImagem.Size = new System.Drawing.Size(216, 23);
-            this.btnImagem.TabIndex = 8;
-            this.btnImagem.Text = "Inserir images";
-            this.btnImagem.UseVisualStyleBackColor = true;
-            this.btnImagem.Click += new System.EventHandler(this.button1_Click);
+            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnImage.Location = new System.Drawing.Point(97, 199);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(216, 23);
+            this.btnImage.TabIndex = 8;
+            this.btnImage.Text = "Insert Image";
+            this.btnImage.UseVisualStyleBackColor = true;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // cBoxCombustivel
+            // cBoxFuelType
             // 
-            this.cBoxCombustivel.FormattingEnabled = true;
-            this.cBoxCombustivel.ItemHeight = 13;
-            this.cBoxCombustivel.Items.AddRange(new object[] {
-            "Gasolina",
-            "Etanol",
-            "Flex (Gasolina e Etanol)",
+            this.cBoxFuelType.FormattingEnabled = true;
+            this.cBoxFuelType.ItemHeight = 13;
+            this.cBoxFuelType.Items.AddRange(new object[] {
+            "Gasoline",
+            "Ethanol",
+            "Flex (Gasoline and Ethanol)",
             "Diesel"});
-            this.cBoxCombustivel.Location = new System.Drawing.Point(97, 253);
-            this.cBoxCombustivel.Name = "cBoxCombustivel";
-            this.cBoxCombustivel.Size = new System.Drawing.Size(92, 21);
-            this.cBoxCombustivel.TabIndex = 10;
-            this.cBoxCombustivel.Text = "Selecionar";
+            this.cBoxFuelType.Location = new System.Drawing.Point(97, 253);
+            this.cBoxFuelType.Name = "cBoxFuelType";
+            this.cBoxFuelType.Size = new System.Drawing.Size(92, 21);
+            this.cBoxFuelType.TabIndex = 10;
+            this.cBoxFuelType.Text = "Select";
             // 
-            // textAno
+            // textYear
             // 
-            this.textAno.Location = new System.Drawing.Point(97, 148);
-            this.textAno.MaxLength = 4;
-            this.textAno.Name = "textAno";
-            this.textAno.Size = new System.Drawing.Size(51, 20);
-            this.textAno.TabIndex = 5;
-            this.textAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAno_KeyPress);
+            this.textYear.Location = new System.Drawing.Point(97, 148);
+            this.textYear.MaxLength = 4;
+            this.textYear.Name = "textYear";
+            this.textYear.Size = new System.Drawing.Size(51, 20);
+            this.textYear.TabIndex = 5;
+            this.textYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textYear_KeyPress);
             // 
-            // numUpDownCapTanque
+            // numUpDownTankCapacity
             // 
-            this.numUpDownCapTanque.Location = new System.Drawing.Point(97, 227);
-            this.numUpDownCapTanque.Name = "numUpDownCapTanque";
-            this.numUpDownCapTanque.Size = new System.Drawing.Size(51, 20);
-            this.numUpDownCapTanque.TabIndex = 9;
+            this.numUpDownTankCapacity.Location = new System.Drawing.Point(97, 227);
+            this.numUpDownTankCapacity.Name = "numUpDownTankCapacity";
+            this.numUpDownTankCapacity.Size = new System.Drawing.Size(51, 20);
+            this.numUpDownTankCapacity.TabIndex = 9;
             // 
-            // cBoxPortaMalas
+            // cBoxTrunkSize
             // 
-            this.cBoxPortaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxPortaMalas.FormattingEnabled = true;
-            this.cBoxPortaMalas.Items.AddRange(new object[] {
-            "G",
-            "M",
-            "P"});
-            this.cBoxPortaMalas.Location = new System.Drawing.Point(264, 227);
-            this.cBoxPortaMalas.Name = "cBoxPortaMalas";
-            this.cBoxPortaMalas.Size = new System.Drawing.Size(49, 21);
-            this.cBoxPortaMalas.TabIndex = 14;
+            this.cBoxTrunkSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxTrunkSize.FormattingEnabled = true;
+            this.cBoxTrunkSize.Items.AddRange(new object[] {
+            "Large",
+            "Medium",
+            "Small"});
+            this.cBoxTrunkSize.Location = new System.Drawing.Point(264, 227);
+            this.cBoxTrunkSize.Name = "cBoxTrunkSize";
+            this.cBoxTrunkSize.Size = new System.Drawing.Size(49, 21);
+            this.cBoxTrunkSize.TabIndex = 14;
             // 
-            // numUpDownQtdPessoas
+            // numUpDownPassengerCap
             // 
-            this.numUpDownQtdPessoas.Location = new System.Drawing.Point(97, 280);
-            this.numUpDownQtdPessoas.Name = "numUpDownQtdPessoas";
-            this.numUpDownQtdPessoas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPessoas.TabIndex = 12;
+            this.numUpDownPassengerCap.Location = new System.Drawing.Point(97, 280);
+            this.numUpDownPassengerCap.Name = "numUpDownPassengerCap";
+            this.numUpDownPassengerCap.Size = new System.Drawing.Size(48, 20);
+            this.numUpDownPassengerCap.TabIndex = 12;
             // 
-            // numUpDownQtdPortas
+            // numUpDownNoDoors
             // 
-            this.numUpDownQtdPortas.Location = new System.Drawing.Point(265, 254);
-            this.numUpDownQtdPortas.Name = "numUpDownQtdPortas";
-            this.numUpDownQtdPortas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPortas.TabIndex = 11;
+            this.numUpDownNoDoors.Location = new System.Drawing.Point(265, 254);
+            this.numUpDownNoDoors.Name = "numUpDownNoDoors";
+            this.numUpDownNoDoors.Size = new System.Drawing.Size(48, 20);
+            this.numUpDownNoDoors.TabIndex = 11;
             // 
-            // cBoxGrupo
+            // cBoxGroup
             // 
-            this.cBoxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxGrupo.FormattingEnabled = true;
-            this.cBoxGrupo.Location = new System.Drawing.Point(97, 174);
-            this.cBoxGrupo.Name = "cBoxGrupo";
-            this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
-            this.cBoxGrupo.TabIndex = 7;
+            this.cBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxGroup.FormattingEnabled = true;
+            this.cBoxGroup.Location = new System.Drawing.Point(97, 174);
+            this.cBoxGroup.Name = "cBoxGroup";
+            this.cBoxGroup.Size = new System.Drawing.Size(217, 21);
+            this.cBoxGroup.TabIndex = 7;
             // 
-            // lbPlaca
+            // lblLicensePlate
             // 
-            this.lbPlaca.AutoSize = true;
-            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbPlaca.ForeColor = System.Drawing.Color.Black;
-            this.lbPlaca.Location = new System.Drawing.Point(57, 47);
-            this.lbPlaca.Name = "lbPlaca";
-            this.lbPlaca.Size = new System.Drawing.Size(34, 13);
-            this.lbPlaca.TabIndex = 66;
-            this.lbPlaca.Text = "Placa";
+            this.lblLicensePlate.AutoSize = true;
+            this.lblLicensePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblLicensePlate.ForeColor = System.Drawing.Color.Black;
+            this.lblLicensePlate.Location = new System.Drawing.Point(57, 47);
+            this.lblLicensePlate.Name = "lblLicensePlate";
+            this.lblLicensePlate.Size = new System.Drawing.Size(74, 13);
+            this.lblLicensePlate.TabIndex = 66;
+            this.lblLicensePlate.Text = "License Plate";
             // 
-            // groupBox1
+            // grpBoxOptionals
             // 
-            this.groupBox1.Controls.Add(this.checkLBoxOpcionais);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(12, 409);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 159);
-            this.groupBox1.TabIndex = 95;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Opcionais";
+            this.grpBoxOptionals.Controls.Add(this.checkedListBoxOptionals);
+            this.grpBoxOptionals.ForeColor = System.Drawing.Color.Black;
+            this.grpBoxOptionals.Location = new System.Drawing.Point(12, 409);
+            this.grpBoxOptionals.Name = "grpBoxOptionals";
+            this.grpBoxOptionals.Size = new System.Drawing.Size(367, 159);
+            this.grpBoxOptionals.TabIndex = 95;
+            this.grpBoxOptionals.TabStop = false;
+            this.grpBoxOptionals.Text = "Optionals";
             // 
-            // checkLBoxOpcionais
+            // checkedListBoxOptionals
             // 
-            this.checkLBoxOpcionais.FormattingEnabled = true;
-            this.checkLBoxOpcionais.Items.AddRange(new object[] {
-            "Ar condicionado",
-            "Direção Hidraulica",
-            "Freio ABS"});
-            this.checkLBoxOpcionais.Location = new System.Drawing.Point(6, 19);
-            this.checkLBoxOpcionais.Name = "checkLBoxOpcionais";
-            this.checkLBoxOpcionais.Size = new System.Drawing.Size(355, 124);
-            this.checkLBoxOpcionais.TabIndex = 15;
+            this.checkedListBoxOptionals.FormattingEnabled = true;
+            this.checkedListBoxOptionals.Items.AddRange(new object[] {
+            "Air Conditioning",
+            "Power Steering",
+            "ABS Brakes"});
+            this.checkedListBoxOptionals.Location = new System.Drawing.Point(6, 19);
+            this.checkedListBoxOptionals.Name = "checkedListBoxOptionals";
+            this.checkedListBoxOptionals.Size = new System.Drawing.Size(355, 124);
+            this.checkedListBoxOptionals.TabIndex = 15;
             // 
-            // VeiculoForm
+            // VehicleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(392, 609);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gBoxDados);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.grpBoxOptionals);
+            this.Controls.Add(this.grpBoxRequiredData);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "VeiculoForm";
+            this.Name = "VehicleForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Vehicle";
-            this.gBoxDados.ResumeLayout(false);
-            this.gBoxDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.Text = "Car Rental";
+            this.grpBoxRequiredData.ResumeLayout(false);
+            this.grpBoxRequiredData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTankCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPassengerCap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownNoDoors)).EndInit();
+            this.grpBoxOptionals.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,41 +498,41 @@ namespace CarRental.WindowsApp.Veiculos
 
         #endregion
 
-        private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.TextBox textPlaca;
-        private System.Windows.Forms.TextBox textChassi;
-        private System.Windows.Forms.TextBox textMarca;
-        private System.Windows.Forms.TextBox textModelo;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.TextBox textLicensePlate;
+        private System.Windows.Forms.TextBox textChassis;
+        private System.Windows.Forms.TextBox textBrand;
+        private System.Windows.Forms.TextBox textModel;
         private System.Windows.Forms.TextBox textId;
-        private System.Windows.Forms.Label lbGrupo;
-        private System.Windows.Forms.Label lbImagem;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbChassi;
-        private System.Windows.Forms.Label lbMarca;
-        private System.Windows.Forms.Label lbAno;
-        private System.Windows.Forms.Label lbModelo;
-        private System.Windows.Forms.TextBox textCor;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textKM;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.GroupBox gBoxDados;
-        private System.Windows.Forms.ComboBox cBoxGrupo;
-        private System.Windows.Forms.NumericUpDown numUpDownCapTanque;
-        private System.Windows.Forms.ComboBox cBoxPortaMalas;
-        private System.Windows.Forms.NumericUpDown numUpDownQtdPessoas;
-        private System.Windows.Forms.NumericUpDown numUpDownQtdPortas;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckedListBox checkLBoxOpcionais;
-        private System.Windows.Forms.TextBox textAno;
-        private System.Windows.Forms.ComboBox cBoxCombustivel;
-        private System.Windows.Forms.Label lbPlaca;
-        private System.Windows.Forms.Button btnImagem;
+        private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.Label lblImage;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label lblChassis;
+        private System.Windows.Forms.Label lblBrand;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblModel;
+        private System.Windows.Forms.TextBox textColor;
+        private System.Windows.Forms.Label lblColor;
+        private System.Windows.Forms.Label lblFuelType;
+        private System.Windows.Forms.TextBox textMileage;
+        private System.Windows.Forms.Label lblPassengerCap;
+        private System.Windows.Forms.Label lblNoDoors;
+        private System.Windows.Forms.Label lblTankCapacity;
+        private System.Windows.Forms.Label lblMileage;
+        private System.Windows.Forms.Label lblTrunkSize;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.GroupBox grpBoxRequiredData;
+        private System.Windows.Forms.ComboBox cBoxGroup;
+        private System.Windows.Forms.NumericUpDown numUpDownTankCapacity;
+        private System.Windows.Forms.ComboBox cBoxTrunkSize;
+        private System.Windows.Forms.NumericUpDown numUpDownPassengerCap;
+        private System.Windows.Forms.NumericUpDown numUpDownNoDoors;
+        private System.Windows.Forms.GroupBox grpBoxOptionals;
+        private System.Windows.Forms.CheckedListBox checkedListBoxOptionals;
+        private System.Windows.Forms.TextBox textYear;
+        private System.Windows.Forms.ComboBox cBoxFuelType;
+        private System.Windows.Forms.Label lblLicensePlate;
+        private System.Windows.Forms.Button btnImage;
     }
 }
