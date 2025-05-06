@@ -21,23 +21,23 @@ namespace CarRental.Controllers.RentalModule
 {
     public class RentalController : Controller<Rental>
     {
-        private VehicleController controladorVeiculo = null;
-        private EmployeeController controladorFuncionario = null;
-        private CustomerController controladorCliente = null;
-        private ServiceController controladorServico = null;
-        private CouponController controladorCupom = new CouponController();
+        private VehicleController vehicleController = null;
+        private EmployeeController employeeController = null;
+        private CustomerController customerController = null;
+        private ServiceController serviceController = null;
+        private CouponController couponController = new CouponController();
 
-        public RentalController(VehicleController controladorVeiculo, EmployeeController controladorFuncionario, CustomerController controladorCliente, ServiceController controladorServico, CouponController controladorCupom)
+        public RentalController(VehicleController vehicleController, EmployeeController employeeController, CustomerController customerController, ServiceController serviceController, CouponController couponController)
         {
-            this.controladorVeiculo = controladorVeiculo;
-            this.controladorFuncionario = controladorFuncionario;
-            this.controladorCliente = controladorCliente;
-            this.controladorServico = controladorServico;
-            //this.controladorCupom = controladorCupom;
+            this.vehicleController = vehicleController;
+            this.employeeController = employeeController;
+            this.customerController = customerController;
+            this.serviceController = serviceController;
+            //this.couponController = couponController; // If you want to use a different couponController instance, uncomment this line.
         }
 
         #region queries
-        private const string sqlInserirLocacao =
+        private const string sqlInsertRental =
                 @"INSERT INTO[DBO].[TBLOCACAO]
                 (
                     [ID_VEICULO],
@@ -71,7 +71,7 @@ namespace CarRental.Controllers.RentalModule
                     @ESTAABERTA
                 );";
 
-        private const string sqlEditarLocacao =
+        private const string sqlUpdateRental =
         @"UPDATE [DBO].[TBLOCACAO] 
                 SET
                     [ID_VEICULO] = @ID_VEICULO,
@@ -90,68 +90,66 @@ namespace CarRental.Controllers.RentalModule
                 WHERE 
                     [ID] = @ID;";
 
-        private const string sqlSelecionarTodosLocacaos =
+        private const string sqlSelectAllRentals =
             @"SELECT * FROM [DBO].[TBLOCACAO];";
 
-        private const string sqlSelecionarLocacaoPorId =
+        private const string sqlSelectRentalById =
             @"SELECT * FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
 
-
-        private const string sqlDeletarLocacao =
+        private const string sqlDeleteRental =
                 @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
 
-        string sqlSelecionarIdServicoPorIdLocacao =
+        private string sqlSelectServiceIdByRentalId =
             @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
                WHERE [ID_LOCACAO] = @ID_LOCACAO";
-
-
         #endregion
-        public override string InsertNew(Rental registro)
+
+        public override string InsertNew(Rental record)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = record.Validate();
 
-            if (resultadoValidacao == "VALID")
-                registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
+            if (validationResult == "VALID")
+                record.Id = Db.Insert(sqlInsertRental, GetRentalParameters(record));
 
-            return resultadoValidacao;
+            return validationResult;
         }
         public override List<Rental> SelectAll()
         {
-            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmLocacao);
+            return Db.GetAll(sqlSelectAllRentals, ConvertToRental);
         }
         public override Rental SelectById(int id)
         {
-            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AddParameter("ID", id));
+            return Db.Get(sqlSelectRentalById, ConvertToRental, AddParameter("ID", id));
         }
 
-        private List<Service> SelecionarServicosComIdLocacao(int idLocacao)
+        private List<Service> SelectServicesByRentalId(int rentalId)
         {
-            List<Service> servicosDaLocacao = new List<Service>();
-            List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AddParameter("ID_LOCACAO", idLocacao));
-            foreach (int idServico in idsDeServicos)
+            List<Service> rentalServices = new List<Service>();
+            List<int> serviceIds = Db.GetAll(sqlSelectServiceIdByRentalId, ConvertToInt, AddParameter("ID_LOCACAO", rentalId));
+            foreach (int serviceId in serviceIds)
             {
-                servicosDaLocacao.Add(controladorServico.SelectById(idServico));
+                rentalServices.Add(serviceController.SelectById(serviceId));
             }
-            return servicosDaLocacao;
+            return rentalServices;
         }
 
-        public override string Edit(int id, Rental registro)
+        public override string Edit(int id, Rental record)
         {
-            string resultadoValidacao = registro.Validate();
+            string validationResult = record.Validate();
 
-            if (resultadoValidacao == "VALID")
+            if (validationResult == "VALID")
             {
-                registro.Id = id;
-                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));
+                record.Id = id;
+                Db.Update(sqlUpdateRental, GetRentalParameters(record));
             }
 
-            return resultadoValidacao;
+            return validationResult;
         }
         public override bool Delete(int id)
         {
             try
             {
-                Db.Delete(sqlDeletarLocacao, AddParameter("ID", id));
+                Db.Delete(sqlDeleteRental, AddParameter("ID", id));
             }
             catch (Exception)
             {
@@ -163,79 +161,79 @@ namespace CarRental.Controllers.RentalModule
 
         public override bool Exists(int id)
         {
-            return Db.Exists(sqlSelecionarLocacaoPorId, AddParameter("ID", id));
+            return Db.Exists(sqlSelectRentalById, AddParameter("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosLocacao(Rental locacao)
+        private Dictionary<string, object> GetRentalParameters(Rental rental)
         {
-            var parametros = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>();
 
-            parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_VEICULO",locacao.Vehicle.Id);
-            parametros.Add("ID_FUNCIONARIO", locacao.RentingEmployee.Id);
-            parametros.Add("ID_CLIENTECONTRATANTE", locacao.ContractingCustomer.Id);
-            parametros.Add("ID_CLIENTECONDUTOR", locacao.DriverCustomer.Id);
-            if(locacao.Coupon != null)
-                parametros.Add("ID_CUPOM", locacao.Coupon.Id);
+            parameters.Add("ID", rental.Id);
+            parameters.Add("ID_VEICULO", rental.Vehicle.Id);
+            parameters.Add("ID_FUNCIONARIO", rental.RentingEmployee.Id);
+            parameters.Add("ID_CLIENTECONTRATANTE", rental.ContractingCustomer.Id);
+            parameters.Add("ID_CLIENTECONDUTOR", rental.DriverCustomer.Id);
+            if (rental.Coupon != null)
+                parameters.Add("ID_CUPOM", rental.Coupon.Id);
             else
-                parametros.Add("ID_CUPOM", null);
-            parametros.Add("DATADESAIDA", locacao.DepartureDate);
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.ExpectedReturnDate);
-            parametros.Add("DATADECHEGADA", locacao.ReturnDate);
-            parametros.Add("TIPODOPLANO", locacao.PlanType);
-            parametros.Add("TIPODESEGURO", locacao.InsuranceType);
-            parametros.Add("PRECOLOCACAO", locacao.RentalPrice);
-            parametros.Add("PRECODEVOLUCAO", locacao.ReturnPrice);
-            parametros.Add("ESTAABERTA", locacao.IsOpen);
-            return parametros;
+                parameters.Add("ID_CUPOM", null);
+            parameters.Add("DATADESAIDA", rental.DepartureDate);
+            parameters.Add("DATAPREVISTADECHEGADA", rental.ExpectedReturnDate);
+            parameters.Add("DATADECHEGADA", rental.ReturnDate);
+            parameters.Add("TIPODOPLANO", rental.PlanType);
+            parameters.Add("TIPODESEGURO", rental.InsuranceType);
+            parameters.Add("PRECOLOCACAO", rental.RentalPrice);
+            parameters.Add("PRECODEVOLUCAO", rental.ReturnPrice);
+            parameters.Add("ESTAABERTA", rental.IsOpen);
+            return parameters;
         }
 
-        private int ConverterEmInteiro(IDataReader reader)
+        private int ConvertToInt(IDataReader reader)
         {
             return Convert.ToInt32(reader["ID_SERVICO"]);
         }
 
-        private Rental ConverterEmLocacao(IDataReader reader)
+        private Rental ConvertToRental(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
-            var id_veiculo = Convert.ToInt32(reader["ID_VEICULO"]);
-            var id_funcionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
-            var id_clienteContratante = Convert.ToInt32(reader["ID_CLIENTECONTRATANTE"]);
-            var id_clienteCondutor = Convert.ToInt32(reader["ID_CLIENTECONDUTOR"]);
-            var id_cupom = 0;
+            var vehicleId = Convert.ToInt32(reader["ID_VEICULO"]);
+            var employeeId = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
+            var contractingCustomerId = Convert.ToInt32(reader["ID_CLIENTECONTRATANTE"]);
+            var driverCustomerId = Convert.ToInt32(reader["ID_CLIENTECONDUTOR"]);
+            var couponId = 0;
             if (reader["ID_CUPOM"] != DBNull.Value)
-                id_cupom = Convert.ToInt32(reader["ID_CUPOM"]);
-            //pode haver problemas com retorno null. caso ocorrer, fazer algo como:
-            //if (!int.TryParse(reader["ID_CLIENTECONDUTOR"].ToString(), out int id_clienteCondutor))
-            //    id_clienteCondutor = -1;
-            var dataDeSaida = Convert.ToDateTime(reader["DATADESAIDA"]);
-            var dataPrevistaDeChegada = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
-            var dataDeChegada = Convert.ToDateTime(reader["DATADECHEGADA"]);
-            var tipoDoPlano = Convert.ToString(reader["TIPODOPLANO"]);
-            var tipoDeSeguro = Convert.ToString(reader["TIPODESEGURO"]);
-            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);
-            var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
-            var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
+                couponId = Convert.ToInt32(reader["ID_CUPOM"]);
+            // There may be problems with null return. If it happens, do something like:
+            // if (!int.TryParse(reader["ID_CLIENTECONDUTOR"].ToString(), out int driverCustomerId))
+            //     driverCustomerId = -1;
+            var departureDate = Convert.ToDateTime(reader["DATADESAIDA"]);
+            var expectedReturnDate = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
+            var returnDate = Convert.ToDateTime(reader["DATADECHEGADA"]);
+            var planType = Convert.ToString(reader["TIPODOPLANO"]);
+            var insuranceType = Convert.ToString(reader["TIPODESEGURO"]);
+            var rentalPrice = Convert.ToDouble(reader["PRECOLOCACAO"]);
+            var returnPrice = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
+            var isOpen = Convert.ToBoolean(reader["ESTAABERTA"]);
 
-            List <Service>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
-            //foreach (Service servico in serviceController.SelectAll())
+            List<Service> rentalServices = SelectServicesByRentalId(id);
+            //foreach (Service service in serviceController.SelectAll())
             //{
-            //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
-            //    if (idsDeServicos.Contains(servico.Id))
-            //        servicosDaLocacao.Add(servico);
+            //    List<int> serviceIds = SelectServicesByRentalId(id);
+            //    if (serviceIds.Contains(service.Id))
+            //        rentalServices.Add(service);
             //}
 
-            Vehicle veiculo = controladorVeiculo.SelectById(id_veiculo);
-            Employee funcionarioLocador = controladorFuncionario.SelectById(id_funcionario);
-            Customer clienteContratante = controladorCliente.SelectById(id_clienteContratante);
-            Customer clienteCondutor = controladorCliente.SelectById(id_clienteCondutor);
-            Coupon cupom;
-            if (id_cupom != 0)
-                cupom = controladorCupom.SelectById(id_cupom);
+            Vehicle vehicle = vehicleController.SelectById(vehicleId);
+            Employee rentingEmployee = employeeController.SelectById(employeeId);
+            Customer contractingCustomer = customerController.SelectById(contractingCustomerId);
+            Customer driverCustomer = customerController.SelectById(driverCustomerId);
+            Coupon coupon;
+            if (couponId != 0)
+                coupon = couponController.SelectById(couponId);
             else
-                cupom = null;
+                coupon = null;
 
-            return new Rental(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
+            return new Rental(id, vehicle, rentingEmployee, contractingCustomer, driverCustomer, coupon, departureDate, expectedReturnDate, returnDate, planType, insuranceType, rentalPrice, returnPrice, isOpen, rentalServices);
         }
     }
 }
